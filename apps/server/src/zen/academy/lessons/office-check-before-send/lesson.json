@@ -1,0 +1,26 @@
+{
+  "id": "office-check-before-send",
+  "track": "office",
+  "order": 30,
+  "title": {
+    "en": "Check what the agent did before you send it",
+    "ro": "Verifică ce a făcut agentul înainte să trimiți"
+  },
+  "summary": {
+    "en": "Agents invent numbers, names, dates and links that look right. A short routine to catch them before a client does.",
+    "ro": "Agentul poate inventa cifre, nume, date și linkuri care par corecte. O rutină scurtă ca să le prinzi tu, nu clientul."
+  },
+  "minutes": 5,
+  "level": "intermediate",
+  "tags": ["review", "accuracy", "facts", "email"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": true,
+    "prompt": {
+      "en": "Act as a strict editor. Read oferta-draft.md (an offer email to a client, written in Romanian) and check it against preturi.csv and the client details at the top of the draft. List every claim that is wrong or that cannot be verified from these files: prices, totals, discounts, dates and days of the week, client and company names, delivery terms, promises. For each one give: the exact sentence, what is wrong, and what the files say. Do not edit any file, only report. Write the report in English.",
+      "ro": "Fii un corector foarte exigent. Citește oferta-draft.md (un e-mail cu o ofertă pentru un client) și verifică-l după preturi.csv și după datele clientului de la începutul ciornei. Fă o listă cu fiecare afirmație greșită sau care nu poate fi verificată din aceste fișiere: prețuri, totaluri, reduceri, date și zile ale săptămânii, numele clientului și al firmei, condiții de livrare, promisiuni. Pentru fiecare scrie: fraza exactă, ce e greșit și ce scrie în fișiere. Nu modifica niciun fișier, doar raportează."
+    }
+  }
+}

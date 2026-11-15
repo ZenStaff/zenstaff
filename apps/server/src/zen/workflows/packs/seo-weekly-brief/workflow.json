@@ -1,0 +1,82 @@
+{
+  "id": "seo-weekly-brief",
+  "name": "Weekly search and AI visibility brief",
+  "description": "Once a week: what changed in how people find you on Google, how you compare with competitors, whether AI assistants recommend you, and the 3 things to do this week. Works from public data and an optional Search Console export; no accounts to connect.",
+  "category": "reports",
+  "icon": "trending-up",
+  "inputs": [
+    {
+      "id": "site_url",
+      "label": "Your website",
+      "type": "url",
+      "required": true,
+      "placeholder": "https://www.example.com"
+    },
+    {
+      "id": "business",
+      "label": "What do you sell, to whom, and where?",
+      "type": "text",
+      "required": true,
+      "placeholder": "family dental clinic in Cluj-Napoca, implants and orthodontics"
+    },
+    {
+      "id": "competitors",
+      "label": "Competitors",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "https://www.competitor-one.ro\nCompetitor Two (no website yet)",
+      "help": "Websites or names, one per line. Leave empty and we will find the ones that show up in search."
+    },
+    {
+      "id": "questions",
+      "label": "Questions your customers ask",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Which clinic in Cluj is good for dental implants?\nHow much does a dental implant cost in Cluj?",
+      "help": "We ask them the way an AI assistant would and see who gets recommended. Leave empty and we will write 6 typical ones."
+    },
+    {
+      "id": "gsc_export",
+      "label": "Search Console export (optional)",
+      "type": "file",
+      "required": false,
+      "placeholder": "search-console/2026-11-03",
+      "help": "In Search Console: Performance > Search results > Export > Download CSV. Unzip it into the folder you chose and write the folder or file name here. Without it the brief uses public data only."
+    }
+  ],
+  "output": "seo-weekly/brief-<date>.md with what changed, the 3 actions for this week and how you appear in AI answers; the data behind it is saved next to it so next week's brief can compare.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Raport săptămânal: Google și asistenții AI",
+      "description": "O dată pe săptămână: ce s-a schimbat în felul în care te găsesc oamenii pe Google, cum stai față de concurenți, dacă te recomandă asistenții AI și cele 3 lucruri de făcut săptămâna asta. Lucrează cu date publice și, dacă vrei, cu un export din Search Console; nu trebuie să conectezi niciun cont.",
+      "output": "seo-weekly/brief-<data>.md cu ce s-a schimbat, cele 3 acțiuni pentru săptămâna asta și cum apari în răspunsurile AI; datele din spate rămân lângă el, ca raportul de săptămâna viitoare să poată compara.",
+      "inputs": {
+        "site_url": {
+          "label": "Site-ul tău",
+          "placeholder": "https://www.exemplu.ro"
+        },
+        "business": {
+          "label": "Ce vinzi, cui și unde?",
+          "placeholder": "clinică stomatologică de familie în Cluj-Napoca, implanturi și ortodonție"
+        },
+        "competitors": {
+          "label": "Concurenții",
+          "placeholder": "https://www.concurent-unu.ro\nConcurent Doi (încă fără site)",
+          "help": "Site-uri sau nume, câte unul pe rând. Lasă gol și îi găsim noi pe cei care apar în căutări."
+        },
+        "questions": {
+          "label": "Întrebări pe care le pun clienții",
+          "placeholder": "Ce clinică din Cluj e bună pentru implanturi dentare?\nCât costă un implant dentar în Cluj?",
+          "help": "Le punem așa cum ar face-o un asistent AI și vedem pe cine recomandă. Lasă gol și scriem noi 6 întrebări obișnuite."
+        },
+        "gsc_export": {
+          "label": "Export din Search Console (opțional)",
+          "placeholder": "search-console/2026-11-03",
+          "help": "În Search Console: Performanță > Rezultate căutare > Exportă > Descarcă CSV. Dezarhivează-l în dosarul ales și scrie aici numele dosarului sau al fișierului. Fără el, raportul folosește doar date publice."
+        }
+      }
+    }
+  }
+}

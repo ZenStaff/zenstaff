@@ -1,0 +1,62 @@
+{
+  "id": "GHSA-3ch3-jhc6-5r8x",
+  "summary": "yt-dlp Generic Extractor MITM Vulnerability via Arbitrary Proxy Injection",
+  "modified": "2026-09-10T03:49:58.753727342Z",
+  "published": "2023-11-15T14:48:24Z",
+  "aliases": ["CVE-2023-46121", "PYSEC-2026-2063"],
+  "affected": [
+    {
+      "package": {
+        "name": "yt-dlp",
+        "ecosystem": "PyPI",
+        "purl": "pkg:pypi/yt-dlp"
+      },
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "2022.10.04"
+            },
+            {
+              "fixed": "2023.11.14"
+            }
+          ]
+        }
+      ],
+      "versions": [
+        "2022.10.4",
+        "2022.11.11",
+        "2023.1.2",
+        "2023.1.6",
+        "2023.10.13",
+        "2023.10.7",
+        "2023.11.13.232715.dev0",
+        "2023.11.13.5826.dev0",
+        "2023.2.17",
+        "2023.3.3",
+        "2023.3.4",
+        "2023.6.21",
+        "2023.6.22",
+        "2023.7.6",
+        "2023.9.24"
+      ],
+      "database_specific": {
+        "source": "https://github.com/github/advisory-database/blob/main/advisories/github-reviewed/2023/11/GHSA-3ch3-jhc6-5r8x/GHSA-3ch3-jhc6-5r8x.json"
+      }
+    }
+  ],
+  "database_specific": {
+    "severity": "MODERATE",
+    "github_reviewed": true,
+    "github_reviewed_at": "2023-11-15T14:48:24Z",
+    "nvd_published_at": "2023-11-15T00:15:09Z",
+    "cwe_ids": ["CWE-444", "CWE-613"]
+  },
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L"
+    }
+  ]
+}

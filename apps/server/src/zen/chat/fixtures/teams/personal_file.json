@@ -1,0 +1,27 @@
+{
+  "text": "what does this contract say about penalties?",
+  "type": "message",
+  "id": "1731000500000",
+  "channelId": "msteams",
+  "serviceUrl": "https://smba.trafficmanager.net/emea/",
+  "from": { "id": "29:1abcMARIA", "name": "Maria Pop" },
+  "conversation": {
+    "conversationType": "personal",
+    "tenantId": "tenant-zen-0001",
+    "id": "a:1personalMARIA"
+  },
+  "recipient": { "id": "28:app-zen-0001", "name": "Zen Staff" },
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.teams.file.download.info",
+      "contentUrl": "https://zen.sharepoint.com/personal/maria/Documents/contract.pdf",
+      "name": "contract.pdf",
+      "content": {
+        "downloadUrl": "https://zen.sharepoint.com/personal/maria/_layouts/15/download.aspx?UniqueId=abc&Translate=false&tempauth=xyz",
+        "uniqueId": "abc",
+        "fileType": "pdf"
+      }
+    }
+  ],
+  "channelData": { "tenant": { "id": "tenant-zen-0001" } }
+}

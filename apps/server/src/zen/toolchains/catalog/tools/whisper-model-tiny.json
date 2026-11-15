@@ -1,0 +1,294 @@
+{
+  "id": "whisper-model-tiny",
+  "name": "Speech model (tiny, fast)",
+  "nameRo": "Model de vorbire (rapid)",
+  "kind": "model",
+  "description": "A small, fast speech model (less accurate).",
+  "homepage": "https://huggingface.co/Systran/faster-whisper-tiny",
+  "license": {
+    "spdx": "MIT",
+    "name": "MIT",
+    "url": "https://huggingface.co/Systran/faster-whisper-tiny",
+    "commercialUse": "free",
+    "note": "Free for any use, including business.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv \u00een firme."
+  },
+  "untrustedInput": false,
+  "verify": {
+    "bin": "",
+    "args": [],
+    "expect": ""
+  },
+  "osv": [],
+  "versions": [
+    {
+      "version": "1.0.0+d90ca5f",
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8",
+              "size": 2249,
+              "archive": "none",
+              "dest": "model/config.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1",
+              "size": 75538270,
+              "archive": "none",
+              "dest": "model/model.bin"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+              "size": 2203239,
+              "archive": "none",
+              "dest": "model/tokenizer.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+              "size": 459861,
+              "archive": "none",
+              "dest": "model/vocabulary.txt"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_WHISPER_MODEL_TINY": "${dir}/model"
+          },
+          "installedSize": 78203619
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8",
+              "size": 2249,
+              "archive": "none",
+              "dest": "model/config.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1",
+              "size": 75538270,
+              "archive": "none",
+              "dest": "model/model.bin"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+              "size": 2203239,
+              "archive": "none",
+              "dest": "model/tokenizer.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+              "size": 459861,
+              "archive": "none",
+              "dest": "model/vocabulary.txt"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_WHISPER_MODEL_TINY": "${dir}/model"
+          },
+          "installedSize": 78203619
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8",
+              "size": 2249,
+              "archive": "none",
+              "dest": "model/config.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1",
+              "size": 75538270,
+              "archive": "none",
+              "dest": "model/model.bin"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+              "size": 2203239,
+              "archive": "none",
+              "dest": "model/tokenizer.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+              "size": 459861,
+              "archive": "none",
+              "dest": "model/vocabulary.txt"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_WHISPER_MODEL_TINY": "${dir}/model"
+          },
+          "installedSize": 78203619
+        },
+        {
+          "os": "windows",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8",
+              "size": 2249,
+              "archive": "none",
+              "dest": "model/config.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1",
+              "size": 75538270,
+              "archive": "none",
+              "dest": "model/model.bin"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+              "size": 2203239,
+              "archive": "none",
+              "dest": "model/tokenizer.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+              "size": 459861,
+              "archive": "none",
+              "dest": "model/vocabulary.txt"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_WHISPER_MODEL_TINY": "${dir}/model"
+          },
+          "installedSize": 78203619
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8",
+              "size": 2249,
+              "archive": "none",
+              "dest": "model/config.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1",
+              "size": 75538270,
+              "archive": "none",
+              "dest": "model/model.bin"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+              "size": 2203239,
+              "archive": "none",
+              "dest": "model/tokenizer.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+              "size": 459861,
+              "archive": "none",
+              "dest": "model/vocabulary.txt"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_WHISPER_MODEL_TINY": "${dir}/model"
+          },
+          "installedSize": 78203619
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/config.json",
+              "sha256": "a73a28cdfe1c43ccc7202fa333d1f89c202477271407ae9a7f19afa52039cac8",
+              "size": 2249,
+              "archive": "none",
+              "dest": "model/config.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/model.bin",
+              "sha256": "dcb76c6586fc06cbdac6dd21f14cfd129cc4cdd9dce19bf4ffa62e59cbe6e6d1",
+              "size": 75538270,
+              "archive": "none",
+              "dest": "model/model.bin"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/tokenizer.json",
+              "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+              "size": 2203239,
+              "archive": "none",
+              "dest": "model/tokenizer.json"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/Systran/faster-whisper-tiny/resolve/d90ca5fe260221311c53c58e660288d3deb8d356/vocabulary.txt",
+              "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+              "size": 459861,
+              "archive": "none",
+              "dest": "model/vocabulary.txt"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_WHISPER_MODEL_TINY": "${dir}/model"
+          },
+          "installedSize": 78203619
+        }
+      ]
+    }
+  ]
+}

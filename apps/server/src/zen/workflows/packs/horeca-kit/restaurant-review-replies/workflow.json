@@ -1,0 +1,117 @@
+{
+  "id": "restaurant-review-replies",
+  "name": "Review replies for restaurants",
+  "description": "Ready-to-post replies to Google, Tripadvisor, Facebook and delivery app reviews, tuned for restaurants, cafés and bars: waiting times, cold or wrong dishes, prices, delivery couriers, staff praise. Food safety, legal and staff cases are flagged for the manager first.",
+  "category": "pr",
+  "icon": "message-square-quote",
+  "inputs": [
+    {
+      "id": "reviews",
+      "label": "The reviews",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "5 stars, Maria P., Google: The meatball soup tastes like my grandma's!\n2 stars, Dan, Tripadvisor: Waited 50 minutes for two pizzas.",
+      "help": "Paste them one after another with stars, name and platform, or write the name of an exported file in the folder."
+    },
+    {
+      "id": "restaurant",
+      "label": "Restaurant name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "restaurant_type",
+      "label": "What kind of place",
+      "type": "text",
+      "required": true,
+      "placeholder": "family bistro in Brașov with a terrace"
+    },
+    {
+      "id": "facts",
+      "label": "What the replies may mention",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Open daily 11-23. Complaints: salut@casaverde.test. Since October a second cook at lunch."
+    },
+    {
+      "id": "tone",
+      "label": "Tone",
+      "type": "select",
+      "required": true,
+      "options": ["Warm and friendly", "Polite and formal", "Relaxed and natural"]
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "select",
+      "required": true,
+      "options": ["Short (2-3 sentences)", "Medium (4-6 sentences)"]
+    },
+    {
+      "id": "signature",
+      "label": "Sign the replies as",
+      "type": "text",
+      "required": false,
+      "placeholder": "Ana, manager"
+    },
+    {
+      "id": "reply_language",
+      "label": "Reply language",
+      "type": "text",
+      "required": false,
+      "placeholder": "the language of each review",
+      "help": "Leave empty to answer each review in its own language."
+    }
+  ],
+  "output": "review-replies/<date>-replies.md with an overview, the reviews to check first and one reply per review (and a CSV when the reviews came as CSV).",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Răspunsuri la recenzii pentru restaurante",
+      "description": "Răspunsuri gata de postat la recenziile de pe Google, Tripadvisor, Facebook și aplicațiile de livrare, potrivite pentru restaurante, cafenele și baruri: timpi de așteptare, mâncare rece sau greșită, prețuri, curieri, laude pentru personal. Cazurile de siguranță alimentară, juridice sau cu angajați sunt marcate ca să le vadă întâi managerul.",
+      "output": "review-replies/<data>-replies.md cu o privire de ansamblu, recenziile de verificat întâi și câte un răspuns pentru fiecare (plus un CSV când recenziile au venit ca CSV).",
+      "inputs": {
+        "reviews": {
+          "label": "Recenziile",
+          "placeholder": "5 stele, Maria P., Google: Ciorba de perișoare e ca la bunica!\n2 stele, Dan, Tripadvisor: Am așteptat 50 de minute pentru două pizza.",
+          "help": "Lipește-le una după alta, cu stele, nume și platformă, sau scrie numele unui fișier exportat din dosar."
+        },
+        "restaurant": {
+          "label": "Numele localului",
+          "placeholder": "Casa Verde"
+        },
+        "restaurant_type": {
+          "label": "Ce fel de local",
+          "placeholder": "bistro de familie în Brașov, cu terasă"
+        },
+        "facts": {
+          "label": "Ce pot pomeni răspunsurile",
+          "placeholder": "Deschis zilnic 11-23. Reclamații: salut@casaverde.test. Din octombrie avem un al doilea bucătar la prânz."
+        },
+        "tone": {
+          "label": "Tonul",
+          "options": ["Cald și prietenos", "Politicos și formal", "Relaxat și firesc"]
+        },
+        "length": {
+          "label": "Lungimea",
+          "options": ["Scurt (2-3 propoziții)", "Mediu (4-6 propoziții)"]
+        },
+        "signature": {
+          "label": "Semnătura răspunsurilor",
+          "placeholder": "Ana, manager"
+        },
+        "reply_language": {
+          "label": "Limba răspunsurilor",
+          "placeholder": "limba fiecărei recenzii",
+          "help": "Lasă gol ca fiecare recenzie să primească răspuns în limba ei."
+        }
+      }
+    }
+  },
+  "requires": {
+    "runsBest": "either",
+    "network": false
+  }
+}

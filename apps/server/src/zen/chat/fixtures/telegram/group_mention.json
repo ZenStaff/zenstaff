@@ -1,0 +1,18 @@
+{
+  "update_id": 900001,
+  "message": {
+    "message_id": 41,
+    "from": {
+      "id": 7001,
+      "is_bot": false,
+      "first_name": "Maria",
+      "last_name": "Pop",
+      "username": "mariapop",
+      "language_code": "ro"
+    },
+    "chat": { "id": -1002233, "title": "Echipa vânzări", "type": "supergroup" },
+    "date": 1731000000,
+    "text": "@ZenStaffBot fă un rezumat al comenzilor de azi",
+    "entities": [{ "offset": 0, "length": 12, "type": "mention" }]
+  }
+}

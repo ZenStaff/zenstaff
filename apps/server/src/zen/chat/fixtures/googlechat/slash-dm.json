@@ -1,0 +1,48 @@
+{
+  "type": "MESSAGE",
+  "eventTime": "2026-11-07T20:21:00.000000Z",
+  "message": {
+    "name": "spaces/DMxyz123/messages/AbC.AbC",
+    "sender": {
+      "name": "users/111111111111111111111",
+      "displayName": "Maria Pop",
+      "email": "maria@acme.example",
+      "type": "HUMAN"
+    },
+    "text": "/zen status",
+    "thread": { "name": "spaces/DMxyz123/threads/AbC" },
+    "space": {
+      "name": "spaces/DMxyz123",
+      "type": "DM",
+      "singleUserBotDm": true,
+      "spaceType": "DIRECT_MESSAGE"
+    },
+    "argumentText": " status",
+    "slashCommand": { "commandId": "1" },
+    "annotations": [
+      {
+        "type": "SLASH_COMMAND",
+        "startIndex": 0,
+        "length": 4,
+        "slashCommand": {
+          "bot": { "name": "users/999999999999999999999", "type": "BOT" },
+          "type": "INVOKE",
+          "commandName": "/zen",
+          "commandId": "1"
+        }
+      }
+    ]
+  },
+  "user": {
+    "name": "users/111111111111111111111",
+    "displayName": "Maria Pop",
+    "email": "maria@acme.example",
+    "type": "HUMAN"
+  },
+  "space": {
+    "name": "spaces/DMxyz123",
+    "type": "DM",
+    "singleUserBotDm": true,
+    "spaceType": "DIRECT_MESSAGE"
+  }
+}

@@ -1,0 +1,62 @@
+const express = require("express");
+const session = require("express-session");
+const jwt = require("jsonwebtoken");
+const { users, resetTokens, md5 } = require("./store");
+
+const JWT_SECRET = "secret";
+const app = express();
+app.use(express.json());
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: true, cookie: { httpOnly: false, secure: false } }));
+
+function currentUser(req) {
+  const header = req.headers.authorization || "";
+  const token = header.replace("Bearer ", "");
+  const payload = jwt.decode(token);
+  return payload ? users.find((u) => u.id === payload.sub) : null;
+}
+
+app.post("/login", (req, res) => {
+  const user = users.find((u) => u.email === req.body.email);
+  if (!user) return res.status(404).json({ error: "No account with this email" });
+  if (user.passwordHash !== md5(req.body.password)) return res.status(401).json({ error: "Wrong password" });
+  req.session.userId = user.id;
+  const token = jwt.sign({ sub: user.id, role: user.role }, JWT_SECRET);
+  res.json({ token, hint: "store in localStorage" });
+});
+
+app.post("/logout", (req, res) => {
+  res.clearCookie("connect.sid");
+  res.json({ ok: true });
+});
+
+app.post("/forgot", (req, res) => {
+  const user = users.find((u) => u.email === req.body.email);
+  if (!user) return res.status(404).json({ error: "Unknown email" });
+  const token = String(Math.floor(Math.random() * 1000000));
+  resetTokens[token] = user.id;
+  res.json({ sent: true });
+});
+
+app.post("/reset", (req, res) => {
+  const userId = resetTokens[req.body.token];
+  const user = users.find((u) => u.id === userId);
+  if (!user) return res.status(400).json({ error: "Invalid token" });
+  user.passwordHash = md5(req.body.newPassword);
+  res.json({ ok: true });
+});
+
+app.get("/me", (req, res) => res.json(currentUser(req)));
+
+app.get("/admin/users", (req, res) => {
+  const user = currentUser(req);
+  if (!user) return res.status(401).end();
+  res.json(users);
+});
+
+app.delete("/admin/users/:id", (req, res) => {
+  const i = users.findIndex((u) => u.id === Number(req.params.id));
+  users.splice(i, 1);
+  res.json({ ok: true });
+});
+
+app.listen(3000);

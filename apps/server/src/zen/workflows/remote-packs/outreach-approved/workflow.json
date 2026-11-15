@@ -1,0 +1,168 @@
+{
+  "id": "outreach-approved",
+  "name": "Outreach with approval",
+  "description": "A personal first e-mail and one or two follow-ups per business, from its dossier, in your company's voice. Nothing goes out until you say “Approve”: at most 20 a day, an unsubscribe line, your opt-outs respected, replies summed up. From your own Gmail or Outlook, or as drafts and .eml files. E-mail only.",
+  "category": "sales",
+  "icon": "send",
+  "inputs": [
+    {
+      "id": "leads",
+      "label": "The lead list",
+      "type": "file",
+      "required": true,
+      "help": "leads.json from the Client radar, or a CSV/Excel with name and e-mail."
+    },
+    {
+      "id": "offer",
+      "label": "What you propose to them",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "a free 20-minute website check, then a quote for a new site"
+    },
+    {
+      "id": "sender",
+      "label": "Who the e-mails come from",
+      "type": "text",
+      "required": true,
+      "placeholder": "Ana Pop, Example Studio <office@example-studio.com>",
+      "help": "Name, company and the business address replies go to."
+    },
+    {
+      "id": "voice",
+      "label": "How your company writes",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "warm and direct, no jargon, we say “tu”, short sentences",
+      "help": "Or a past e-mail you liked. The company profile is used when this is empty."
+    },
+    {
+      "id": "sending",
+      "label": "How they go out after you approve",
+      "type": "select",
+      "required": false,
+      "options": [
+        "Drafts in my mailbox, I press send",
+        "Sent from my mailbox after I approve",
+        "Only .eml files"
+      ]
+    },
+    {
+      "id": "cap",
+      "label": "At most per day",
+      "type": "select",
+      "required": false,
+      "options": ["10", "20", "30", "50"]
+    },
+    {
+      "id": "followups",
+      "label": "Follow-ups",
+      "type": "select",
+      "required": false,
+      "options": ["Two (after 4 and 7 days)", "One (after 5 days)", "None"]
+    },
+    {
+      "id": "optout",
+      "label": "Who asked not to be contacted",
+      "type": "file",
+      "required": false,
+      "help": "One e-mail or @domain per line. They are never written to."
+    },
+    {
+      "id": "exclude",
+      "label": "Customers and partners to leave out",
+      "type": "file",
+      "required": false
+    }
+  ],
+  "output": "outreach/: messages.json, the daily batch to approve (batches/<date>.md), outbox/<date>/*.eml, sent.csv, optout.txt and replies-summary.md.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Outreach cu aprobare",
+      "description": "Un prim e-mail personal și una-două reveniri pentru fiecare firmă, din dosarul ei, cu vocea firmei tale. Nimic nu pleacă până nu scrii „Aprobă”: cel mult 20 pe zi, rândul de dezabonare, refuzurile respectate, răspunsurile adunate. Din Gmail sau Outlook-ul tău, ori ca ciorne și fișiere .eml. Doar e-mail.",
+      "output": "outreach/: messages.json, lotul zilei de aprobat (batches/<data>.md), outbox/<data>/*.eml, sent.csv, optout.txt și replies-summary.md.",
+      "inputs": {
+        "leads": {
+          "label": "Lista de leaduri",
+          "help": "leads.json din Radar de clienți sau un CSV/Excel cu nume și e-mail."
+        },
+        "offer": {
+          "label": "Ce le propui",
+          "placeholder": "o verificare gratuită a site-ului în 20 de minute, apoi o ofertă pentru un site nou"
+        },
+        "sender": {
+          "label": "De la cine pleacă e-mailurile",
+          "placeholder": "Ana Pop, Studio Exemplu <office@studio-exemplu.ro>",
+          "help": "Numele, firma și adresa de firmă la care vin răspunsurile."
+        },
+        "voice": {
+          "label": "Cum scrie firma ta",
+          "placeholder": "cald și direct, fără jargon, ne adresăm cu „tu”, fraze scurte",
+          "help": "Sau un e-mail mai vechi care ți-a plăcut. Dacă e gol, folosim profilul firmei."
+        },
+        "sending": {
+          "label": "Cum pleacă după ce aprobi",
+          "options": [
+            "Ciorne în căsuța mea, apăs eu pe Trimite",
+            "Se trimit din căsuța mea după ce aprob",
+            "Doar fișiere .eml"
+          ]
+        },
+        "cap": {
+          "label": "Cel mult pe zi",
+          "options": ["10", "20", "30", "50"]
+        },
+        "followups": {
+          "label": "Reveniri",
+          "options": ["Două (după 4 și 7 zile)", "Una (după 5 zile)", "Niciuna"]
+        },
+        "optout": {
+          "label": "Cine a cerut să nu fie contactat",
+          "help": "Câte un e-mail sau @domeniu pe rând. Lor nu le scriem niciodată."
+        },
+        "exclude": {
+          "label": "Clienți și parteneri de lăsat deoparte"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "keeps the sequence, the daily limit, the approvals, the opt-outs and the .eml files"
+      }
+    ],
+    "connectors": [
+      {
+        "id": "gmail",
+        "optional": true,
+        "purpose": "makes drafts or sends from your own Gmail after you approve, and reads the replies"
+      },
+      {
+        "id": "outlook",
+        "optional": true,
+        "purpose": "makes drafts or sends from your own Outlook after you approve, and reads the replies"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "20 leads",
+      "seconds": 300,
+      "referenceCpuCores": 8
+    },
+    "network": false
+  },
+  "unattended": {
+    "commands": ["node", "mkdir", "ls", "cat"]
+  }
+}

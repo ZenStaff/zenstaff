@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Pixel-hinted app icon for 24-47 px renders (favicon 32, ICO 24/32, Linux 24/32). -->
+  <title>Zen Staff</title>
+  <rect width="32" height="32" rx="7" fill="#121A2B"/>
+  <path d="M8 8.5H23.5L8.5 23.5H20L24.75 17.75" fill="none" stroke="#E2401E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

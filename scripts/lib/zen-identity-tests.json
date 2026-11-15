@@ -1,0 +1,640 @@
+{
+  "apps/desktop/src/app/DesktopAppIdentity.test.ts": [
+    {
+      "before": "\n        assert.equal(userDataPath, \"/Users/alice/Library/Application Support/t3code-v2\");\n      }),",
+      "after": "\n        assert.equal(userDataPath, \"/Users/alice/Library/Application Support/zenstaff\");\n      }),"
+    },
+    {
+      "before": "\n  it.effect(\"keeps using the legacy development profile\", () =>\n    withIdentity(",
+      "after": "\n  it.effect(\"never uses T3 Code's legacy development profile\", () =>\n    withIdentity("
+    },
+    {
+      "before": "          yield* identity.resolveUserDataPath,\n          \"/Users/alice/Library/Application Support/T3 Code (Dev)\",\n        );",
+      "after": "          yield* identity.resolveUserDataPath,\n          \"/Users/alice/Library/Application Support/zenstaff-dev\",\n        );"
+    },
+    {
+      "before": "        assert.isDefined(runtimeName);\n        assert.equal(runtimeName, `T3 Code ${stage}`);\n        assert.match(runtimeName.replaceAll(\" \", \"\"), /^[!#$%&'*+\\-.^_`|~0-9A-Za-z]+$/);\n        assert.equal(calls.setAboutPanelOptions[0]?.applicationName, `T3 Code (${stage})`);\n      }),",
+      "after": "        assert.isDefined(runtimeName);\n        assert.equal(runtimeName, `Zen Staff ${stage}`);\n        assert.match(runtimeName.replaceAll(\" \", \"\"), /^[!#$%&'*+\\-.^_`|~0-9A-Za-z]+$/);\n        assert.equal(\n          calls.setAboutPanelOptions[0]?.applicationName,\n          stage === \"Beta\" ? \"Zen Staff\" : `Zen Staff (${stage})`,\n        );\n      }),"
+    }
+  ],
+  "apps/desktop/src/app/DesktopClerk.test.ts": [
+    {
+      "before": "      platform: \"darwin\" as const,\n      userData: \"/tmp/app-data/t3code-v2\",\n    },",
+      "after": "      platform: \"darwin\" as const,\n      userData: \"/tmp/app-data/zenstaff\",\n    },"
+    },
+    {
+      "before": "      platform: \"linux\" as const,\n      userData: \"/tmp/app-data/t3code-v2\",\n    },",
+      "after": "      platform: \"linux\" as const,\n      userData: \"/tmp/app-data/zenstaff\",\n    },"
+    },
+    {
+      "before": "      platform: \"win32\" as const,\n      userData: \"/tmp/app-data/t3code-v2\",\n    },",
+      "after": "      platform: \"win32\" as const,\n      userData: \"/tmp/app-data/zenstaff\",\n    },"
+    },
+    {
+      "before": "      platform: \"win32\" as const,\n      userData: \"/tmp/app-data/t3code-dev\",\n    },",
+      "after": "      platform: \"win32\" as const,\n      userData: \"/tmp/app-data/zenstaff-dev\",\n    },"
+    },
+    {
+      "before": "    const received: string[] = [];\n    const first = \"t3code://new?prompt=first\";\n    const second = \"t3code://threads/env-1/thread-1\";\n    const later = \"t3code://new?prompt=later\";\n    const launchPair = \"t3code://pair?pairingUrl=https%3A%2F%2Fvps.example.com%2F%23token%3Dabc\";\n    const delivered = Promise.withResolvers<void>();",
+      "after": "    const received: string[] = [];\n    const first = \"zen://new?prompt=first\";\n    const second = \"zen://threads/env-1/thread-1\";\n    const later = \"zen://new?prompt=later\";\n    const launchPair = \"zen://pair?pairingUrl=https%3A%2F%2Fvps.example.com%2F%23token%3Dabc\";\n    const delivered = Promise.withResolvers<void>();"
+    },
+    {
+      "before": "        assert.deepEqual(events, [\n          \"setPath:userData:/tmp/app-data/t3code-v2\",\n          \"requestSingleInstanceLock\",",
+      "after": "        assert.deepEqual(events, [\n          \"setPath:userData:/tmp/app-data/zenstaff\",\n          \"requestSingleInstanceLock\","
+    },
+    {
+      "before": "      const event = { preventDefault: vi.fn() };\n      listeners.get(\"open-url\")!(event, \"t3code-dev://app/auth/callback?code=clerk-code\");\n      listeners.get(\"open-url\")!(event, \"t3code://app/welcome\");\n      assert.equal(loadURL.mock.calls.length, 0);",
+      "after": "      const event = { preventDefault: vi.fn() };\n      listeners.get(\"open-url\")!(event, \"zen-dev://app/auth/callback?code=clerk-code\");\n      listeners.get(\"open-url\")!(event, \"zen://app/welcome\");\n      assert.equal(loadURL.mock.calls.length, 0);"
+    },
+    {
+      "before": "        \"t3\",\n        \"t3code-dev://app/settings/providers?instanceId=work&code=never-forward\",\n      ]);\n      yield* Effect.promise(() => revealed.promise);\n      assert.deepEqual(loadURL.mock.calls, [\n        [\"t3code-dev://app/settings/providers?instanceId=work\"],\n      ]);\n      listeners.get(\"open-url\")!(event, \"t3code-dev://app/welcome#agents:machine-id\");\n      assert.equal(event.preventDefault.mock.calls.length, 1);",
+      "after": "        \"t3\",\n        \"zen-dev://app/settings/providers?instanceId=work&code=never-forward\",\n      ]);\n      yield* Effect.promise(() => revealed.promise);\n      assert.deepEqual(loadURL.mock.calls, [[\"zen-dev://app/settings/providers?instanceId=work\"]]);\n      listeners.get(\"open-url\")!(event, \"zen-dev://app/welcome#agents:machine-id\");\n      assert.equal(event.preventDefault.mock.calls.length, 1);"
+    },
+    {
+      "before": "    const received: Array<string> = [];\n    const pairLink = \"t3code://pair?pairingUrl=https%3A%2F%2Fvps.example.com%2F%23token%3Dabc\";\n    yield* Effect.gen(function* () {",
+      "after": "    const received: Array<string> = [];\n    const pairLink = \"zen://pair?pairingUrl=https%3A%2F%2Fvps.example.com%2F%23token%3Dabc\";\n    yield* Effect.gen(function* () {"
+    },
+    {
+      "before": "      assert.strictEqual(open(\"http://localhost:3000/\"), 1);\n      assert.strictEqual(open(\"t3code://new?prompt=hi\"), 1);\n      assert.strictEqual(open(\"t3code://threads/env-1/thread-1\"), 1);\n      assert.strictEqual(open(pairLink), 1);\n      assert.strictEqual(open(\"t3code://pair\"), 0);\n      assert.strictEqual(open(\"mailto:hello@example.com\"), 0);\n      assert.strictEqual(open(\"t3code://somewhere-else\"), 0);\n      yield* Effect.yieldNow;",
+      "after": "      assert.strictEqual(open(\"http://localhost:3000/\"), 1);\n      assert.strictEqual(open(\"zen://new?prompt=hi\"), 1);\n      assert.strictEqual(open(\"zen://threads/env-1/thread-1\"), 1);\n      assert.strictEqual(open(pairLink), 1);\n      assert.strictEqual(open(\"zen://pair\"), 0);\n      assert.strictEqual(open(\"mailto:hello@example.com\"), 0);\n      assert.strictEqual(open(\"zen://somewhere-else\"), 0);\n      yield* Effect.yieldNow;"
+    },
+    {
+      "before": "        \"http://localhost:3000/\",\n        \"t3code://new?prompt=hi\",\n        \"t3code://threads/env-1/thread-1\",\n        pairLink,",
+      "after": "        \"http://localhost:3000/\",\n        \"zen://new?prompt=hi\",\n        \"zen://threads/env-1/thread-1\",\n        pairLink,"
+    }
+  ],
+  "apps/desktop/src/app/DesktopEnvironment.test.ts": [
+    {
+      "before": "\n      assert.equal(development.stateDir, \"/Users/alice/.t3/dev\");\n      assert.equal(production.stateDir, \"/Users/alice/.t3/userdata\");\n    }),",
+      "after": "\n      assert.equal(development.stateDir, \"/Users/alice/.zen/dev\");\n      assert.equal(production.stateDir, \"/Users/alice/.zen/userdata\");\n    }),"
+    }
+  ],
+  "apps/desktop/src/app/DesktopLifecycle.test.ts": [
+    {
+      "before": "          \"--no-sandbox\",\n          \"T3CODE://pair?token=spent\",\n          \"t3code://new?prompt=hello\",\n        ]),",
+      "after": "          \"--no-sandbox\",\n          \"ZEN://pair?token=spent\",\n          \"zen://new?prompt=hello\",\n        ]),"
+    }
+  ],
+  "apps/desktop/src/app/DesktopLinuxUrlHandler.test.ts": [
+    {
+      "before": "    displayName: \"T3 Code (Alpha)\",\n    linuxDesktopEntryName: \"com.t3tools.T3Code.desktop\",\n    linuxApplicationsDir: \"/home/alice/.local/share/applications\",",
+      "after": "    displayName: \"T3 Code (Alpha)\",\n    linuxDesktopEntryName: \"ro.zedzen.ZenStaff.desktop\",\n    linuxApplicationsDir: \"/home/alice/.local/share/applications\","
+    },
+    {
+      "before": "      execTarget: '/home/al ice/Apps/T3 \"100%\" $HOME\\\\x.AppImage',\n      scheme: \"t3code\",\n      iconPath: \"/home/al ice/icons/T3\\\\x.png\",",
+      "after": "      execTarget: '/home/al ice/Apps/T3 \"100%\" $HOME\\\\x.AppImage',\n      scheme: \"zen\",\n      iconPath: \"/home/al ice/icons/T3\\\\x.png\","
+    },
+    {
+      "before": "    assert.notInclude(entry, \"StartupWMClass=\");\n    assert.include(entry, \"MimeType=x-scheme-handler/t3code;\");\n    assert.include(entry, \"Icon=/home/al ice/icons/T3\\\\\\\\x.png\");",
+      "after": "    assert.notInclude(entry, \"StartupWMClass=\");\n    assert.include(entry, \"MimeType=x-scheme-handler/zen;\");\n    assert.include(entry, \"Icon=/home/al ice/icons/T3\\\\\\\\x.png\");"
+    },
+    {
+      "before": "          recorded.files[0]?.path,\n          \"/home/alice/.local/share/applications/com.t3tools.T3Code.desktop\",\n        );",
+      "after": "          recorded.files[0]?.path,\n          \"/home/alice/.local/share/applications/ro.zedzen.ZenStaff.desktop\",\n        );"
+    },
+    {
+      "before": "        );\n        assert.include(recorded.files[0]?.content, \"MimeType=x-scheme-handler/t3code;\");\n        assert.deepEqual(recorded.commands, [",
+      "after": "        );\n        assert.include(recorded.files[0]?.content, \"MimeType=x-scheme-handler/zen;\");\n        assert.deepEqual(recorded.commands, ["
+    },
+    {
+      "before": "            command: \"xdg-mime\",\n            args: [\"default\", \"com.t3tools.T3Code.desktop\", \"x-scheme-handler/t3code\"],\n          },",
+      "after": "            command: \"xdg-mime\",\n            args: [\"default\", \"ro.zedzen.ZenStaff.desktop\", \"x-scheme-handler/zen\"],\n          },"
+    },
+    {
+      "before": "          execTarget: process.execPath,\n          scheme: \"t3code\",\n          iconPath: \"/home/alice/.local/share/icons/com.t3tools.T3Code.desktop.png\",\n        }),",
+      "after": "          execTarget: process.execPath,\n          scheme: \"zen\",\n          iconPath: \"/home/alice/.local/share/icons/ro.zedzen.ZenStaff.desktop.png\",\n        }),"
+    },
+    {
+      "before": "          execTarget: \"/home/alice/Applications/T3-Code.AppImage\",\n          scheme: \"t3code\",\n          iconPath: \"/home/alice/.local/share/icons/com.t3tools.T3Code.desktop.png\",\n        }),",
+      "after": "          execTarget: \"/home/alice/Applications/T3-Code.AppImage\",\n          scheme: \"zen\",\n          iconPath: \"/home/alice/.local/share/icons/ro.zedzen.ZenStaff.desktop.png\",\n        }),"
+    },
+    {
+      "before": "          command: \"xdg-mime\",\n          args: [\"default\", \"com.t3tools.T3Code.desktop\", \"x-scheme-handler/t3code\"],\n        },",
+      "after": "          command: \"xdg-mime\",\n          args: [\"default\", \"ro.zedzen.ZenStaff.desktop\", \"x-scheme-handler/zen\"],\n        },"
+    },
+    {
+      "before": "    const recorded = emptyRecording();\n    const iconPath = \"/home/alice/.local/share/icons/com.t3tools.T3Code.desktop.png\";\n    return Effect.gen(function* () {",
+      "after": "    const recorded = emptyRecording();\n    const iconPath = \"/home/alice/.local/share/icons/ro.zedzen.ZenStaff.desktop.png\";\n    return Effect.gen(function* () {"
+    },
+    {
+      "before": "          execTarget: \"/home/alice/Applications/T3-Code.AppImage\",\n          scheme: \"t3code\",\n          iconPath,",
+      "after": "          execTarget: \"/home/alice/Applications/T3-Code.AppImage\",\n          scheme: \"zen\",\n          iconPath,"
+    },
+    {
+      "before": "          isPackaged: false,\n          linuxDesktopEntryName: \"com.t3tools.T3Code.Development.desktop\",\n        },",
+      "after": "          isPackaged: false,\n          linuxDesktopEntryName: \"ro.zedzen.ZenStaff.Development.desktop\",\n        },"
+    },
+    {
+      "before": "        unpackaged.files[0]?.path,\n        \"/home/alice/.local/share/applications/com.t3tools.T3Code.Development.desktop\",\n      );",
+      "after": "        unpackaged.files[0]?.path,\n        \"/home/alice/.local/share/applications/ro.zedzen.ZenStaff.Development.desktop\",\n      );"
+    },
+    {
+      "before": "          description: \"read-only filesystem\",\n          pathOrDescriptor: \"/home/alice/.local/share/applications/com.t3tools.T3Code.desktop\",\n        }),",
+      "after": "          description: \"read-only filesystem\",\n          pathOrDescriptor: \"/home/alice/.local/share/applications/ro.zedzen.ZenStaff.desktop\",\n        }),"
+    },
+    {
+      "before": "      assert.deepEqual([...(yield* fileSystem.readDirectory(fixture.appsDir))].sort(), [\n        \"com.t3tools.T3Code.png\",\n        \"com.t3tools.t3code.png\",\n      ]);\n      for (const name of [\"com.t3tools.t3code\", \"com.t3tools.T3Code\"]) {\n        const target = path.join(fixture.appsDir, `${name}.png`);",
+      "after": "      assert.deepEqual([...(yield* fileSystem.readDirectory(fixture.appsDir))].sort(), [\n        \"ro.zedzen.ZenStaff.png\",\n        \"ro.zedzen.zenstaff.png\",\n      ]);\n      for (const name of [\"ro.zedzen.zenstaff\", \"ro.zedzen.ZenStaff\"]) {\n        const target = path.join(fixture.appsDir, `${name}.png`);"
+    },
+    {
+      "before": "      yield* registerWithRealFileSystem(run);\n      for (const name of [\"com.t3tools.t3code\", \"com.t3tools.T3Code\"]) {\n        const info = yield* fileSystem.stat(path.join(fixture.appsDir, `${name}.png`));",
+      "after": "      yield* registerWithRealFileSystem(run);\n      for (const name of [\"ro.zedzen.zenstaff\", \"ro.zedzen.ZenStaff\"]) {\n        const info = yield* fileSystem.stat(path.join(fixture.appsDir, `${name}.png`));"
+    },
+    {
+      "before": "      yield* fixture.seedCache;\n      const lower = path.join(fixture.appsDir, \"com.t3tools.t3code.png\");\n      const upper = path.join(fixture.appsDir, \"com.t3tools.T3Code.png\");\n      yield* fileSystem.writeFile(lower, new Uint8Array([3, 2, 1]));",
+      "after": "      yield* fixture.seedCache;\n      const lower = path.join(fixture.appsDir, \"ro.zedzen.zenstaff.png\");\n      const upper = path.join(fixture.appsDir, \"ro.zedzen.ZenStaff.png\");\n      yield* fileSystem.writeFile(lower, new Uint8Array([3, 2, 1]));"
+    },
+    {
+      "before": "\n      assert.isTrue(yield* fileSystem.exists(path.join(fixture.appsDir, \"com.t3tools.T3Code.png\")));\n      assert.equal(iconCacheRuns(run), 1);",
+      "after": "\n      assert.isTrue(yield* fileSystem.exists(path.join(fixture.appsDir, \"ro.zedzen.ZenStaff.png\")));\n      assert.equal(iconCacheRuns(run), 1);"
+    }
+  ],
+  "apps/desktop/src/app/DesktopPreReadyPlatform.test.ts": [
+    {
+      "before": "    const iconSource = \"/tmp/.mount_T3/resources/app.asar/apps/desktop/prod-resources/icon.png\";\n    const iconPath = \"/xdg/icons/com.t3tools.T3Code.desktop.png\";\n    const iconBytes = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);",
+      "after": "    const iconSource = \"/tmp/.mount_T3/resources/app.asar/apps/desktop/prod-resources/icon.png\";\n    const iconPath = \"/xdg/icons/ro.zedzen.ZenStaff.desktop.png\";\n    const iconBytes = Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]);"
+    },
+    {
+      "before": "    writeFileSyncMock.mockImplementation((path: string, contents: string | Buffer) => {\n      if (path === \"/xdg/applications/com.t3tools.T3Code.desktop\") desktopEntry = String(contents);\n      if (path === iconPath) iconInstalled = Buffer.compare(Buffer.from(contents), iconBytes) === 0;",
+      "after": "    writeFileSyncMock.mockImplementation((path: string, contents: string | Buffer) => {\n      if (path === \"/xdg/applications/ro.zedzen.ZenStaff.desktop\") desktopEntry = String(contents);\n      if (path === iconPath) iconInstalled = Buffer.compare(Buffer.from(contents), iconBytes) === 0;"
+    },
+    {
+      "before": "        const identity = yield* Effect.promise(() => portalIdentity);\n        assert.equal(identity.desktopName, \"com.t3tools.T3Code.desktop\");\n        assert.include(identity.desktopEntry ?? \"\", \"Exec=/Applications/current.AppImage %U\");\n        assert.include(identity.desktopEntry ?? \"\", \"Name=T3 Code (Beta)\");\n        assert.include(identity.desktopEntry ?? \"\", \"MimeType=x-scheme-handler/t3code;\");\n        assert.include(\n          identity.desktopEntry ?? \"\",\n          \"Icon=/xdg/icons/com.t3tools.T3Code.desktop.png\",\n        );",
+      "after": "        const identity = yield* Effect.promise(() => portalIdentity);\n        assert.equal(identity.desktopName, \"ro.zedzen.ZenStaff.desktop\");\n        assert.include(identity.desktopEntry ?? \"\", \"Exec=/Applications/current.AppImage %U\");\n        assert.include(identity.desktopEntry ?? \"\", \"Name=Zen Staff\");\n        assert.include(identity.desktopEntry ?? \"\", \"MimeType=x-scheme-handler/zen;\");\n        assert.include(\n          identity.desktopEntry ?? \"\",\n          \"Icon=/xdg/icons/ro.zedzen.ZenStaff.desktop.png\",\n        );"
+    },
+    {
+      "before": "      getSwitchValueMock.mockReturnValue(\"\");\n      const entryPath = \"/xdg/applications/com.t3tools.T3Code.desktop\";\n      const files = new Map([[entryPath, \"Exec=/Applications/T3-Code-0.1.8-x86_64.AppImage %U\\n\"]]);",
+      "after": "      getSwitchValueMock.mockReturnValue(\"\");\n      const entryPath = \"/xdg/applications/ro.zedzen.ZenStaff.desktop\";\n      const files = new Map([[entryPath, \"Exec=/Applications/T3-Code-0.1.8-x86_64.AppImage %U\\n\"]]);"
+    },
+    {
+      "before": "        const entry = writeFileSyncMock.mock.calls.find(\n          ([path]) => path === \"/xdg/applications/com.t3tools.T3Code.desktop\",\n        )?.[1];",
+      "after": "        const entry = writeFileSyncMock.mock.calls.find(\n          ([path]) => path === \"/xdg/applications/ro.zedzen.ZenStaff.desktop\",\n        )?.[1];"
+    }
+  ],
+  "apps/desktop/src/app/DesktopUserData.test.ts": [
+    {
+      "before": "\nit.effect.each([\"t3code\", \"T3 Code (Alpha)\"])(\n  \"preserves Windows credential keys from %s without copying browser databases\",",
+      "after": "\nit.effect.each([\"zenstaff-seed\", \"zenstaff-legacy\"])(\n  \"preserves Windows credential keys from %s without copying browser databases\","
+    },
+    {
+      "before": "      const source = path.join(directory, sourceName);\n      const destination = path.join(directory, \"t3code-v2\");\n      const state = '{\"os_crypt\":{\"encrypted_key\":\"test-encrypted-key\"}}';",
+      "after": "      const source = path.join(directory, sourceName);\n      const destination = path.join(directory, \"zenstaff\");\n      const state = '{\"os_crypt\":{\"encrypted_key\":\"test-encrypted-key\"}}';"
+    }
+  ],
+  "apps/desktop/src/window/DesktopWindow.test.ts": [
+    {
+      "before": "    isDestroyed: vi.fn(() => false),\n    getURL: vi.fn(() => \"t3code-dev://app/\"),\n    getZoomLevel: vi.fn(() => zoomLevel),",
+      "after": "    isDestroyed: vi.fn(() => false),\n    getURL: vi.fn(() => \"zen-dev://app/\"),\n    getZoomLevel: vi.fn(() => zoomLevel),"
+    },
+    {
+      "before": "  it(\"rejects renderer navigations whose origin only serializes as null\", () => {\n    for (const applicationUrl of [\"t3code://app/\", \"t3code-dev://app/\"]) {\n      assert.isTrue(",
+      "after": "  it(\"rejects renderer navigations whose origin only serializes as null\", () => {\n    for (const applicationUrl of [\"zen://app/\", \"zen-dev://app/\"]) {\n      assert.isTrue("
+    },
+    {
+      "before": "    for (const navigationUrl of [\n      \"t3code://other/\",\n      \"t3code://app.example/\",\n      \"t3code://app:8080/\",\n      \"t3code://user@other/\",\n      \"t3code:app\",\n      \"t3code-dev://app/\",\n      \"file:///etc/passwd\",",
+      "after": "    for (const navigationUrl of [\n      \"zen://other/\",\n      \"zen://app.example/\",\n      \"zen://app:8080/\",\n      \"zen://user@other/\",\n      \"t3code:app\",\n      \"zen-dev://app/\",\n      \"file:///etc/passwd\","
+    },
+    {
+      "before": "      \"about:blank\",\n      \"blob:t3code://app/0b5e2c4a\",\n    ]) {",
+      "after": "      \"about:blank\",\n      \"blob:zen://app/0b5e2c4a\",\n    ]) {"
+    },
+    {
+      "before": "        DesktopWindow.isSameOriginRendererNavigation({\n          applicationUrl: \"t3code://app/\",\n          navigationUrl,",
+      "after": "        DesktopWindow.isSameOriginRendererNavigation({\n          applicationUrl: \"zen://app/\",\n          navigationUrl,"
+    },
+    {
+      "before": "        for (const [url, expectedPrevented] of [\n          [\"t3code-dev://app/threads?id=1#latest\", false],\n          [\"t3code-dev://other/\", true],\n          [\"t3code://app/\", true],\n        ] as const) {",
+      "after": "        for (const [url, expectedPrevented] of [\n          [\"zen-dev://app/threads?id=1#latest\", false],\n          [\"zen-dev://other/\", true],\n          [\"zen://app/\", true],\n        ] as const) {"
+    }
+  ],
+  "apps/desktop/src/app/DesktopCliCommand.test.ts": [
+    {
+      "before": "import * as DesktopEnvironment from \"./DesktopEnvironment.ts\";\n",
+      "after": "import * as DesktopEnvironment from \"./DesktopEnvironment.ts\";\nimport { ZEN_CLI_NAME } from \"@t3tools/contracts/zen\";\n"
+    },
+    {
+      "before": "      const command = yield* commandIn({ home, env });\n      const link = path.join(home, \".local\", \"bin\", \"t3\");\n",
+      "after": "      const command = yield* commandIn({ home, env });\n      const link = path.join(home, \".local\", \"bin\", ZEN_CLI_NAME);\n"
+    },
+    {
+      "before": "      expect(installed.installedPath).toBe(link);\n      expect(installed.launcherPath).toBe(path.join(home, \".t3\", \"bin\", \"t3\"));\n      expect(installed.pathSetup).toEqual({ file: \"~/.zshrc\", added: false });\n      expect(yield* fs.readLink(link)).toBe(path.join(home, \".t3\", \"bin\", \"t3\"));\n      expect((yield* command.install).installedPath).toBe(link);",
+      "after": "      expect(installed.installedPath).toBe(link);\n      expect(installed.launcherPath).toBe(path.join(home, \".t3\", \"bin\", ZEN_CLI_NAME));\n      expect(installed.pathSetup).toEqual({ file: \"~/.zshrc\", added: false });\n      expect(yield* fs.readLink(link)).toBe(path.join(home, \".t3\", \"bin\", ZEN_CLI_NAME));\n      expect((yield* command.install).installedPath).toBe(link);"
+    },
+    {
+      "before": "      expect(yield* fs.readFileString(zshrc)).toBe(\n        '# mine\\n# Added by T3 Code\\nexport PATH=\"$PATH:$HOME/.local/bin\"\\n',\n      );",
+      "after": "      expect(yield* fs.readFileString(zshrc)).toBe(\n        '# mine\\n# Added by Zen Staff\\nexport PATH=\"$PATH:$HOME/.local/bin\"\\n',\n      );"
+    },
+    {
+      "before": "      expect(yield* fs.exists(link)).toBe(false);\n      expect(yield* fs.exists(path.join(home, \".t3\", \"bin\", \"t3\"))).toBe(true);\n      // Removed stays removed: first launch never installs again.",
+      "after": "      expect(yield* fs.exists(link)).toBe(false);\n      expect(yield* fs.exists(path.join(home, \".t3\", \"bin\", ZEN_CLI_NAME))).toBe(true);\n      // Removed stays removed: first launch never installs again."
+    },
+    {
+      "before": "      yield* later.installOnFirstLaunch;\n      expect(yield* fs.exists(path.join(laterHome, \".local\", \"bin\", \"t3\"))).toBe(false);\n",
+      "after": "      yield* later.installOnFirstLaunch;\n      expect(yield* fs.exists(path.join(laterHome, \".local\", \"bin\", ZEN_CLI_NAME))).toBe(false);\n"
+    },
+    {
+      "before": "      // chosen another, so first launch leaves it to Settings, where Install still works.\n      for (const left of [\"userdata/desktop-settings.json\", \"bin/t3\"]) {\n        const upgradedHome = yield* fs.makeTempDirectoryScoped();",
+      "after": "      // chosen another, so first launch leaves it to Settings, where Install still works.\n      for (const left of [\"userdata/desktop-settings.json\", `bin/${ZEN_CLI_NAME}`]) {\n        const upgradedHome = yield* fs.makeTempDirectoryScoped();"
+    },
+    {
+      "before": "        yield* upgraded.installOnFirstLaunch;\n        const upgradedLink = path.join(upgradedHome, \".local\", \"bin\", \"t3\");\n        expect(yield* fs.exists(upgradedLink)).toBe(false);",
+      "after": "        yield* upgraded.installOnFirstLaunch;\n        const upgradedLink = path.join(upgradedHome, \".local\", \"bin\", ZEN_CLI_NAME);\n        expect(yield* fs.exists(upgradedLink)).toBe(false);"
+    },
+    {
+      "before": "      const command = yield* commandIn({ home, env });\n      const theirs = path.join(home, \".local\", \"bin\", \"t3\");\n      yield* fs.makeDirectory(path.dirname(theirs), { recursive: true });",
+      "after": "      const command = yield* commandIn({ home, env });\n      const theirs = path.join(home, \".local\", \"bin\", ZEN_CLI_NAME);\n      yield* fs.makeDirectory(path.dirname(theirs), { recursive: true });"
+    },
+    {
+      "before": "      yield* fs.makeDirectory(path.join(home, \"bin\"), { recursive: true });\n      yield* fs.symlink(path.join(home, \"gone\"), path.join(home, \"bin\", \"t3\"));\n\n      const error = yield* Effect.flip(command.install);\n      expect(error.message).toContain(\"Another t3 command is already in\");\n      yield* command.uninstall;\n      expect(yield* fs.readFileString(theirs)).toBe(\"npm's t3\\n\");\n      expect(yield* fs.readLink(path.join(home, \"bin\", \"t3\"))).toBe(path.join(home, \"gone\"));\n",
+      "after": "      yield* fs.makeDirectory(path.join(home, \"bin\"), { recursive: true });\n      yield* fs.symlink(path.join(home, \"gone\"), path.join(home, \"bin\", ZEN_CLI_NAME));\n\n      const error = yield* Effect.flip(command.install);\n      expect(error.message).toContain(`Another ${ZEN_CLI_NAME} command is already in`);\n      yield* command.uninstall;\n      expect(yield* fs.readFileString(theirs)).toBe(\"npm's t3\\n\");\n      expect(yield* fs.readLink(path.join(home, \"bin\", ZEN_CLI_NAME))).toBe(\n        path.join(home, \"gone\"),\n      );\n"
+    },
+    {
+      "before": "        const besideHome = yield* fs.makeTempDirectoryScoped();\n        const other = path.join(besideHome, \".local\", \"bin\", \"t3\");\n        yield* fs.makeDirectory(path.dirname(other), { recursive: true });",
+      "after": "        const besideHome = yield* fs.makeTempDirectoryScoped();\n        const other = path.join(besideHome, \".local\", \"bin\", ZEN_CLI_NAME);\n        yield* fs.makeDirectory(path.dirname(other), { recursive: true });"
+    },
+    {
+      "before": "        yield* (yield* commandIn({ home: besideHome })).installOnFirstLaunch;\n        expect(yield* fs.exists(path.join(besideHome, \"bin\", \"t3\"))).toBe(false);\n      }\n\n      const launcher = path.join(home, \".t3\", \"bin\", \"t3\");\n      yield* fs.writeFileString(launcher, \"npm's t3\\n\");",
+      "after": "        yield* (yield* commandIn({ home: besideHome })).installOnFirstLaunch;\n        expect(yield* fs.exists(path.join(besideHome, \"bin\", ZEN_CLI_NAME))).toBe(false);\n      }\n\n      const launcher = path.join(home, \".t3\", \"bin\", ZEN_CLI_NAME);\n      yield* fs.writeFileString(launcher, \"npm's t3\\n\");"
+    },
+    {
+      "before": "\n  it.effect(\"finds and removes a link left by a previous T3 home\", () =>\n    Effect.gen(function* () {",
+      "after": "\n  it.effect(\"finds and removes a link left by a previous Zen Staff home\", () =>\n    Effect.gen(function* () {"
+    },
+    {
+      "before": "      yield* after.installOnFirstLaunch;\n      expect(yield* fs.readLink(link!)).toBe(path.join(home, \"old-t3\", \"bin\", \"t3\"));\n      // On PATH, it runs the other home's launcher. Settings offers Install (not Remove, and not",
+      "after": "      yield* after.installOnFirstLaunch;\n      expect(yield* fs.readLink(link!)).toBe(path.join(home, \"old-t3\", \"bin\", ZEN_CLI_NAME));\n      // On PATH, it runs the other home's launcher. Settings offers Install (not Remove, and not"
+    },
+    {
+      "before": "      yield* fs.makeDirectory(shadow);\n      yield* fs.writeFileString(path.join(shadow, \"t3\"), \"#!/bin/sh\\n\", { mode: 0o755 });\n      env.PATH = shadow;\n      yield* Effect.flip(after.install);\n      expect(yield* fs.readLink(link!)).toBe(path.join(home, \"old-t3\", \"bin\", \"t3\"));\n      // Install takes it over, also with its folder first on PATH.",
+      "after": "      yield* fs.makeDirectory(shadow);\n      yield* fs.writeFileString(path.join(shadow, ZEN_CLI_NAME), \"#!/bin/sh\\n\", { mode: 0o755 });\n      env.PATH = shadow;\n      yield* Effect.flip(after.install);\n      expect(yield* fs.readLink(link!)).toBe(path.join(home, \"old-t3\", \"bin\", ZEN_CLI_NAME));\n      // Install takes it over, also with its folder first on PATH."
+    },
+    {
+      "before": "      expect((yield* after.install).installedPath).toBe(link);\n      expect(yield* fs.readLink(link!)).toBe(path.join(home, \"new-t3\", \"bin\", \"t3\"));\n      env.PATH = \"\";\n      yield* after.uninstall;\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", \"t3\"))).toBe(false);\n      expect(yield* fs.exists(path.join(home, \"bin\", \"t3\"))).toBe(false);\n",
+      "after": "      expect((yield* after.install).installedPath).toBe(link);\n      expect(yield* fs.readLink(link!)).toBe(path.join(home, \"new-t3\", \"bin\", ZEN_CLI_NAME));\n      env.PATH = \"\";\n      yield* after.uninstall;\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", ZEN_CLI_NAME))).toBe(false);\n      expect(yield* fs.exists(path.join(home, \"bin\", ZEN_CLI_NAME))).toBe(false);\n"
+    },
+    {
+      "before": "      env.PATH = `${path.join(home, \"bin\")}/`;\n      expect((yield* after.install).installedPath).toBe(path.join(home, \"bin\", \"t3\"));\n",
+      "after": "      env.PATH = `${path.join(home, \"bin\")}/`;\n      expect((yield* after.install).installedPath).toBe(path.join(home, \"bin\", ZEN_CLI_NAME));\n"
+    },
+    {
+      "before": "      yield* fs.writeFileString(path.join(home, \"bin\", \"t3.staging\"), \"mine\");\n      yield* fs.remove(path.join(home, \"bin\", \"t3\"));\n      yield* fs.symlink(path.join(home, \"old-t3\", \"bin\", \"t3\"), path.join(home, \"bin\", \"t3\"));\n      env.PATH = \"\";\n      expect((yield* after.install).installedPath).toBe(path.join(home, \"bin\", \"t3\"));\n      expect(yield* fs.readLink(path.join(home, \"bin\", \"t3\"))).toBe(\n        path.join(home, \"new-t3\", \"bin\", \"t3\"),\n      );\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", \"t3\"))).toBe(false);\n      expect(yield* fs.readFileString(path.join(home, \"bin\", \"t3.staging\"))).toBe(\"mine\");",
+      "after": "      yield* fs.writeFileString(path.join(home, \"bin\", \"t3.staging\"), \"mine\");\n      yield* fs.remove(path.join(home, \"bin\", ZEN_CLI_NAME));\n      yield* fs.symlink(\n        path.join(home, \"old-t3\", \"bin\", ZEN_CLI_NAME),\n        path.join(home, \"bin\", ZEN_CLI_NAME),\n      );\n      env.PATH = \"\";\n      expect((yield* after.install).installedPath).toBe(path.join(home, \"bin\", ZEN_CLI_NAME));\n      expect(yield* fs.readLink(path.join(home, \"bin\", ZEN_CLI_NAME))).toBe(\n        path.join(home, \"new-t3\", \"bin\", ZEN_CLI_NAME),\n      );\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", ZEN_CLI_NAME))).toBe(false);\n      expect(yield* fs.readFileString(path.join(home, \"bin\", \"t3.staging\"))).toBe(\"mine\");"
+    },
+    {
+      "before": "      yield* fs.makeDirectory(shadow);\n      yield* fs.writeFileString(path.join(shadow, \"t3\"), \"#!/bin/sh\\n\", { mode: 0o755 });\n      env.PATH = [shadow, `${path.join(home, \".local\", \"bin\")}/`].join(\":\");",
+      "after": "      yield* fs.makeDirectory(shadow);\n      yield* fs.writeFileString(path.join(shadow, ZEN_CLI_NAME), \"#!/bin/sh\\n\", { mode: 0o755 });\n      env.PATH = [shadow, `${path.join(home, \".local\", \"bin\")}/`].join(\":\");"
+    },
+    {
+      "before": "      const command = yield* commandIn({ home, env });\n      const theirs = path.join(shadow, \"t3\");\n      expect((yield* command.state).shadowedBy).toBe(theirs);",
+      "after": "      const command = yield* commandIn({ home, env });\n      const theirs = path.join(shadow, ZEN_CLI_NAME);\n      expect((yield* command.state).shadowedBy).toBe(theirs);"
+    },
+    {
+      "before": "      yield* command.installOnFirstLaunch;\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", \"t3\"))).toBe(false);\n      expect(yield* fs.readFileString(theirs)).toBe(\"#!/bin/sh\\n\");",
+      "after": "      yield* command.installOnFirstLaunch;\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", ZEN_CLI_NAME))).toBe(false);\n      expect(yield* fs.readFileString(theirs)).toBe(\"#!/bin/sh\\n\");"
+    },
+    {
+      "before": "      yield* fs.symlink(\n        path.join(home, \".t3\", \"bin\", \"t3\"),\n        path.join(home, \".local\", \"bin\", \"t3\"),\n      );\n      const behind = yield* command.state;\n      expect(behind.installedPath).toBe(path.join(home, \".local\", \"bin\", \"t3\"));\n      expect(behind.pathSetup).toBeUndefined();",
+      "after": "      yield* fs.symlink(\n        path.join(home, \".t3\", \"bin\", ZEN_CLI_NAME),\n        path.join(home, \".local\", \"bin\", ZEN_CLI_NAME),\n      );\n      const behind = yield* command.state;\n      expect(behind.installedPath).toBe(path.join(home, \".local\", \"bin\", ZEN_CLI_NAME));\n      expect(behind.pathSetup).toBeUndefined();"
+    },
+    {
+      "before": "      env.PATH = [shadow, `${path.join(home, \".local\", \"bin\")}/`].join(\":\");\n      yield* fs.remove(path.join(home, \".local\", \"bin\", \"t3\"));\n",
+      "after": "      env.PATH = [shadow, `${path.join(home, \".local\", \"bin\")}/`].join(\":\");\n      yield* fs.remove(path.join(home, \".local\", \"bin\", ZEN_CLI_NAME));\n"
+    },
+    {
+      "before": "      yield* command.installOnFirstLaunch;\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", \"t3\"))).toBe(false);\n      const installed = yield* command.install;",
+      "after": "      yield* command.installOnFirstLaunch;\n      expect(yield* fs.exists(path.join(home, \".local\", \"bin\", ZEN_CLI_NAME))).toBe(false);\n      const installed = yield* command.install;"
+    },
+    {
+      "before": "        onPath: true,\n        installedPath: path.join(home, \".local\", \"bin\", \"t3\"),\n      });",
+      "after": "        onPath: true,\n        installedPath: path.join(home, \".local\", \"bin\", ZEN_CLI_NAME),\n      });"
+    },
+    {
+      "before": "        const shadow = path.join(home, \"shadow\");\n        yield* fs.makeDirectory(path.join(folder, \"t3\"), { recursive: true });\n        yield* fs.makeDirectory(plain);\n        yield* fs.writeFileString(path.join(plain, \"t3\"), \"notes\\n\");\n        // Root can execute mode 0o601; other users must honor the owner permissions.\n        yield* fs.chmod(path.join(plain, \"t3\"), process.getuid?.() === 0 ? 0o600 : 0o601);\n        yield* fs.makeDirectory(shadow);\n        yield* fs.writeFileString(path.join(shadow, \"t3\"), \"#!/bin/sh\\n\", { mode: 0o755 });\n        env.PATH = [folder, plain, shadow, path.join(home, \".local\", \"bin\")].join(\":\");",
+      "after": "        const shadow = path.join(home, \"shadow\");\n        yield* fs.makeDirectory(path.join(folder, ZEN_CLI_NAME), { recursive: true });\n        yield* fs.makeDirectory(plain);\n        yield* fs.writeFileString(path.join(plain, ZEN_CLI_NAME), \"notes\\n\");\n        // Root can execute mode 0o601; other users must honor the owner permissions.\n        yield* fs.chmod(path.join(plain, ZEN_CLI_NAME), process.getuid?.() === 0 ? 0o600 : 0o601);\n        yield* fs.makeDirectory(shadow);\n        yield* fs.writeFileString(path.join(shadow, ZEN_CLI_NAME), \"#!/bin/sh\\n\", { mode: 0o755 });\n        env.PATH = [folder, plain, shadow, path.join(home, \".local\", \"bin\")].join(\":\");"
+    },
+    {
+      "before": "        const command = yield* commandIn({ home, env });\n        expect((yield* command.state).shadowedBy).toBe(path.join(shadow, \"t3\"));\n\n        const error = yield* Effect.flip(command.install);\n        expect(error.message).toContain(path.join(shadow, \"t3\"));\n",
+      "after": "        const command = yield* commandIn({ home, env });\n        expect((yield* command.state).shadowedBy).toBe(path.join(shadow, ZEN_CLI_NAME));\n\n        const error = yield* Effect.flip(command.install);\n        expect(error.message).toContain(path.join(shadow, ZEN_CLI_NAME));\n"
+    },
+    {
+      "before": "          onPath: true,\n          installedPath: path.join(home, \".local\", \"bin\", \"t3\"),\n        });",
+      "after": "          onPath: true,\n          installedPath: path.join(home, \".local\", \"bin\", ZEN_CLI_NAME),\n        });"
+    },
+    {
+      "before": "      const home = yield* fs.makeTempDirectoryScoped();\n      const launcher = path.join(home, \".t3\", \"bin\", \"t3\");\n      env.PATH = [path.dirname(launcher), path.join(home, \".local\", \"bin\")].join(\":\");",
+      "after": "      const home = yield* fs.makeTempDirectoryScoped();\n      const launcher = path.join(home, \".t3\", \"bin\", ZEN_CLI_NAME);\n      env.PATH = [path.dirname(launcher), path.join(home, \".local\", \"bin\")].join(\":\");"
+    },
+    {
+      "before": "        onPath: true,\n        installedPath: path.join(home, \".local\", \"bin\", \"t3\"),\n      });",
+      "after": "        onPath: true,\n        installedPath: path.join(home, \".local\", \"bin\", ZEN_CLI_NAME),\n      });"
+    },
+    {
+      "before": "        environmentFor(yield* Path.Path, { home, baseDir: `${home}/.t3`, platform: \"win32\" }),\n      ).replace(/[\\\\/]t3\\.cmd$/, \"\");\n      yield* command.install;",
+      "after": "        environmentFor(yield* Path.Path, { home, baseDir: `${home}/.t3`, platform: \"win32\" }),\n      ).replace(/[\\\\/]zs\\.cmd$/, \"\");\n      yield* command.install;"
+    },
+    {
+      "before": "      yield* fs.makeDirectory(path.join(besideHome, \".local\", \"bin\"), { recursive: true });\n      yield* fs.writeFileString(path.join(besideHome, \".local\", \"bin\", \"t3.cmd\"), \"@echo off\\r\\n\");\n      const beside = fakePowerShell(\"C:\\\\Tools\");",
+      "after": "      yield* fs.makeDirectory(path.join(besideHome, \".local\", \"bin\"), { recursive: true });\n      yield* fs.writeFileString(\n        path.join(besideHome, \".local\", \"bin\", `${ZEN_CLI_NAME}.cmd`),\n        \"@echo off\\r\\n\",\n      );\n      const beside = fakePowerShell(\"C:\\\\Tools\");"
+    }
+  ],
+  "packages/shared/src/promptLinks.test.ts": [
+    {
+      "before": "    const deepLink = promptLinkDeepLink(path!);\n    expect(deepLink).toBe(\"t3code://threads/env-1/mcp%3A1\");\n    expect(promptLinkAppPath(deepLink)).toBe(path);",
+      "after": "    const deepLink = promptLinkDeepLink(path!);\n    expect(deepLink).toBe(\"zen://threads/env-1/mcp%3A1\");\n    expect(promptLinkAppPath(deepLink)).toBe(path);"
+    },
+    {
+      "before": "  });\n});",
+      "after": "  });\n\n  it(\"opens the library on a pack from a share page (zen://library?install=<slug>)\", () => {\n    expect(promptLinkAppPath(\"zen://library?install=oferta-zilei\")).toBe(\n      \"/library?install=oferta-zilei\",\n    );\n    expect(promptLinkAppPath(\"zen-dev://library/?install=oferta-zilei\")).toBe(\n      \"/library?install=oferta-zilei\",\n    );\n    // Only a plain slug travels; a hub address or anything else is dropped.\n    expect(promptLinkAppPath(\"zen://library?install=../x&hub=https://evil.test\")).toBe(\"/library\");\n    expect(promptLinkAppPath(\"zen://library\")).toBe(\"/library\");\n    expect(promptLinkAppPath(\"zen://library/other\")).toBeNull();\n  });\n});"
+    }
+  ],
+  "scripts/install.test.ts": [
+    {
+      "before": "    const target = NodePath.join(home, \"runtime/versions\", version);\n    const launcher = NodePath.join(root, \"bin/t3\");\n    try {",
+      "after": "    const target = NodePath.join(home, \"runtime/versions\", version);\n    const launcher = NodePath.join(root, \"bin/zs\");\n    try {"
+    },
+    {
+      "before": "      expect(status, stdout + stderr).toBe(0);\n      expect(stderr).toContain(`Installed T3 Code ${version}`);\n      expect(await NodeFSP.readlink(launcher)).toBe(NodePath.join(target, \"t3\"));",
+      "after": "      expect(status, stdout + stderr).toBe(0);\n      expect(stderr).toContain(`Installed Zen Staff ${version}`);\n      expect(await NodeFSP.readlink(launcher)).toBe(NodePath.join(target, \"t3\"));"
+    },
+    {
+      "before": "      const body =\n        url.pathname === \"/pingdotgg/t3code/releases/latest\" &&\n        request.headers.accept === \"application/json\"\n          ? { tag_name: \"v1.2.3\" }\n          : url.pathname === \"/repos/pingdotgg/t3code/releases\"\n            ? { \"1\": nightlies, \"2\": [{ tag_name: `v${version}` }, { tag_name: \"v1.2.3\" }] }[",
+      "after": "      const body =\n        url.pathname === \"/ZenStaff/zenstaff/releases/latest\" &&\n        request.headers.accept === \"application/json\"\n          ? { tag_name: \"v1.2.3\" }\n          : url.pathname === \"/repos/ZenStaff/zenstaff/releases\"\n            ? { \"1\": nightlies, \"2\": [{ tag_name: `v${version}` }, { tag_name: \"v1.2.3\" }] }["
+    },
+    {
+      "before": "      expect(code, output).toBe(0);\n      expect(output).toContain(`Installed T3 Code ${version}`);\n    } finally {",
+      "after": "      expect(code, output).toBe(0);\n      expect(output).toContain(`Installed Zen Staff ${version}`);\n    } finally {"
+    },
+    {
+      "before": "        expect(code, output).not.toBe(0);\n        expect(output).toMatch(new RegExp(`t3 install: .*${archive.replaceAll(\".\", \"\\\\.\")}`));\n      } finally {",
+      "after": "        expect(code, output).not.toBe(0);\n        expect(output).toMatch(new RegExp(`zs install: .*${archive.replaceAll(\".\", \"\\\\.\")}`));\n      } finally {"
+    },
+    {
+      "before": "      const binDir = NodePath.join(root, \"bin\");\n      const link = NodePath.join(binDir, \"t3\");\n      await NodeFSP.mkdir(binDir, { recursive: true });",
+      "after": "      const binDir = NodePath.join(root, \"bin\");\n      const link = NodePath.join(binDir, \"zs\");\n      await NodeFSP.mkdir(binDir, { recursive: true });"
+    },
+    {
+      "before": "      expect(foreign.code).not.toBe(0);\n      expect(foreign.output).toContain(`another t3 is already at ${link}`);\n      expect(await NodeFSP.readFile(link, \"utf8\")).toBe(\"#!/bin/sh\\necho mine\\n\");",
+      "after": "      expect(foreign.code).not.toBe(0);\n      expect(foreign.output).toContain(`another zs is already at ${link}`);\n      expect(await NodeFSP.readFile(link, \"utf8\")).toBe(\"#!/bin/sh\\necho mine\\n\");"
+    },
+    {
+      "before": "      expect(slashed.code, slashed.output).toBe(0);\n      expect(slashed.output).toContain(\"Run t3 to use T3 Code here\");\n",
+      "after": "      expect(slashed.code, slashed.output).toBe(0);\n      expect(slashed.output).toContain(\"Run zs to use Zen Staff here\");\n"
+    },
+    {
+      "before": "      await NodeFSP.rm(link);\n      await NodeFSP.symlink(NodePath.join(home, \"bin/t3\"), link);\n      const overDesktop = await installOver({",
+      "after": "      await NodeFSP.rm(link);\n      await NodeFSP.symlink(NodePath.join(home, \"bin/zs\"), link);\n      const overDesktop = await installOver({"
+    },
+    {
+      "before": "            expect(\n              NodeChildProcess.execFileSync(NodePath.join(root, \"bin/t3\"), [\"--version\"], {\n                encoding: \"utf8\",",
+      "after": "            expect(\n              NodeChildProcess.execFileSync(NodePath.join(root, \"bin/zs\"), [\"--version\"], {\n                encoding: \"utf8\","
+    },
+    {
+      "before": "            expect(output).toContain(\"checksum mismatch\");\n            expect(output).not.toContain(\"Installed T3 Code\");\n            expect(await NodeFSP.readdir(versions)).toEqual([]);",
+      "after": "            expect(output).toContain(\"checksum mismatch\");\n            expect(output).not.toContain(\"Installed Zen Staff\");\n            expect(await NodeFSP.readdir(versions)).toEqual([]);"
+    }
+  ],
+  "apps/server/src/cli/app.test.ts": [
+    {
+      "before": "          );\n          expect(String(error)).toContain(\"A T3 Code server is already running\");\n          expect(yield* Effect.promise(() => NodeFSP.readFile(statePath, \"utf8\"))).toBe(record);",
+      "after": "          );\n          expect(String(error)).toContain(\"A Zen Staff server is already running\");\n          expect(yield* Effect.promise(() => NodeFSP.readFile(statePath, \"utf8\"))).toBe(record);"
+    },
+    {
+      "before": "\ndescribe(\"t3 app\", () => {\n  it.live.each([\"permissions\", \"owner\", \"symlink\", \"missing owner\"] as const)(",
+      "after": "\ndescribe(\"zs app\", () => {\n  it.live.each([\"permissions\", \"owner\", \"symlink\", \"missing owner\"] as const)("
+    },
+    {
+      "before": "              );\n              const baseDir = NodePath.join(root, \".t3\");\n              const userId = yield* HostProcess.UserId;",
+      "after": "              );\n              const baseDir = NodePath.join(root, \".zen\");\n              const userId = yield* HostProcess.UserId;"
+    },
+    {
+      "before": "      Effect.gen(function* () {\n        const baseDir = NodePath.join(root, \".t3\");\n        const desktop = yield* fakeDesktop({ baseDir });",
+      "after": "      Effect.gen(function* () {\n        const baseDir = NodePath.join(root, \".zen\");\n        const desktop = yield* fakeDesktop({ baseDir });"
+    },
+    {
+      "before": "      Effect.gen(function* () {\n        const baseDir = NodePath.join(root, \".t3\");\n        const development = yield* fakeDesktop({ baseDir, stateSubdirectory: \"dev\" });",
+      "after": "      Effect.gen(function* () {\n        const baseDir = NodePath.join(root, \".zen\");\n        const development = yield* fakeDesktop({ baseDir, stateSubdirectory: \"dev\" });"
+    },
+    {
+      "before": "\n  it.effect(\"never searches a dev state directory for an explicit T3 home\", () =>\n    withTempDirectory(\"t3-app-explicit-test-\", (root) =>\n      Effect.gen(function* () {\n        const baseDir = NodePath.join(root, \".t3\");\n        const development = yield* fakeDesktop({ baseDir, stateSubdirectory: \"dev\" });",
+      "after": "\n  it.effect(\"never searches a dev state directory for an explicit Zen Staff home\", () =>\n    withTempDirectory(\"t3-app-explicit-test-\", (root) =>\n      Effect.gen(function* () {\n        const baseDir = NodePath.join(root, \".zen\");\n        const development = yield* fakeDesktop({ baseDir, stateSubdirectory: \"dev\" });"
+    },
+    {
+      "before": "        Effect.gen(function* () {\n          const baseDir = NodePath.join(root, \".t3\");\n          const desktop = yield* fakeDesktop({",
+      "after": "        Effect.gen(function* () {\n          const baseDir = NodePath.join(root, \".zen\");\n          const desktop = yield* fakeDesktop({"
+    }
+  ],
+  "apps/server/src/cli/config.test.ts": [
+    {
+      "before": "        );\n        expect(String(error)).toContain(\"A T3 Code server is already running\");\n        expect(String(error)).toContain(`pid ${child.pid}`);",
+      "after": "        );\n        expect(String(error)).toContain(\"A Zen Staff server is already running\");\n        expect(String(error)).toContain(`pid ${child.pid}`);"
+    },
+    {
+      "before": "      expect(yield* resolvePort({ port: Option.none() })).toBe(50_123);\n      expect(selected).toEqual([3773]);\n      expect(yield* resolvePort({ port: Option.some(8788) })).toBe(8788);",
+      "after": "      expect(yield* resolvePort({ port: Option.none() })).toBe(50_123);\n      expect(selected).toEqual([3873]);\n      expect(yield* resolvePort({ port: Option.some(8788) })).toBe(8788);"
+    },
+    {
+      "before": "        yield* resolvePort({ mode: Option.some(\"desktop\" as const), port: Option.none() }),\n      ).toBe(3773);\n      expect(selected).toEqual([3773]);\n    }),",
+      "after": "        yield* resolvePort({ mode: Option.some(\"desktop\" as const), port: Option.none() }),\n      ).toBe(3873);\n      expect(selected).toEqual([3873]);\n    }),"
+    }
+  ],
+  "apps/server/src/cli/pair.test.ts": [
+    {
+      "before": "\ndescribe(\"t3 pair\", () => {\n  it.effect(\"publishes an IPv6-only server through Tailscale Serve when pairing\", () =>",
+      "after": "\ndescribe(\"zs pair\", () => {\n  it.effect(\"publishes an IPv6-only server through Tailscale Serve when pairing\", () =>"
+    },
+    {
+      "before": "        assert.equal(credentials.length, 1);\n        assert.equal(credentials[0]?.label, \"t3 pair\");\n        assert.deepEqual(credentials[0]?.scopes, AuthStandardClientScopes);",
+      "after": "        assert.equal(credentials.length, 1);\n        assert.equal(credentials[0]?.label, \"zs pair\");\n        assert.deepEqual(credentials[0]?.scopes, AuthStandardClientScopes);"
+    },
+    {
+      "before": "      Effect.gen(function* () {\n        const baseDir = NodeFS.mkdtempSync(NodePath.join(NodeOS.tmpdir(), \"t3 pair pid test-\"));\n        const statePath = NodePath.join(baseDir, \"userdata\", \"server-runtime.json\");",
+      "after": "      Effect.gen(function* () {\n        const baseDir = NodeFS.mkdtempSync(NodePath.join(NodeOS.tmpdir(), \"zs pair pid test-\"));\n        const statePath = NodePath.join(baseDir, \"userdata\", \"server-runtime.json\");"
+    },
+    {
+      "before": "        );\n        assert.include(rendered, \"No running T3 Code server found.\");\n        for (const subcommand of [\"serve\", \"connect\"]) {",
+      "after": "        );\n        assert.include(rendered, \"No running Zen Staff server found.\");\n        for (const subcommand of [\"serve\", \"connect\"]) {"
+    },
+    {
+      "before": "\n        assert.include(String(error), \"No running T3 Code server found.\");\n        assert.notInclude(String(error), sharedHome);",
+      "after": "\n        assert.include(String(error), \"No running Zen Staff server found.\");\n        assert.notInclude(String(error), sharedHome);"
+    },
+    {
+      "before": "      }\n      assert.deepEqual(error.commandPath, [\"t3\", ...command]);\n      const scopeError = error.errors[0];",
+      "after": "      }\n      assert.deepEqual(error.commandPath, [\"zs\", ...command]);\n      const scopeError = error.errors[0];"
+    }
+  ],
+  "apps/server/src/cli/invocation.test.ts": [
+    {
+      "before": "    const bin = yield* fs.makeTempDirectoryScoped();\n    yield* fs.writeFileString(path.join(bin, \"t3\"), \"#!/bin/sh\\n\", { mode: 0o755 });\n    return bin;",
+      "after": "    const bin = yield* fs.makeTempDirectoryScoped();\n    yield* fs.writeFileString(path.join(bin, \"zs\"), \"#!/bin/sh\\n\", { mode: 0o755 });\n    return bin;"
+    },
+    {
+      "before": "        }),\n      ).toBe('sudo env \"PATH=$PATH\" t3 browser setup');\n    }),",
+      "after": "        }),\n      ).toBe('sudo env \"PATH=$PATH\" zs browser setup');\n    }),"
+    },
+    {
+      "before": "\n  it.effect(\"keeps the arguments, so root runs setup on the same T3 home\", () =>\n    Effect.gen(function* () {",
+      "after": "\n  it.effect(\"keeps the arguments, so root runs setup on the same Zen Staff home\", () =>\n    Effect.gen(function* () {"
+    },
+    {
+      "before": "        }),\n      ).toBe(`sudo env \"PATH=$PATH\" t3 browser setup --base-dir '/srv/t3 home'`);\n      expect(",
+      "after": "        }),\n      ).toBe(`sudo env \"PATH=$PATH\" zs browser setup --base-dir '/srv/t3 home'`);\n      expect("
+    },
+    {
+      "before": "      const home = yield* fs.makeTempDirectoryScoped();\n      const shim = path.join(home, \".local bin\", \"t3\");\n      yield* fs.makeDirectory(path.dirname(shim), { recursive: true });",
+      "after": "      const home = yield* fs.makeTempDirectoryScoped();\n      const shim = path.join(home, \".local bin\", \"zs\");\n      yield* fs.makeDirectory(path.dirname(shim), { recursive: true });"
+    },
+    {
+      "before": "      const linked = yield* fs.makeTempDirectoryScoped();\n      yield* fs.symlink(shim, path.join(linked, \"t3\"));\n      expect(yield* rootCommand({ ...desktop, path: linked })).toBe(\n        'sudo env \"PATH=$PATH\" t3 browser setup',\n      );",
+      "after": "      const linked = yield* fs.makeTempDirectoryScoped();\n      yield* fs.symlink(shim, path.join(linked, \"zs\"));\n      expect(yield* rootCommand({ ...desktop, path: linked })).toBe(\n        'sudo env \"PATH=$PATH\" zs browser setup',\n      );"
+    },
+    {
+      "before": "        }),\n      ).toBe('sudo env \"PATH=$PATH\" t3 browser setup');\n",
+      "after": "        }),\n        // Zen Staff: npm's `t3` on PATH is upstream's package, not `zs`, so the launcher is named.\n      ).toBe(\"sudo /home/theo/.t3/runtime/versions/1.0.0/t3 browser setup\");\n"
+    },
+    {
+      "before": "        yield* rootCommand({ ...desktop, env: { T3CODE_CLI_PATH: path.join(home, \"gone\") } }),\n      ).toBe('sudo env \"PATH=$PATH\" t3 browser setup');\n    }),",
+      "after": "        yield* rootCommand({ ...desktop, env: { T3CODE_CLI_PATH: path.join(home, \"gone\") } }),\n      ).toBe('sudo env \"PATH=$PATH\" zs browser setup');\n    }),"
+    },
+    {
+      "before": "        resolveHostCliCommand(\"doctor\", [\"--base-dir\", \"C:\\\\Users\\\\Jane Doe\\\\.t3\"]).pipe(\n          Effect.provideService(HostProcess.ExecutablePath, \"C:\\\\Program Files\\\\T3 Code\\\\t3.exe\"),\n          Effect.provideService(HostProcess.Arguments, [\n            \"C:\\\\Program Files\\\\T3 Code\\\\t3.exe\",\n            \"C:\\\\Program Files\\\\T3 Code\\\\resources\\\\app.asar\\\\apps\\\\server\\\\dist\\\\bin.mjs\",\n          ]),",
+      "after": "        resolveHostCliCommand(\"doctor\", [\"--base-dir\", \"C:\\\\Users\\\\Jane Doe\\\\.t3\"]).pipe(\n          Effect.provideService(HostProcess.ExecutablePath, \"C:\\\\Program Files\\\\Zen Staff\\\\t3.exe\"),\n          Effect.provideService(HostProcess.Arguments, [\n            \"C:\\\\Program Files\\\\Zen Staff\\\\t3.exe\",\n            \"C:\\\\Program Files\\\\Zen Staff\\\\resources\\\\app.asar\\\\apps\\\\server\\\\dist\\\\bin.mjs\",\n          ]),"
+    },
+    {
+      "before": "      expect((yield* hostCommand(\"win32\", {})).command).toBe(\n        't3 doctor \"--base-dir\" \"C:\\\\Users\\\\Jane Doe\\\\.t3\"',\n      );",
+      "after": "      expect((yield* hostCommand(\"win32\", {})).command).toBe(\n        'zs doctor \"--base-dir\" \"C:\\\\Users\\\\Jane Doe\\\\.t3\"',\n      );"
+    },
+    {
+      "before": "        )).command,\n      ).toBe('t3 doctor \"--base-dir\" \"C:\\\\T3\\\\\\u201C\\u201CArchive\\u201D\\u201D\"');\n      expect((yield* hostCommand(\"linux\", { T3CODE_CLI_PATH: shim })).command).toMatch(",
+      "after": "        )).command,\n      ).toBe('zs doctor \"--base-dir\" \"C:\\\\T3\\\\\\u201C\\u201CArchive\\u201D\\u201D\"');\n      expect((yield* hostCommand(\"linux\", { T3CODE_CLI_PATH: shim })).command).toMatch("
+    },
+    {
+      "before": "      yield* fs.remove(globalBin);\n      yield* fs.writeFileString(globalBin, \"an unrelated t3 command\");\n      expect(yield* resolve).toBeNull();",
+      "after": "      yield* fs.remove(globalBin);\n      yield* fs.writeFileString(globalBin, \"an unrelated zs command\");\n      expect(yield* resolve).toBeNull();"
+    }
+  ],
+  "apps/server/src/cliCompileCache.test.ts": [
+    {
+      "before": "    expect(launcherHelp.stderr).toContain(\"LOADED_CLI_MAIN\");\n    expect(launcherHelp.stdout).toContain(\"t3 __service-launcher [flags]\");\n    const launcherFlags = yield* run({ T3CODE_HOME: \"\" }, [",
+      "after": "    expect(launcherHelp.stderr).toContain(\"LOADED_CLI_MAIN\");\n    expect(launcherHelp.stdout).toContain(\"zs __service-launcher [flags]\");\n    const launcherFlags = yield* run({ T3CODE_HOME: \"\" }, ["
+    }
+  ],
+  "apps/server/src/preview/PreviewBrowser.test.ts": [
+    {
+      "before": "      expect(error._tag).toBe(\"PreviewBrowserInstallError\");\n      expect(error.message).toMatch(/^T3 could not install its headless browser: .+ Try again\\.$/);\n      expect(yield* fs.readDirectory(installRoot)).toEqual([]);",
+      "after": "      expect(error._tag).toBe(\"PreviewBrowserInstallError\");\n      expect(error.message).toMatch(\n        /^Zen Staff could not install its headless browser: .+ Try again\\.$/,\n      );\n      expect(yield* fs.readDirectory(installRoot)).toEqual([]);"
+    }
+  ],
+  "apps/server/src/cloud/servicePreflight.test.ts": [
+    {
+      "before": "  expect(reason).toMatch(new RegExp(`\\\\b${SERVICE_LAUNCHER_PROTOCOL}\\\\b`));\n  expect(reason).toContain(\"curl -fsSL https://t3.codes/install.sh | T3CODE_VERSION=9.8.7 sh\");\n  expect(reason).toContain(\"~/.local/bin/t3 service install\");\n  expect(reason).toContain(\"t3 --version\");\n  expect(reason).toContain(\"which -a t3\");\n});",
+      "after": "  expect(reason).toMatch(new RegExp(`\\\\b${SERVICE_LAUNCHER_PROTOCOL}\\\\b`));\n  expect(reason).toContain(\"install this exact CLI: zs 9.8.7\");\n  expect(reason).not.toContain(\"install.sh\");\n  expect(reason).toContain(\"~/.local/bin/zs service install\");\n  expect(reason).toContain(\"zs --version\");\n  expect(reason).toContain(\"which -a zs\");\n});"
+    }
+  ],
+  "apps/server/src/cli/install.test.ts": [
+    {
+      "before": "\nimport packageJson from \"../../package.json\" with { type: \"json\" };",
+      "after": "\nimport { ZEN_CLI_NAME } from \"@t3tools/contracts/zen\";\n\nimport packageJson from \"../../package.json\" with { type: \"json\" };"
+    },
+    {
+      "before": "    );\n  return { root, npmPackage, runtimeDir, executable, link: path.join(binDir, \"t3\"), provide };\n});\n\nit.layer(NodeServices.layer)(\"t3 install\", (it) => {\n  it.effect(\"links the running runtime, records it, and never replaces another t3\", () =>\n    Effect.gen(function* () {",
+      "after": "    );\n  return {\n    root,\n    npmPackage,\n    runtimeDir,\n    executable,\n    link: path.join(binDir, ZEN_CLI_NAME),\n    provide,\n  };\n});\n\nit.layer(NodeServices.layer)(\"zs install\", (it) => {\n  it.effect(\"links the running runtime, records it, and never replaces another zs\", () =>\n    Effect.gen(function* () {"
+    },
+    {
+      "before": "      yield* fs.makeDirectory(otherBin);\n      yield* fs.writeFileString(path.join(otherBin, \"t3\"), \"\");\n      const shadowed = yield* provide(installCli(), {",
+      "after": "      yield* fs.makeDirectory(otherBin);\n      yield* fs.writeFileString(path.join(otherBin, ZEN_CLI_NAME), \"\");\n      const shadowed = yield* provide(installCli(), {"
+    },
+    {
+      "before": "      assert.isFalse(shadowed.onPath);\n      assert.equal(shadowed.shadowedBy, path.join(otherBin, \"t3\"));\n      assert.isUndefined(shadowed.pathCommand);\n      const recorded = yield* fs.readFileString(path.join(runtimeDir, \"launchers\"));\n      assert.equal(recorded, `\\n${yield* fs.realPath(path.join(root, \"bin\"))}/t3\\n`);\n",
+      "after": "      assert.isFalse(shadowed.onPath);\n      assert.equal(shadowed.shadowedBy, path.join(otherBin, ZEN_CLI_NAME));\n      assert.isUndefined(shadowed.pathCommand);\n      const recorded = yield* fs.readFileString(path.join(runtimeDir, \"launchers\"));\n      assert.equal(recorded, `\\n${yield* fs.realPath(path.join(root, \"bin\"))}/${ZEN_CLI_NAME}\\n`);\n"
+    },
+    {
+      "before": "      const error = yield* provide(installCli()).pipe(Effect.flip);\n      assert.include(error.message, \"Another t3 is already at\");\n      assert.equal(yield* fs.readFileString(link), \"#!/bin/sh\\n\");",
+      "after": "      const error = yield* provide(installCli()).pipe(Effect.flip);\n      assert.include(error.message, \"Another zs is already at\");\n      assert.equal(yield* fs.readFileString(link), \"#!/bin/sh\\n\");"
+    },
+    {
+      "before": "      const sibling = yield* provide(installCli()).pipe(Effect.flip);\n      assert.include(sibling.message, \"Another t3 is already at\");\n      // This home's desktop launcher is replaced, as install.sh does.\n      yield* fs.remove(link);\n      yield* fs.symlink(path.join(root, \".t3/bin/t3\"), link);\n      yield* provide(installCli());",
+      "after": "      const sibling = yield* provide(installCli()).pipe(Effect.flip);\n      assert.include(sibling.message, \"Another zs is already at\");\n      // This home's desktop launcher is replaced, as install.sh does.\n      yield* fs.remove(link);\n      yield* fs.symlink(path.join(root, \".t3/bin\", ZEN_CLI_NAME), link);\n      yield* provide(installCli());"
+    },
+    {
+      "before": "      // Windows writes a t3.cmd: only over its own, and only for paths cmd can run.\n      const shim = path.join(root, \"bin\", \"t3.cmd\");\n      const windows = <A, E, R>(effect: Effect.Effect<A, E, R>) =>",
+      "after": "      // Windows writes a t3.cmd: only over its own, and only for paths cmd can run.\n      const shim = path.join(root, \"bin\", `${ZEN_CLI_NAME}.cmd`);\n      const windows = <A, E, R>(effect: Effect.Effect<A, E, R>) =>"
+    },
+    {
+      "before": "      const desktopShim =\n        '@echo off\\r\\nrem Written by T3 Code\\r\\n\"C:\\\\T3 Code\\\\T3 Code.exe\" \"x\" %*\\r\\n';\n      yield* fs.writeFileString(shim, desktopShim);\n      const foreignShim = yield* windows(installCli()).pipe(Effect.flip);\n      assert.include(foreignShim.message, \"Another t3 is already at\");\n      assert.equal(yield* fs.readFileString(shim), desktopShim);",
+      "after": "      const desktopShim =\n        '@echo off\\r\\nrem Written by Zen Staff\\r\\n\"C:\\\\Zen Staff\\\\Zen Staff.exe\" \"x\" %*\\r\\n';\n      yield* fs.writeFileString(shim, desktopShim);\n      const foreignShim = yield* windows(installCli()).pipe(Effect.flip);\n      assert.include(foreignShim.message, \"Another zs is already at\");\n      assert.equal(yield* fs.readFileString(shim), desktopShim);"
+    },
+    {
+      "before": "\n  it.effect(\"asks npx users without a t3 command once per minor release and installs on yes\", () =>\n    Effect.gen(function* () {",
+      "after": "\n  it.effect(\"asks npx users without a zs command once per minor release and installs on yes\", () =>\n    Effect.gen(function* () {"
+    },
+    {
+      "before": "      yield* fs.makeDirectory(globalBin);\n      yield* fs.writeFileString(path.join(globalBin, \"t3\"), \"\");\n      yield* offer(false, { env: { PATH: globalBin } });",
+      "after": "      yield* fs.makeDirectory(globalBin);\n      yield* fs.writeFileString(path.join(globalBin, ZEN_CLI_NAME), \"\");\n      yield* offer(false, { env: { PATH: globalBin } });"
+    },
+    {
+      "before": "        yield* fs.makeDirectory(bin, { recursive: true });\n        yield* fs.writeFileString(path.join(bin, \"t3\"), \"\");\n      }",
+      "after": "        yield* fs.makeDirectory(bin, { recursive: true });\n        yield* fs.writeFileString(path.join(bin, ZEN_CLI_NAME), \"\");\n      }"
+    }
+  ],
+  "apps/server/src/provider/agentContextBudget.json": [
+    {
+      "before": "{\n  \"claudeSystemAppendBytes\": 5930,\n  \"codexAdditionalContextBytes\": 7324,\n  \"mcpToolListJsonBytes\": 49791\n}",
+      "after": "{\n  \"claudeSystemAppendBytes\": 5964,\n  \"codexAdditionalContextBytes\": 7355,\n  \"mcpToolListJsonBytes\": 49820\n}"
+    }
+  ],
+  "scripts/build-desktop-artifact.test.ts": [
+    {
+      "before": "      assert.isNull(previewChannel.publish);\n      assert.deepStrictEqual(release.publish, [\n        {\n          provider: \"github\",\n          owner: \"pingdotgg\",\n          repo: \"t3code\",\n          releaseType: \"release\",\n        },",
+      "after": "      assert.isNull(previewChannel.publish);\n      // Zen Staff: our generic feed replaces upstream's GitHub one (zen-desktop-packaging.ts).\n      assert.deepStrictEqual(release.publish, [\n        {\n          provider: \"generic\",\n          url: \"https://releases.zed-zen.com/stable/mac\",\n          channel: \"latest\",\n          updaterCacheDirName: \"zenstaff-updater\",\n        },"
+    },
+    {
+      "before": "\n      assert.nestedPropertyVal(linux, \"linux.desktop.entry.StartupWMClass\", \"com.t3tools.T3Code\");\n    }),",
+      "after": "\n      assert.nestedPropertyVal(linux, \"linux.desktop.entry.StartupWMClass\", \"ro.zedzen.ZenStaff\");\n    }),"
+    },
+    {
+      "before": "\n  it.effect(\"names updatable AppImages without a version and apart per channel\", () =>\n    Effect.gen(function* () {",
+      "after": "\n  it.effect(\"names release AppImages Zen-Staff-<version>-<arch>, as our feed expects\", () =>\n    Effect.gen(function* () {"
+    },
+    {
+      "before": "\n      assert.notInclude(stable, \"${version}\");\n      assert.notInclude(nightly, \"${version}\");\n      assert.notEqual(stable, nightly);\n    }).pipe(",
+      "after": "\n      assert.strictEqual(stable, \"Zen-Staff-${version}-${arch}.${ext}\");\n      assert.strictEqual(nightly, \"Zen-Staff-${version}-${arch}.${ext}\");\n    }).pipe("
+    },
+    {
+      "before": "    assert.deepStrictEqual(configuration, {\n      appId: \"com.t3tools.t3code\",\n      teamId: \"ABC1234567\",",
+      "after": "    assert.deepStrictEqual(configuration, {\n      appId: \"ro.zedzen.zenstaff\",\n      teamId: \"ABC1234567\","
+    },
+    {
+      "before": "    ]);\n    assert.include(entitlements, \"<string>ABC1234567.com.t3tools.t3code</string>\");\n    assert.include(entitlements, \"<string>webcredentials:clerk.example.com</string>\");",
+      "after": "    ]);\n    assert.include(entitlements, \"<string>ABC1234567.ro.zedzen.zenstaff</string>\");\n    assert.include(entitlements, \"<string>webcredentials:clerk.example.com</string>\");"
+    }
+  ],
+  "apps/mobile/app.config.test.ts": [
+    {
+      "before": "it.each([\n  [undefined, \"com.t3tools.t3code\"],\n  [\"development\", \"com.t3tools.t3code.dev\"],\n  [\"preview\", \"com.t3tools.t3code.preview\"],\n  [\"production\", \"com.t3tools.t3code\"],\n])(\"keeps the iOS and Android identifiers for APP_VARIANT=%j\", async (value, identifier) => {",
+      "after": "it.each([\n  [undefined, \"ro.zedzen.zenstaff\"],\n  [\"development\", \"ro.zedzen.zenstaff.dev\"],\n  [\"preview\", \"ro.zedzen.zenstaff.preview\"],\n  [\"production\", \"ro.zedzen.zenstaff\"],\n])(\"keeps the iOS and Android identifiers for APP_VARIANT=%j\", async (value, identifier) => {"
+    },
+    {
+      "before": "  expect(config.android?.package).toBe(identifier);\n  // Copied thread links open this app only while app.t3.codes lists it.\n  const host = new URL(DEFAULT_HOSTED_APP_URL).host;\n  expect(config.ios?.associatedDomains).toContain(`applinks:${host}`);\n  expect(appleAppSiteAssociation.applinks.details[0]?.appIDs).toContain(\n    `${config.ios?.appleTeamId}.${identifier}`,\n  );\n  expect(config.android?.intentFilters?.[0]?.data).toEqual([\n    { scheme: \"https\", host, pathPrefix: \"/threads/\" },\n  ]);\n  expect(assetLinks.map((link) => link.target.package_name)).toContain(identifier);\n});",
+      "after": "  expect(config.android?.package).toBe(identifier);\n  // Zen Staff: upstream's app.t3.codes links (and its Apple team in .well-known) never apply;\n  // links exist only when ZEN_MOBILE_LINKS_HOST is set.\n  const host = new URL(DEFAULT_HOSTED_APP_URL).host;\n  expect(config.ios?.associatedDomains ?? []).not.toContain(`applinks:${host}`);\n  expect(JSON.stringify(appleAppSiteAssociation)).not.toContain(identifier);\n  expect(config.android?.intentFilters ?? []).toEqual([]);\n  expect(assetLinks.map((link) => link.target.package_name)).not.toContain(identifier);\n});\n\n// Zen Staff: expo-observe on Android crashes the app at launch without extra.eas.projectId.\nit(\"always sets an EAS project id, the nil UUID when ZEN_EAS_PROJECT_ID is unset\", async () => {\n  vi.stubEnv(\"ZEN_EAS_PROJECT_ID\", \"\");\n  const config = await loadConfig(\"production\");\n  expect(config.extra?.eas?.projectId).toBe(\"00000000-0000-0000-0000-000000000000\");\n  expect(config.updates?.enabled).toBe(false);\n  expect(config.updates?.url).toBeUndefined();\n});"
+    }
+  ],
+  "apps/mobile/src/features/settings/environmentUpdateCheck.test.ts": [
+    {
+      "before": "import { EnvironmentId } from \"@t3tools/contracts\";\nimport { AtomRegistry } from \"effect/reactivity\";\nimport { describe, expect, it, vi } from \"vite-plus/test\";",
+      "after": "import { EnvironmentId } from \"@t3tools/contracts\";\nimport { AsyncResult, AtomRegistry } from \"effect/reactivity\";\nimport { describe, expect, it, vi } from \"vite-plus/test\";"
+    },
+    {
+      "before": "\nfunction stubHangingFetch() {\n  const { promise: called, resolve } = Promise.withResolvers<AbortSignal>();\n  vi.stubGlobal(\"fetch\", (_url: string, init: { signal: AbortSignal }) => {\n    resolve(init.signal);\n    return new Promise((_resolve, reject) => {\n      init.signal.addEventListener(\"abort\", () => reject(init.signal.reason));\n    });\n  });\n  return { called, [Symbol.dispose]: () => vi.unstubAllGlobals() };\n}\n\nfunction makeRegistry() {",
+      "after": "\nfunction makeRegistry() {"
+    },
+    {
+      "before": "describe(\"environmentReleaseCheckAtom\", () => {\n  it(\"aborts the release lookup when the screen stops reading it\", async () => {\n    using fetchStub = stubHangingFetch();\n    const { registry, flush } = makeRegistry();\n    const atom = environmentReleaseCheckAtom(EnvironmentId.make(\"env-unmount\"));\n    const unmount = registry.mount(atom);",
+      "after": "describe(\"environmentReleaseCheckAtom\", () => {\n  // Zen Staff: the lookup in upstream's GitHub releases (pingdotgg/t3code) is off\n  // (ZEN_MOBILE_SERVER_RELEASE_CHECK), so the check never fetches and never times out.\n  it(\"never looks up upstream's releases\", async () => {\n    const fetch = vi.fn();\n    vi.stubGlobal(\"fetch\", fetch);\n    using _globals = { [Symbol.dispose]: () => vi.unstubAllGlobals() };\n    const { registry, flush } = makeRegistry();\n    const atom = environmentReleaseCheckAtom(EnvironmentId.make(\"env-zen\"));\n    const unmount = registry.mount(atom);"
+    },
+    {
+      "before": "    registry.set(atom, async () => \"0.0.40\");\n    const signal = await fetchStub.called;\n    expect(signal.aborted).toBe(false);\n\n    unmount();\n    flush();\n    expect(signal.aborted).toBe(true);\n  });\n\n  it(\"reports a timeout in words after 20 seconds\", async () => {\n    using fetchStub = stubHangingFetch();\n    using _timers = { [Symbol.dispose]: () => vi.useRealTimers() };\n    vi.useFakeTimers();\n    const { registry, flush } = makeRegistry();\n    const atom = environmentReleaseCheckAtom(EnvironmentId.make(\"env-timeout\"));\n    const unmount = registry.mount(atom);\n\n    registry.set(atom, async () => \"0.0.40\");\n    const signal = await fetchStub.called;\n\n    await vi.advanceTimersByTimeAsync(20_000);\n    expect(signal.aborted).toBe(true);\n    expect(releaseCheckError(registry.get(atom))).toBe(\n      \"Checking for updates timed out. Try again.\",\n    );\n    unmount();",
+      "after": "    registry.set(atom, async () => \"0.0.40\");\n    await vi.waitFor(() => expect(AsyncResult.isSuccess(registry.get(atom))).toBe(true));\n    expect(fetch).not.toHaveBeenCalled();\n    expect(releaseCheckError(registry.get(atom))).toBeNull();\n    unmount();"
+    }
+  ]
+}

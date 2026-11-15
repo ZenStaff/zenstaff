@@ -1,0 +1,265 @@
+{
+  "id": "social-reels-kit",
+  "name": "Reels for your business",
+  "description": "3 to 5 vertical reels from your own photos and clips, in your brand colors, with music and ready-to-post captions. For restaurants, shops, salons and services.",
+  "category": "video",
+  "icon": "film",
+  "inputs": [
+    {
+      "id": "business",
+      "label": "Business name and what you do",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde, a family bistro in Brașov"
+    },
+    {
+      "id": "business_type",
+      "label": "Type of business",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Restaurant, café or bakery",
+        "Bar or club",
+        "Shop (store or online)",
+        "Beauty salon or barber",
+        "Fitness, dance or yoga studio",
+        "Services (clinic, workshop, office)",
+        "Other"
+      ]
+    },
+    {
+      "id": "media",
+      "label": "Photos and short clips",
+      "type": "file",
+      "required": true,
+      "help": "A folder inside the chosen folder with 4 to 20 of your own photos (JPG, PNG) or short clips (MP4, MOV) of your products, place and team."
+    },
+    {
+      "id": "offer",
+      "label": "What should the reels say?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "New autumn menu from Monday. Lunch menu 39 lei, 12-16. Homemade bread every morning. Book a table for the weekend."
+    },
+    {
+      "id": "contact",
+      "label": "Where people find you",
+      "type": "text",
+      "required": false,
+      "placeholder": "@casaverde · casaverde.ro · Str. Lungă 12"
+    },
+    {
+      "id": "logo",
+      "label": "Logo",
+      "type": "file",
+      "required": false,
+      "help": "A PNG with a transparent background works best."
+    },
+    {
+      "id": "brand_colors",
+      "label": "Brand colors",
+      "type": "text",
+      "required": false,
+      "placeholder": "#1F4D3A and #F2B544",
+      "help": "One to three colors. Leave empty and the colors are picked from your logo and photos."
+    },
+    {
+      "id": "style",
+      "label": "Look",
+      "type": "select",
+      "required": true,
+      "options": ["Bold and punchy", "Elegant and calm", "Warm and friendly", "Playful"]
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Made for you: upbeat",
+        "Made for you: warm",
+        "Made for you: calm",
+        "My own music file",
+        "No music"
+      ],
+      "help": "The made-for-you music is generated on this computer and is free to use. With your own file, use music you have the right to post."
+    },
+    {
+      "id": "music_file",
+      "label": "Your music file",
+      "type": "file",
+      "required": false,
+      "help": "Only if you chose your own music: an MP3, WAV or M4A inside the chosen folder."
+    },
+    {
+      "id": "voice",
+      "label": "Voice-over",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Professional voice-over (recommended, your own ElevenLabs account)",
+        "Local preview voice (free, for checking only, never for ads)",
+        "No voice-over"
+      ],
+      "help": "The professional voice uses your own ElevenLabs account (connect it once; Zen keeps no key). The local preview is only to check the words and the timing. Any generated voice adds the label \"AI-generated voice\" to the reel; the music drops under the voice by itself."
+    },
+    {
+      "id": "count",
+      "label": "How many reels?",
+      "type": "select",
+      "required": true,
+      "options": ["3", "4", "5"]
+    },
+    {
+      "id": "language",
+      "label": "Language of the texts",
+      "type": "text",
+      "required": false,
+      "placeholder": "Romanian"
+    }
+  ],
+  "output": "3 to 5 vertical MP4 reels (1080x1920) with a cover image each and captions.md, in the reels-kit folder, shown in the chat.",
+  "version": "2.1.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Reels pentru localul tău",
+      "description": "3-5 reels verticale din pozele și clipurile tale, în culorile firmei, cu muzică și texte gata de postat. Pentru restaurante, magazine, saloane și servicii.",
+      "output": "3-5 reels verticale MP4 (1080x1920), fiecare cu o imagine de copertă, plus captions.md, în dosarul reels-kit, afișate în chat.",
+      "inputs": {
+        "business": {
+          "label": "Numele afacerii și ce faci",
+          "placeholder": "Casa Verde, bistro de familie în Brașov"
+        },
+        "business_type": {
+          "label": "Tipul afacerii",
+          "options": [
+            "Restaurant, cafenea sau brutărie",
+            "Bar sau club",
+            "Magazin (fizic sau online)",
+            "Salon de înfrumusețare sau frizerie",
+            "Sală de fitness, dans sau yoga",
+            "Servicii (clinică, atelier, birou)",
+            "Altceva"
+          ]
+        },
+        "media": {
+          "label": "Poze și clipuri scurte",
+          "help": "Un dosar din dosarul ales, cu 4-20 de poze proprii (JPG, PNG) sau clipuri scurte (MP4, MOV) cu produsele, locul și echipa."
+        },
+        "offer": {
+          "label": "Ce să spună clipurile?",
+          "placeholder": "Meniu nou de toamnă de luni. Meniul zilei 39 de lei, între 12 și 16. Pâine făcută în casă în fiecare dimineață. Rezervă o masă pentru weekend."
+        },
+        "contact": {
+          "label": "Unde te găsesc oamenii",
+          "placeholder": "@casaverde · casaverde.ro · Str. Lungă 12"
+        },
+        "logo": {
+          "label": "Logo",
+          "help": "Merge cel mai bine un PNG cu fundal transparent."
+        },
+        "brand_colors": {
+          "label": "Culorile firmei",
+          "placeholder": "#1F4D3A și #F2B544",
+          "help": "Una până la trei culori. Dacă lași gol, culorile se aleg după logo și poze."
+        },
+        "style": {
+          "label": "Stil",
+          "options": ["Puternic, cu energie", "Elegant și calm", "Cald și prietenos", "Jucăuș"]
+        },
+        "music": {
+          "label": "Muzică",
+          "options": [
+            "Făcută pentru tine: cu ritm",
+            "Făcută pentru tine: caldă",
+            "Făcută pentru tine: liniștită",
+            "Fișierul meu cu muzică",
+            "Fără muzică"
+          ],
+          "help": "Muzica făcută pentru tine e generată pe acest calculator și o poți folosi liber. Dacă pui fișierul tău, folosește muzică pe care ai dreptul să o postezi."
+        },
+        "music_file": {
+          "label": "Fișierul tău cu muzică",
+          "help": "Doar dacă ai ales muzica ta: un MP3, WAV sau M4A din dosarul ales."
+        },
+        "voice": {
+          "label": "Voce din off",
+          "options": [
+            "Voce profesională (recomandat)",
+            "Previzualizare locală (gratuit, doar orientativ, niciodată pentru reclame)",
+            "Fără voce"
+          ],
+          "help": "Vocea profesională folosește contul tău ElevenLabs (îl conectezi o dată; Zen nu păstrează nicio cheie). Previzualizarea locală e doar ca să verifici textul și ritmul. Orice voce generată adaugă pe clip eticheta „Voce generată cu AI”; muzica scade singură sub voce."
+        },
+        "count": {
+          "label": "Câte clipuri?",
+          "options": ["3", "4", "5"]
+        },
+        "language": {
+          "label": "Limba textelor",
+          "placeholder": "Română"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      { "id": "remotion", "version": "^4.0.500", "purpose": "renders the reels from the template" },
+      {
+        "id": "ffmpeg",
+        "version": ">=6",
+        "purpose": "prepares the clips and checks the finished reels"
+      },
+      { "id": "open-fonts", "purpose": "fonts with full Romanian letters for the texts" },
+      {
+        "id": "piper-tts",
+        "version": "^1.8",
+        "optional": true,
+        "purpose": "reads a preview of the voice-over on this computer (not for ads)"
+      },
+      { "id": "piper-voice-ro", "optional": true, "purpose": "the Romanian preview voice" },
+      { "id": "piper-voice-en", "optional": true, "purpose": "the English preview voice" }
+    ],
+    "connectors": [
+      {
+        "id": "elevenlabs",
+        "optional": true,
+        "purpose": "the professional voice-over, from your own ElevenLabs account"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 4,
+      "minFreeDiskGb": 1.5,
+      "minCpuCores": 2,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a set of 4 reels",
+      "seconds": 300,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 900
+    },
+    "network": false,
+    "alternatives": [
+      {
+        "id": "three-720p",
+        "kind": "lighter",
+        "label": "Three reels, draft quality",
+        "description": "Three reels at 540x960 (the draft quality). Needs about half the memory and a third of the time.",
+        "hardware": { "minRamGb": 2, "minFreeDiskGb": 0.8, "minCpuCores": 1 },
+        "promptNote": "Make the lighter version: plan exactly 3 reels and deliver the --quality draft renders (540x960) after the review; skip the final render."
+      },
+      {
+        "id": "no-preview-voice",
+        "kind": "lighter",
+        "label": "Without the local preview voice",
+        "description": "Skips the free preview voice (a large download): use your professional voice or no voice-over.",
+        "dropTools": ["piper-tts", "piper-voice-ro", "piper-voice-en"],
+        "promptNote": "The local preview voice is not installed: use --voice elevenlabs, or --voice none and no voiceover texts."
+      }
+    ]
+  }
+}

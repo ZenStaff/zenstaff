@@ -1,0 +1,30 @@
+{
+  "op": 0,
+  "s": 9,
+  "t": "MESSAGE_CREATE",
+  "d": {
+    "type": 0,
+    "tts": false,
+    "timestamp": "2026-11-07T20:12:00.000000+00:00",
+    "pinned": false,
+    "mentions": [],
+    "mention_roles": [],
+    "mention_everyone": false,
+    "id": "1436512390000000002",
+    "flags": 0,
+    "embeds": [],
+    "edited_timestamp": null,
+    "content": "ce mai e de făcut azi?",
+    "components": [],
+    "channel_type": 1,
+    "channel_id": "1260000000000000099",
+    "author": {
+      "username": "alex.m",
+      "id": "1200000000000000042",
+      "global_name": "Alex M",
+      "discriminator": "0",
+      "avatar": null
+    },
+    "attachments": []
+  }
+}

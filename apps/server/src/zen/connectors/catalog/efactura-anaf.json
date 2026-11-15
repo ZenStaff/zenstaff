@@ -1,0 +1,82 @@
+{
+  "id": "efactura-anaf",
+  "name": "e-Factura ANAF (SPV)",
+  "category": "invoicing",
+  "aliases": ["e-factura", "efactura", "e factura", "spv", "anaf", "spatiul privat virtual"],
+  "description": {
+    "en": "e-Factura messages and invoices from ANAF's SPV.",
+    "ro": "Mesajele și facturile e-Factura din SPV-ul ANAF."
+  },
+  "website": "https://www.anaf.ro",
+  "tier": "enterprise",
+  "defaultScope": "company",
+  "tos": {
+    "en": "ANAF's API needs a qualified digital certificate with SPV rights and an app registered at ANAF; there is no AI connector. Use the invoicing app that already syncs SPV, or the exports.",
+    "ro": "API-ul ANAF cere certificat digital calificat cu drepturi SPV și o aplicație înregistrată la ANAF; nu există conector AI. Folosește aplicația de facturare care sincronizează deja SPV sau exporturile."
+  },
+  "api": {
+    "docsUrl": "https://mfinante.gov.ro/ro/web/efactura/informatii-tehnice",
+    "auth": "OAuth 2.0 at logincert.anaf.ro/anaf-oauth2/v1 (authorize, token; token_content_type=jwt) with a qualified certificate; access token 90 days, refresh 365; API at api.anaf.ro/{test,prod}/FCTEL/rest",
+    "verified": {
+      "status": "verified",
+      "note": "2026-11-07: ANAF's PDF 'Oauth_procedura_inregistrare_aplicatii_portal_ANAF' (static.anaf.ro); logincert authorize answers 400 without parameters; api.anaf.ro/prod/FCTEL/rest/listaMesajeFactura answers 401 without a token."
+    }
+  },
+  "paths": [
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In SPV (anaf.ro > Servicii online > SPV), open the e-Factura messages and download each invoice's ZIP.",
+          "Or export from SmartBill / Oblio, which already sync SPV.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În SPV (anaf.ro > Servicii online > SPV), deschide mesajele e-Factura și descarcă arhiva ZIP a fiecărei facturi.",
+          "Sau exportă din SmartBill / Oblio, care sincronizează deja SPV.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://www.anaf.ro"
+    },
+    {
+      "kind": "browser",
+      "tosAllowsBrowser": true,
+      "url": "https://www.anaf.ro/anaf/internet/ANAF/servicii_online/inreg_inrol_pf_pj_spv",
+      "access": {
+        "read": {
+          "en": "The assistant works in SPV in your own logged-in browser while you watch.",
+          "ro": "Asistentul lucrează în SPV în browserul tău, logat cu contul tău, cât timp te uiți."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open SPV in the built-in browser and log in yourself.",
+          "Tell the assistant what to look at. It is slower and you stay in control; it never types your password."
+        ],
+        "ro": [
+          "Deschide SPV în browserul integrat și loghează-te tu.",
+          "Spune asistentului ce să urmărească. E mai lent și rămâi tu la control; nu-ți scrie niciodată parola."
+        ]
+      },
+      "notes": {
+        "en": "You log in with the certificate yourself; the assistant only reads and downloads while you watch.",
+        "ro": "Te loghezi tu cu certificatul; asistentul doar citește și descarcă, cât timp te uiți."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Terms read for personal, supervised use; no automated bulk actions."
+      }
+    }
+  ]
+}

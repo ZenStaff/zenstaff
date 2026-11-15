@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Zen Staff app icon ("Semnătura"): the vermilion Z mark on a navy rounded square. 32 px and
+       smaller render from zen-app-icon-32px.svg / -16px.svg (pixel-hinted), not from this file. -->
+  <title>Zen Staff</title>
+  <rect width="1024" height="1024" rx="228" fill="#121A2B"/>
+  <g transform="translate(149.68 138.7) scale(15.6510)">
+    <path d="M8.5 12.4C17 11.2 28 11.2 37.5 12.2L11 34.6C16.4 34.8 21 35.4 25.6 37L37.8 23" fill="none" stroke="#E2401E" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

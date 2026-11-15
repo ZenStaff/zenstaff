@@ -1,0 +1,30 @@
+{
+  "op": 0,
+  "s": 10,
+  "t": "MESSAGE_CREATE",
+  "d": {
+    "type": 0,
+    "id": "1436512400000000003",
+    "channel_id": "1250000000000000010",
+    "guild_id": "1240000000000000001",
+    "content": "",
+    "mentions": [],
+    "attachments": [],
+    "embeds": [],
+    "components": [],
+    "author": {
+      "username": "ion",
+      "id": "1200000000000000055",
+      "global_name": "Ion",
+      "discriminator": "0",
+      "avatar": null
+    },
+    "timestamp": "2026-11-07T20:13:00.000000+00:00",
+    "edited_timestamp": null,
+    "flags": 0,
+    "mention_everyone": false,
+    "mention_roles": [],
+    "pinned": false,
+    "tts": false
+  }
+}

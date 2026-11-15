@@ -1,0 +1,18 @@
+{
+  "id": "office-shared-vs-personal",
+  "track": "office",
+  "order": 90,
+  "title": {
+    "en": "Shared chats and personal chats",
+    "ro": "Conversații comune și conversații personale"
+  },
+  "summary": {
+    "en": "What goes in a shared chat, what stays personal, and why you cannot send a prompt into a colleague's personal chat.",
+    "ro": "Ce pui într-o conversație comună, ce rămâne personal și de ce nu poți trimite un mesaj în conversația personală a unui coleg."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["collaboration", "privacy", "threads", "team"],
+  "version": "1.0.0",
+  "author": "Zen Staff"
+}

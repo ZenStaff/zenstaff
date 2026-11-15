@@ -1,0 +1,144 @@
+{
+  "id": "press-release",
+  "name": "Press release and media kit",
+  "description": "A newsroom-ready press release in Romanian and English, pitch emails for journalists, a fact sheet, a media kit checklist and a media list template. Nothing is sent.",
+  "category": "pr",
+  "icon": "newspaper",
+  "inputs": [
+    {
+      "id": "news",
+      "label": "What is the news?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "We open our third coffee shop in Brasov on 1 December"
+    },
+    {
+      "id": "organization",
+      "label": "Company or organization",
+      "type": "text",
+      "required": true,
+      "placeholder": "Acme Coffee SRL"
+    },
+    {
+      "id": "quote_person",
+      "label": "Who is quoted?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Ana Pop, founder"
+    },
+    {
+      "id": "key_facts",
+      "label": "Key facts and numbers",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "20 new jobs, 120 seats, opening hours 7-22"
+    },
+    {
+      "id": "contact",
+      "label": "Press contact",
+      "type": "text",
+      "required": true,
+      "placeholder": "Ioana Ilie, press@acme.test, +40 700 000 000"
+    },
+    {
+      "id": "city_date",
+      "label": "City and release date",
+      "type": "text",
+      "required": false,
+      "placeholder": "Brasov, 20 November 2026"
+    },
+    {
+      "id": "source_url",
+      "label": "Link with more details",
+      "type": "url",
+      "required": false
+    },
+    {
+      "id": "versions",
+      "label": "Languages",
+      "type": "select",
+      "required": true,
+      "options": ["Romanian and English", "Only Romanian", "Only English"]
+    },
+    {
+      "id": "audience",
+      "label": "Which media should get it?",
+      "type": "text",
+      "required": false,
+      "placeholder": "business press, local news in Brasov, coffee and hospitality trade magazines"
+    },
+    {
+      "id": "assets",
+      "label": "Folder with logo and photos (optional)",
+      "type": "file",
+      "required": false,
+      "placeholder": "brand/photos",
+      "help": "A folder inside the one you chose. We list what is there and what is missing for the media kit."
+    },
+    {
+      "id": "media_list",
+      "label": "Your media list (optional)",
+      "type": "file",
+      "required": false,
+      "placeholder": "press-contacts.csv",
+      "help": "A CSV or Excel file in the folder you chose. We check it for typos, duplicates and dead email domains, without sending anything."
+    }
+  ],
+  "output": "A press-kit folder: the release in each language (press-release-ro.md, press-release-en.md), pitch emails, a fact sheet, a media kit checklist and media-list.csv with distribution guidance.",
+  "version": "2.0.1",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "Comunicat de presă și kit media",
+      "description": "Un comunicat gata de trimis redacțiilor, în română și engleză, e-mailuri pentru jurnaliști, o fișă cu datele esențiale, lista pentru kitul media și un model de listă de presă. Nu se trimite nimic.",
+      "output": "Un dosar press-kit: comunicatul în fiecare limbă (press-release-ro.md, press-release-en.md), e-mailurile pentru jurnaliști, fișa cu datele esențiale, lista pentru kitul media și media-list.csv, cu sfaturi de trimitere.",
+      "inputs": {
+        "news": {
+          "label": "Care e vestea?",
+          "placeholder": "Pe 1 decembrie deschidem a treia cafenea din Brașov"
+        },
+        "organization": {
+          "label": "Firma sau organizația",
+          "placeholder": "Cafea Bună SRL"
+        },
+        "quote_person": {
+          "label": "Pe cine citezi?",
+          "placeholder": "Ana Popescu, fondatoare"
+        },
+        "key_facts": {
+          "label": "Date și cifre importante",
+          "placeholder": "20 de locuri de muncă noi, 120 de locuri la mese, deschis zilnic 7-22"
+        },
+        "contact": {
+          "label": "Contact pentru presă",
+          "placeholder": "Ioana Ilie, presa@cafeabuna.test, +40 700 000 012"
+        },
+        "city_date": {
+          "label": "Orașul și data comunicatului",
+          "placeholder": "Brașov, 20 noiembrie 2026"
+        },
+        "source_url": {
+          "label": "Link cu mai multe detalii"
+        },
+        "versions": {
+          "label": "Limbile",
+          "options": ["Română și engleză", "Doar română", "Doar engleză"]
+        },
+        "audience": {
+          "label": "Ce publicații ar trebui să-l primească?",
+          "placeholder": "presa de business, presa locală din Brașov, revistele de cafenele și HoReCa"
+        },
+        "assets": {
+          "label": "Dosarul cu logo și poze (opțional)",
+          "placeholder": "brand/poze",
+          "help": "Un dosar din cel ales. Notăm ce există și ce lipsește pentru kitul media."
+        },
+        "media_list": {
+          "label": "Lista ta de presă (opțional)",
+          "placeholder": "contacte-presa.csv",
+          "help": "Un fișier CSV sau Excel din dosarul ales. Îl verificăm de greșeli de scriere, dubluri și domenii de e-mail moarte, fără să trimitem nimic."
+        }
+      }
+    }
+  }
+}

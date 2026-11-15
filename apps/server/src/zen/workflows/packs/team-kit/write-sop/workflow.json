@@ -1,0 +1,93 @@
+{
+  "id": "write-sop",
+  "name": "Write a procedure (SOP)",
+  "description": "Turn \"how we do it\" into a clear standard procedure and a one-page checklist. Describe it, or let the assistant interview you with a few rounds of questions.",
+  "category": "admin",
+  "icon": "clipboard-list",
+  "inputs": [
+    {
+      "id": "process",
+      "label": "Which process",
+      "type": "text",
+      "required": true,
+      "placeholder": "Closing the restaurant at night"
+    },
+    {
+      "id": "mode",
+      "label": "How",
+      "type": "select",
+      "required": true,
+      "options": ["Interview me with questions", "I describe it now"]
+    },
+    {
+      "id": "description",
+      "label": "How it is done today",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Last orders at 22:30, then the kitchen cleans, the bar counts the cash..."
+    },
+    {
+      "id": "who",
+      "label": "Who does it and how often",
+      "type": "text",
+      "required": false,
+      "placeholder": "The shift manager, every night"
+    },
+    {
+      "id": "docs",
+      "label": "Related documents or photos",
+      "type": "file",
+      "required": false
+    }
+  ],
+  "output": "sop/<name>.md (the procedure), sop/<name>-checklist.md (one page) and, when possible, sop/<name>.docx.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Scrie o procedură (SOP)",
+      "description": "Transformă „cum facem noi” într-o procedură clară și o listă de verificat pe o pagină. O descrii tu sau te intervievează asistentul cu câteva runde de întrebări.",
+      "output": "sop/<nume>.md (procedura), sop/<nume>-checklist.md (o pagină) și, când se poate, sop/<nume>.docx.",
+      "inputs": {
+        "process": {
+          "label": "Ce proces",
+          "placeholder": "Închiderea localului seara"
+        },
+        "mode": {
+          "label": "Cum lucrăm",
+          "options": ["Pune-mi tu întrebări", "Îl descriu eu acum"]
+        },
+        "description": {
+          "label": "Cum se face acum",
+          "placeholder": "Ultimele comenzi la 22:30, apoi bucătăria face curat, barul numără banii..."
+        },
+        "who": {
+          "label": "Cine îl face și cât de des",
+          "placeholder": "Șeful de tură, în fiecare seară"
+        },
+        "docs": {
+          "label": "Documente sau poze legate de proces"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "pandoc",
+        "version": "^3",
+        "optional": true,
+        "purpose": "makes a Word copy of the procedure"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "network": false
+  }
+}

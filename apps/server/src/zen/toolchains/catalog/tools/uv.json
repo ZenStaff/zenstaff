@@ -1,0 +1,155 @@
+{
+  "id": "uv",
+  "name": "uv (installs Python)",
+  "nameRo": "uv (instalează Python)",
+  "kind": "binary",
+  "description": "Installs Python and Python packages in a private folder, without touching the computer's own Python.",
+  "homepage": "https://docs.astral.sh/uv/",
+  "license": {
+    "spdx": "MIT OR Apache-2.0",
+    "name": "MIT / Apache 2.0",
+    "url": "https://github.com/astral-sh/uv/blob/main/LICENSE-MIT",
+    "commercialUse": "free",
+    "note": "Free for any use, including business.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv \u00een firme."
+  },
+  "untrustedInput": false,
+  "verify": {
+    "bin": "uv",
+    "args": ["--version"],
+    "expect": "^uv 0\\.13\\.7"
+  },
+  "pathNames": ["uv"],
+  "osv": [
+    {
+      "ecosystem": "PyPI",
+      "name": "uv"
+    }
+  ],
+  "versions": [
+    {
+      "version": "0.13.7",
+      "released": "2026-11-03",
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-unknown-linux-gnu.tar.gz",
+              "sha256": "c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83",
+              "size": 16671812,
+              "archive": "tar.gz",
+              "stripComponents": 1,
+              "files": ["uv"]
+            }
+          ],
+          "bin": {
+            "uv": "uv"
+          },
+          "installedSize": 47185920
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-aarch64-unknown-linux-gnu.tar.gz",
+              "sha256": "71279f8d3c67241e807b9d8db872d1bf541579fb9f08b7d1eb1682196d1e57dc",
+              "size": 15896996,
+              "archive": "tar.gz",
+              "stripComponents": 1,
+              "files": ["uv"]
+            }
+          ],
+          "bin": {
+            "uv": "uv"
+          },
+          "installedSize": 47185920
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-pc-windows-msvc.zip",
+              "sha256": "0cdc5b38fe5a8168ed6a25814f5ba43c21d313dd3187314fccb37b7cec46e021",
+              "size": 15236317,
+              "archive": "zip",
+              "files": ["uv.exe"]
+            }
+          ],
+          "bin": {
+            "uv": "uv.exe"
+          },
+          "installedSize": 47185920
+        },
+        {
+          "os": "windows",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-aarch64-pc-windows-msvc.zip",
+              "sha256": "505d9e65e7692bac3ddf98c66754aa26c5050c409c184af30a881a0a72cc85e3",
+              "size": 15538425,
+              "archive": "zip",
+              "files": ["uv.exe"]
+            }
+          ],
+          "bin": {
+            "uv": "uv.exe"
+          },
+          "installedSize": 47185920
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-x86_64-apple-darwin.tar.gz",
+              "sha256": "20c47e4c1f630b8abaff8c291fa9b9aa300fef92c4fbff95adf198b55287cda7",
+              "size": 17026382,
+              "archive": "tar.gz",
+              "stripComponents": 1,
+              "files": ["uv"]
+            }
+          ],
+          "bin": {
+            "uv": "uv"
+          },
+          "installedSize": 47185920
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/astral-sh/uv/releases/download/0.13.7/uv-aarch64-apple-darwin.tar.gz",
+              "sha256": "81b811b57e4624df7ed3aac148e0359100d9962f3d9dce00aec533dc2e086731",
+              "size": 14347867,
+              "archive": "tar.gz",
+              "stripComponents": 1,
+              "files": ["uv"]
+            }
+          ],
+          "bin": {
+            "uv": "uv"
+          },
+          "installedSize": 47185920
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "social-media-post-set",
+  "name": "Social media post set",
+  "description": "A week of ready-to-post copy for one topic, adapted to each network.",
+  "category": "social",
+  "icon": "megaphone",
+  "inputs": [
+    {
+      "id": "topic",
+      "label": "What is it about?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Our new autumn menu launches on Friday"
+    },
+    {
+      "id": "audience",
+      "label": "Who should it reach?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Young professionals in Cluj"
+    },
+    {
+      "id": "networks",
+      "label": "Networks",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Instagram + Facebook",
+        "LinkedIn",
+        "Instagram + Facebook + LinkedIn",
+        "TikTok + Instagram"
+      ]
+    },
+    {
+      "id": "tone",
+      "label": "Tone",
+      "type": "select",
+      "required": true,
+      "options": ["Friendly", "Professional", "Playful", "Bold"]
+    },
+    {
+      "id": "posts",
+      "label": "How many posts?",
+      "type": "select",
+      "required": true,
+      "options": ["3", "5", "7"]
+    },
+    {
+      "id": "call_to_action",
+      "label": "What should people do?",
+      "type": "text",
+      "required": false,
+      "placeholder": "Book a table at acme.ro/book"
+    },
+    {
+      "id": "language",
+      "label": "Language",
+      "type": "text",
+      "required": false,
+      "placeholder": "English"
+    }
+  ],
+  "output": "A file social-posts.md with every post, hashtags and image ideas.",
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "Postări pentru rețelele sociale",
+      "description": "Texte gata de postat pentru o săptămână, pe un singur subiect, potrivite pentru fiecare rețea.",
+      "output": "Toate postările în social-posts.md, cu hashtaguri și idei de imagini.",
+      "inputs": {
+        "topic": {
+          "label": "Despre ce e vorba?",
+          "placeholder": "Vineri lansăm meniul de toamnă"
+        },
+        "audience": {
+          "label": "Cui te adresezi?",
+          "placeholder": "Tineri care lucrează la birou, în Cluj-Napoca"
+        },
+        "networks": {
+          "label": "Rețelele",
+          "options": [
+            "Instagram + Facebook",
+            "LinkedIn",
+            "Instagram + Facebook + LinkedIn",
+            "TikTok + Instagram"
+          ]
+        },
+        "tone": {
+          "label": "Tonul",
+          "options": ["Prietenos", "Profesionist", "Jucăuș", "Îndrăzneț"]
+        },
+        "posts": {
+          "label": "Câte postări?",
+          "options": ["3", "5", "7"]
+        },
+        "call_to_action": {
+          "label": "Ce vrei să facă oamenii?",
+          "placeholder": "Să rezerve o masă pe cafeabuna.ro/rezervari"
+        },
+        "language": {
+          "label": "Limba",
+          "placeholder": "română"
+        }
+      }
+    }
+  }
+}

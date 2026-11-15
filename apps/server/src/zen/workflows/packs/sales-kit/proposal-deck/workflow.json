@@ -1,0 +1,168 @@
+{
+  "id": "proposal-deck",
+  "name": "Offer and proposal deck",
+  "description": "Your notes and brand kit become an offer presentation that looks designed, not generated: the client's problem, your proposal, proof, timeline, prices and next steps, as a 16:9 PDF, an editable PowerPoint file and every slide as an image, plus speaker notes.",
+  "category": "sales",
+  "icon": "presentation",
+  "inputs": [
+    {
+      "id": "client",
+      "label": "Client",
+      "type": "text",
+      "required": true,
+      "placeholder": "Hotel Carpați"
+    },
+    {
+      "id": "notes",
+      "label": "Your notes (the brief, an email, meeting notes)",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Conference 14-15 May, 180 guests, 4 coffee breaks, 2 lunches, gala dinner. They want speed at breaks and a festive dinner."
+    },
+    {
+      "id": "company",
+      "label": "Your company",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde, events and catering"
+    },
+    {
+      "id": "prices",
+      "label": "Prices and options",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Essential 245 lei/person, Gala 325 lei (recommended), Premium 410 lei. Excl. VAT, 30% advance."
+    },
+    {
+      "id": "proof",
+      "label": "Proof you may show",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Catering since 2016, 400 portions a day, conferences for two hotels in Brașov (they agreed to be named)."
+    },
+    {
+      "id": "brand",
+      "label": "Brand kit (logo, colors, fonts)",
+      "type": "file",
+      "required": false,
+      "help": "A folder with the logo (PNG/SVG; a white version for dark backgrounds helps), or a brandbook PDF. Without it a calm palette is chosen."
+    },
+    {
+      "id": "photos",
+      "label": "Photos",
+      "type": "file",
+      "required": false,
+      "help": "Your own photos only."
+    },
+    {
+      "id": "contact",
+      "label": "Contact and next step",
+      "type": "text",
+      "required": false,
+      "placeholder": "Ana Pop · 0700 000 011 · evenimente@casaverde.test; reply by 30 Nov"
+    },
+    {
+      "id": "look",
+      "label": "Look",
+      "type": "select",
+      "required": true,
+      "options": ["Modern (Barlow)", "Elegant (Playfair Display)", "Strong (Barlow Condensed)"]
+    },
+    {
+      "id": "language",
+      "label": "Language of the deck",
+      "type": "select",
+      "required": true,
+      "options": ["Romanian", "English"]
+    }
+  ],
+  "output": "deck/<name>.pdf (16:9), deck/<name>.pptx (editable in PowerPoint, Keynote or Google Slides, notes included), deck/slides/slide-NN.png, deck/contact-sheet.png, deck/speaker-notes.md and deck/fonts/, shown in the chat.",
+  "version": "1.1.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Prezentare de ofertă",
+      "description": "Notițele și kitul tău de brand devin o prezentare de ofertă care arată lucrată de un designer, nu generată: problema clientului, propunerea, dovezi, calendar, prețuri și pașii următori, ca PDF 16:9, ca fișier PowerPoint editabil și cu fiecare slide ca imagine, plus notițele pentru prezentare.",
+      "output": "deck/<nume>.pdf (16:9), deck/<nume>.pptx (editabil în PowerPoint, Keynote sau Google Slides, cu notițe), deck/slides/slide-NN.png, deck/contact-sheet.png, deck/speaker-notes.md și deck/fonts/, afișate în chat.",
+      "inputs": {
+        "client": {
+          "label": "Clientul",
+          "placeholder": "Hotel Carpați"
+        },
+        "notes": {
+          "label": "Notițele tale (cererea, un e-mail, notițe de la întâlnire)",
+          "placeholder": "Conferință 14-15 mai, 180 de invitați, 4 pauze de cafea, 2 prânzuri, cină de gală. Vor viteză la pauze și o cină festivă."
+        },
+        "company": {
+          "label": "Firma ta",
+          "placeholder": "Casa Verde, evenimente și catering"
+        },
+        "prices": {
+          "label": "Prețuri și variante",
+          "placeholder": "Esențial 245 lei/persoană, Gală 325 lei (recomandat), Premium 410 lei. Fără TVA, avans 30%."
+        },
+        "proof": {
+          "label": "Ce dovezi poți arăta",
+          "placeholder": "Catering din 2016, 400 de porții pe zi, conferințe pentru două hoteluri din Brașov (au fost de acord să fie numite)."
+        },
+        "brand": {
+          "label": "Kitul de brand (logo, culori, fonturi)",
+          "help": "Un dosar cu logo-ul (PNG/SVG; ajută și o variantă albă pentru fundal închis) sau un brandbook PDF. Fără el alegem o paletă sobră."
+        },
+        "photos": {
+          "label": "Poze",
+          "help": "Doar poze ale voastre."
+        },
+        "contact": {
+          "label": "Contact și pasul următor",
+          "placeholder": "Ana Pop · 0700 000 011 · evenimente@casaverde.test; răspuns până pe 30 noiembrie"
+        },
+        "look": {
+          "label": "Stilul",
+          "options": [
+            "Modern (Barlow)",
+            "Elegant (Playfair Display)",
+            "Puternic (Barlow Condensed)"
+          ]
+        },
+        "language": {
+          "label": "Limba prezentării",
+          "options": ["Română", "Engleză"]
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "playwright",
+        "version": "^1.64",
+        "purpose": "lays out the slides and prints the PDF"
+      },
+      {
+        "id": "open-fonts",
+        "purpose": "the fonts of the deck (open licenses)"
+      },
+      {
+        "id": "pptxgenjs",
+        "version": "^4.0.1",
+        "purpose": "writes the editable PowerPoint copy of the deck"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 2,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a 9-slide deck",
+      "seconds": 15,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 300
+    },
+    "network": false
+  }
+}

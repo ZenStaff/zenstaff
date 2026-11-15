@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-14T02:57:01.127Z",
+  "source": "osv.dev+nvd",
+  "tools": {
+    "pptxgenjs": {
+      "blockedVersions": [
+        {
+          "version": "4.0.1",
+          "reason": "Known security problems in image-size@1.2.1: image-size: JXL and HEIF parsers allow denial of service through infinite loops",
+          "advisories": ["GHSA-5p2g-fcmc-qvqq", "GHSA-w3rx-r6r6-pgpr"]
+        }
+      ]
+    },
+    "ffmpeg": {
+      "blockedVersions": [
+        {
+          "version": "6.1.1",
+          "reason": "Known security problems: FFmpeg version n6.1.1 was discovered to contain a heap use-after-free via the av_hwframe_ctx_init function.",
+          "advisories": [
+            "CVE-2024-31578",
+            "CVE-2024-31582",
+            "CVE-2023-49502",
+            "CVE-2023-50008",
+            "CVE-2023-50009",
+            "CVE-2023-50010",
+            "CVE-2024-35366",
+            "CVE-2024-35367",
+            "CVE-2024-35365",
+            "CVE-2026-30997",
+            "CVE-2026-30998",
+            "CVE-2026-30999",
+            "CVE-2026-40962",
+            "CVE-2026-64830",
+            "CVE-2026-64832",
+            "CVE-2026-64833",
+            "CVE-2026-64834",
+            "CVE-2026-64835",
+            "CVE-2026-65703",
+            "CVE-2026-65704",
+            "CVE-2026-65705",
+            "CVE-2026-65706",
+            "CVE-2026-66036",
+            "CVE-2026-66037",
+            "CVE-2026-66038",
+            "CVE-2026-66039",
+            "CVE-2026-66040",
+            "CVE-2026-70628",
+            "CVE-2026-70632",
+            "CVE-2026-30754",
+            "CVE-2026-52296",
+            "CVE-2026-52297",
+            "CVE-2026-96611",
+            "CVE-2026-107695",
+            "CVE-2026-107696"
+          ]
+        }
+      ],
+      "minSafeVersion": "9"
+    }
+  }
+}

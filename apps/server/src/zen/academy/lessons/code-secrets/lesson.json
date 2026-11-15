@@ -1,0 +1,25 @@
+{
+  "id": "code-secrets",
+  "track": "code",
+  "order": 10,
+  "title": { "en": "Secrets in repos and in prompts", "ro": "Secretele din repo și din prompturi" },
+  "summary": {
+    "en": "Where API keys leak (git, logs, agent transcripts), how to catch them before push and what to do in the first hour after a leak.",
+    "ro": "Pe unde scapă cheile API (git, loguri, conversații cu agentul), cum le prinzi înainte de push și ce faci în prima oră după o scurgere."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["secrets", "git", "env", "leaks"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "audit",
+    "command": "security-audit",
+    "args": "Focus on secrets: hardcoded keys, committed .env files, keys in logs and config. This is a small practice project.",
+    "exercise": true,
+    "fallback": {
+      "en": "Audit this project for leaked secrets. Check: committed .env files and whether .gitignore covers them, hardcoded API keys, tokens and passwords in source and config files (Stripe, AWS, database URLs, JWT secrets), secrets printed to logs or console, secrets that would end up in a client bundle, and git history if a repo exists (git log -p for removed keys). For each finding give file:line, the type of secret, severity (critical/high/medium/low) and the fix, including whether the key must be rotated. Do not change any files, only report.",
+      "ro": "Verifică proiectul ăsta de secrete scăpate. Uită-te la: fișiere .env puse în commit și dacă .gitignore le acoperă, chei API, tokenuri și parole scrise direct în cod sau în config (Stripe, AWS, URL-uri de bază de date, secrete JWT), secrete afișate în loguri sau în consolă, secrete care ar ajunge în bundle-ul de client și istoricul git, dacă există repo (git log -p după chei șterse). Pentru fiecare problemă dă fișier:linie, tipul secretului, severitatea (critical/high/medium/low) și remedierea, inclusiv dacă cheia trebuie rotită. Nu modifica niciun fișier, doar raportează."
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "id": "piper-tts",
+  "name": "Text to speech (Piper)",
+  "nameRo": "Citire cu voce (Piper)",
+  "kind": "python",
+  "description": "Reads a text aloud on this computer, as a free PREVIEW voice (not for final videos or ads), without sending it anywhere.",
+  "homepage": "https://github.com/OHF-Voice/piper1-gpl",
+  "license": {
+    "spdx": "GPL-3.0-or-later",
+    "name": "GPL-3.0-or-later",
+    "url": "https://github.com/OHF-Voice/piper1-gpl/blob/main/COPYING",
+    "commercialUse": "free",
+    "note": "Free to use in a business; the audio you make is yours. GPL terms apply only if you hand the program itself to others. Preview quality: use it to check the words and the timing; for a final video or an ad use a professional voice (your own ElevenLabs account).",
+    "noteRo": "Gratuit în firme; sunetul pe care îl faci e al tău. Condițiile GPL se aplică doar dacă dai programul însuși altora. Calitate de previzualizare: bună ca să verifici textul și ritmul; pentru video-ul final sau o reclamă folosește o voce profesională (contul tău ElevenLabs)."
+  },
+  "untrustedInput": false,
+  "verify": {
+    "bin": "piper-python",
+    "args": [
+      "-c",
+      "import importlib.metadata as m, piper; print('piper-tts', m.version('piper-tts'))"
+    ],
+    "expect": "piper-tts 1\\.8\\.0"
+  },
+  "osv": [
+    {
+      "ecosystem": "PyPI",
+      "name": "piper-tts"
+    },
+    {
+      "ecosystem": "PyPI",
+      "name": "onnxruntime"
+    }
+  ],
+  "versions": [
+    {
+      "version": "1.8.0",
+      "released": "2026-09-18",
+      "dependsOn": [
+        {
+          "id": "python",
+          "version": "~3.12"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/piper-tts-1.8.0.txt"
+            }
+          ],
+          "bin": {
+            "piper-python": "venv/bin/python"
+          },
+          "installedSize": 180000000
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/piper-tts-1.8.0.txt"
+            }
+          ],
+          "bin": {
+            "piper-python": "venv/bin/python"
+          },
+          "installedSize": 180000000
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/piper-tts-1.8.0.txt"
+            }
+          ],
+          "bin": {
+            "piper-python": "venv/Scripts/python.exe"
+          },
+          "installedSize": 180000000
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/piper-tts-1.8.0.txt"
+            }
+          ],
+          "bin": {
+            "piper-python": "venv/bin/python"
+          },
+          "installedSize": 180000000
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/piper-tts-1.8.0.txt"
+            }
+          ],
+          "bin": {
+            "piper-python": "venv/bin/python"
+          },
+          "installedSize": 180000000
+        }
+      ]
+    }
+  ]
+}

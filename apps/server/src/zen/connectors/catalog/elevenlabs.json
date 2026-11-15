@@ -1,0 +1,92 @@
+{
+  "id": "elevenlabs",
+  "name": "ElevenLabs",
+  "category": "voice",
+  "aliases": ["elevenlabs", "eleven labs", "11labs"],
+  "description": {
+    "en": "Natural voice-overs and transcriptions.",
+    "ro": "Voci naturale și transcrieri."
+  },
+  "website": "https://elevenlabs.io",
+  "tier": "standard",
+  "tos": {
+    "en": "ElevenLabs' terms apply; audio uses your plan's credits.",
+    "ro": "Se aplică termenii ElevenLabs; audio consumă creditele planului tău."
+  },
+  "api": {
+    "docsUrl": "https://elevenlabs.io/docs/api-reference",
+    "auth": "xi-api-key header",
+    "verified": {
+      "status": "verified",
+      "note": "ElevenLabs API."
+    }
+  },
+  "paths": [
+    {
+      "kind": "local-mcp",
+      "mcp": {
+        "transport": "stdio",
+        "command": "uvx",
+        "args": ["elevenlabs-mcp"],
+        "auth": "env",
+        "envNames": ["ELEVENLABS_API_KEY"]
+      },
+      "access": {
+        "read": {
+          "en": "ElevenLabs' own MCP server on this computer, with your key.",
+          "ro": "Serverul MCP ElevenLabs pe acest calculator, cu cheia ta."
+        },
+        "write": {
+          "en": "Generate audio (spends credits).",
+          "ro": "Generează audio (consumă credite)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Create an API key in ElevenLabs (profile > API keys).",
+          "Run the command shown in a terminal on this computer, with your key in place of <ELEVENLABS_API_KEY>. Zen Staff never asks for the key.",
+          "Or press Ask ZED-ZEN and we set it up with you."
+        ],
+        "ro": [
+          "Creează o cheie API în ElevenLabs (profil > API keys).",
+          "Rulează comanda afișată într-un terminal pe acest calculator, cu cheia ta în locul <ELEVENLABS_API_KEY>. Zen Staff nu-ți cere niciodată cheia.",
+          "Sau apasă Cere ZED-ZEN și o configurăm împreună."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Official elevenlabs-mcp (PyPI, uvx) from ElevenLabs' GitHub; not run here."
+      }
+    },
+    {
+      "kind": "automation",
+      "automation": ["zapier"],
+      "access": {
+        "read": {
+          "en": "Only the ElevenLabs actions you enable in your own Zapier MCP (or Make / n8n scenario).",
+          "ro": "Doar acțiunile ElevenLabs activate de tine în propriul Zapier MCP (sau scenariu Make / n8n)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open zapier.com/mcp (your account) and add the ElevenLabs actions you need; start with search / find actions.",
+          "Connect your Zapier MCP in Zen Staff once (Connections > Zapier).",
+          "Ask the assistant: it calls those actions through your Zapier account."
+        ],
+        "ro": [
+          "Deschide zapier.com/mcp (contul tău) și adaugă acțiunile ElevenLabs de care ai nevoie; începe cu cele de căutare.",
+          "Conectează o dată Zapier MCP în Zen Staff (Conexiuni > Zapier).",
+          "Cere asistentului: apelează acțiunile prin contul tău Zapier."
+        ]
+      },
+      "notes": {
+        "en": "The connection lives in your Zapier / Make account and uses its tasks.",
+        "ro": "Conexiunea stă în contul tău Zapier / Make și consumă task-urile lui."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Whether Zapier / Make list ElevenLabs was not checked; check the app directory."
+      }
+    }
+  ]
+}

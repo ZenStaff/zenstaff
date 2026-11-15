@@ -1,0 +1,172 @@
+{
+  "id": "content-calendar-month",
+  "name": "Content calendar for a month",
+  "description": "A month of social media planned like an agency would: goals, content pillars, a post plan per channel with dates, formats and hooks, a CSV for your scheduler, a shot list, and the posts for week 1 written in full.",
+  "category": "social",
+  "icon": "calendar",
+  "inputs": [
+    {
+      "id": "business",
+      "label": "Business name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "about",
+      "label": "What you do and for whom",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "A family bistro in Brașov: home cooking, a daily lunch menu, a terrace in summer. Office workers at lunch, families at the weekend."
+    },
+    {
+      "id": "month",
+      "label": "Which month",
+      "type": "text",
+      "required": true,
+      "placeholder": "December 2026"
+    },
+    {
+      "id": "channels",
+      "label": "Channels",
+      "type": "text",
+      "required": true,
+      "placeholder": "Instagram, Facebook, TikTok, Google Business Profile"
+    },
+    {
+      "id": "goal",
+      "label": "Main goal this month",
+      "type": "select",
+      "required": true,
+      "options": [
+        "More customers through the door",
+        "More bookings or orders",
+        "Sell a product or an offer",
+        "Become known in the area",
+        "Find new staff"
+      ]
+    },
+    {
+      "id": "cadence",
+      "label": "How often to post",
+      "type": "text",
+      "required": false,
+      "placeholder": "4 a week on Instagram, 3 on Facebook",
+      "help": "Leave it empty and you get a realistic plan for a small team."
+    },
+    {
+      "id": "dates",
+      "label": "Your own dates this month",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "5 Dec: Christmas menu launch. 24-26 Dec closed. 31 Dec: New Year's Eve party, 250 lei/person.",
+      "help": "Launches, events, offers, closed days. Public holidays are added for you."
+    },
+    {
+      "id": "facts",
+      "label": "Facts the posts may use",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Daily menu 39 lei, Mon-Fri 12-16. Delivery through Glovo. Reservations: 0700 000 000.",
+      "help": "Prices, offers, hours, products. Nothing else is invented."
+    },
+    {
+      "id": "voice",
+      "label": "Voice and what to avoid",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Warm, a bit funny, never pushy. No politics."
+    },
+    {
+      "id": "materials",
+      "label": "Materials (photos, past posts, brand guide)",
+      "type": "file",
+      "required": false,
+      "help": "A file or a folder in the folder you chose."
+    }
+  ],
+  "output": "content-calendar/<month>/ with calendar.md, calendar.csv, week-1-posts.md and shot-list.md.",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Calendar de conținut pentru o lună",
+      "description": "O lună de social media planificată ca la o agenție: obiective, piloni de conținut, planul postărilor pe fiecare canal cu date, formate și primele rânduri, un CSV pentru programare, lista de cadre de filmat și postările din prima săptămână scrise integral.",
+      "output": "content-calendar/<luna>/ cu calendar.md, calendar.csv, week-1-posts.md și shot-list.md.",
+      "inputs": {
+        "business": {
+          "label": "Numele afacerii",
+          "placeholder": "Casa Verde"
+        },
+        "about": {
+          "label": "Ce faci și pentru cine",
+          "placeholder": "Bistro de familie în Brașov: mâncare gătită în casă, meniul zilei la prânz, terasă vara. Angajați din birouri la prânz, familii în weekend."
+        },
+        "month": {
+          "label": "Ce lună",
+          "placeholder": "decembrie 2026"
+        },
+        "channels": {
+          "label": "Pe ce canale postezi",
+          "placeholder": "Instagram, Facebook, TikTok, Google Business Profile"
+        },
+        "goal": {
+          "label": "Obiectivul principal al lunii",
+          "options": [
+            "Mai mulți clienți care intră pe ușă",
+            "Mai multe rezervări sau comenzi",
+            "Să vând un produs sau o ofertă",
+            "Să fim cunoscuți în zonă",
+            "Să găsim oameni noi în echipă"
+          ]
+        },
+        "cadence": {
+          "label": "Cât de des postezi",
+          "placeholder": "4 pe săptămână pe Instagram, 3 pe Facebook",
+          "help": "Lasă gol și primești un ritm realist pentru o echipă mică."
+        },
+        "dates": {
+          "label": "Datele voastre din luna asta",
+          "placeholder": "5 dec: lansăm meniul de Crăciun. 24-26 dec închis. 31 dec: petrecere de Revelion, 250 lei de persoană.",
+          "help": "Lansări, evenimente, oferte, zile închise. Sărbătorile legale le adăugăm noi."
+        },
+        "facts": {
+          "label": "Ce pot pomeni postările",
+          "placeholder": "Meniul zilei 39 lei, L-V 12-16. Livrare prin Glovo. Rezervări: 0700 000 000.",
+          "help": "Prețuri, oferte, program, produse. Nimic altceva nu se inventează."
+        },
+        "voice": {
+          "label": "Tonul și ce evităm",
+          "placeholder": "Cald, puțin amuzant, niciodată insistent. Fără politică."
+        },
+        "materials": {
+          "label": "Materiale (poze, postări vechi, ghid de brand)",
+          "help": "Un fișier sau un dosar din dosarul ales."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the workflow's script on this computer"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a month's calendar",
+      "seconds": 5,
+      "referenceCpuCores": 8
+    },
+    "network": false
+  }
+}

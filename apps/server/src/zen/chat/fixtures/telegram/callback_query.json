@@ -1,0 +1,16 @@
+{
+  "update_id": 900005,
+  "callback_query": {
+    "id": "4382bfdwdsb323b2d9",
+    "from": { "id": 7002, "is_bot": false, "first_name": "Ion", "last_name": "Manager" },
+    "message": {
+      "message_id": 77,
+      "from": { "id": 6000, "is_bot": true, "first_name": "Zen Staff", "username": "ZenStaffBot" },
+      "chat": { "id": 7002, "type": "private", "first_name": "Ion" },
+      "date": 1731000300,
+      "text": "Zen wants to do something"
+    },
+    "chat_instance": "-800123",
+    "data": "zenapr:0123456789abcdef:decline"
+  }
+}

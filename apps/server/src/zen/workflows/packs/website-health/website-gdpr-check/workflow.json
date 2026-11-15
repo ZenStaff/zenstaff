@@ -1,0 +1,103 @@
+{
+  "id": "website-gdpr-check",
+  "name": "Are we OK with GDPR?",
+  "description": "An outside look at your website's cookies, trackers, cookie banner, privacy policy, forms and company details, against the GDPR and the local rules. A plain report with the 3 things to fix first. Practical guidance, not legal advice.",
+  "category": "reports",
+  "icon": "cookie",
+  "inputs": [
+    {
+      "id": "site_url",
+      "label": "Website address",
+      "type": "url",
+      "required": true,
+      "placeholder": "https://www.example.com"
+    },
+    {
+      "id": "ownership",
+      "label": "Is this website yours?",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Yes, it is our own website",
+        "We look after it for a client who agreed in writing",
+        "No, or I am not sure"
+      ],
+      "help": "We only check websites you own or may check. The checks are light and harmless, like a visitor's browser."
+    },
+    {
+      "id": "site_kind",
+      "label": "What does the website do?",
+      "type": "select",
+      "required": false,
+      "options": ["Online shop", "Bookings, orders or contact forms", "Only presents the business"]
+    },
+    {
+      "id": "country",
+      "label": "Where is the business?",
+      "type": "select",
+      "required": false,
+      "options": ["Romania", "Another EU country", "Outside the EU, with customers in the EU"]
+    },
+    {
+      "id": "code_folder",
+      "label": "Folder with the website's files (optional)",
+      "type": "text",
+      "required": false,
+      "placeholder": "site",
+      "help": "A folder inside the one you chose. Leave it empty if someone else builds your site."
+    },
+    {
+      "id": "notes",
+      "label": "Anything we should know",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "We use Google Analytics and a Facebook pixel; the newsletter is on Mailchimp."
+    }
+  ],
+  "output": "A plain-language report in website-checks/gdpr-<date>.md: the 3 problems that matter, what each means for the business, what to do and who does it, plus a technical appendix.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Suntem în regulă cu GDPR?",
+      "description": "O privire din afară asupra cookie-urilor, trackerelor, bannerului de cookie-uri, politicii de confidențialitate, formularelor și datelor firmei de pe site, după GDPR și regulile din țară. Un raport pe înțeles, cu primele 3 lucruri de reparat. Îndrumare practică, nu consultanță juridică.",
+      "output": "Un raport pe înțeles în website-checks/gdpr-<data>.md: cele 3 probleme care contează, ce înseamnă pentru afacere, ce e de făcut și cine face, plus anexa tehnică.",
+      "inputs": {
+        "site_url": {
+          "label": "Adresa site-ului",
+          "placeholder": "https://www.exemplu.ro"
+        },
+        "ownership": {
+          "label": "Site-ul este al vostru?",
+          "options": [
+            "Da, este site-ul nostru",
+            "Îl administrăm pentru un client care și-a dat acordul în scris",
+            "Nu sau nu sunt sigur"
+          ],
+          "help": "Verificăm doar site-uri care sunt ale tale sau pe care ai voie să le verifici. Verificările sunt ușoare și inofensive, ca ale unui browser obișnuit."
+        },
+        "site_kind": {
+          "label": "Ce face site-ul?",
+          "options": [
+            "Magazin online",
+            "Rezervări, comenzi sau formulare de contact",
+            "Doar prezintă afacerea"
+          ]
+        },
+        "country": {
+          "label": "Unde este firma?",
+          "options": ["România", "Altă țară din UE", "În afara UE, cu clienți din UE"]
+        },
+        "code_folder": {
+          "label": "Dosarul cu fișierele site-ului (opțional)",
+          "placeholder": "site",
+          "help": "Un dosar din cel ales. Lasă gol dacă altcineva se ocupă de site."
+        },
+        "notes": {
+          "label": "Ceva ce ar trebui să știm",
+          "placeholder": "Folosim Google Analytics și pixelul Facebook; newsletterul e pe Mailchimp."
+        }
+      }
+    }
+  }
+}

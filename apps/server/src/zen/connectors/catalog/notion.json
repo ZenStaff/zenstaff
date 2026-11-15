@@ -1,0 +1,152 @@
+{
+  "id": "notion",
+  "name": "Notion",
+  "category": "notes",
+  "aliases": ["notion"],
+  "description": {
+    "en": "Pages and databases in Notion.",
+    "ro": "Pagini și baze de date din Notion."
+  },
+  "website": "https://www.notion.so",
+  "tier": "standard",
+  "mcpHosts": ["mcp.notion.com"],
+  "tos": {
+    "en": "Notion's terms apply; you pick the pages at sign-in.",
+    "ro": "Se aplică termenii Notion; alegi paginile la autentificare."
+  },
+  "api": {
+    "docsUrl": "https://developers.notion.com/reference/intro",
+    "auth": "Internal integration token or OAuth",
+    "verified": {
+      "status": "verified",
+      "note": "Notion API v1."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Notion",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Notion and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Notion și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://mcp.notion.com/mcp"
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Notion",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Notion, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Notion, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Search and read the pages you allow.",
+          "ro": "Caută și citește paginile permise."
+        },
+        "write": {
+          "en": "Edit pages (the assistant asks first).",
+          "ro": "Editează pagini (asistentul întreabă întâi)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Notion in claude.ai's directory; not connected on this account."
+      }
+    },
+    {
+      "kind": "local-mcp",
+      "mcp": {
+        "transport": "http",
+        "url": "https://mcp.notion.com/mcp",
+        "auth": "oauth"
+      },
+      "access": {
+        "read": {
+          "en": "Search and read the pages you allow at sign-in.",
+          "ro": "Caută și citește paginile permise la autentificare."
+        },
+        "write": {
+          "en": "Notion's MCP can also edit; the assistant asks first.",
+          "ro": "MCP-ul Notion poate și edita; asistentul întreabă întâi."
+        }
+      },
+      "setup": {
+        "en": [
+          "Press Connect: Zen Staff runs Claude Code's own `claude mcp add` on this computer.",
+          "A sign-in link appears: open it here, scan it with your phone, or send it to your e-mail.",
+          "Sign in and allow access. Claude Code keeps the sign-in; Zen Staff never sees it.",
+          "If the page after sign-in does not load (you signed in on another device), copy its address and paste it in the card."
+        ],
+        "ro": [
+          "Apasă Conectează: Zen Staff rulează comanda oficială Claude Code `claude mcp add` pe acest calculator.",
+          "Apare un link de autentificare: deschide-l aici, scanează-l cu telefonul sau trimite-l pe e-mail.",
+          "Intră în cont și permite accesul. Claude Code păstrează autentificarea; Zen Staff nu o vede niciodată.",
+          "Dacă pagina de după autentificare nu se încarcă (ai intrat de pe alt dispozitiv), copiază adresa ei și lipește-o în card."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: mcp.notion.com/mcp returns 401 + metadata; registration endpoint and client metadata documents supported (Claude Code's sign-in works)."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Notion: ... on the page > Export > Markdown & CSV.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Notion: ... pe pagină > Export > Markdown & CSV.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    }
+  ]
+}

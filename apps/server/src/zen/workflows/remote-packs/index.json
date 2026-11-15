@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "client-radar",
+      "name": "Client radar",
+      "description": "Businesses that could buy what you sell, from public business sources (registers, OpenStreetMap, their own sites). Each lead has a short dossier with a source for every field and an A/B/C score with reasons. Excel, CSV and a small dashboard that opens from the folder; checked against your existing list.",
+      "category": "sales",
+      "icon": "target",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "remote-packs/client-radar",
+      "tags": ["remote", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Radar de clienți",
+          "description": "Firme care ar putea cumpăra ce vinzi, din surse publice de business (registre, OpenStreetMap, site-urile lor). Fiecare lead are un dosar scurt cu sursa fiecărui câmp și un scor A/B/C cu motive. Excel, CSV și un mic panou care se deschide din folder; verificat cu lista ta existentă."
+        }
+      }
+    },
+    {
+      "id": "outreach-approved",
+      "name": "Outreach with approval",
+      "description": "A personal first e-mail and one or two follow-ups per business, from its dossier, in your company's voice. Nothing goes out until you say “Approve”: at most 20 a day, an unsubscribe line, your opt-outs respected, replies summed up. From your own Gmail or Outlook, or as drafts and .eml files. E-mail only.",
+      "category": "sales",
+      "icon": "send",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "remote-packs/outreach-approved",
+      "tags": ["remote", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Outreach cu aprobare",
+          "description": "Un prim e-mail personal și una-două reveniri pentru fiecare firmă, din dosarul ei, cu vocea firmei tale. Nimic nu pleacă până nu scrii „Aprobă”: cel mult 20 pe zi, rândul de dezabonare, refuzurile respectate, răspunsurile adunate. Din Gmail sau Outlook-ul tău, ori ca ciorne și fișiere .eml. Doar e-mail."
+        }
+      }
+    },
+    {
+      "id": "competitor-radar",
+      "name": "Competitor and price radar",
+      "description": "A weekly report on your competitors from their public pages: prices, new features and promotions, how they present themselves. A table with a source link for every number, “not published” where a price is not public, nothing invented; what changed since last week, 3 observations for you and a “to decide” section. Can repeat itself every week.",
+      "category": "reports",
+      "icon": "scan-eye",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "remote-packs/competitor-radar",
+      "tags": ["remote", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Radar concurență și prețuri",
+          "description": "Un raport săptămânal despre concurenții tăi, din paginile lor publice: prețuri, funcții noi și promoții, cum se prezintă. Un tabel cu link la sursă pentru fiecare cifră, „nepublicat” unde prețul nu e public, nimic inventat; ce s-a schimbat față de săptămâna trecută, 3 observații pentru tine și o secțiune „De decis”. Se poate repeta singur în fiecare săptămână."
+        }
+      }
+    }
+  ]
+}

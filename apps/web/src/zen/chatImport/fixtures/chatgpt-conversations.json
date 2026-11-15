@@ -1,0 +1,193 @@
+[
+  {
+    "title": "Plan de marketing pentru brutărie",
+    "create_time": 1709287200.12,
+    "update_time": 1709290800.5,
+    "mapping": {
+      "root": { "id": "root", "message": null, "parent": null, "children": ["sys"] },
+      "sys": {
+        "id": "sys",
+        "message": {
+          "id": "sys",
+          "author": { "role": "system", "name": null, "metadata": {} },
+          "create_time": null,
+          "content": { "content_type": "text", "parts": [""] },
+          "status": "finished_successfully",
+          "metadata": { "is_visually_hidden_from_conversation": true },
+          "recipient": "all"
+        },
+        "parent": "root",
+        "children": ["ctx"]
+      },
+      "ctx": {
+        "id": "ctx",
+        "message": {
+          "id": "ctx",
+          "author": { "role": "user" },
+          "content": {
+            "content_type": "user_editable_context",
+            "user_profile": "Lucrez la o brutărie demo.",
+            "user_instructions": ""
+          },
+          "metadata": { "is_visually_hidden_from_conversation": true },
+          "recipient": "all"
+        },
+        "parent": "sys",
+        "children": ["u1"]
+      },
+      "u1": {
+        "id": "u1",
+        "message": {
+          "id": "u1",
+          "author": { "role": "user", "name": null, "metadata": {} },
+          "create_time": 1709287200.12,
+          "content": {
+            "content_type": "text",
+            "parts": ["Fă-mi un plan de marketing pe 4 săptămâni pentru Brutăria Exemplu."]
+          },
+          "metadata": {},
+          "recipient": "all"
+        },
+        "parent": "ctx",
+        "children": ["a1-old", "a1"]
+      },
+      "a1-old": {
+        "id": "a1-old",
+        "message": {
+          "id": "a1-old",
+          "author": { "role": "assistant" },
+          "create_time": 1709287210,
+          "content": { "content_type": "text", "parts": ["Varianta respinsă (regenerată)."] },
+          "metadata": { "model_slug": "gpt-4" },
+          "recipient": "all"
+        },
+        "parent": "u1",
+        "children": []
+      },
+      "a1": {
+        "id": "a1",
+        "message": {
+          "id": "a1",
+          "author": { "role": "assistant" },
+          "create_time": 1709287260,
+          "content": {
+            "content_type": "code",
+            "language": "python",
+            "text": "buget = 2000\nprint(buget / 4)"
+          },
+          "metadata": { "model_slug": "gpt-4o" },
+          "recipient": "python"
+        },
+        "parent": "u1",
+        "children": ["t1"]
+      },
+      "t1": {
+        "id": "t1",
+        "message": {
+          "id": "t1",
+          "author": { "role": "tool", "name": "python" },
+          "create_time": 1709287265,
+          "content": { "content_type": "execution_output", "text": "500.0" },
+          "metadata": {},
+          "recipient": "all"
+        },
+        "parent": "a1",
+        "children": ["th"]
+      },
+      "th": {
+        "id": "th",
+        "message": {
+          "id": "th",
+          "author": { "role": "assistant" },
+          "create_time": 1709287266,
+          "content": {
+            "content_type": "thoughts",
+            "thoughts": [{ "summary": "Plan", "content": "private" }]
+          },
+          "metadata": {},
+          "recipient": "all"
+        },
+        "parent": "t1",
+        "children": ["a2"]
+      },
+      "a2": {
+        "id": "a2",
+        "message": {
+          "id": "a2",
+          "author": { "role": "assistant" },
+          "create_time": 1709287270,
+          "content": {
+            "content_type": "text",
+            "parts": ["Săptămâna 1: pâinea zilei pe Instagram. Buget: 500 lei pe săptămână."]
+          },
+          "metadata": { "model_slug": "gpt-4o" },
+          "recipient": "all"
+        },
+        "parent": "th",
+        "children": ["u2"]
+      },
+      "u2": {
+        "id": "u2",
+        "message": {
+          "id": "u2",
+          "author": { "role": "user" },
+          "create_time": 1709290800,
+          "content": {
+            "content_type": "multimodal_text",
+            "parts": [
+              {
+                "content_type": "image_asset_pointer",
+                "asset_pointer": "file-service://file-demo",
+                "width": 10,
+                "height": 10
+              },
+              "Ce zici de afișul ăsta?"
+            ]
+          },
+          "metadata": {},
+          "recipient": "all"
+        },
+        "parent": "a2",
+        "children": []
+      }
+    },
+    "moderation_results": [],
+    "current_node": "u2",
+    "conversation_id": "6f1c0000-0000-4000-8000-000000000001",
+    "default_model_slug": "gpt-4o",
+    "is_archived": false
+  },
+  {
+    "title": "Old export without current_node",
+    "create_time": 1680000000,
+    "update_time": 1680000100,
+    "id": "legacy-0002",
+    "mapping": {
+      "aaa": { "id": "aaa", "message": null, "parent": null, "children": ["bbb"] },
+      "bbb": {
+        "id": "bbb",
+        "message": {
+          "id": "bbb",
+          "author": { "role": "user" },
+          "create_time": 1680000000,
+          "content": { "content_type": "text", "parts": ["Translate 'good morning' to Romanian"] }
+        },
+        "parent": "aaa",
+        "children": ["ccc"]
+      },
+      "ccc": {
+        "id": "ccc",
+        "message": {
+          "id": "ccc",
+          "author": { "role": "assistant" },
+          "create_time": 1680000005,
+          "content": { "content_type": "text", "parts": ["Bună dimineața"] }
+        },
+        "parent": "bbb",
+        "children": []
+      }
+    }
+  },
+  { "title": "Broken entry without mapping" },
+  "not even an object"
+]

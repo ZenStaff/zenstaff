@@ -1,0 +1,97 @@
+{
+  "id": "email-deliverability-check",
+  "name": "Do our emails land in spam?",
+  "description": "Checks the public settings that decide whether your emails reach the inbox (SPF, DKIM, DMARC) and reads a sample email's headers if you paste them. A plain report with the 3 fixes that matter most, plus the exact records to add.",
+  "category": "reports",
+  "icon": "mail-warning",
+  "inputs": [
+    {
+      "id": "site_url",
+      "label": "Website address",
+      "type": "url",
+      "required": true,
+      "placeholder": "https://www.example.com"
+    },
+    {
+      "id": "ownership",
+      "label": "Is this website yours?",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Yes, it is our own website",
+        "We look after it for a client who agreed in writing",
+        "No, or I am not sure"
+      ],
+      "help": "We only check websites you own or may check. The checks are light and harmless, like a visitor's browser."
+    },
+    {
+      "id": "email_domain",
+      "label": "Email domain, if different from the website",
+      "type": "text",
+      "required": false,
+      "placeholder": "example.com"
+    },
+    {
+      "id": "senders",
+      "label": "Which services send your emails?",
+      "type": "text",
+      "required": false,
+      "placeholder": "Google Workspace, Mailchimp for the newsletter, the website's contact form"
+    },
+    {
+      "id": "volume",
+      "label": "Roughly how many emails a day?",
+      "type": "select",
+      "required": false,
+      "options": ["Under 100", "100 to 5,000", "Over 5,000"]
+    },
+    {
+      "id": "headers",
+      "label": "Headers of an email you sent (optional)",
+      "type": "longtext",
+      "required": false,
+      "help": "In Gmail, open an email you sent to a Gmail address, choose More > Show original and paste everything above the message text. This shows what receivers really saw."
+    }
+  ],
+  "output": "A plain-language report in website-checks/email-<date>.md: the 3 problems that matter, what each means for the business, what to do and who does it, plus a technical appendix.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Ajung mailurile noastre în spam?",
+      "description": "Verifică setările publice de care depinde dacă mailurile voastre ajung în inbox (SPF, DKIM, DMARC) și citește antetul unui mail trimis, dacă îl lipești. Un raport pe înțeles, cu cele 3 reparații care contează cel mai mult, plus înregistrările exacte de adăugat.",
+      "output": "Un raport pe înțeles în website-checks/email-<data>.md: cele 3 probleme care contează, ce înseamnă pentru afacere, ce e de făcut și cine face, plus anexa tehnică.",
+      "inputs": {
+        "site_url": {
+          "label": "Adresa site-ului",
+          "placeholder": "https://www.exemplu.ro"
+        },
+        "ownership": {
+          "label": "Site-ul este al vostru?",
+          "options": [
+            "Da, este site-ul nostru",
+            "Îl administrăm pentru un client care și-a dat acordul în scris",
+            "Nu sau nu sunt sigur"
+          ],
+          "help": "Verificăm doar site-uri care sunt ale tale sau pe care ai voie să le verifici. Verificările sunt ușoare și inofensive, ca ale unui browser obișnuit."
+        },
+        "email_domain": {
+          "label": "Domeniul de e-mail, dacă diferă de site",
+          "placeholder": "exemplu.ro"
+        },
+        "senders": {
+          "label": "Ce servicii vă trimit mailurile?",
+          "placeholder": "Google Workspace, Mailchimp pentru newsletter, formularul de contact de pe site"
+        },
+        "volume": {
+          "label": "Cam câte mailuri pe zi?",
+          "options": ["Sub 100", "Între 100 și 5.000", "Peste 5.000"]
+        },
+        "headers": {
+          "label": "Antetul unui mail trimis de voi (opțional)",
+          "help": "În Gmail, deschide un mail trimis de voi către o adresă Gmail, alege Mai multe > Afișează originalul și lipește tot ce e deasupra textului mesajului. Așa se vede ce au primit de fapt destinatarii."
+        }
+      }
+    }
+  }
+}

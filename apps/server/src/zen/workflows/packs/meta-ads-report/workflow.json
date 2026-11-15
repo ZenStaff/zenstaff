@@ -1,0 +1,45 @@
+{
+  "id": "meta-ads-report",
+  "name": "Meta ads weekly report",
+  "description": "Reads last week's Facebook and Instagram ad results from the company ad account and writes a one-page report with what to change.",
+  "category": "reports",
+  "icon": "file-chart-column",
+  "inputs": [
+    {
+      "id": "ad_account",
+      "label": "Ad account ID",
+      "type": "text",
+      "required": true,
+      "placeholder": "act_1234567890"
+    },
+    {
+      "id": "focus",
+      "label": "What matters most this week?",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Cost per lead for the Cluj campaign"
+    }
+  ],
+  "output": "meta-ads-report.md with the numbers, what worked and what to change.",
+  "version": "0.9.0",
+  "author": "ZED-ZEN",
+  "requires": {
+    "tools": [{ "id": "node", "version": "^24", "purpose": "reads the ad results" }],
+    "runsBest": "server",
+    "network": false
+  },
+  "access": {
+    "tier": "enterprise",
+    "stability": "beta",
+    "secrets": [
+      {
+        "id": "meta_ads",
+        "label": "Meta Marketing API token",
+        "provider": "meta",
+        "scopes": ["ads_read", "read_insights"],
+        "readOnly": true,
+        "apiHosts": ["graph.facebook.com"]
+      }
+    ]
+  }
+}

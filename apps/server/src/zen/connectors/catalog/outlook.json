@@ -1,0 +1,114 @@
+{
+  "id": "outlook",
+  "name": "Outlook / Microsoft 365",
+  "category": "email",
+  "aliases": ["outlook", "microsoft 365", "office 365", "m365", "hotmail", "exchange"],
+  "description": {
+    "en": "Outlook mail and calendar in Microsoft 365.",
+    "ro": "E-mailul și calendarul Outlook din Microsoft 365."
+  },
+  "website": "https://outlook.office.com",
+  "tier": "standard",
+  "tos": {
+    "en": "Microsoft's terms apply; work accounts may need an admin to allow the connector.",
+    "ro": "Se aplică termenii Microsoft; conturile de firmă pot cere acordul unui admin."
+  },
+  "api": {
+    "docsUrl": "https://learn.microsoft.com/graph/api/resources/mail-api-overview",
+    "auth": "OAuth 2.0 (Microsoft identity, Graph)",
+    "verified": {
+      "status": "verified",
+      "note": "Microsoft Graph v1.0; documented by Microsoft."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Microsoft 365",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Microsoft 365 and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Microsoft 365 și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          }
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Outlook",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Outlook, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Outlook, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Read and search mail, calendar and files your account can open.",
+          "ro": "Citește și caută e-mail, calendar și fișierele la care ai acces."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Microsoft 365 connector for Claude Team/Enterprise from Anthropic's announcements; not visible on this account."
+      },
+      "notes": {
+        "en": "On Claude, the Microsoft 365 connector is for Team and Enterprise plans; an owner enables it.",
+        "ro": "Pe Claude, conectorul Microsoft 365 e pentru planurile Team și Enterprise; îl activează un proprietar."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Outlook (desktop): File > Open & Export > Import/Export > Export to a file > Comma Separated Values, choose the folder.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Outlook (desktop): Fișier > Deschidere și export > Import/Export > Export într-un fișier > Valori separate prin virgulă, alege folderul.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    }
+  ]
+}

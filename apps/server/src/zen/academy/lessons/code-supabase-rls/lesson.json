@@ -1,0 +1,28 @@
+{
+  "id": "code-supabase-rls",
+  "track": "code",
+  "order": 50,
+  "title": {
+    "en": "Supabase RLS mistakes agents make",
+    "ro": "Greșeli de RLS în Supabase pe care le fac agenții"
+  },
+  "summary": {
+    "en": "RLS off, using (true), missing WITH CHECK, self-promoting role columns, SECURITY DEFINER and views that skip RLS, and how to test as anon.",
+    "ro": "RLS oprit, using (true), WITH CHECK lipsă, coloane de rol pe care userul și le schimbă singur, SECURITY DEFINER și view-uri care ocolesc RLS."
+  },
+  "minutes": 5,
+  "level": "intermediate",
+  "tags": ["supabase", "postgres", "rls", "authorization"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "audit",
+    "command": "rls-audit",
+    "args": "Static review of the SQL migrations in this practice project only; there is no live database, do not connect to any Supabase project.",
+    "exercise": true,
+    "fallback": {
+      "en": "Do a static review of the SQL migrations and client code in this project. There is no live database: do not connect to any Supabase project or run SQL. Check: tables without row level security enabled, permissive policies (using (true), policies for the wrong role), tables with only a SELECT policy or with INSERT/UPDATE policies missing WITH CHECK, columns a user can update to raise their own privileges (role, is_admin, tenant_id), SECURITY DEFINER functions without a fixed search_path or without an auth.uid() check, views that bypass RLS (missing security_invoker), public storage buckets, and the service_role key used in client-side code. For each finding give file:line, severity (critical/high/medium/low), how it can be abused, and a ready SQL fix. Do not change any files, only report.",
+      "ro": "Fă o verificare statică a migrărilor SQL și a codului de client din proiectul ăsta. Nu există bază de date live: nu te conecta la niciun proiect Supabase și nu rula SQL. Uită-te la: tabele fără row level security, politici prea permisive (using (true), politici pentru rolul greșit), tabele doar cu politică de SELECT sau cu politici de INSERT/UPDATE fără WITH CHECK, coloane pe care un user le poate modifica ca să-și ridice singur drepturile (role, is_admin, tenant_id), funcții SECURITY DEFINER fără search_path fix sau fără verificare de auth.uid(), view-uri care ocolesc RLS (fără security_invoker), bucket-uri de storage publice și cheia service_role folosită în codul de client. Pentru fiecare problemă dă fișier:linie, severitatea (critical/high/medium/low), cum poate fi abuzată și un fix SQL gata de folosit. Nu modifica niciun fișier, doar raportează."
+    }
+  }
+}

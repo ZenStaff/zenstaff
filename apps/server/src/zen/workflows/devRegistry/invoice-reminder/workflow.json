@@ -1,0 +1,76 @@
+{
+  "id": "invoice-reminder",
+  "name": "Unpaid invoice reminder",
+  "description": "A polite but firm reminder for an overdue invoice, with a second, firmer follow-up.",
+  "category": "admin",
+  "icon": "receipt",
+  "inputs": [
+    {
+      "id": "client",
+      "label": "Client and contact person",
+      "type": "text",
+      "required": true,
+      "placeholder": "Hotel Central, Mihai Ionescu (accounting)"
+    },
+    {
+      "id": "invoice",
+      "label": "Invoice number, amount and due date",
+      "type": "text",
+      "required": true,
+      "placeholder": "Invoice 2026-118, 4,200 lei, due 15 October"
+    },
+    {
+      "id": "days_late",
+      "label": "How late is the payment?",
+      "type": "select",
+      "required": true,
+      "options": ["Up to 2 weeks", "2 to 4 weeks", "More than a month"]
+    },
+    {
+      "id": "context",
+      "label": "Anything we should know",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Good client for 3 years; they paid late once before"
+    },
+    {
+      "id": "payment_details",
+      "label": "How they can pay",
+      "type": "text",
+      "required": false,
+      "placeholder": "Bank transfer to the account on the invoice"
+    }
+  ],
+  "output": "invoice-reminder.md with the reminder and a firmer follow-up.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Reamintire pentru o factură neplătită",
+      "description": "Un mesaj politicos, dar ferm, pentru o factură cu termenul depășit, plus o revenire mai fermă.",
+      "output": "Reamintirea și revenirea mai fermă, în invoice-reminder.md.",
+      "inputs": {
+        "client": {
+          "label": "Clientul și persoana de contact",
+          "placeholder": "Hotel Central, Mihai Ionescu (contabilitate)"
+        },
+        "invoice": {
+          "label": "Numărul facturii, suma și scadența",
+          "placeholder": "Factura 2026-118, 4.200 lei, scadentă pe 15 octombrie"
+        },
+        "days_late": {
+          "label": "Cu cât a întârziat plata?",
+          "options": ["Până la 2 săptămâni", "Între 2 și 4 săptămâni", "Mai mult de o lună"]
+        },
+        "context": {
+          "label": "Ce ar trebui să știm",
+          "placeholder": "Client bun de 3 ani; a mai plătit o dată cu întârziere"
+        },
+        "payment_details": {
+          "label": "Cum poate plăti",
+          "placeholder": "Transfer bancar în contul de pe factură"
+        }
+      }
+    }
+  }
+}

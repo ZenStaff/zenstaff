@@ -1,0 +1,71 @@
+{
+  "type": "MESSAGE",
+  "eventTime": "2026-11-07T20:20:11.523647Z",
+  "message": {
+    "name": "spaces/AAAAzQx1b2E/messages/QWqhHHMxAqI.QWqhHHMxAqI",
+    "sender": {
+      "name": "users/111111111111111111111",
+      "displayName": "Maria Pop",
+      "avatarUrl": "https://lh3.googleusercontent.com/a/x",
+      "email": "maria@acme.example",
+      "type": "HUMAN",
+      "domainId": "abc123"
+    },
+    "createTime": "2026-11-07T20:20:11.523647Z",
+    "text": "@Zen Staff cât am vândut ieri?",
+    "annotations": [
+      {
+        "type": "USER_MENTION",
+        "startIndex": 0,
+        "length": 9,
+        "userMention": {
+          "user": {
+            "name": "users/999999999999999999999",
+            "displayName": "Zen Staff",
+            "type": "BOT"
+          },
+          "type": "MENTION"
+        }
+      }
+    ],
+    "thread": {
+      "name": "spaces/AAAAzQx1b2E/threads/QWqhHHMxAqI",
+      "retentionSettings": { "state": "PERMANENT" }
+    },
+    "space": {
+      "name": "spaces/AAAAzQx1b2E",
+      "type": "ROOM",
+      "displayName": "Vânzări",
+      "spaceThreadingState": "THREADED_MESSAGES",
+      "spaceType": "SPACE"
+    },
+    "argumentText": " cât am vândut ieri?",
+    "attachment": [
+      {
+        "name": "spaces/AAAAzQx1b2E/messages/QWqhHHMxAqI.QWqhHHMxAqI/attachments/AATUf-J",
+        "contentName": "vanzari.csv",
+        "contentType": "text/csv",
+        "attachmentDataRef": { "resourceName": "spaces/AAAAzQx1b2E/attachments/AATUf-J" },
+        "source": "UPLOADED_CONTENT"
+      }
+    ],
+    "retentionSettings": { "state": "PERMANENT" },
+    "formattedText": "<users/999999999999999999999> cât am vândut ieri?"
+  },
+  "user": {
+    "name": "users/111111111111111111111",
+    "displayName": "Maria Pop",
+    "email": "maria@acme.example",
+    "type": "HUMAN",
+    "domainId": "abc123"
+  },
+  "space": {
+    "name": "spaces/AAAAzQx1b2E",
+    "type": "ROOM",
+    "displayName": "Vânzări",
+    "spaceThreadingState": "THREADED_MESSAGES",
+    "spaceType": "SPACE"
+  },
+  "configCompleteRedirectUrl": "https://chat.google.com/api/bot_config_complete?token=x",
+  "common": { "userLocale": "ro", "hostApp": "CHAT" }
+}

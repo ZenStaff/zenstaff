@@ -1,0 +1,39 @@
+{
+  "op": 0,
+  "s": 11,
+  "t": "INTERACTION_CREATE",
+  "d": {
+    "version": 1,
+    "type": 2,
+    "token": "aW50ZXJhY3Rpb246MTQzNjUxMjQxMDAwMDAwMDAwNDpzZWNyZXQ",
+    "member": {
+      "user": {
+        "username": "alex.m",
+        "id": "1200000000000000042",
+        "global_name": "Alex M",
+        "discriminator": "0",
+        "avatar": null
+      },
+      "roles": [],
+      "permissions": "2248473465835073",
+      "joined_at": "2026-10-01T09:00:00.000000+00:00",
+      "flags": 0
+    },
+    "locale": "ro",
+    "id": "1436512410000000004",
+    "guild_locale": "en-US",
+    "guild_id": "1240000000000000001",
+    "entitlements": [],
+    "data": {
+      "type": 1,
+      "options": [{ "value": "pregătește raportul săptămânal", "type": 3, "name": "task" }],
+      "name": "zen",
+      "id": "1300000000000000500",
+      "guild_id": "1240000000000000001"
+    },
+    "context": 0,
+    "channel_id": "1250000000000000010",
+    "application_id": "1300000000000000001",
+    "app_permissions": "2248473465835073"
+  }
+}

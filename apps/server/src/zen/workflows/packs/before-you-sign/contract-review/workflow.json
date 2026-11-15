@@ -1,0 +1,98 @@
+{
+  "id": "contract-review",
+  "name": "Contract review in plain language",
+  "description": "Read a contract before you sign it: a summary in plain words, the main terms, risks ranked, unusual clauses, what is missing and the questions to ask the other side, with suggested wording. Not legal advice; it tells you when to call a lawyer.",
+  "category": "admin",
+  "icon": "scale",
+  "inputs": [
+    {
+      "id": "contract",
+      "label": "The contract",
+      "type": "file",
+      "required": true,
+      "help": "PDF or Word (.docx), with its annexes if you have them."
+    },
+    {
+      "id": "our_side",
+      "label": "We are",
+      "type": "select",
+      "required": true,
+      "options": [
+        "The client (we buy)",
+        "The supplier (we sell)",
+        "The tenant",
+        "The landlord",
+        "The employer",
+        "A partner"
+      ]
+    },
+    {
+      "id": "deal",
+      "label": "The deal in short",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Coffee machine rental, 36 months, 450 lei a month, minimum 10 kg of coffee a month from them."
+    },
+    {
+      "id": "worries",
+      "label": "What matters most to you",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Being able to leave early if we close the shop."
+    }
+  ],
+  "output": "contract-review/<name>-review.md with the summary, risks, unusual clauses, questions and when to call a lawyer.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Contractul explicat pe înțeles",
+      "description": "Citește un contract înainte să-l semnezi: un rezumat pe înțeles, termenii principali, riscurile în ordinea importanței, clauzele neobișnuite, ce lipsește și întrebările de pus celeilalte părți, cu formulări propuse. Nu e consultanță juridică; îți spune când chemi un avocat.",
+      "output": "contract-review/<nume>-review.md cu rezumatul, riscurile, clauzele neobișnuite, întrebările și când chemi un avocat.",
+      "inputs": {
+        "contract": {
+          "label": "Contractul",
+          "help": "PDF sau Word (.docx), cu anexele, dacă le ai."
+        },
+        "our_side": {
+          "label": "Noi suntem",
+          "options": [
+            "Clientul (cumpărăm)",
+            "Furnizorul (vindem)",
+            "Chiriașul",
+            "Proprietarul",
+            "Angajatorul",
+            "Partener"
+          ]
+        },
+        "deal": {
+          "label": "Pe scurt despre înțelegere",
+          "placeholder": "Închiriere expresor, 36 de luni, 450 de lei pe lună, minimum 10 kg de cafea pe lună de la ei."
+        },
+        "worries": {
+          "label": "Ce contează cel mai mult pentru tine",
+          "placeholder": "Să putem ieși mai devreme dacă închidem localul."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "pandoc",
+        "version": "^3",
+        "optional": true,
+        "purpose": "reads Word (.docx) contracts"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "network": false
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "id": "horecaos",
+  "name": "HoReCaOS",
+  "category": "restaurant",
+  "aliases": ["horecaos", "horeca os", "horeca"],
+  "description": {
+    "en": "Your restaurant's sales, menu, stock, bookings and staff.",
+    "ro": "Vânzările, meniul, stocul, rezervările și echipa restaurantului."
+  },
+  "website": "https://horecaos.org",
+  "tier": "standard",
+  "defaultScope": "company",
+  "mcpHosts": ["app.horecaos.org"],
+  "tos": {
+    "en": "Our own app: access follows the HoReCaOS account's rights; every change is in the audit log.",
+    "ro": "Aplicația noastră: accesul urmează drepturile contului HoReCaOS; orice modificare intră în jurnalul de audit."
+  },
+  "api": {
+    "docsUrl": "https://app.horecaos.org/api/v1/openapi.json",
+    "auth": "OAuth 2.1 for MCP; zzk_ API keys (Bearer) for /api/v1",
+    "verified": {
+      "status": "verified",
+      "note": "HoReCaOS docs/MCP_OAUTH.md."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "custom",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "HoReCaOS",
+          "url": "https://app.horecaos.org/api/mcp",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Press Add custom connector, name it HoReCaOS and paste https://app.horecaos.org/api/mcp.",
+              "Press Connect, sign in and allow access.",
+              "Come back here and press Check."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Apasă Adaugă conector personalizat, numește-l HoReCaOS și lipește https://app.horecaos.org/api/mcp.",
+              "Apasă Conectează, intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică."
+            ]
+          }
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "HoReCaOS (developer mode)",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose HoReCaOS (developer mode), connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege HoReCaOS (developer mode), conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Read sales, menu, stock, bookings, suppliers and staff.",
+          "ro": "Citește vânzări, meniu, stoc, rezervări, furnizori și echipă."
+        },
+        "write": {
+          "en": "Bookings, availability, invoices and more, as your role allows.",
+          "ro": "Rezervări, disponibilitate, facturi și altele, după rolul tău."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: listed as a claude.ai connector in `claude mcp list` on a Claude account (✔ Connected). Name 'HorecaOS', target app.horecaos.org/api/mcp."
+      }
+    },
+    {
+      "kind": "local-mcp",
+      "mcp": {
+        "transport": "http",
+        "url": "https://app.horecaos.org/api/mcp",
+        "auth": "oauth"
+      },
+      "access": {
+        "read": {
+          "en": "What your HoReCaOS role allows; you choose on the consent page.",
+          "ro": "Ce permite rolul tău HoReCaOS; alegi pe pagina de acord."
+        }
+      },
+      "setup": {
+        "en": [
+          "Press Connect: Zen Staff runs Claude Code's own `claude mcp add` on this computer.",
+          "A sign-in link appears: open it here, scan it with your phone, or send it to your e-mail.",
+          "Sign in and allow access. Claude Code keeps the sign-in; Zen Staff never sees it.",
+          "If the page after sign-in does not load (you signed in on another device), copy its address and paste it in the card."
+        ],
+        "ro": [
+          "Apasă Conectează: Zen Staff rulează comanda oficială Claude Code `claude mcp add` pe acest calculator.",
+          "Apare un link de autentificare: deschide-l aici, scanează-l cu telefonul sau trimite-l pe e-mail.",
+          "Intră în cont și permite accesul. Claude Code păstrează autentificarea; Zen Staff nu o vede niciodată.",
+          "Dacă pagina de după autentificare nu se încarcă (ai intrat de pe alt dispozitiv), copiază adresa ei și lipește-o în card."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: `claude mcp add` + `claude mcp login --no-browser` produce an authorization link at app.horecaos.org/oauth/authorize (client metadata document, PKCE, localhost callback)."
+      },
+      "notes": {
+        "en": "Claude Code asks for every scope the server offers; the HoReCaOS consent page shows them.",
+        "ro": "Claude Code cere toate drepturile oferite de server; pagina de acord HoReCaOS le arată."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In HoReCaOS: Reports > choose the report > Export Excel.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În HoReCaOS: Rapoarte > alege raportul > Export Excel.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://app.horecaos.org"
+    }
+  ]
+}

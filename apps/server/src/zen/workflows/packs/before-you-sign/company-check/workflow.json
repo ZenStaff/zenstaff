@@ -1,0 +1,104 @@
+{
+  "id": "company-check",
+  "name": "Company check by tax ID (CUI)",
+  "description": "Before you work with a Romanian company: its status, VAT, inactive or not, financial results of the last years and court cases, from ANAF and the courts portal (official, free, public). A verdict, what it means for your deal and what to check by hand, every fact with its source.",
+  "category": "admin",
+  "icon": "building-2",
+  "inputs": [
+    {
+      "id": "cui",
+      "label": "Company tax ID (CUI)",
+      "type": "text",
+      "required": true,
+      "placeholder": "RO14399840",
+      "help": "On their invoice, website footer or contract. RO in front is fine."
+    },
+    {
+      "id": "relationship",
+      "label": "What you plan with them",
+      "type": "select",
+      "required": false,
+      "options": [
+        "They will supply us",
+        "They will buy from us on credit",
+        "Partnership or joint project",
+        "We rent from them or to them",
+        "Other"
+      ]
+    },
+    {
+      "id": "amount",
+      "label": "Amount at stake",
+      "type": "text",
+      "required": false,
+      "placeholder": "about 40,000 lei a year"
+    },
+    {
+      "id": "name",
+      "label": "The name they gave you",
+      "type": "text",
+      "required": false,
+      "placeholder": "Exemplu Distribuție SRL",
+      "help": "We check it matches the official name."
+    }
+  ],
+  "output": "company-check/<CUI>/raport.md with the verdict and sources, plus the official answers saved with the time they were read.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Verificarea unei firme după CUI",
+      "description": "Înainte să lucrezi cu o firmă din România: starea ei, TVA, dacă e inactivă, rezultatele financiare din ultimii ani și dosarele din instanță, de la ANAF și de pe portalul instanțelor (surse oficiale, gratuite, publice). Un verdict, ce înseamnă pentru înțelegerea ta și ce verifici de mână, fiecare informație cu sursa ei.",
+      "output": "company-check/<CUI>/raport.md cu verdictul și sursele, plus răspunsurile oficiale salvate cu ora la care au fost citite.",
+      "inputs": {
+        "cui": {
+          "label": "CUI-ul firmei",
+          "placeholder": "RO14399840",
+          "help": "E pe factura lor, jos pe site sau în contract. Poate avea RO în față."
+        },
+        "relationship": {
+          "label": "Ce plănuiești cu ei",
+          "options": [
+            "Ne vor livra marfă sau servicii",
+            "Vor cumpăra de la noi cu plata mai târziu",
+            "Parteneriat sau proiect comun",
+            "Închiriem de la ei sau lor",
+            "Altceva"
+          ]
+        },
+        "amount": {
+          "label": "Suma în joc",
+          "placeholder": "cam 40.000 de lei pe an"
+        },
+        "name": {
+          "label": "Numele pe care ți l-au dat",
+          "placeholder": "Exemplu Distribuție SRL",
+          "help": "Verificăm că se potrivește cu numele oficial."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "asks the official public services and saves their answers"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a company",
+      "seconds": 10,
+      "referenceCpuCores": 8
+    },
+    "network": true
+  }
+}

@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>__RADAR_TITLE__</title>
+    <style>
+      :root {
+        --paper: #f7f6f2;
+        --sheet: #fbfaf7;
+        --card: #fff;
+        --ink: #121a2b;
+        --ink2: #363f52;
+        --ink3: #646b7a;
+        --ink4: #9a9fa9;
+        --line: #dedad2;
+        --line2: #ece9e3;
+        --tint: #eeece7;
+        --loud: #e2401e;
+        --loudtext: #c7361a;
+        --ok: #2f6b4f;
+        --oksoft: #e3efe8;
+        --warn: #8a5a00;
+        --warnsoft: #f6ecd6;
+        --serif: "Young Serif", Georgia, "Times New Roman", serif;
+        --sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+        --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #12151c;
+          --sheet: #161a22;
+          --card: #1b2029;
+          --ink: #efece4;
+          --ink2: #cfcbc1;
+          --ink3: #a19d94;
+          --ink4: #77746d;
+          --line: #2c323d;
+          --line2: #232832;
+          --tint: #20252f;
+          --loud: #f0623f;
+          --loudtext: #f0623f;
+          --ok: #7cc4a0;
+          --oksoft: #1d2c25;
+          --warn: #e0b45e;
+          --warnsoft: #2d2717;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font: 15px/1.5 var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--ink);
+        text-decoration: underline;
+        text-decoration-color: var(--ink4);
+        text-underline-offset: 2px;
+      }
+      a:hover {
+        text-decoration-color: var(--ink);
+      }
+      header {
+        padding: 28px 16px 8px;
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+      h1 {
+        font: 400 clamp(26px, 3.4vw, 38px)/1.15 var(--serif);
+        margin: 0 0 6px;
+      }
+      h1 .pen {
+        color: var(--loudtext);
+      }
+      .sub {
+        color: var(--ink3);
+        margin: 0;
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 18px 0 0;
+      }
+      .stat {
+        background: var(--card);
+        border: 1px solid var(--line2);
+        border-radius: 12px;
+        padding: 10px 14px;
+        min-width: 96px;
+        box-shadow: 0 1px 2px rgba(18, 26, 43, 0.05);
+      }
+      .stat b {
+        display: block;
+        font: 400 24px/1.1 var(--serif);
+      }
+      .stat span {
+        color: var(--ink3);
+        font-size: 13px;
+      }
+      main {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 8px 16px 48px;
+      }
+      .tabs {
+        display: flex;
+        gap: 4px;
+        border-bottom: 1px solid var(--line);
+        margin: 18px 0 14px;
+      }
+      .tabs button {
+        background: none;
+        border: 0;
+        border-bottom: 2px solid transparent;
+        padding: 8px 12px;
+        font: 600 14px var(--sans);
+        color: var(--ink3);
+        cursor: pointer;
+      }
+      .tabs button[aria-selected="true"] {
+        color: var(--ink);
+        border-color: var(--ink);
+      }
+      .filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .filters input[type="search"],
+      .filters select {
+        font: 14px var(--sans);
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        padding: 8px 10px;
+        min-width: 0;
+      }
+      .filters input[type="search"] {
+        flex: 1 1 220px;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--ink2);
+        border-radius: 999px;
+        padding: 6px 12px;
+        font: 600 13px var(--sans);
+        cursor: pointer;
+      }
+      .chip[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--paper);
+        border-color: var(--ink);
+      }
+      label.check {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        color: var(--ink2);
+        font-size: 14px;
+      }
+      .btn {
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--ink);
+        border-radius: 9px;
+        padding: 8px 12px;
+        font: 600 13px var(--sans);
+        cursor: pointer;
+      }
+      .wrap {
+        overflow-x: auto;
+        background: var(--card);
+        border: 1px solid var(--line2);
+        border-radius: 14px;
+        box-shadow: 0 1px 3px rgba(18, 26, 43, 0.06);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--line2);
+        vertical-align: top;
+      }
+      th {
+        font-weight: 600;
+        color: var(--ink3);
+        font-size: 12.5px;
+        background: var(--sheet);
+        position: sticky;
+        top: 0;
+      }
+      tr.row {
+        cursor: pointer;
+      }
+      tr.row:hover td {
+        background: var(--tint);
+      }
+      td.mono {
+        font-family: var(--mono);
+        font-size: 12.5px;
+      }
+      .score {
+        display: inline-grid;
+        place-items: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        font: 600 13px var(--mono);
+        border: 1px solid var(--line);
+      }
+      .score.A {
+        background: var(--oksoft);
+        color: var(--ok);
+        border-color: transparent;
+      }
+      .score.B {
+        background: var(--warnsoft);
+        color: var(--warn);
+        border-color: transparent;
+      }
+      .score.C {
+        background: var(--tint);
+        color: var(--ink3);
+      }
+      .muted {
+        color: var(--ink3);
+      }
+      .empty {
+        padding: 40px 16px;
+        text-align: center;
+        color: var(--ink3);
+      }
+      aside {
+        position: fixed;
+        inset: 0 0 0 auto;
+        width: min(520px, 100%);
+        background: var(--sheet);
+        border-left: 1px solid var(--line);
+        box-shadow: -12px 0 32px rgba(18, 26, 43, 0.12);
+        overflow-y: auto;
+        padding: 22px 20px 40px;
+        transform: translateX(100%);
+        transition: transform 0.2s ease;
+      }
+      aside.open {
+        transform: none;
+      }
+      aside h2 {
+        font: 400 24px/1.2 var(--serif);
+        margin: 0 36px 4px 0;
+      }
+      aside h3 {
+        font: 600 13px var(--sans);
+        color: var(--ink3);
+        margin: 22px 0 8px;
+        text-transform: none;
+      }
+      aside .close {
+        position: absolute;
+        top: 16px;
+        right: 14px;
+      }
+      dl {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 6px 12px;
+        margin: 0;
+      }
+      dt {
+        color: var(--ink3);
+        font-size: 13px;
+      }
+      dd {
+        margin: 0;
+        word-break: break-word;
+      }
+      .src {
+        font-size: 12px;
+        color: var(--ink3);
+        display: block;
+      }
+      ul.plain {
+        margin: 0;
+        padding-left: 18px;
+      }
+      ul.plain li {
+        margin: 4px 0;
+      }
+      svg.map {
+        width: 100%;
+        height: auto;
+        background: var(--card);
+        border: 1px solid var(--line2);
+        border-radius: 14px;
+      }
+      .note {
+        font-size: 13px;
+        color: var(--ink3);
+        margin-top: 10px;
+      }
+      @media (max-width: 640px) {
+        th:nth-child(n + 5),
+        td:nth-child(n + 5) {
+          display: none;
+        }
+        dl {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 id="title"></h1>
+      <p class="sub" id="sub"></p>
+      <div class="stats" id="stats"></div>
+    </header>
+    <main>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <section id="view-list">
+        <div class="filters">
+          <input type="search" id="q" aria-label="search" />
+          <span id="chips"></span>
+          <select id="city" aria-label="city"></select>
+          <select id="cat" aria-label="category"></select>
+          <label class="check"
+            ><input type="checkbox" id="mail" /> <span id="mailLabel"></span
+          ></label>
+          <button class="btn" id="csv"></button>
+        </div>
+        <div class="wrap">
+          <table>
+            <thead id="thead"></thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </section>
+      <section id="view-map" hidden></section>
+      <section id="view-skipped" hidden></section>
+    </main>
+    <aside id="detail" aria-hidden="true"></aside>
+    <script type="application/json" id="radar-data">
+      /*__RADAR_DATA__*/ null
+    </script>
+    <script>
+      (function () {
+        "use strict";
+        var data = JSON.parse(document.getElementById("radar-data").textContent) || {
+          lang: "ro",
+          meta: {},
+          leads: [],
+          skipped: [],
+        };
+        var ro = data.lang !== "en";
+        document.documentElement.lang = ro ? "ro" : "en";
+        var T = ro
+          ? {
+              title: "Radar de clienți",
+              leads: "leaduri",
+              withMail: "cu e-mail",
+              skipped: "sărite",
+              list: "Lista",
+              map: "Hartă",
+              skip: "Sărite",
+              search: "Caută nume, oraș, nevoie…",
+              all: "Toate",
+              allCities: "Toate orașele",
+              allCats: "Toate categoriile",
+              onlyMail: "doar cu e-mail",
+              csv: "Descarcă ce vezi (CSV)",
+              cols: ["Scor", "Nume", "Oraș", "Ce lipsește / oportunitate", "Contact", "Sursa"],
+              none: "Nimic nu se potrivește filtrelor.",
+              contact: "Contact",
+              opp: "Ce lipsește / oportunitate",
+              why: "De ce acest scor",
+              signals: "Ce am văzut pe site",
+              src: "sursa",
+              read: "citit la",
+              skippedTitle: "Pagini și site-uri sărite",
+              reason: "Motiv",
+              terms: "Termeni",
+              noMap: "Leadurile nu au coordonate (le dau OpenStreetMap și Google Places).",
+              mapNote:
+                "Punctele sunt așezate după coordonate, fără hartă de fundal (pagina nu se conectează la internet).",
+              close: "Închide",
+              fields: {
+                name: "Nume",
+                officialName: "Nume oficial",
+                cui: "CUI",
+                category: "Categorie",
+                city: "Oraș",
+                address: "Adresă",
+                website: "Site",
+                email: "E-mail",
+                phone: "Telefon",
+                status: "Stare ANAF",
+                caen: "CAEN",
+              },
+            }
+          : {
+              title: "Client radar",
+              leads: "leads",
+              withMail: "with e-mail",
+              skipped: "skipped",
+              list: "List",
+              map: "Map",
+              skip: "Skipped",
+              search: "Search name, city, need…",
+              all: "All",
+              allCities: "All cities",
+              allCats: "All categories",
+              onlyMail: "e-mail only",
+              csv: "Download this view (CSV)",
+              cols: ["Score", "Name", "City", "What is missing / opportunity", "Contact", "Source"],
+              none: "Nothing matches the filters.",
+              contact: "Contact",
+              opp: "What is missing / opportunity",
+              why: "Why this score",
+              signals: "What the site shows",
+              src: "source",
+              read: "read at",
+              skippedTitle: "Skipped pages and sites",
+              reason: "Reason",
+              terms: "Terms",
+              noMap: "The leads have no coordinates (OpenStreetMap and Google Places give them).",
+              mapNote:
+                "Points are placed by their coordinates, without a background map (the page does not go online).",
+              close: "Close",
+              fields: {
+                name: "Name",
+                officialName: "Official name",
+                cui: "Tax ID",
+                category: "Category",
+                city: "City",
+                address: "Address",
+                website: "Website",
+                email: "E-mail",
+                phone: "Phone",
+                status: "Registry status",
+                caen: "Activity code",
+              },
+            };
+        function v(f) {
+          return f && typeof f === "object" && "v" in f ? f.v : f == null ? "" : f;
+        }
+        function esc(s) {
+          return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+            return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+          });
+        }
+        function link(u, label) {
+          if (!u) return "";
+          var safe = /^https?:\/\//i.test(u) ? u : "https://" + u;
+          return (
+            '<a href="' +
+            esc(safe) +
+            '" target="_blank" rel="noopener noreferrer">' +
+            esc(label || u) +
+            "</a>"
+          );
+        }
+        function day(at) {
+          return at ? String(at).slice(0, 10).split("-").reverse().join(".") : "";
+        }
+        var leads = data.leads.slice().sort(function (a, b) {
+          return (
+            (a.score || "Z").localeCompare(b.score || "Z") ||
+            String(v(a.name)).localeCompare(String(v(b.name)))
+          );
+        });
+        var meta = data.meta || {};
+        var words = T.title.split(" ");
+        document.getElementById("title").innerHTML =
+          esc(words.slice(0, -1).join(" ")) +
+          ' <span class="pen">' +
+          esc(words.slice(-1)[0]) +
+          "</span>";
+        document.getElementById("sub").textContent =
+          [meta.niche, meta.region, meta.offer].filter(Boolean).join(" · ") +
+          (meta.created ? " · " + day(meta.created) : "");
+        var count = { A: 0, B: 0, C: 0 };
+        leads.forEach(function (l) {
+          if (count[l.score] != null) count[l.score]++;
+        });
+        var withMail = leads.filter(function (l) {
+          return v(l.email);
+        }).length;
+        document.getElementById("stats").innerHTML = [
+          [leads.length, T.leads],
+          [count.A, "A"],
+          [count.B, "B"],
+          [count.C, "C"],
+          [withMail, T.withMail],
+          [(data.skipped || []).length, T.skipped],
+        ]
+          .map(function (s) {
+            return '<div class="stat"><b>' + s[0] + "</b><span>" + esc(s[1]) + "</span></div>";
+          })
+          .join("");
+        var tabs = [
+          ["list", T.list],
+          ["map", T.map],
+          ["skipped", T.skip],
+        ];
+        var tabBar = document.getElementById("tabs");
+        tabBar.innerHTML = tabs
+          .map(function (t, i) {
+            return (
+              '<button role="tab" data-tab="' +
+              t[0] +
+              '" aria-selected="' +
+              (i === 0) +
+              '">' +
+              esc(t[1]) +
+              "</button>"
+            );
+          })
+          .join("");
+        tabBar.addEventListener("click", function (e) {
+          var b = e.target.closest("button");
+          if (!b) return;
+          tabBar.querySelectorAll("button").forEach(function (x) {
+            x.setAttribute("aria-selected", x === b);
+          });
+          tabs.forEach(function (t) {
+            document.getElementById("view-" + t[0]).hidden = t[0] !== b.dataset.tab;
+          });
+        });
+        var state = { q: "", score: "", city: "", cat: "", mail: false };
+        var q = document.getElementById("q");
+        q.placeholder = T.search;
+        document.getElementById("mailLabel").textContent = T.onlyMail;
+        document.getElementById("csv").textContent = T.csv;
+        var chips = document.getElementById("chips");
+        chips.innerHTML = [
+          ["", T.all],
+          ["A", "A"],
+          ["B", "B"],
+          ["C", "C"],
+        ]
+          .map(function (c) {
+            return (
+              '<button class="chip" data-score="' +
+              c[0] +
+              '" aria-pressed="' +
+              (c[0] === "") +
+              '">' +
+              esc(c[1]) +
+              "</button>"
+            );
+          })
+          .join(" ");
+        function options(id, values, first) {
+          var el = document.getElementById(id);
+          el.innerHTML =
+            '<option value="">' +
+            esc(first) +
+            "</option>" +
+            values
+              .map(function (x) {
+                return "<option>" + esc(x) + "</option>";
+              })
+              .join("");
+        }
+        function uniq(fn) {
+          var s = {};
+          leads.forEach(function (l) {
+            var x = v(fn(l));
+            if (x) s[x] = 1;
+          });
+          return Object.keys(s).sort();
+        }
+        options(
+          "city",
+          uniq(function (l) {
+            return l.city;
+          }),
+          T.allCities,
+        );
+        options(
+          "cat",
+          uniq(function (l) {
+            return l.category;
+          }),
+          T.allCats,
+        );
+        document.getElementById("thead").innerHTML =
+          "<tr>" +
+          T.cols
+            .map(function (c) {
+              return "<th>" + esc(c) + "</th>";
+            })
+            .join("") +
+          "</tr>";
+        function opps(l) {
+          return (l.opportunities || [])
+            .map(function (o) {
+              return o.text;
+            })
+            .join("; ");
+        }
+        function visible() {
+          var needle = state.q.toLowerCase();
+          return leads.filter(function (l) {
+            if (state.score && l.score !== state.score) return false;
+            if (state.city && v(l.city) !== state.city) return false;
+            if (state.cat && v(l.category) !== state.cat) return false;
+            if (state.mail && !v(l.email)) return false;
+            if (needle) {
+              var hay = [v(l.name), v(l.city), v(l.category), opps(l), (l.reasons || []).join(" ")]
+                .join(" ")
+                .toLowerCase();
+              if (hay.indexOf(needle) < 0) return false;
+            }
+            return true;
+          });
+        }
+        function render() {
+          var rows = visible();
+          var body = document.getElementById("tbody");
+          if (!rows.length) {
+            body.innerHTML = '<tr><td colspan="6" class="empty">' + esc(T.none) + "</td></tr>";
+            return;
+          }
+          body.innerHTML = rows
+            .map(function (l) {
+              var contact = [v(l.email), v(l.phone)].filter(Boolean).map(esc).join("<br>");
+              return (
+                '<tr class="row" data-id="' +
+                esc(l.id) +
+                '"><td><span class="score ' +
+                esc(l.score || "") +
+                '">' +
+                esc(l.score || "–") +
+                "</span></td><td><b>" +
+                esc(v(l.name)) +
+                '</b><br><span class="muted">' +
+                esc(v(l.category)) +
+                "</span></td><td>" +
+                esc(v(l.city)) +
+                "</td><td>" +
+                esc(opps(l)) +
+                '</td><td class="mono">' +
+                contact +
+                "</td><td>" +
+                (l.name && l.name.src ? link(l.name.src, hostOf(l.name.src)) : "") +
+                "</td></tr>"
+              );
+            })
+            .join("");
+        }
+        function hostOf(u) {
+          try {
+            return new URL(u).host.replace(/^www\./, "");
+          } catch (e) {
+            return u;
+          }
+        }
+        q.addEventListener("input", function () {
+          state.q = q.value;
+          render();
+        });
+        chips.addEventListener("click", function (e) {
+          var b = e.target.closest("button");
+          if (!b) return;
+          state.score = b.dataset.score;
+          chips.querySelectorAll("button").forEach(function (x) {
+            x.setAttribute("aria-pressed", x === b);
+          });
+          render();
+        });
+        document.getElementById("city").addEventListener("change", function (e) {
+          state.city = e.target.value;
+          render();
+        });
+        document.getElementById("cat").addEventListener("change", function (e) {
+          state.cat = e.target.value;
+          render();
+        });
+        document.getElementById("mail").addEventListener("change", function (e) {
+          state.mail = e.target.checked;
+          render();
+        });
+        document.getElementById("csv").addEventListener("click", function () {
+          var head = [
+            T.cols[0],
+            T.cols[1],
+            T.fields.city,
+            T.fields.website,
+            T.fields.email,
+            T.fields.phone,
+            T.opp,
+            T.why,
+            T.cols[5],
+          ];
+          var lines = [head].concat(
+            visible().map(function (l) {
+              return [
+                l.score,
+                v(l.name),
+                v(l.city),
+                v(l.website),
+                v(l.email),
+                v(l.phone),
+                opps(l),
+                (l.reasons || []).join("; "),
+                l.name && l.name.src,
+              ];
+            }),
+          );
+          var csv =
+            "﻿" +
+            lines
+              .map(function (r) {
+                return r
+                  .map(function (c) {
+                    var s = String(c == null ? "" : c);
+                    return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+                  })
+                  .join(",");
+              })
+              .join("\n");
+          var a = document.createElement("a");
+          a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+          a.download = "radar-filtrat.csv";
+          a.click();
+        });
+        var aside = document.getElementById("detail");
+        function field(key, f) {
+          if (!v(f)) return "";
+          var shown = key === "website" ? link(v(f)) : esc(v(f));
+          return (
+            "<dt>" +
+            esc(T.fields[key] || key) +
+            "</dt><dd>" +
+            shown +
+            (f && f.src
+              ? '<span class="src">' +
+                esc(T.src) +
+                ": " +
+                link(f.src, hostOf(f.src)) +
+                " · " +
+                esc(T.read) +
+                " " +
+                day(f.at) +
+                "</span>"
+              : "") +
+            "</dd>"
+          );
+        }
+        function open(id) {
+          var l = leads.filter(function (x) {
+            return x.id === id;
+          })[0];
+          if (!l) return;
+          var html =
+            '<button class="btn close" id="closeBtn">' +
+            esc(T.close) +
+            "</button><h2>" +
+            esc(v(l.name)) +
+            '</h2><span class="score ' +
+            esc(l.score || "") +
+            '">' +
+            esc(l.score || "–") +
+            "</span>";
+          html +=
+            "<h3>" +
+            esc(T.contact) +
+            "</h3><dl>" +
+            [
+              "officialName",
+              "cui",
+              "category",
+              "city",
+              "address",
+              "website",
+              "email",
+              "phone",
+              "status",
+              "caen",
+            ]
+              .map(function (k) {
+                return field(k, l[k]);
+              })
+              .join("");
+          Object.keys(l.socials || {}).forEach(function (n) {
+            html += "<dt>" + esc(n) + "</dt><dd>" + link(v(l.socials[n])) + "</dd>";
+          });
+          html += "</dl>";
+          if ((l.opportunities || []).length)
+            html +=
+              "<h3>" +
+              esc(T.opp) +
+              '</h3><ul class="plain">' +
+              l.opportunities
+                .map(function (o) {
+                  return (
+                    "<li>" +
+                    esc(o.text) +
+                    (o.src ? ' <span class="src">' + link(o.src, hostOf(o.src)) + "</span>" : "") +
+                    "</li>"
+                  );
+                })
+                .join("") +
+              "</ul>";
+          if ((l.reasons || []).length)
+            html +=
+              "<h3>" +
+              esc(T.why) +
+              '</h3><ul class="plain">' +
+              l.reasons
+                .map(function (r) {
+                  return "<li>" + esc(r) + "</li>";
+                })
+                .join("") +
+              "</ul>";
+          var sig = (l.dossier && l.dossier.signals) || [];
+          if (sig.length)
+            html +=
+              "<h3>" +
+              esc(T.signals) +
+              '</h3><ul class="plain">' +
+              sig
+                .map(function (s) {
+                  return (
+                    "<li>" +
+                    esc(ro ? s.ro : s.en) +
+                    (s.src ? ' <span class="src">' + link(s.src, hostOf(s.src)) + "</span>" : "") +
+                    "</li>"
+                  );
+                })
+                .join("") +
+              "</ul>";
+          if (l.notes) html += '<p class="note">' + esc(l.notes) + "</p>";
+          aside.innerHTML = html;
+          aside.classList.add("open");
+          aside.setAttribute("aria-hidden", "false");
+          document.getElementById("closeBtn").addEventListener("click", close);
+        }
+        function close() {
+          aside.classList.remove("open");
+          aside.setAttribute("aria-hidden", "true");
+        }
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") close();
+        });
+        document.getElementById("tbody").addEventListener("click", function (e) {
+          var tr = e.target.closest("tr.row");
+          if (tr && !e.target.closest("a")) open(tr.dataset.id);
+        });
+        // Map: points by coordinates, no tiles (the page never goes online).
+        (function () {
+          var pts = leads.filter(function (l) {
+            return typeof l.lat === "number" && typeof l.lon === "number";
+          });
+          var el = document.getElementById("view-map");
+          if (!pts.length) {
+            el.innerHTML = '<p class="empty">' + esc(T.noMap) + "</p>";
+            return;
+          }
+          var minLat = Math.min.apply(
+              null,
+              pts.map(function (p) {
+                return p.lat;
+              }),
+            ),
+            maxLat = Math.max.apply(
+              null,
+              pts.map(function (p) {
+                return p.lat;
+              }),
+            );
+          var minLon = Math.min.apply(
+              null,
+              pts.map(function (p) {
+                return p.lon;
+              }),
+            ),
+            maxLon = Math.max.apply(
+              null,
+              pts.map(function (p) {
+                return p.lon;
+              }),
+            );
+          var k = Math.cos((((minLat + maxLat) / 2) * Math.PI) / 180),
+            W = 1000,
+            pad = 40;
+          var spanX = Math.max((maxLon - minLon) * k, 0.01),
+            spanY = Math.max(maxLat - minLat, 0.01);
+          var H = Math.round(Math.min(700, Math.max(320, (W * spanY) / spanX)));
+          var color = { A: "var(--ok)", B: "var(--warn)", C: "var(--ink4)" };
+          var dots = pts
+            .map(function (p) {
+              var x = pad + (((p.lon - minLon) * k) / spanX) * (W - 2 * pad),
+                y = H - pad - ((p.lat - minLat) / spanY) * (H - 2 * pad);
+              return (
+                '<circle cx="' +
+                x.toFixed(1) +
+                '" cy="' +
+                y.toFixed(1) +
+                '" r="7" fill="' +
+                (color[p.score] || "var(--ink3)") +
+                '" fill-opacity=".8" stroke="var(--card)" stroke-width="1.5" data-id="' +
+                esc(p.id) +
+                '" style="cursor:pointer"><title>' +
+                esc(v(p.name)) +
+                " (" +
+                esc(p.score || "–") +
+                ")</title></circle>"
+              );
+            })
+            .join("");
+          el.innerHTML =
+            '<svg class="map" viewBox="0 0 ' +
+            W +
+            " " +
+            H +
+            '" role="img" aria-label="' +
+            esc(T.map) +
+            '">' +
+            dots +
+            '</svg><p class="note">' +
+            esc(T.mapNote) +
+            (meta.attribution ? " " + esc(meta.attribution) : "") +
+            "</p>";
+          el.querySelector("svg").addEventListener("click", function (e) {
+            var c = e.target.closest("circle");
+            if (c) open(c.getAttribute("data-id"));
+          });
+        })();
+        (function () {
+          var s = data.skipped || [];
+          var el = document.getElementById("view-skipped");
+          if (!s.length) {
+            el.innerHTML = '<p class="empty">–</p>';
+            return;
+          }
+          el.innerHTML =
+            "<h3>" +
+            esc(T.skippedTitle) +
+            '</h3><div class="wrap"><table><thead><tr><th>URL</th><th>' +
+            esc(T.reason) +
+            "</th><th>" +
+            esc(T.terms) +
+            "</th><th></th></tr></thead><tbody>" +
+            s
+              .map(function (x) {
+                return (
+                  "<tr><td>" +
+                  (x.url ? link(x.url, x.url) : esc(x.name || x.lead || "")) +
+                  "</td><td>" +
+                  esc(x.reason) +
+                  "</td><td>" +
+                  (x.termsUrl ? link(x.termsUrl, hostOf(x.termsUrl)) : "") +
+                  '</td><td class="mono">' +
+                  day(x.at) +
+                  "</td></tr>"
+                );
+              })
+              .join("") +
+            "</tbody></table></div>";
+        })();
+        render();
+      })();
+    </script>
+  </body>
+</html>

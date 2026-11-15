@@ -1,0 +1,173 @@
+{
+  "id": "remotion",
+  "name": "Remotion",
+  "nameRo": "Remotion",
+  "kind": "npm",
+  "description": "Makes videos from a template: scenes, text, images and music.",
+  "homepage": "https://www.remotion.dev",
+  "license": {
+    "spdx": "LicenseRef-Remotion",
+    "name": "Remotion License",
+    "url": "https://www.remotion.dev/license",
+    "commercialUse": "paid",
+    "note": "Free for individuals and for companies with up to 3 people. A company with 4 or more people needs a paid Remotion company license (remotion.pro) before using it for work.",
+    "noteRo": "Gratuit pentru persoane \u0219i firme cu cel mult 3 oameni. O firm\u0103 cu 4 sau mai mul\u021bi oameni are nevoie de o licen\u021b\u0103 Remotion pl\u0103tit\u0103 (remotion.pro) \u00eenainte s\u0103 \u00eel foloseasc\u0103 pentru munc\u0103."
+  },
+  "untrustedInput": true,
+  "verify": {
+    "bin": "remotion",
+    "args": ["--help"],
+    "expect": "@remotion/cli 4\\.0\\.541"
+  },
+  "osv": [
+    {
+      "ecosystem": "npm",
+      "name": "remotion"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@remotion/renderer"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@remotion/bundler"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@remotion/cli"
+    }
+  ],
+  "nvd": [
+    {
+      "cpe": "cpe:2.3:a:google:chrome",
+      "label": "Chrome headless shell (Remotion browser ensure)",
+      "versions": {
+        "4.0.541": "158.0.8127.2"
+      }
+    }
+  ],
+  "versions": [
+    {
+      "version": "4.0.541",
+      "released": "2026-11-05",
+      "dependsOn": [
+        {
+          "id": "node",
+          "version": "^24"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/remotion-4.0.541"
+            },
+            {
+              "type": "remotionBrowser"
+            }
+          ],
+          "bin": {
+            "remotion": "node_modules/@remotion/cli/remotion-cli.js"
+          },
+          "env": {
+            "ZEN_REMOTION_MODULES": "${dir}/node_modules",
+            "ZEN_REMOTION_BROWSER": "${dir}/node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell-linux64/chrome-headless-shell"
+          },
+          "installedSize": 545259520
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/remotion-4.0.541"
+            },
+            {
+              "type": "remotionBrowser"
+            }
+          ],
+          "bin": {
+            "remotion": "node_modules/@remotion/cli/remotion-cli.js"
+          },
+          "env": {
+            "ZEN_REMOTION_MODULES": "${dir}/node_modules",
+            "ZEN_REMOTION_BROWSER": "${dir}/node_modules/.remotion/chrome-headless-shell/linux-arm64/chrome-headless-shell-linux-arm64/chrome-headless-shell"
+          },
+          "installedSize": 545259520
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/remotion-4.0.541"
+            },
+            {
+              "type": "remotionBrowser"
+            }
+          ],
+          "bin": {
+            "remotion": "node_modules/@remotion/cli/remotion-cli.js"
+          },
+          "env": {
+            "ZEN_REMOTION_MODULES": "${dir}/node_modules",
+            "ZEN_REMOTION_BROWSER": "${dir}/node_modules/.remotion/chrome-headless-shell/win64/chrome-headless-shell-win64/chrome-headless-shell.exe"
+          },
+          "installedSize": 545259520
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/remotion-4.0.541"
+            },
+            {
+              "type": "remotionBrowser"
+            }
+          ],
+          "bin": {
+            "remotion": "node_modules/@remotion/cli/remotion-cli.js"
+          },
+          "env": {
+            "ZEN_REMOTION_MODULES": "${dir}/node_modules",
+            "ZEN_REMOTION_BROWSER": "${dir}/node_modules/.remotion/chrome-headless-shell/mac-x64/chrome-headless-shell-mac-x64/chrome-headless-shell"
+          },
+          "installedSize": 545259520
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/remotion-4.0.541"
+            },
+            {
+              "type": "remotionBrowser"
+            }
+          ],
+          "bin": {
+            "remotion": "node_modules/@remotion/cli/remotion-cli.js"
+          },
+          "env": {
+            "ZEN_REMOTION_MODULES": "${dir}/node_modules",
+            "ZEN_REMOTION_BROWSER": "${dir}/node_modules/.remotion/chrome-headless-shell/mac-arm64/chrome-headless-shell-mac-arm64/chrome-headless-shell"
+          },
+          "installedSize": 545259520
+        }
+      ]
+    }
+  ]
+}

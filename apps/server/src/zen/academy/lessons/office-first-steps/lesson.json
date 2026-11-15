@@ -1,0 +1,23 @@
+{
+  "id": "office-first-steps",
+  "track": "office",
+  "order": 10,
+  "title": { "en": "First steps with your AI staff", "ro": "Primii pași cu colegii tăi AI" },
+  "summary": {
+    "en": "What an agent, a thread and a folder are, how to start a task, how to stop it, and why you stay responsible for the result.",
+    "ro": "Ce sunt agentul, conversația și folderul, cum pornești o sarcină, cum o oprești și de ce răspunderea rămâne a ta."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["basics", "agent", "threads", "folders"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": true,
+    "prompt": {
+      "en": "Look at the files in this folder. Do not change, create or delete anything. Tell me in at most 5 short lines what is in this folder. Then propose 3 concrete things you could do with these files for me, one line each, and ask me which one I want.",
+      "ro": "Uită-te la fișierele din acest folder. Nu modifica, nu crea și nu șterge nimic. Spune-mi în cel mult 5 rânduri scurte ce e în folder. Apoi propune-mi 3 lucruri concrete pe care le-ai putea face cu aceste fișiere, câte un rând fiecare, și întreabă-mă pe care îl vreau."
+    }
+  }
+}

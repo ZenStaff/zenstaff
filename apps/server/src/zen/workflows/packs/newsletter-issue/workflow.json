@@ -1,0 +1,113 @@
+{
+  "id": "newsletter-issue",
+  "name": "Newsletter issue",
+  "description": "A complete email newsletter from a few bullet points: two subject lines to A/B test with a test plan sized to your list, a version for each segment of your list, the preview text and a plain-text version.",
+  "category": "social",
+  "icon": "mail",
+  "inputs": [
+    {
+      "id": "updates",
+      "label": "What's new (bullet points are fine)",
+      "type": "longtext",
+      "required": true
+    },
+    {
+      "id": "audience",
+      "label": "Subscribers",
+      "type": "text",
+      "required": true,
+      "placeholder": "Customers and fans of Acme Coffee"
+    },
+    {
+      "id": "cta",
+      "label": "Main call to action",
+      "type": "text",
+      "required": false,
+      "placeholder": "Order the Christmas box"
+    },
+    {
+      "id": "segments",
+      "label": "Segments of your list",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "New customers (last 3 months); regulars; companies",
+      "help": "Each segment gets its own intro and button; the facts stay the same."
+    },
+    {
+      "id": "ab_test",
+      "label": "A/B test the subject line?",
+      "type": "select",
+      "required": true,
+      "options": ["Yes, test two subject lines", "No, one subject line is enough"]
+    },
+    {
+      "id": "list_size",
+      "label": "How many subscribers",
+      "type": "text",
+      "required": false,
+      "placeholder": "about 2,400",
+      "help": "Used to size the test."
+    },
+    {
+      "id": "facts",
+      "label": "Facts it may use",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Christmas box 189 lei, orders until 18 Dec, pickup or courier."
+    },
+    {
+      "id": "language",
+      "label": "Language",
+      "type": "text",
+      "required": false
+    }
+  ],
+  "output": "newsletter/<date>-newsletter.md with the A/B subject plan, the issue, a version per segment and the plain-text version.",
+  "version": "2.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Newsletter pe e-mail",
+      "description": "Un newsletter complet, scris din câteva idei puse pe puncte: două subiecte de testat A/B, cu planul testului după mărimea listei, o variantă pentru fiecare segment al listei, textul de previzualizare și varianta fără formatare.",
+      "output": "newsletter/<data>-newsletter.md cu planul subiectelor A/B, newsletterul, o variantă pentru fiecare segment și varianta fără formatare.",
+      "inputs": {
+        "updates": {
+          "label": "Ce e nou (merge și pe puncte)"
+        },
+        "audience": {
+          "label": "Cui îl trimiți?",
+          "placeholder": "Clienții și prietenii cafenelei Cafea Bună"
+        },
+        "cta": {
+          "label": "Ce vrei să facă cititorii?",
+          "placeholder": "Să comande cutia de Crăciun"
+        },
+        "segments": {
+          "label": "Segmentele listei tale",
+          "placeholder": "Clienți noi (ultimele 3 luni); clienți fideli; firme",
+          "help": "Fiecare segment primește introducerea și butonul lui; faptele rămân aceleași."
+        },
+        "ab_test": {
+          "label": "Testăm două subiecte (A/B)?",
+          "options": ["Da, testăm două subiecte", "Nu, ajunge un singur subiect"]
+        },
+        "list_size": {
+          "label": "Câți abonați ai",
+          "placeholder": "cam 2.400",
+          "help": "Ne ajută să dimensionăm testul."
+        },
+        "facts": {
+          "label": "Ce poate pomeni",
+          "placeholder": "Cutia de Crăciun 189 lei, comenzi până pe 18 dec, ridicare sau curier."
+        },
+        "language": {
+          "label": "Limba"
+        }
+      }
+    }
+  },
+  "requires": {
+    "runsBest": "either",
+    "network": false
+  }
+}

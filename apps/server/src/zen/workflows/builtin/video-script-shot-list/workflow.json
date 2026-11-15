@@ -1,0 +1,112 @@
+{
+  "id": "video-script-shot-list",
+  "name": "Short video script and shot list",
+  "description": "A 15 to 90 second video script with scenes, voice-over, on-screen text and a shot list.",
+  "category": "video",
+  "icon": "clapperboard",
+  "inputs": [
+    {
+      "id": "subject",
+      "label": "What is the video about?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "How we roast our coffee beans"
+    },
+    {
+      "id": "platform",
+      "label": "Where will it run?",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Instagram Reels / TikTok (vertical)",
+        "YouTube Shorts (vertical)",
+        "YouTube (horizontal)",
+        "Website / presentation (horizontal)"
+      ]
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "select",
+      "required": true,
+      "options": ["15 seconds", "30 seconds", "60 seconds", "90 seconds"]
+    },
+    {
+      "id": "goal",
+      "label": "What should viewers do after?",
+      "type": "text",
+      "required": true,
+      "placeholder": "Visit the shop this weekend"
+    },
+    {
+      "id": "resources",
+      "label": "What you can film with",
+      "type": "select",
+      "required": true,
+      "options": ["Phone only", "Phone + gimbal + mic", "Small crew", "Stock footage only"]
+    },
+    {
+      "id": "style",
+      "label": "Style",
+      "type": "select",
+      "required": false,
+      "options": [
+        "Talking head",
+        "Voice-over with b-roll",
+        "Text on screen, no voice",
+        "Behind the scenes"
+      ]
+    }
+  ],
+  "output": "video-script.md with the script, shot list and editing notes.",
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "Scenariu pentru un video scurt și lista de cadre",
+      "description": "Scenariul unui video de 15 până la 90 de secunde, cu scene, voce din off, text pe ecran și lista de cadre.",
+      "output": "Scenariul în video-script.md, cu lista de cadre și note pentru montaj.",
+      "inputs": {
+        "subject": {
+          "label": "Despre ce e video-ul?",
+          "placeholder": "Cum ne prăjim boabele de cafea"
+        },
+        "platform": {
+          "label": "Unde va apărea?",
+          "options": [
+            "Instagram Reels / TikTok (vertical)",
+            "YouTube Shorts (vertical)",
+            "YouTube (orizontal)",
+            "Site / prezentare (orizontal)"
+          ]
+        },
+        "length": {
+          "label": "Durata",
+          "options": ["15 secunde", "30 de secunde", "60 de secunde", "90 de secunde"]
+        },
+        "goal": {
+          "label": "Ce vrei să facă cei care îl văd?",
+          "placeholder": "Să treacă pe la magazin în weekend"
+        },
+        "resources": {
+          "label": "Cu ce poți filma?",
+          "options": [
+            "Doar cu telefonul",
+            "Telefon + stabilizator + microfon",
+            "O echipă mică",
+            "Doar imagini cumpărate (stock)"
+          ]
+        },
+        "style": {
+          "label": "Stilul",
+          "options": [
+            "Cineva vorbește la cameră",
+            "Voce din off peste imagini",
+            "Doar text pe ecran, fără voce",
+            "Din culise"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "code-review-agent-diff",
+  "track": "code",
+  "order": 30,
+  "title": {
+    "en": "Reviewing an agent's diff before merge",
+    "ro": "Cum verifici diff-ul unui agent înainte de merge"
+  },
+  "summary": {
+    "en": "A checklist for reading agent-written changes: scope creep, deleted tests, new deps, secrets, auth and migrations, before you merge.",
+    "ro": "O listă de verificare pentru schimbările scrise de agent: scope creep, teste șterse, dependențe noi, secrete, auth și migrări, înainte de merge."
+  },
+  "minutes": 4,
+  "level": "intermediate",
+  "tags": ["review", "git", "diff", "agents"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": false,
+    "prompt": {
+      "en": "Act as a strict code reviewer. Review the current uncommitted changes and the last commit in this project. Run `git status`, `git diff`, `git diff --staged` and `git diff HEAD~1 HEAD` (skip what doesn't apply). Read every hunk, not just file names. Check: 1) scope: changes unrelated to the apparent goal; 2) tests deleted, skipped (.skip, xit), weakened assertions or disabled checks (eslint-disable, @ts-ignore, CI steps removed); 3) new or upgraded dependencies and lockfile changes; 4) secrets, keys or tokens added anywhere; 5) auth and authorization changes (middleware, guards, RLS, roles); 6) database migrations (destructive ops, missing RLS, irreversible changes); 7) error handling (swallowed errors, empty catch, broad try/catch returning success). Report findings as a list with file:line, severity (blocker/major/minor) and a one-line reason, then a verdict: approve, approve with changes, or request changes. Do not modify, stage, commit or revert anything. Only report.",
+      "ro": "Fii un reviewer strict. Verifică schimbările necomise și ultimul commit din proiectul ăsta. Rulează `git status`, `git diff`, `git diff --staged` și `git diff HEAD~1 HEAD` (sari peste ce nu se aplică). Citește fiecare hunk, nu doar numele fișierelor. Verifică: 1) scope: schimbări care n-au legătură cu scopul aparent; 2) teste șterse, sărite (.skip, xit), aserțiuni slăbite sau verificări dezactivate (eslint-disable, @ts-ignore, pași de CI scoși); 3) dependențe noi sau actualizate și schimbări în lockfile; 4) secrete, chei sau tokenuri adăugate oriunde; 5) schimbări de autentificare și autorizare (middleware, guards, RLS, roluri); 6) migrări de bază de date (operații distructive, RLS lipsă, schimbări ireversibile); 7) tratarea erorilor (erori înghițite, catch gol, try/catch larg care întoarce succes). Raportează problemele ca listă cu fișier:linie, severitate (blocker/major/minor) și un motiv pe un rând, apoi un verdict: aprob, aprob cu modificări sau cer modificări. Nu modifica, nu face stage, commit sau revert la nimic. Doar raportează."
+    }
+  }
+}

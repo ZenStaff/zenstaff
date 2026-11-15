@@ -1,0 +1,147 @@
+{
+  "id": "slack",
+  "name": "Slack",
+  "category": "chat",
+  "aliases": ["slack"],
+  "description": {
+    "en": "Channels and messages in your Slack workspace.",
+    "ro": "Canale și mesaje din Slack."
+  },
+  "website": "https://slack.com",
+  "tier": "standard",
+  "mcpHosts": ["mcp.slack.com"],
+  "tos": {
+    "en": "Slack's terms apply; workspace admins may restrict apps.",
+    "ro": "Se aplică termenii Slack; adminii pot restricționa aplicațiile."
+  },
+  "api": {
+    "docsUrl": "https://api.slack.com/methods",
+    "auth": "OAuth 2.0 (Slack app)",
+    "verified": {
+      "status": "verified",
+      "note": "Slack Web API."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Slack",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Slack and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Slack și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          }
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Slack",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Slack, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Slack, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Search and read channels you can see.",
+          "ro": "Caută și citește canalele pe care le vezi."
+        },
+        "write": {
+          "en": "Post messages.",
+          "ro": "Trimite mesaje."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Slack in claude.ai's directory per Anthropic; not connected on this account."
+      }
+    },
+    {
+      "kind": "local-mcp",
+      "mcp": {
+        "transport": "http",
+        "url": "https://mcp.slack.com/mcp",
+        "auth": "oauth"
+      },
+      "access": {
+        "read": {
+          "en": "What you allow on Slack's consent page.",
+          "ro": "Ce permiți pe pagina de acord Slack."
+        }
+      },
+      "setup": {
+        "en": [
+          "Press Connect: Zen Staff runs Claude Code's own `claude mcp add` on this computer.",
+          "A sign-in link appears: open it here, scan it with your phone, or send it to your e-mail.",
+          "Sign in and allow access. Claude Code keeps the sign-in; Zen Staff never sees it.",
+          "If the page after sign-in does not load (you signed in on another device), copy its address and paste it in the card."
+        ],
+        "ro": [
+          "Apasă Conectează: Zen Staff rulează comanda oficială Claude Code `claude mcp add` pe acest calculator.",
+          "Apare un link de autentificare: deschide-l aici, scanează-l cu telefonul sau trimite-l pe e-mail.",
+          "Intră în cont și permite accesul. Claude Code păstrează autentificarea; Zen Staff nu o vede niciodată.",
+          "Dacă pagina de după autentificare nu se încarcă (ai intrat de pe alt dispozitiv), copiază adresa ei și lipește-o în card."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "2026-11-07: mcp.slack.com/mcp answers 401 with OAuth metadata but has no registration endpoint (client_secret_post), so Claude Code's own sign-in may be refused; prefer the claude.ai connector."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "Workspace owners: Settings & administration > Workspace settings > Import/Export Data > Export.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "Proprietarii spațiului: Setări și administrare > Setările spațiului > Import/Export date > Export.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    }
+  ]
+}

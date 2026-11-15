@@ -1,0 +1,108 @@
+{
+  "id": "woocommerce",
+  "name": "WooCommerce",
+  "category": "shop",
+  "aliases": ["woocommerce", "woo commerce", "woo"],
+  "description": {
+    "en": "Products and orders in a WooCommerce store.",
+    "ro": "Produse și comenzi într-un magazin WooCommerce."
+  },
+  "website": "https://woocommerce.com",
+  "tier": "standard",
+  "tos": {
+    "en": "Your own store.",
+    "ro": "Magazinul tău."
+  },
+  "api": {
+    "docsUrl": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+    "auth": "Consumer key + secret (HTTP Basic over HTTPS)",
+    "verified": {
+      "status": "verified",
+      "note": "WooCommerce REST v3."
+    }
+  },
+  "paths": [
+    {
+      "kind": "automation",
+      "automation": ["zapier", "make", "n8n"],
+      "access": {
+        "read": {
+          "en": "Only the WooCommerce actions you enable in your own Zapier MCP (or Make / n8n scenario).",
+          "ro": "Doar acțiunile WooCommerce activate de tine în propriul Zapier MCP (sau scenariu Make / n8n)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open zapier.com/mcp (your account) and add the WooCommerce actions you need; start with search / find actions.",
+          "Connect your Zapier MCP in Zen Staff once (Connections > Zapier).",
+          "Ask the assistant: it calls those actions through your Zapier account."
+        ],
+        "ro": [
+          "Deschide zapier.com/mcp (contul tău) și adaugă acțiunile WooCommerce de care ai nevoie; începe cu cele de căutare.",
+          "Conectează o dată Zapier MCP în Zen Staff (Conexiuni > Zapier).",
+          "Cere asistentului: apelează acțiunile prin contul tău Zapier."
+        ]
+      },
+      "notes": {
+        "en": "The connection lives in your Zapier / Make account and uses its tasks.",
+        "ro": "Conexiunea stă în contul tău Zapier / Make și consumă task-urile lui."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Whether Zapier / Make list WooCommerce was not checked; check the app directory."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In WordPress: Products > Export (CSV); for orders use WooCommerce > Reports or an export plugin.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În WordPress: Produse > Export (CSV); pentru comenzi folosește WooCommerce > Rapoarte sau un modul de export.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    },
+    {
+      "kind": "browser",
+      "tosAllowsBrowser": true,
+      "url": "https://wordpress.org",
+      "access": {
+        "read": {
+          "en": "The assistant works in WordPress admin in your own logged-in browser while you watch.",
+          "ro": "Asistentul lucrează în WordPress admin în browserul tău, logat cu contul tău, cât timp te uiți."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open WordPress admin in the built-in browser and log in yourself.",
+          "Tell the assistant what to look at. It is slower and you stay in control; it never types your password."
+        ],
+        "ro": [
+          "Deschide WordPress admin în browserul integrat și loghează-te tu.",
+          "Spune asistentului ce să urmărească. E mai lent și rămâi tu la control; nu-ți scrie niciodată parola."
+        ]
+      },
+      "notes": {
+        "en": "Your own site: supervised reading.",
+        "ro": "Site-ul tău: citire supravegheată."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Terms read for personal, supervised use; no automated bulk actions."
+      }
+    }
+  ]
+}

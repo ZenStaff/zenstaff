@@ -1,0 +1,91 @@
+{
+  "id": "work-log-to-posts",
+  "name": "Turn recent work into posts",
+  "description": "Reads your notes, files or a project folder from the last weeks, finds the stories worth telling, and drafts honest LinkedIn and Facebook posts in your voice, each with its sources. Drafts only: you review and post them yourself.",
+  "category": "social",
+  "icon": "notebook-pen",
+  "inputs": [
+    {
+      "id": "sources",
+      "label": "What did you work on?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Notes, or folders and files in the folder you chose: notes/, CHANGELOG.md, projects/new-menu",
+      "help": "Paste notes, or name folders and files inside the folder you chose. A project folder with git history works too."
+    },
+    {
+      "id": "period",
+      "label": "Which period?",
+      "type": "select",
+      "required": true,
+      "options": ["The last 7 days", "The last 14 days", "The last 30 days"]
+    },
+    {
+      "id": "author",
+      "label": "Whose voice? Name and role",
+      "type": "text",
+      "required": true,
+      "placeholder": "Ana Popescu, founder of a bakery in Iași"
+    },
+    {
+      "id": "boundaries",
+      "label": "What may be named publicly, and what must stay private",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Clients we may name: Hotel Central. Never mention revenue or staff problems.",
+      "help": "Without this, the drafts name no clients and share no internal numbers."
+    },
+    {
+      "id": "voice_samples",
+      "label": "Past posts you liked (optional)",
+      "type": "longtext",
+      "required": false,
+      "help": "Two or three of your own posts, so the drafts sound like you."
+    },
+    {
+      "id": "channels",
+      "label": "Where will you post?",
+      "type": "select",
+      "required": true,
+      "options": ["LinkedIn and Facebook", "Only LinkedIn", "Only Facebook"]
+    }
+  ],
+  "output": "posts/activity-<date>.md (what happened, with sources) and up to 3 drafts in posts/drafts/, ready for you to review and post yourself.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Postări din munca recentă",
+      "description": "Citește notițele, fișierele sau dosarul unui proiect din ultimele săptămâni, găsește poveștile care merită spuse și scrie ciorne oneste pentru LinkedIn și Facebook, cu vocea ta, fiecare cu sursele ei. Doar ciorne: le citești și le postezi tu.",
+      "output": "posts/activity-<data>.md (ce s-a întâmplat, cu surse) și cel mult 3 ciorne în posts/drafts/, gata să le citești și să le postezi tu.",
+      "inputs": {
+        "sources": {
+          "label": "La ce ai lucrat?",
+          "placeholder": "Notițe sau dosare și fișiere din dosarul ales: notite/, CHANGELOG.md, proiecte/meniu-nou",
+          "help": "Lipește notițe sau scrie numele dosarelor și fișierelor din dosarul ales. Merge și dosarul unui proiect cu istoric git."
+        },
+        "period": {
+          "label": "Ce perioadă?",
+          "options": ["Ultimele 7 zile", "Ultimele 14 zile", "Ultimele 30 de zile"]
+        },
+        "author": {
+          "label": "Cu vocea cui? Numele și rolul",
+          "placeholder": "Ana Popescu, fondatoarea unei brutării din Iași"
+        },
+        "boundaries": {
+          "label": "Ce se poate spune public și ce rămâne privat",
+          "placeholder": "Clienți pe care îi putem numi: Hotel Central. Nu pomeni niciodată încasările sau problemele cu personalul.",
+          "help": "Fără asta, ciornele nu numesc clienți și nu dau cifre interne."
+        },
+        "voice_samples": {
+          "label": "Postări mai vechi care ți-au plăcut (opțional)",
+          "help": "Două-trei postări de-ale tale, ca ciornele să sune ca tine."
+        },
+        "channels": {
+          "label": "Unde postezi?",
+          "options": ["LinkedIn și Facebook", "Doar LinkedIn", "Doar Facebook"]
+        }
+      }
+    }
+  }
+}

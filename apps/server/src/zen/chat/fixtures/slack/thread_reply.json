@@ -1,0 +1,20 @@
+{
+  "envelope_id": "4b1c0e3a-0000-4000-8000-000000000002",
+  "payload": {
+    "team_id": "T0001ZEN",
+    "event": {
+      "type": "message",
+      "text": "and add the totals please",
+      "user": "U0MARIA",
+      "ts": "1731000050.000300",
+      "thread_ts": "1731000000.000100",
+      "channel": "C0SALES",
+      "channel_type": "channel",
+      "event_ts": "1731000050.000300"
+    },
+    "type": "event_callback",
+    "event_id": "Ev0ZEN2"
+  },
+  "type": "events_api",
+  "accepts_response_payload": false
+}

@@ -1,0 +1,99 @@
+{
+  "id": "website-google-check",
+  "name": "Why can't Google find us?",
+  "description": "Finds what keeps your website out of Google: blocked pages, missing index, weak titles, no map listing. A plain report with the 3 fixes that matter most, plus details for your developer.",
+  "category": "reports",
+  "icon": "search",
+  "inputs": [
+    {
+      "id": "site_url",
+      "label": "Website address",
+      "type": "url",
+      "required": true,
+      "placeholder": "https://www.example.com"
+    },
+    {
+      "id": "ownership",
+      "label": "Is this website yours?",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Yes, it is our own website",
+        "We look after it for a client who agreed in writing",
+        "No, or I am not sure"
+      ],
+      "help": "We only check websites you own or may check. The checks are light and harmless, like a visitor's browser."
+    },
+    {
+      "id": "business",
+      "label": "What do you sell, and where?",
+      "type": "text",
+      "required": false,
+      "placeholder": "dental clinic in Cluj-Napoca"
+    },
+    {
+      "id": "searches",
+      "label": "What would customers type in Google to find you?",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "dentist Cluj\ndental implant price Cluj"
+    },
+    {
+      "id": "code_folder",
+      "label": "Folder with the website's files (optional)",
+      "type": "text",
+      "required": false,
+      "placeholder": "site",
+      "help": "A folder inside the one you chose. Leave it empty if someone else builds your site."
+    },
+    {
+      "id": "notes",
+      "label": "Anything we should know",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "The site was rebuilt in March; there is a Search Console export in the folder."
+    }
+  ],
+  "output": "A plain-language report in website-checks/google-<date>.md: the 3 problems that matter, what each means for the business, what to do and who does it, plus a technical appendix.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "De ce nu mă găsește Google?",
+      "description": "Află ce îți ține site-ul departe de Google: pagini blocate, pagini care lipsesc din căutare, titluri slabe, lipsa de pe hartă. Un raport pe înțeles, cu cele 3 reparații care contează cel mai mult, plus detaliile pentru cel care îți face site-ul.",
+      "output": "Un raport pe înțeles în website-checks/google-<data>.md: cele 3 probleme care contează, ce înseamnă pentru afacere, ce e de făcut și cine face, plus anexa tehnică.",
+      "inputs": {
+        "site_url": {
+          "label": "Adresa site-ului",
+          "placeholder": "https://www.exemplu.ro"
+        },
+        "ownership": {
+          "label": "Site-ul este al vostru?",
+          "options": [
+            "Da, este site-ul nostru",
+            "Îl administrăm pentru un client care și-a dat acordul în scris",
+            "Nu sau nu sunt sigur"
+          ],
+          "help": "Verificăm doar site-uri care sunt ale tale sau pe care ai voie să le verifici. Verificările sunt ușoare și inofensive, ca ale unui browser obișnuit."
+        },
+        "business": {
+          "label": "Ce vindeți și unde?",
+          "placeholder": "cabinet stomatologic în Cluj-Napoca"
+        },
+        "searches": {
+          "label": "Ce ar scrie clienții în Google ca să vă găsească?",
+          "placeholder": "dentist Cluj\npreț implant dentar Cluj"
+        },
+        "code_folder": {
+          "label": "Dosarul cu fișierele site-ului (opțional)",
+          "placeholder": "site",
+          "help": "Un dosar din cel ales. Lasă gol dacă altcineva se ocupă de site."
+        },
+        "notes": {
+          "label": "Ceva ce ar trebui să știm",
+          "placeholder": "Site-ul a fost refăcut în martie; în dosar e un export din Search Console."
+        }
+      }
+    }
+  }
+}

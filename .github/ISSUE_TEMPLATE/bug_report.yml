@@ -1,0 +1,35 @@
+name: Bug report
+description: Something in the Zen Staff app does not work
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "Security problems go to security@zenstaff.app, not here. Remove names, e-mails, keys and company data from logs and screenshots."
+  - type: input
+    id: version
+    attributes:
+      label: Zen Staff version
+      description: Settings > About
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: ["Windows", "macOS", "Linux", "Android", "Other"]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots

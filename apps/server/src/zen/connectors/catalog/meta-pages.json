@@ -1,0 +1,137 @@
+{
+  "id": "meta-pages",
+  "name": "Facebook Pages / Meta",
+  "category": "social",
+  "aliases": [
+    "facebook",
+    "facebook page",
+    "pagina de facebook",
+    "meta",
+    "instagram",
+    "meta business",
+    "fb"
+  ],
+  "description": {
+    "en": "Facebook Pages and Meta ads.",
+    "ro": "Pagini Facebook și reclame Meta."
+  },
+  "website": "https://business.facebook.com",
+  "tier": "enterprise",
+  "defaultScope": "company",
+  "mcpHosts": ["mcp.facebook.com"],
+  "tos": {
+    "en": "Meta's terms apply; company pages and ad accounts are company assets.",
+    "ro": "Se aplică termenii Meta; paginile și conturile de reclame sunt ale firmei."
+  },
+  "api": {
+    "docsUrl": "https://developers.facebook.com/docs/pages-api",
+    "auth": "OAuth 2.0 (Facebook Login) with app review",
+    "verified": {
+      "status": "unverified",
+      "note": "Graph API Pages permissions from Meta docs; not tested."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Meta Ads (facebook)",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Meta Ads (facebook) and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Meta Ads (facebook) și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://mcp.facebook.com/ads"
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Read ad accounts, campaigns and results.",
+          "ro": "Citește conturile de reclame, campaniile și rezultatele."
+        },
+        "write": {
+          "en": "Change campaigns (the assistant asks first).",
+          "ro": "Modifică campanii (asistentul întreabă întâi)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: listed as a claude.ai connector in `claude mcp list` on a Claude account (✔ Connected). Name 'facebook', target mcp.facebook.com/ads (ads, not Pages posts)."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Meta Business Suite: Insights > Export data, choose the period and CSV.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Meta Business Suite: Statistici > Exportă date, alege perioada și CSV.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://business.facebook.com"
+    },
+    {
+      "kind": "browser",
+      "tosAllowsBrowser": true,
+      "url": "https://business.facebook.com",
+      "access": {
+        "read": {
+          "en": "The assistant works in Meta Business Suite in your own logged-in browser while you watch.",
+          "ro": "Asistentul lucrează în Meta Business Suite în browserul tău, logat cu contul tău, cât timp te uiți."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open Meta Business Suite in the built-in browser and log in yourself.",
+          "Tell the assistant what to look at. It is slower and you stay in control; it never types your password."
+        ],
+        "ro": [
+          "Deschide Meta Business Suite în browserul integrat și loghează-te tu.",
+          "Spune asistentului ce să urmărească. E mai lent și rămâi tu la control; nu-ți scrie niciodată parola."
+        ]
+      },
+      "notes": {
+        "en": "Reading your own pages by hand is allowed; automated posting or scraping is not.",
+        "ro": "Citirea manuală a propriilor pagini e permisă; postarea automată sau scraping-ul nu."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Terms read for personal, supervised use; no automated bulk actions."
+      }
+    }
+  ]
+}

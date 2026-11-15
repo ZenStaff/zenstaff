@@ -1,0 +1,129 @@
+{
+  "id": "pptxgenjs",
+  "name": "PptxGenJS (PowerPoint files)",
+  "kind": "npm",
+  "description": "Writes editable PowerPoint (.pptx) files: text boxes, shapes, tables, charts and speaker notes.",
+  "homepage": "https://gitbrent.github.io/PptxGenJS/",
+  "license": {
+    "spdx": "MIT",
+    "name": "MIT",
+    "url": "https://github.com/gitbrent/PptxGenJS/blob/master/LICENSE",
+    "commercialUse": "free",
+    "note": "Free for any use, including business. The files it makes are yours.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv în firme. Fișierele făcute cu el sunt ale tale."
+  },
+  "untrustedInput": false,
+  "verify": {
+    "bin": "",
+    "args": [],
+    "expect": ""
+  },
+  "osv": [
+    {
+      "ecosystem": "npm",
+      "name": "pptxgenjs"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "jszip"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "image-size"
+    }
+  ],
+  "versions": [
+    {
+      "version": "4.0.1",
+      "released": "2025-06-26",
+      "dependsOn": [
+        {
+          "id": "node",
+          "version": "^24"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/pptxgenjs-4.0.1"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PPTXGENJS_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 8200000
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/pptxgenjs-4.0.1"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PPTXGENJS_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 8200000
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/pptxgenjs-4.0.1"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PPTXGENJS_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 8200000
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/pptxgenjs-4.0.1"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PPTXGENJS_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 8200000
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/pptxgenjs-4.0.1"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PPTXGENJS_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 8200000
+        }
+      ]
+    }
+  ]
+}

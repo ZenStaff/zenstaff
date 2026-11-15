@@ -1,0 +1,114 @@
+{
+  "id": "microsoft-teams",
+  "name": "Microsoft Teams",
+  "category": "chat",
+  "aliases": ["teams", "microsoft teams", "ms teams"],
+  "description": {
+    "en": "Your Teams chats and channels.",
+    "ro": "Chaturile și canalele din Teams."
+  },
+  "website": "https://teams.microsoft.com",
+  "tier": "standard",
+  "tos": {
+    "en": "Microsoft's terms apply; channel messages need an admin's consent.",
+    "ro": "Se aplică termenii Microsoft; mesajele din canale cer acordul unui admin."
+  },
+  "api": {
+    "docsUrl": "https://learn.microsoft.com/graph/teams-concept-overview",
+    "auth": "OAuth 2.0 (Microsoft identity, Graph)",
+    "verified": {
+      "status": "verified",
+      "note": "Microsoft Graph Teams API."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Microsoft 365",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Microsoft 365 and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Microsoft 365 și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          }
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Teams",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Teams, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Teams, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Read chats and channels your account can open.",
+          "ro": "Citește chaturile și canalele la care ai acces."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Not visible on this account."
+      },
+      "notes": {
+        "en": "On Claude, part of the Microsoft 365 connector (Team / Enterprise).",
+        "ro": "Pe Claude, face parte din conectorul Microsoft 365 (Team / Enterprise)."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "Copy the conversation, or ask your admin for an export from Microsoft Purview.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "Copiază conversația sau cere adminului un export din Microsoft Purview.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    }
+  ]
+}

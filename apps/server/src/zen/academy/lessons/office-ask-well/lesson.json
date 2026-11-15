@@ -1,0 +1,23 @@
+{
+  "id": "office-ask-well",
+  "track": "office",
+  "order": 20,
+  "title": { "en": "How to ask an agent well", "ro": "Cum îi ceri bine unui agent" },
+  "summary": {
+    "en": "Give context, examples, limits and a clear picture of done. One task per message, and let the agent ask you questions first.",
+    "ro": "Dă-i context, exemple, limite și spune clar cum arată rezultatul. O sarcină pe mesaj, iar agentul te întreabă întâi ce nu știe."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["prompting", "requests", "context", "basics"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": true,
+    "prompt": {
+      "en": "Read cerere-vaga.md. It is a vague request from my manager: we need a short announcement. Before you write anything, ask me the 3 to 5 questions you need answered to write it well (audience, channel, facts, tone, length, deadline). Number the questions and wait for my answers. Do not create or change any file yet.",
+      "ro": "Citește cerere-vaga.md. E o cerere vagă de la șefa mea: avem nevoie de un anunț scurt. Înainte să scrii ceva, pune-mi cele 3-5 întrebări de care ai nevoie ca să-l scrii bine (cui se adresează, unde apare, ce informații conține, ce ton, cât de lung, până când). Numerotează întrebările și așteaptă răspunsurile mele. Nu crea și nu modifica încă niciun fișier."
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": "competitor-radar",
+  "name": "Competitor and price radar",
+  "description": "A weekly report on your competitors from their public pages: prices, new features and promotions, how they present themselves. A table with a source link for every number, “not published” where a price is not public, nothing invented; what changed since last week, 3 observations for you and a “to decide” section. Can repeat itself every week.",
+  "category": "reports",
+  "icon": "scan-eye",
+  "inputs": [
+    {
+      "id": "business",
+      "label": "Your business and what you sell",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "booking software for beauty salons, from 99 lei a month"
+    },
+    {
+      "id": "competitors",
+      "label": "The competitors you know",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "examplebook.com, salonplus.example, the local agency Example",
+      "help": "Names or websites. We also look for new ones each week."
+    },
+    {
+      "id": "own_prices",
+      "label": "Your own prices, to compare",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Start 99 lei/month, Pro 199 lei/month"
+    },
+    {
+      "id": "market",
+      "label": "Market",
+      "type": "text",
+      "required": false,
+      "placeholder": "Romania"
+    },
+    {
+      "id": "contact",
+      "label": "Your business e-mail or website",
+      "type": "text",
+      "required": true,
+      "placeholder": "office@yourcompany.com",
+      "help": "Sent with every visit, so site owners know who reads their pages."
+    }
+  ],
+  "output": "radar-concurenta/<date>/raport.md with the table, the changes, 3 observations and what to decide, plus the snapshot of every page read.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Radar concurență și prețuri",
+      "description": "Un raport săptămânal despre concurenții tăi, din paginile lor publice: prețuri, funcții noi și promoții, cum se prezintă. Un tabel cu link la sursă pentru fiecare cifră, „nepublicat” unde prețul nu e public, nimic inventat; ce s-a schimbat față de săptămâna trecută, 3 observații pentru tine și o secțiune „De decis”. Se poate repeta singur în fiecare săptămână.",
+      "output": "radar-concurenta/<data>/raport.md cu tabelul, schimbările, 3 observații și ce e de decis, plus copia fiecărei pagini citite.",
+      "inputs": {
+        "business": {
+          "label": "Firma ta și ce vinzi",
+          "placeholder": "program de programări pentru saloane, de la 99 lei pe lună"
+        },
+        "competitors": {
+          "label": "Concurenții pe care îi știi",
+          "placeholder": "examplebook.com, salonplus.example, agenția locală Exemplu",
+          "help": "Nume sau site-uri. Căutăm și concurenți noi în fiecare săptămână."
+        },
+        "own_prices": {
+          "label": "Prețurile tale, pentru comparație",
+          "placeholder": "Start 99 lei/lună, Pro 199 lei/lună"
+        },
+        "market": {
+          "label": "Piața",
+          "placeholder": "România"
+        },
+        "contact": {
+          "label": "E-mailul sau site-ul firmei tale",
+          "placeholder": "office@firmata.ro",
+          "help": "Merge cu fiecare vizită, ca proprietarii site-urilor să știe cine le citește paginile."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "reads the public pages under the rules, keeps the weekly snapshots and checks every number"
+      },
+      {
+        "id": "playwright",
+        "version": ">=1.65.0",
+        "optional": true,
+        "purpose": "reads price pages that show nothing without JavaScript, under the same rules"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 2,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a weekly report",
+      "seconds": 420,
+      "referenceCpuCores": 8
+    },
+    "network": true
+  },
+  "unattended": {
+    "commands": ["node", "mkdir", "ls", "cat", "cp"],
+    "tools": ["WebSearch"]
+  }
+}

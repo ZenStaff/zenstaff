@@ -1,0 +1,17 @@
+{
+  "update_id": 900002,
+  "message": {
+    "message_id": 45,
+    "from": { "id": 7001, "is_bot": false, "first_name": "Maria" },
+    "chat": { "id": -1002233, "title": "Echipa vânzări", "type": "supergroup" },
+    "date": 1731000060,
+    "text": "și totalul pe săptămână?",
+    "reply_to_message": {
+      "message_id": 43,
+      "from": { "id": 6000, "is_bot": true, "first_name": "Zen Staff", "username": "ZenStaffBot" },
+      "chat": { "id": -1002233, "type": "supergroup" },
+      "date": 1731000030,
+      "text": "Rezumatul de azi: ..."
+    }
+  }
+}

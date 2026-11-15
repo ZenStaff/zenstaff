@@ -1,0 +1,198 @@
+{
+  "id": "piper-voice-en",
+  "name": "English voice for previews",
+  "nameRo": "Voce în engleză pentru previzualizare",
+  "kind": "model",
+  "description": "A English preview voice for checking a script aloud; not for final videos or ads.",
+  "homepage": "https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/ljspeech/high",
+  "license": {
+    "spdx": "LicenseRef-PublicDomain",
+    "name": "Public domain dataset (LJ Speech)",
+    "url": "https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_US/ljspeech/high/MODEL_CARD",
+    "commercialUse": "free",
+    "note": "Trained only on public-domain recordings: free for any use. Label the voice as AI-generated. A preview voice only: for final videos and ads use a professional voice (your own ElevenLabs account).",
+    "noteRo": "Antrenată doar pe înregistrări din domeniul public: gratuită pentru orice folosire. Menționează că vocea e generată cu AI. Doar voce de previzualizare: pentru video-uri finale și reclame folosește o voce profesională (contul tău ElevenLabs)."
+  },
+  "untrustedInput": false,
+  "verify": {
+    "bin": "",
+    "args": [],
+    "expect": ""
+  },
+  "osv": [],
+  "versions": [
+    {
+      "version": "1.0.0+e7229f7",
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx",
+              "sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+              "size": 114199011,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json",
+              "sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+              "size": 4970,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx.json"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PIPER_VOICE_EN": "${dir}/voice/en_US-ljspeech-high.onnx"
+          },
+          "installedSize": 114203981
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx",
+              "sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+              "size": 114199011,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json",
+              "sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+              "size": 4970,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx.json"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PIPER_VOICE_EN": "${dir}/voice/en_US-ljspeech-high.onnx"
+          },
+          "installedSize": 114203981
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx",
+              "sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+              "size": 114199011,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json",
+              "sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+              "size": 4970,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx.json"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PIPER_VOICE_EN": "${dir}/voice/en_US-ljspeech-high.onnx"
+          },
+          "installedSize": 114203981
+        },
+        {
+          "os": "windows",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx",
+              "sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+              "size": 114199011,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json",
+              "sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+              "size": 4970,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx.json"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PIPER_VOICE_EN": "${dir}/voice/en_US-ljspeech-high.onnx"
+          },
+          "installedSize": 114203981
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx",
+              "sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+              "size": 114199011,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json",
+              "sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+              "size": 4970,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx.json"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PIPER_VOICE_EN": "${dir}/voice/en_US-ljspeech-high.onnx"
+          },
+          "installedSize": 114203981
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx",
+              "sha256": "5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a",
+              "size": 114199011,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx"
+            },
+            {
+              "type": "download",
+              "url": "https://huggingface.co/rhasspy/piper-voices/resolve/e7229f7d33a10e145e109b886d661984201ac3c4/en/en_US/ljspeech/high/en_US-ljspeech-high.onnx.json",
+              "sha256": "7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14",
+              "size": 4970,
+              "archive": "none",
+              "dest": "voice/en_US-ljspeech-high.onnx.json"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_PIPER_VOICE_EN": "${dir}/voice/en_US-ljspeech-high.onnx"
+          },
+          "installedSize": 114203981
+        }
+      ]
+    }
+  ]
+}

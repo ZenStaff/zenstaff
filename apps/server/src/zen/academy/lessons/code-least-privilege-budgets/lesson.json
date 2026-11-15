@@ -1,0 +1,22 @@
+{
+  "id": "code-least-privilege-budgets",
+  "track": "code",
+  "order": 100,
+  "title": {
+    "en": "Least privilege and budgets for agents",
+    "ro": "Drepturi minime și bugete pentru agenți"
+  },
+  "summary": {
+    "en": "Separate scoped credentials per agent, read-only database users, network limits, run and token budgets, quiet hours and a kill switch.",
+    "ro": "Credențiale separate și limitate pe agent, useri read-only, limite de rețea, bugete de rulări și tokenuri, ore de liniște și oprire de urgență."
+  },
+  "minutes": 4,
+  "level": "intermediate",
+  "tags": ["agents", "permissions", "limits", "credentials"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "open",
+    "to": "/limits"
+  }
+}

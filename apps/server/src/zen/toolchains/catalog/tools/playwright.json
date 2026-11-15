@@ -1,0 +1,163 @@
+{
+  "id": "playwright",
+  "name": "Web page tools (Playwright)",
+  "nameRo": "Unelte pentru pagini web (Playwright)",
+  "kind": "npm",
+  "description": "Opens web pages in a hidden browser to click through them, take screenshots and print pages to PDF.",
+  "homepage": "https://playwright.dev",
+  "license": {
+    "spdx": "Apache-2.0 AND BSD-3-Clause",
+    "name": "Apache-2.0 (Playwright), BSD-3-Clause (Chrome headless shell)",
+    "url": "https://github.com/microsoft/playwright/blob/main/LICENSE",
+    "commercialUse": "free",
+    "note": "Free for any use, including business. Only open sites you are allowed to visit; their terms still apply.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv \u00een firme. Deschide doar site-uri pe care ai voie s\u0103 le vizitezi; termenii lor r\u0103m\u00e2n valabili."
+  },
+  "untrustedInput": true,
+  "verify": {
+    "bin": "playwright",
+    "args": ["--version"],
+    "expect": "Version 1\\.65\\.1"
+  },
+  "osv": [
+    {
+      "ecosystem": "npm",
+      "name": "playwright-core"
+    }
+  ],
+  "nvd": [
+    {
+      "cpe": "cpe:2.3:a:google:chrome",
+      "label": "Chrome headless shell",
+      "versions": {
+        "1.65.1": "159.0.8154.6"
+      }
+    }
+  ],
+  "versions": [
+    {
+      "version": "1.65.1",
+      "released": "2026-11-13",
+      "dependsOn": [
+        {
+          "id": "node",
+          "version": "^24"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/playwright-core-1.65.1"
+            },
+            {
+              "type": "download",
+              "url": "https://storage.googleapis.com/chrome-for-testing-public/159.0.8154.6/linux64/chrome-headless-shell-linux64.zip",
+              "sha256": "77a6442fd3c8acd3bef9e1067fc26f5ef464277d22f0e8cb58dc3e4077a3e458",
+              "size": 131851262,
+              "archive": "zip",
+              "stripComponents": 1,
+              "dest": "browser"
+            }
+          ],
+          "bin": {
+            "playwright": "node_modules/playwright-core/cli.js"
+          },
+          "env": {
+            "ZEN_PLAYWRIGHT_MODULES": "${dir}/node_modules",
+            "ZEN_CHROME": "${dir}/browser/chrome-headless-shell"
+          },
+          "installedSize": 260000000
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/playwright-core-1.65.1"
+            },
+            {
+              "type": "download",
+              "url": "https://storage.googleapis.com/chrome-for-testing-public/159.0.8154.6/win64/chrome-headless-shell-win64.zip",
+              "sha256": "5db6a6948e6d1299ea3bc87c420d467bf343feae186a316921c930ce02056af5",
+              "size": 129830431,
+              "archive": "zip",
+              "stripComponents": 1,
+              "dest": "browser"
+            }
+          ],
+          "bin": {
+            "playwright": "node_modules/playwright-core/cli.js"
+          },
+          "env": {
+            "ZEN_PLAYWRIGHT_MODULES": "${dir}/node_modules",
+            "ZEN_CHROME": "${dir}/browser/chrome-headless-shell.exe"
+          },
+          "installedSize": 280000000
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/playwright-core-1.65.1"
+            },
+            {
+              "type": "download",
+              "url": "https://storage.googleapis.com/chrome-for-testing-public/159.0.8154.6/mac-x64/chrome-headless-shell-mac-x64.zip",
+              "sha256": "89c56fb080ab4e9ba76656d5669af2b2dfc313c11434871e8f4e351c08a5ffca",
+              "size": 111689718,
+              "archive": "zip",
+              "stripComponents": 1,
+              "dest": "browser"
+            }
+          ],
+          "bin": {
+            "playwright": "node_modules/playwright-core/cli.js"
+          },
+          "env": {
+            "ZEN_PLAYWRIGHT_MODULES": "${dir}/node_modules",
+            "ZEN_CHROME": "${dir}/browser/chrome-headless-shell"
+          },
+          "installedSize": 260000000
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/playwright-core-1.65.1"
+            },
+            {
+              "type": "download",
+              "url": "https://storage.googleapis.com/chrome-for-testing-public/159.0.8154.6/mac-arm64/chrome-headless-shell-mac-arm64.zip",
+              "sha256": "b08e7beaf02a19e2ee5ed6955f9c3853ab9176cd5bb57ba87afbb82e9f81cc29",
+              "size": 105717002,
+              "archive": "zip",
+              "stripComponents": 1,
+              "dest": "browser"
+            }
+          ],
+          "bin": {
+            "playwright": "node_modules/playwright-core/cli.js"
+          },
+          "env": {
+            "ZEN_PLAYWRIGHT_MODULES": "${dir}/node_modules",
+            "ZEN_CHROME": "${dir}/browser/chrome-headless-shell"
+          },
+          "installedSize": 260000000
+        }
+      ]
+    }
+  ]
+}

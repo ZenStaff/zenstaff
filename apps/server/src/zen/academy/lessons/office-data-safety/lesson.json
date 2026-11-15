@@ -1,0 +1,23 @@
+{
+  "id": "office-data-safety",
+  "track": "office",
+  "order": 80,
+  "title": { "en": "Keep company data safe", "ro": "Ai grijă de datele firmei" },
+  "summary": {
+    "en": "What never goes into a chat, how to handle personal data the GDPR way in plain words, and what to do if you pasted something you shouldn't have.",
+    "ro": "Ce nu pui niciodată în chat, cum lucrezi cu date personale după GDPR, spus pe înțeles, și ce faci dacă ai lipit ceva ce nu trebuia."
+  },
+  "minutes": 5,
+  "level": "intermediate",
+  "tags": ["privacy", "gdpr", "security", "data"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": true,
+    "prompt": {
+      "en": "clienti.csv contains (fake) customer personal data. Step 1: create an anonymized copy named clienti-anonim.csv. Replace each name with a code (C01, C02...), and remove the email, phone and cnp columns completely. Keep only: code, city, last order value. Do not change clienti.csv. Step 2: using only clienti-anonim.csv, compute the average last order value per city and the number of customers per city, and show the result as a table. Step 3: tell me in two lines why the second step did not need the personal data.",
+      "ro": "clienti.csv conține date personale (inventate) ale unor clienți. Pasul 1: fă o copie anonimizată numită clienti-anonim.csv. Înlocuiește fiecare nume cu un cod (C01, C02...) și scoate de tot coloanele email, telefon și cnp. Păstrează doar: cod, oraș, valoarea ultimei comenzi. Nu modifica clienti.csv. Pasul 2: folosind doar clienti-anonim.csv, calculează media ultimei comenzi pe fiecare oraș și câți clienți are fiecare oraș, și arată rezultatul într-un tabel. Pasul 3: spune-mi în două rânduri de ce pasul 2 nu avea nevoie de datele personale."
+    }
+  }
+}

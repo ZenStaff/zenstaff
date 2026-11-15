@@ -1,0 +1,33 @@
+{
+  "envelope_id": "4b1c0e3a-0000-4000-8000-000000000005",
+  "payload": {
+    "type": "block_actions",
+    "user": { "id": "U0BOSS", "username": "ion", "name": "ion", "team_id": "T0001ZEN" },
+    "api_app_id": "A0ZENAPP",
+    "token": "XXYYZZ",
+    "container": {
+      "type": "message",
+      "message_ts": "1731000200.000600",
+      "channel_id": "D0BOSS",
+      "is_ephemeral": false
+    },
+    "trigger_id": "123.456.abc",
+    "team": { "id": "T0001ZEN", "domain": "zen" },
+    "channel": { "id": "D0BOSS", "name": "directmessage" },
+    "message": { "type": "message", "ts": "1731000200.000600", "text": "approval" },
+    "response_url": "https://hooks.slack.com/actions/T0001ZEN/1/abc",
+    "actions": [
+      {
+        "action_id": "zen_0",
+        "block_id": "b1",
+        "text": { "type": "plain_text", "text": "Approve" },
+        "value": "zenapr:0123456789abcdef:accept",
+        "style": "primary",
+        "type": "button",
+        "action_ts": "1731000210.000000"
+      }
+    ]
+  },
+  "type": "interactive",
+  "accepts_response_payload": false
+}

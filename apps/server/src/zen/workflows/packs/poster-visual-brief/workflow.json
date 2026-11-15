@@ -1,0 +1,169 @@
+{
+  "id": "poster-visual-brief",
+  "name": "Poster, flyer and visuals",
+  "description": "A finished poster or flyer in your brand, ready for the printer (PDF with bleed, 300 dpi), the same design for Instagram, stories and a Facebook event, real photo mockups of it in place, and the brief behind it.",
+  "category": "design",
+  "icon": "palette",
+  "inputs": [
+    {
+      "id": "purpose",
+      "label": "What is the visual for?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Poster for our Christmas market stand"
+    },
+    {
+      "id": "format",
+      "label": "Format",
+      "type": "select",
+      "required": true,
+      "options": ["A3 poster", "A4 poster or flyer", "A5 flyer", "A2 poster", "50x70 cm poster"],
+      "help": "The print size. The Instagram post, story, square post and Facebook event cover are always made too."
+    },
+    {
+      "id": "headline",
+      "label": "Main message",
+      "type": "text",
+      "required": true,
+      "placeholder": "Hot chocolate, cold hands, warm hearts"
+    },
+    {
+      "id": "details",
+      "label": "Details to show",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Dates, address, price, QR code to the menu"
+    },
+    {
+      "id": "photos",
+      "label": "Photos",
+      "type": "file",
+      "required": false,
+      "help": "A photo or a folder of your own photos inside the chosen folder (the best one is used). Without photos, the poster is made from type and your brand colors."
+    },
+    {
+      "id": "logo",
+      "label": "Logo",
+      "type": "file",
+      "required": false,
+      "help": "A PNG with a transparent background works best."
+    },
+    {
+      "id": "brand_colors",
+      "label": "Brand colors",
+      "type": "text",
+      "required": false,
+      "placeholder": "#1F4D3A and #F2B544",
+      "help": "One or two colors. Leave empty and they are taken from your logo, brand guide or photos."
+    },
+    {
+      "id": "call_to_action",
+      "label": "Call to action and address",
+      "type": "text",
+      "required": false,
+      "placeholder": "Te așteptăm la stand · casaverde.ro"
+    },
+    {
+      "id": "brand_guide",
+      "label": "Brand guide file in the folder",
+      "type": "file",
+      "required": false,
+      "placeholder": "brand/brand-guide.pdf"
+    },
+    {
+      "id": "mood",
+      "label": "Look and feel",
+      "type": "select",
+      "required": true,
+      "options": ["Clean and minimal", "Warm and friendly", "Premium", "Bold and loud", "Playful"]
+    }
+  ],
+  "output": "In the poster folder: a print PDF with bleed, a proof with crop marks, a 300 dpi PNG, four social sizes, photo mockups, the brief with print specs (visual-brief.md) and an overview image, shown in the chat.",
+  "version": "2.1.1",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "Afiș, fluturaș și vizualuri",
+      "description": "Un afiș sau un fluturaș gata de tipar în stilul firmei (PDF cu bleed, 300 dpi), același design pentru Instagram, story și evenimentul de Facebook, machete foto reale cu el pus la locul lui și indicațiile din spate.",
+      "output": "În dosarul poster: PDF de tipar cu bleed, o probă cu semne de tăiere, un PNG la 300 dpi, patru formate pentru social media, machete foto, indicațiile cu specificațiile de tipar (visual-brief.md) și o imagine de ansamblu, afișate în chat.",
+      "inputs": {
+        "purpose": {
+          "label": "La ce folosește materialul?",
+          "placeholder": "Afiș pentru căsuța noastră de la târgul de Crăciun"
+        },
+        "format": {
+          "label": "Formatul",
+          "options": ["Afiș A3", "Afiș sau fluturaș A4", "Fluturaș A5", "Afiș A2", "Afiș 50x70 cm"],
+          "help": "Mărimea de tipar. Postarea de Instagram, story-ul, postarea pătrată și coperta de eveniment Facebook se fac mereu."
+        },
+        "headline": {
+          "label": "Mesajul principal",
+          "placeholder": "Ciocolată caldă pentru zilele reci"
+        },
+        "details": {
+          "label": "Ce detalii apar pe material",
+          "placeholder": "Datele, adresa, prețul, un cod QR spre meniu"
+        },
+        "brand_guide": {
+          "label": "Ghidul de brand din dosar",
+          "placeholder": "brand/ghid-de-brand.pdf"
+        },
+        "mood": {
+          "label": "Stilul",
+          "options": [
+            "Simplu și aerisit",
+            "Cald și prietenos",
+            "Elegant",
+            "Îndrăzneț, să sară în ochi",
+            "Jucăuș"
+          ]
+        },
+        "photos": {
+          "label": "Poze",
+          "help": "O poză sau un dosar cu pozele tale din dosarul ales (se folosește cea mai bună). Fără poze, afișul se face din text și culorile firmei."
+        },
+        "logo": {
+          "label": "Logo",
+          "help": "Merge cel mai bine un PNG cu fundal transparent."
+        },
+        "brand_colors": {
+          "label": "Culorile firmei",
+          "placeholder": "#1F4D3A și #F2B544",
+          "help": "Una sau două culori. Dacă lași gol, se iau din logo, ghidul de brand sau poze."
+        },
+        "call_to_action": {
+          "label": "Îndemnul și adresa",
+          "placeholder": "Te așteptăm la stand · casaverde.ro"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "playwright",
+        "purpose": "lays out the poster and writes the print PDF, the PNG files and the mockups",
+        "version": "^1.64"
+      },
+      {
+        "id": "open-fonts",
+        "purpose": "fonts with full Romanian letters"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 2,
+      "minFreeDiskGb": 0.5,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a poster set",
+      "seconds": 20,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 180
+    },
+    "network": true
+  }
+}

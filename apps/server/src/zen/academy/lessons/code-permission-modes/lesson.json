@@ -1,0 +1,26 @@
+{
+  "id": "code-permission-modes",
+  "track": "code",
+  "order": 90,
+  "title": {
+    "en": "Safe permission modes for agents",
+    "ro": "Moduri de permisiuni sigure pentru agenți"
+  },
+  "summary": {
+    "en": "What default, acceptEdits, plan and bypassPermissions really allow, how to write allow/deny rules and hooks, and where autonomy belongs.",
+    "ro": "Ce permit de fapt default, acceptEdits, plan și bypassPermissions, cum scrii reguli allow/deny și hooks și unde e locul autonomiei totale."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["permissions", "agents", "settings", "sandbox"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": false,
+    "prompt": {
+      "en": "Inspect this project's coding agent configuration and report on its permissions. Read, if they exist: .claude/settings.json, .claude/settings.local.json, .mcp.json, CLAUDE.md, .claude/hooks/ and any hook scripts referenced in settings, and ~/.claude/settings.json for user-level rules. Report: 1) the default permission mode; 2) every allow rule, marking the risky ones (broad Bash wildcards, network tools like curl/wget, git push, package publishing, database clients, Write/Edit outside the project); 3) risky actions that have no deny or ask rule (rm -rf, git push --force, reading .env and key files, curl/wget, sudo, docker, production database URLs); 4) MCP servers configured and what they can reach; 5) hooks and whether they actually block anything. Then propose a least-privilege .claude/settings.json (allow, ask and deny lists) as a code block, with one line explaining each rule. Do not create or modify any files. Only report.",
+      "ro": "Verifică configurația agentului de cod din proiectul ăsta și spune-mi ce permisiuni are. Citește, dacă există: .claude/settings.json, .claude/settings.local.json, .mcp.json, CLAUDE.md, .claude/hooks/ și scripturile de hook trecute în settings, plus ~/.claude/settings.json pentru regulile la nivel de user. Raportează: 1) modul de permisiuni implicit; 2) fiecare regulă allow, cu cele riscante marcate (wildcard-uri largi pe Bash, unelte de rețea gen curl/wget, git push, publicare de pachete, clienți de bază de date, Write/Edit în afara proiectului); 3) acțiuni riscante fără regulă de deny sau ask (rm -rf, git push --force, citit .env și fișiere cu chei, curl/wget, sudo, docker, URL-uri de bază de date de producție); 4) serverele MCP configurate și la ce ajung; 5) hook-urile și dacă blochează ceva de fapt. Apoi propune un .claude/settings.json cu drepturi minime (listele allow, ask și deny) într-un bloc de cod, cu un rând de explicație pentru fiecare regulă. Nu crea și nu modifica niciun fișier. Doar raportează."
+    }
+  }
+}

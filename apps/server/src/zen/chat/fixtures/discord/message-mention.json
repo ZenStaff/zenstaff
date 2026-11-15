@@ -1,0 +1,70 @@
+{
+  "op": 0,
+  "s": 7,
+  "t": "MESSAGE_CREATE",
+  "d": {
+    "type": 0,
+    "tts": false,
+    "timestamp": "2026-11-07T20:11:03.512000+00:00",
+    "referenced_message": null,
+    "pinned": false,
+    "nonce": "1436512378519470080",
+    "mentions": [
+      {
+        "username": "zen-staff",
+        "public_flags": 0,
+        "id": "1300000000000000001",
+        "global_name": null,
+        "discriminator": "0",
+        "bot": true,
+        "avatar": null
+      },
+      {
+        "username": "maria.pop",
+        "public_flags": 0,
+        "id": "1200000000000000077",
+        "global_name": "Maria Pop",
+        "discriminator": "0",
+        "avatar": null
+      }
+    ],
+    "mention_roles": [],
+    "mention_everyone": false,
+    "member": {
+      "roles": [],
+      "joined_at": "2026-10-01T09:00:00.000000+00:00",
+      "deaf": false,
+      "mute": false,
+      "flags": 0
+    },
+    "id": "1436512380000000001",
+    "flags": 0,
+    "embeds": [],
+    "edited_timestamp": null,
+    "content": "<@1300000000000000001> rezumă comenzile de ieri pentru <@1200000000000000077>",
+    "components": [],
+    "channel_type": 0,
+    "channel_id": "1250000000000000010",
+    "author": {
+      "username": "alex.m",
+      "public_flags": 0,
+      "id": "1200000000000000042",
+      "global_name": "Alex M",
+      "discriminator": "0",
+      "avatar": null
+    },
+    "attachments": [
+      {
+        "width": 800,
+        "url": "https://cdn.discordapp.com/attachments/1250000000000000010/1436512379999999999/comenzi.png?ex=1&is=2&hm=abc",
+        "size": 48211,
+        "proxy_url": "https://media.discordapp.net/attachments/1250000000000000010/1436512379999999999/comenzi.png",
+        "id": "1436512379999999999",
+        "height": 600,
+        "filename": "comenzi.png",
+        "content_type": "image/png"
+      }
+    ],
+    "guild_id": "1240000000000000001"
+  }
+}

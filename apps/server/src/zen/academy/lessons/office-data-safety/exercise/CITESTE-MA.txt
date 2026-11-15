@@ -1,0 +1,3 @@
+Toate persoanele, adresele de e-mail, telefoanele și CNP-urile din clienti.csv sunt inventate.
+Domeniul example.com e rezervat pentru exemple, iar CNP-urile sunt marcate FAKE.
+All people, emails, phone numbers and ID numbers in clienti.csv are fake.

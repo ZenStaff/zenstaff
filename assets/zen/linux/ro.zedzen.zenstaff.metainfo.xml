@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Zen Staff (ZED-ZEN fork of T3 Code). Installed by the deb/rpm packages; see ZEN.md. -->
+<component type="desktop-application">
+  <id>ro.zedzen.zenstaff</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Zen Staff</name>
+  <summary>AI staff and coding agents on your desktop</summary>
+  <developer id="ro.zedzen">
+    <name>ZED-ZEN</name>
+  </developer>
+  <description>
+    <p>
+      Zen Staff is ZED-ZEN's desktop app for AI staff and coding agents, based on the
+      open-source T3 Code. Work with your existing agent subscriptions, run ready-made
+      workflows, review changes, and run commands in your projects.
+    </p>
+    <p>
+      Connect from desktop, web, or mobile to continue working remotely.
+    </p>
+  </description>
+  <launchable type="desktop-id">zenstaff.desktop</launchable>
+  <icon type="stock">zenstaff</icon>
+  <provides>
+    <binary>zenstaff</binary>
+  </provides>
+  <categories>
+    <category>Development</category>
+    <category>Office</category>
+  </categories>
+  <url type="homepage">https://zenstaff.app</url>
+  <url type="contact">https://zenstaff.app/securitate.html</url>
+</component>

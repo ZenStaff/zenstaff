@@ -1,0 +1,720 @@
+/* Zen Staff "Registru" pages (Birou, Angajați AI, Academie): the landing's and the web dashboard's
+   system in the app. Paper and ink navy are the two quiet colors, vermilion the loud one, used only
+   on the primary action, approvals, the pen stroke and one accent word. Young Serif titles,
+   Hanken Grotesk text, IBM Plex Mono only inside data. Dark: the app's own canvas, warm paper ink.
+   Scoped to .zen-registru so upstream screens keep the app theme; imported once by index.css,
+   so the zr-* utilities and the zr color tokens are known to Tailwind and its lint. ZEN.md, "Registru in the app". */
+
+@font-face {
+  font-family: "Young Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/young-serif-latin-ext.woff2) format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "Young Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/young-serif-latin.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(./fonts/hanken-grotesk-latin-ext.woff2) format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(./fonts/hanken-grotesk-latin.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/ibm-plex-mono-latin-ext.woff2) format("woff2");
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329,
+    U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+    U+A720-A7FF;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./fonts/ibm-plex-mono-latin.woff2) format("woff2");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Tokens as Tailwind colors and fonts (text-zr-ink, bg-zr-card, border-zr-line, font-zr-serif...).
+   `inline` keeps them pointing at the --zr-* variables, so they follow light and dark per page. */
+@theme inline {
+  --color-zr-paper: var(--zr-paper);
+  --color-zr-sheet: var(--zr-sheet);
+  --color-zr-card: var(--zr-card);
+  --color-zr-ink: var(--zr-ink);
+  --color-zr-ink-2: var(--zr-ink-2);
+  --color-zr-ink-3: var(--zr-ink-3);
+  --color-zr-ink-4: var(--zr-ink-4);
+  --color-zr-line: var(--zr-line);
+  --color-zr-line-2: var(--zr-line-2);
+  --color-zr-tint: var(--zr-tint);
+  --color-zr-loud: var(--zr-loud);
+  --color-zr-loud-text: var(--zr-loud-text);
+  --color-zr-loud-soft: var(--zr-loud-soft);
+  --color-zr-ok: var(--zr-ok);
+  --color-zr-ok-soft: var(--zr-ok-soft);
+  --color-zr-on-loud: var(--zr-on-loud);
+  --font-zr-serif: "Young Serif", Georgia, serif;
+  --font-zr-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-zr-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+@utility zen-registru {
+  --zr-paper: #f7f6f2;
+  --zr-sheet: #fbfaf7;
+  --zr-card: #ffffff;
+  --zr-ink: #121a2b;
+  --zr-ink-2: #363f52;
+  --zr-ink-3: #646b7a;
+  --zr-ink-4: #9a9fa9;
+  --zr-line: #dedad2;
+  --zr-line-2: #ece9e3;
+  --zr-tint: #eeece7;
+  --zr-loud: #e2401e;
+  --zr-loud-text: #c7361a;
+  --zr-loud-soft: rgba(226, 64, 30, 0.08);
+  --zr-loud-ring: rgba(226, 64, 30, 0.18);
+  --zr-ok: #2f6b4f;
+  --zr-ok-soft: rgba(47, 107, 79, 0.1);
+  --zr-on-loud: #ffffff;
+  --zr-card-shadow: 0 1px 0 rgba(15, 23, 38, 0.04), 0 18px 40px -30px rgba(15, 23, 38, 0.4);
+  --zr-lift-shadow: 0 2px 2px rgba(15, 23, 38, 0.05), 0 30px 60px -30px rgba(12, 18, 32, 0.5);
+  --zr-art-veil: linear-gradient(
+    180deg,
+    rgba(247, 246, 242, 0.72) 0%,
+    rgba(247, 246, 242, 0.3) 50%,
+    rgba(247, 246, 242, 0.05) 100%
+  );
+  --zr-serif: "Young Serif", Georgia, serif;
+  --zr-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --zr-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --zr-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* Motion by how often a screen is used (ZEN.md, "Motion"): the composer, chat and lists people
+     work in all day use instant/fast and no entrance animations; panels that slide in take slow;
+     moment only for rare endings (an employee hired, an approval stamped). */
+  --zr-dur-instant: 0ms;
+  --zr-dur-fast: 150ms;
+  --zr-dur-normal: 250ms;
+  --zr-dur-slow: 400ms;
+  --zr-dur-moment: 500ms;
+  --zr-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: var(--zr-paper);
+  color: var(--zr-ink);
+  font-family: var(--zr-sans);
+  -webkit-font-smoothing: antialiased;
+  &:is(.dark *) {
+    /* Dark follows the app's own canvas (black by default), with warm paper ink on top. */
+    --zr-paper: var(--background, #0b0d12);
+    --zr-sheet: color-mix(in srgb, var(--zr-paper) 96%, #efece4);
+    --zr-card: color-mix(in srgb, var(--zr-paper) 93%, #efece4);
+    --zr-ink: #efece4;
+    --zr-ink-2: #cfcbc2;
+    --zr-ink-3: #9a9fab;
+    --zr-ink-4: #6b7282;
+    --zr-line: rgba(239, 236, 228, 0.12);
+    --zr-line-2: rgba(239, 236, 228, 0.07);
+    --zr-tint: rgba(239, 236, 228, 0.06);
+    --zr-loud: #f0532f;
+    --zr-loud-text: #ff7c5c;
+    --zr-loud-soft: rgba(240, 83, 47, 0.12);
+    --zr-loud-ring: rgba(240, 83, 47, 0.3);
+    --zr-ok: #7cc49d;
+    --zr-ok-soft: rgba(124, 196, 157, 0.12);
+    --zr-card-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+    --zr-lift-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+    --zr-art-veil: linear-gradient(
+      180deg,
+      rgba(8, 11, 18, 0.8) 0%,
+      rgba(8, 11, 18, 0.55) 55%,
+      rgba(8, 11, 18, 0.3) 100%
+    );
+  }
+  &.dark {
+    /* Dark follows the app's own canvas (black by default), with warm paper ink on top. */
+    --zr-paper: var(--background, #0b0d12);
+    --zr-sheet: color-mix(in srgb, var(--zr-paper) 96%, #efece4);
+    --zr-card: color-mix(in srgb, var(--zr-paper) 93%, #efece4);
+    --zr-ink: #efece4;
+    --zr-ink-2: #cfcbc2;
+    --zr-ink-3: #9a9fab;
+    --zr-ink-4: #6b7282;
+    --zr-line: rgba(239, 236, 228, 0.12);
+    --zr-line-2: rgba(239, 236, 228, 0.07);
+    --zr-tint: rgba(239, 236, 228, 0.06);
+    --zr-loud: #f0532f;
+    --zr-loud-text: #ff7c5c;
+    --zr-loud-soft: rgba(240, 83, 47, 0.12);
+    --zr-loud-ring: rgba(240, 83, 47, 0.3);
+    --zr-ok: #7cc49d;
+    --zr-ok-soft: rgba(124, 196, 157, 0.12);
+    --zr-card-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 18px 40px -28px rgba(0, 0, 0, 0.8);
+    --zr-lift-shadow: 0 2px 2px rgba(0, 0, 0, 0.3), 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+    --zr-art-veil: linear-gradient(
+      180deg,
+      rgba(8, 11, 18, 0.8) 0%,
+      rgba(8, 11, 18, 0.55) 55%,
+      rgba(8, 11, 18, 0.3) 100%
+    );
+  }
+  & :focus-visible {
+    outline: 2px solid var(--zr-ink);
+    outline-offset: 2px;
+  }
+}
+
+@utility zr-title {
+  font-family: var(--zr-serif);
+  font-weight: 400;
+  font-size: clamp(30px, 2.6vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--zr-ink);
+  text-wrap: balance;
+}
+
+@utility zr-h2 {
+  font-family: var(--zr-serif);
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--zr-ink);
+}
+
+@utility zr-h3 {
+  font-family: var(--zr-serif);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.25;
+  color: var(--zr-ink);
+}
+
+/* The accent word in a title: the same Young Serif, upright, only the vermilion color. */
+@utility zr-accent {
+  font-family: var(--zr-serif);
+  font-style: normal;
+  color: var(--zr-loud-text);
+}
+
+@utility zr-mono {
+  font-family: var(--zr-mono);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+
+@utility zr-muted {
+  color: var(--zr-ink-3);
+}
+
+@utility zr-soft {
+  color: var(--zr-ink-2);
+}
+
+@utility zr-pen {
+  position: relative;
+  white-space: nowrap;
+  & > svg {
+    position: absolute;
+    left: -3%;
+    width: 106%;
+    bottom: -0.18em;
+    height: 0.36em;
+    overflow: visible;
+    pointer-events: none;
+  }
+  & > svg path {
+    fill: none;
+    stroke: var(--zr-loud);
+    stroke-width: 5px;
+    vector-effect: non-scaling-stroke;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: zr-pen-draw 0.9s cubic-bezier(0.6, 0, 0.2, 1) 0.15s backwards;
+  }
+}
+
+@utility zr-card {
+  background: var(--zr-card);
+  border: 1px solid var(--zr-line-2);
+  border-radius: 14px;
+  box-shadow: var(--zr-card-shadow);
+}
+
+@utility zr-card-hover {
+  transition:
+    transform 0.18s var(--zr-ease),
+    box-shadow 0.18s var(--zr-ease),
+    border-color 0.18s var(--zr-ease);
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--zr-lift-shadow);
+    border-color: var(--zr-line);
+  }
+}
+
+@utility zr-sheet {
+  background: var(--zr-sheet);
+  border: 1px solid var(--zr-line-2);
+  border-radius: 14px;
+}
+
+@utility zr-tint {
+  background: var(--zr-tint);
+}
+
+@utility zr-rule {
+  border-color: var(--zr-line-2);
+}
+
+@utility zr-art {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--zr-ink) center / cover no-repeat;
+  background-image: url(./art/dealuri-dimineata.webp);
+  box-shadow: inset 0 0 0 1px rgba(15, 23, 38, 0.08);
+  &:is(.dark *) {
+    background-image: url(./art/dealuri-zori.webp);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--zr-art-veil);
+    pointer-events: none;
+  }
+  & > * {
+    position: relative;
+  }
+}
+
+@utility zr-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 999px;
+  background: var(--zr-tint);
+  color: var(--zr-ink-2);
+  padding: 2px 9px;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+@utility zr-tag-loud {
+  background: var(--zr-loud-soft);
+  color: var(--zr-loud-text);
+}
+
+@utility zr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition:
+    background var(--zr-dur-fast),
+    box-shadow var(--zr-dur-fast),
+    transform var(--zr-dur-fast);
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.55;
+    cursor: default;
+  }
+  & svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@utility zr-btn-loud {
+  background: var(--zr-loud);
+  color: var(--zr-on-loud);
+  box-shadow: 0 6px 18px -10px var(--zr-loud);
+  &:hover:not(:disabled) {
+    background: var(--zr-loud-text);
+  }
+}
+
+@utility zr-btn-ink {
+  background: var(--zr-ink);
+  color: var(--zr-paper);
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+}
+
+@utility zr-btn-quiet {
+  background: var(--zr-card);
+  color: var(--zr-ink);
+  border: 1px solid var(--zr-line);
+  &:hover:not(:disabled) {
+    background: var(--zr-tint);
+  }
+}
+
+@utility zr-btn-sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+@utility zr-link {
+  color: var(--zr-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--zr-line);
+  text-underline-offset: 3px;
+  cursor: pointer;
+  &:hover {
+    text-decoration-color: var(--zr-loud);
+  }
+}
+
+@utility zr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--zr-tint);
+  width: fit-content;
+  max-width: 100%;
+}
+
+@utility zr-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--zr-ink-2);
+  white-space: nowrap;
+  &:hover {
+    color: var(--zr-ink);
+  }
+  &[aria-current="page"] {
+    background: var(--zr-card);
+    color: var(--zr-ink);
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(15, 23, 38, 0.1);
+  }
+  &[aria-selected="true"] {
+    background: var(--zr-card);
+    color: var(--zr-ink);
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(15, 23, 38, 0.1);
+  }
+}
+
+@utility zr-count {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--zr-loud);
+  color: var(--zr-on-loud);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+@utility zr-stamp {
+  display: inline-block;
+  font-family: var(--zr-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  font-size: 12px;
+  padding: 0 8px;
+  border: 4px double currentColor;
+  border-radius: 5px;
+  color: var(--zr-loud);
+  transform: rotate(-5deg);
+  white-space: nowrap;
+  user-select: none;
+  opacity: 0.92;
+}
+
+@utility zr-stamp-ink {
+  color: var(--zr-ink-3);
+}
+
+@utility zr-stamp-pop {
+  animation: zr-stamp-in 0.45s cubic-bezier(0.2, 1.5, 0.4, 1) backwards;
+}
+
+@utility zr-ask {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  background: var(--zr-card);
+  border: 1px solid var(--zr-line);
+  border-radius: 18px;
+  padding: 10px 10px 10px 18px;
+  box-shadow: var(--zr-lift-shadow);
+  transition:
+    border-color var(--zr-dur-fast),
+    box-shadow var(--zr-dur-fast);
+  &:focus-within {
+    border-color: var(--zr-ink-3);
+    box-shadow:
+      0 0 0 4px var(--zr-loud-ring),
+      var(--zr-lift-shadow);
+  }
+  & textarea {
+    flex: 1;
+    min-height: 44px;
+    max-height: 180px;
+    resize: none;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--zr-ink);
+    font: 400 16px/1.5 var(--zr-sans);
+    padding: 10px 0;
+    field-sizing: content;
+  }
+  & textarea::placeholder {
+    color: var(--zr-ink-4);
+  }
+}
+
+@utility zr-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: var(--zr-card);
+  border: 1px solid var(--zr-line);
+  &:focus-within {
+    border-color: var(--zr-ink-3);
+  }
+}
+
+@utility zr-prose {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--zr-ink-2);
+  & .chat-markdown {
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+  & strong {
+    color: var(--zr-ink);
+  }
+}
+
+@utility zr-progress {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--zr-tint);
+  overflow: hidden;
+  & > span {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--zr-ink);
+    transition: width var(--zr-dur-slow) var(--zr-ease);
+  }
+}
+
+@utility zr-progress-loud {
+  & > span {
+    background: var(--zr-loud);
+  }
+}
+
+@utility zr-bone {
+  border-radius: 10px;
+  background: var(--zr-tint);
+  animation: zr-bone 1.6s ease-in-out infinite;
+}
+
+@keyframes zr-pen-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
+@keyframes zr-stamp-in {
+  from {
+    opacity: 0;
+    transform: rotate(-9deg) scale(1.8);
+  }
+}
+
+@keyframes zr-bone {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zen-registru .zr-pen > svg path,
+  .zen-registru .zr-stamp-pop,
+  .zen-registru .zr-bone {
+    animation: none;
+  }
+  .zen-registru .zr-card-hover:hover {
+    transform: none;
+  }
+}
+
+/* Office edition, app-wide (and the first run, before an edition is saved): the Registru palette through the app's own theme tokens, so every
+   upstream control (buttons, focus rings, switches, links, selected pills, the sidebar) follows it
+   without per-component edits. Ink is the primary (paper on dark); vermilion stays reserved for
+   the one loud action per screen (.zr-btn-loud) and stamps. A custom theme the person picked
+   (data-theme-id) wins. ZEN.md, "Registru in the app". */
+html[data-zen-edition="office"]:not([data-theme-id]),
+html:has([data-zen-welcome]):not([data-theme-id]) {
+  --primary: #121a2b;
+  --primary-foreground: #fbfaf7;
+  --ring: color-mix(in srgb, #121a2b 55%, transparent);
+  --background: #f7f6f2;
+  --app-chrome-background: #f7f6f2;
+  --foreground: #121a2b;
+  --card-foreground: #121a2b;
+  --popover-foreground: #121a2b;
+  --muted-foreground: #646b7a;
+  --secondary: #eeece7;
+  --secondary-foreground: #121a2b;
+  --accent: #eeece7;
+  --accent-foreground: #121a2b;
+  --border: #dedad2;
+  --input: #d3cfc6;
+  --update: #121a2b;
+  --update-foreground: #121a2b;
+  --info: #121a2b;
+  --info-foreground: #363f52;
+  --zen-loud: #e2401e;
+}
+html.dark[data-zen-edition="office"]:not([data-theme-id]),
+html.dark:has([data-zen-welcome]):not([data-theme-id]) {
+  --primary: #efece4;
+  --primary-foreground: #121a2b;
+  --ring: color-mix(in srgb, #efece4 45%, transparent);
+  --background: #0b0d12;
+  --app-chrome-background: #0b0d12;
+  --foreground: #efece4;
+  --card-foreground: #efece4;
+  --popover-foreground: #efece4;
+  --muted-foreground: #9a9fab;
+  --secondary: rgba(239, 236, 228, 0.06);
+  --secondary-foreground: #efece4;
+  --accent: rgba(239, 236, 228, 0.08);
+  --accent-foreground: #efece4;
+  --border: rgba(239, 236, 228, 0.12);
+  --input: rgba(239, 236, 228, 0.18);
+  --update: #efece4;
+  --update-foreground: #efece4;
+  --info: #cfcbc2;
+  --info-foreground: #cfcbc2;
+  --zen-loud: #f0532f;
+}
+html[data-zen-edition="office"]:not([data-theme-id]) body {
+  font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+/* The sidebar declares its own surface tokens on [data-app-sidebar]; paper and ink here too, with
+   a clear active row (a card with a thin ink mark). */
+html[data-zen-edition="office"]:not([data-theme-id]) [data-app-sidebar] {
+  --background: #f1efe9;
+  --foreground: #121a2b;
+  --card: #fbfaf7;
+  --card-foreground: #121a2b;
+  --accent: #e7e4dd;
+  --accent-foreground: #121a2b;
+  --muted: #eeece7;
+  --muted-foreground: #646b7a;
+  --border: #dedad2;
+  --input: #d3cfc6;
+  --sidebar: #f1efe9;
+  --sidebar-foreground: #121a2b;
+  --sidebar-muted-foreground: #646b7a;
+  --sidebar-control-surface: #e7e4dd;
+  --sidebar-row-hover: #e9e6df;
+  --sidebar-row-active: #ffffff;
+  --sidebar-row-selected: #ffffff;
+  --sidebar-border: #dedad2;
+  --sidebar-stage-fade: #f1efe9;
+}
+html.dark[data-zen-edition="office"]:not([data-theme-id]) [data-app-sidebar] {
+  --background: #0e1016;
+  --foreground: #efece4;
+  --card: #0e1016;
+  --card-foreground: #efece4;
+  --accent: rgba(239, 236, 228, 0.08);
+  --accent-foreground: #efece4;
+  --muted: rgba(239, 236, 228, 0.05);
+  --muted-foreground: #9a9fab;
+  --border: rgba(239, 236, 228, 0.1);
+  --input: rgba(239, 236, 228, 0.18);
+  --sidebar: #0e1016;
+  --sidebar-foreground: #efece4;
+  --sidebar-muted-foreground: #9a9fab;
+  --sidebar-control-surface: rgba(239, 236, 228, 0.06);
+  --sidebar-row-hover: rgba(239, 236, 228, 0.06);
+  --sidebar-row-active: rgba(239, 236, 228, 0.11);
+  --sidebar-row-selected: rgba(239, 236, 228, 0.08);
+  --sidebar-border: rgba(239, 236, 228, 0.1);
+  --sidebar-stage-fade: #0e1016;
+}
+html[data-zen-edition="office"]:not([data-theme-id])
+  [data-app-sidebar]
+  :is([data-active="true"], [aria-current="page"]) {
+  box-shadow: inset 2px 0 0 var(--foreground);
+  font-weight: 600;
+}
+/* The dev/nightly stage art (a blue starfield) never shows in Office. */
+html[data-zen-edition="office"] .sidebar-stage-backdrop {
+  display: none;
+}
+/* The lockup is drawn white over that art; without it, ink like the rest of the sidebar. */
+html[data-zen-edition="office"] [data-app-sidebar] span[role="img"] > svg.text-white {
+  color: var(--sidebar-foreground);
+}

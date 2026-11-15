@@ -1,0 +1,50 @@
+{
+  "text": "<at>Zen Staff</at> prepare the offer for Hotel Arcadia\n",
+  "textFormat": "plain",
+  "attachments": [
+    {
+      "contentType": "text/html",
+      "content": "<div><div><span itemscope=\"\" itemtype=\"http://schema.skype.com/Mention\" itemid=\"0\">Zen Staff</span> prepare the offer for Hotel Arcadia</div></div>"
+    }
+  ],
+  "type": "message",
+  "timestamp": "2026-11-07T10:00:00.1234567Z",
+  "localTimestamp": "2026-11-07T12:00:00.1234567+02:00",
+  "id": "1731000000000",
+  "channelId": "msteams",
+  "serviceUrl": "https://smba.trafficmanager.net/emea/",
+  "from": {
+    "id": "29:1abcMARIA",
+    "name": "Maria Pop",
+    "aadObjectId": "11111111-2222-3333-4444-555555555555"
+  },
+  "conversation": {
+    "isGroup": true,
+    "conversationType": "channel",
+    "tenantId": "tenant-zen-0001",
+    "id": "19:salesabc@thread.tacv2;messageid=1731000000000"
+  },
+  "recipient": { "id": "28:app-zen-0001", "name": "Zen Staff" },
+  "entities": [
+    {
+      "mentioned": { "id": "28:app-zen-0001", "name": "Zen Staff" },
+      "text": "<at>Zen Staff</at>",
+      "type": "mention"
+    },
+    {
+      "locale": "ro-RO",
+      "country": "RO",
+      "platform": "Web",
+      "timezone": "Europe/Bucharest",
+      "type": "clientInfo"
+    }
+  ],
+  "channelData": {
+    "teamsChannelId": "19:salesabc@thread.tacv2",
+    "teamsTeamId": "19:teamabc@thread.tacv2",
+    "channel": { "id": "19:salesabc@thread.tacv2" },
+    "team": { "id": "19:teamabc@thread.tacv2" },
+    "tenant": { "id": "tenant-zen-0001" }
+  },
+  "locale": "ro-RO"
+}

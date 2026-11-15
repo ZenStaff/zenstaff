@@ -1,0 +1,69 @@
+{
+  "id": "transcribe-recording",
+  "name": "Transcribe a recording",
+  "description": "Turns a meeting, interview or voice note into a clean transcript and a short summary, on this computer.",
+  "category": "admin",
+  "icon": "mic",
+  "inputs": [
+    {
+      "id": "recording",
+      "label": "Recording",
+      "type": "file",
+      "required": true,
+      "help": "An audio or video file inside the chosen folder (MP3, M4A, WAV, MP4)."
+    },
+    {
+      "id": "language",
+      "label": "Spoken language",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Detect automatically",
+        "Romanian",
+        "English",
+        "Hungarian",
+        "German",
+        "French",
+        "Italian",
+        "Spanish"
+      ]
+    },
+    {
+      "id": "summary",
+      "label": "What should the summary focus on?",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Decisions and who does what"
+    }
+  ],
+  "output": "transcript.md and summary.md next to the recording.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "requires": {
+    "tools": [
+      { "id": "ffmpeg", "version": ">=6", "purpose": "reads the audio from the file" },
+      { "id": "faster-whisper", "version": "^1.2", "purpose": "turns speech into text" },
+      { "id": "whisper-model-base", "purpose": "the speech model" }
+    ],
+    "hardware": { "minRamGb": 3, "minFreeDiskGb": 0.5, "minCpuCores": 2, "arch": ["x64", "arm64"] },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "one hour of audio",
+      "seconds": 480,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 1800
+    },
+    "network": false,
+    "alternatives": [
+      {
+        "id": "tiny-model",
+        "kind": "lighter",
+        "label": "Smaller speech model",
+        "description": "Uses a smaller model: faster and lighter, a little less accurate.",
+        "replaceTools": { "whisper-model-base": "whisper-model-tiny" },
+        "hardware": { "minRamGb": 1.5, "minCpuCores": 1 },
+        "promptNote": "Use the tiny model: pass --model \"$ZEN_WHISPER_MODEL_TINY\" to transcribe.py."
+      }
+    ]
+  }
+}

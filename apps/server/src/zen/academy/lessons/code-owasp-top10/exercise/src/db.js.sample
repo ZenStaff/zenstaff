@@ -1,0 +1,10 @@
+const sqlite3 = require("sqlite3");
+const crypto = require("node:crypto");
+
+const db = new sqlite3.Database(process.env.DB_PATH || "notes.db");
+
+function hashPassword(pw) {
+  return crypto.createHash("md5").update(pw).digest("hex");
+}
+
+module.exports = { db, hashPassword };

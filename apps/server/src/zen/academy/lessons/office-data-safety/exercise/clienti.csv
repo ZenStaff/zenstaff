@@ -1,0 +1,11 @@
+nume,email,telefon,cnp,oras,valoare_ultima_comanda_lei
+Ana Pop,ana.pop@example.com,0700 000 001,FAKE-0000000000101,Cluj-Napoca,245.50
+Mihai Ionescu,mihai.ionescu@example.com,0700 000 002,FAKE-0000000000102,Brașov,180.00
+Elena Dobre,elena.dobre@example.com,0700 000 003,FAKE-0000000000103,Cluj-Napoca,92.40
+Radu Stan,radu.stan@example.com,0700 000 004,FAKE-0000000000104,Iași,310.00
+Ioana Marin,ioana.marin@example.com,0700 000 005,FAKE-0000000000105,Brașov,75.90
+Andrei Mureșan,andrei.muresan@example.com,0700 000 006,FAKE-0000000000106,Cluj-Napoca,410.20
+Cristina Toma,cristina.toma@example.com,0700 000 007,FAKE-0000000000107,Iași,130.00
+Vlad Georgescu,vlad.georgescu@example.com,0700 000 008,FAKE-0000000000108,Timișoara,265.75
+Maria Constantin,maria.constantin@example.com,0700 000 009,FAKE-0000000000109,Brașov,198.30
+Paul Neagu,paul.neagu@example.com,0700 000 010,FAKE-0000000000110,Timișoara,54.00

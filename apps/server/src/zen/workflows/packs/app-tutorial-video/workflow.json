@@ -1,0 +1,200 @@
+{
+  "id": "app-tutorial-video",
+  "name": "Tutorial video for your app or website",
+  "description": "A narrated screen tutorial of your website or app: a real browser clicks through the steps you list, with a voice, captions and title cards. Checked step by step before it is recorded.",
+  "category": "video",
+  "icon": "monitor-play",
+  "inputs": [
+    {
+      "id": "url",
+      "label": "Website or app address",
+      "type": "url",
+      "required": true,
+      "placeholder": "https://example.com"
+    },
+    {
+      "id": "steps",
+      "label": "What should the tutorial show?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "How to book a table: open the site, press Book, pick a date and a time, fill in the name and phone, stop before sending.",
+      "help": "The goal and the steps in your own words, one per line. The video stops before anything is sent, paid or deleted."
+    },
+    {
+      "id": "language",
+      "label": "Language",
+      "type": "select",
+      "required": true,
+      "options": ["Romanian", "English"]
+    },
+    {
+      "id": "voice",
+      "label": "Voice",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Professional voice (recommended, your own ElevenLabs account)",
+        "Local preview (free, for checking only)",
+        "No voice, captions only"
+      ],
+      "help": "The professional voice uses your own ElevenLabs account (connect it once; Zen keeps no key). The local preview is a free robot-like voice, only to check the words and the timing."
+    },
+    {
+      "id": "format",
+      "label": "Format",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Landscape 16:9 (YouTube, website, help center)",
+        "Vertical 9:16, phone view (Reels, TikTok, Stories)"
+      ]
+    },
+    {
+      "id": "login_file",
+      "label": "Demo account file (only if a login is needed)",
+      "type": "file",
+      "required": false,
+      "help": "A text file inside the chosen folder with LOGIN_EMAIL=... and LOGIN_PASSWORD=... of a DEMO account (never a real customer's). The assistant never reads it; only the recorder types it."
+    },
+    {
+      "id": "brand_colors",
+      "label": "Brand colors",
+      "type": "text",
+      "required": false,
+      "placeholder": "#0F4C5C and #F2C14E"
+    },
+    {
+      "id": "logo",
+      "label": "Logo",
+      "type": "file",
+      "required": false
+    }
+  ],
+  "output": "An MP4 tutorial (1920x1080 or 1080x1920) with burned-in captions, an .srt caption file and a QA report, in the tutorial folder, shown in the chat.",
+  "version": "2.1.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Tutorial video pentru aplicația/site-ul tău",
+      "description": "Un tutorial narat cu ecranul site-ului sau al aplicației tale: un browser real face pașii pe care îi scrii, cu voce, subtitrare și cartoane de titlu. Fiecare pas e verificat înainte de înregistrare.",
+      "output": "Un tutorial MP4 (1920x1080 sau 1080x1920) cu subtitrare pe imagine, un fișier .srt și un raport de verificare, în dosarul tutorial, afișate în chat.",
+      "inputs": {
+        "url": {
+          "label": "Adresa site-ului sau a aplicației",
+          "placeholder": "https://exemplu.ro"
+        },
+        "steps": {
+          "label": "Ce să arate tutorialul?",
+          "placeholder": "Cum rezervi o masă: deschizi site-ul, apeși pe Rezervă, alegi data și ora, completezi numele și telefonul, te oprești înainte de trimitere.",
+          "help": "Scopul și pașii, cu vorbele tale, câte unul pe rând. Clipul se oprește înainte să trimită, să plătească sau să șteargă ceva."
+        },
+        "language": {
+          "label": "Limba",
+          "options": ["Română", "Engleză"]
+        },
+        "voice": {
+          "label": "Voce",
+          "options": [
+            "Voce profesională (recomandat)",
+            "Previzualizare locală (gratuit, doar orientativ)",
+            "Fără voce, doar subtitrare"
+          ],
+          "help": "Vocea profesională folosește contul tău ElevenLabs (îl conectezi o dată; Zen nu păstrează nicio cheie). Previzualizarea locală e o voce gratuită, mai robotică, doar ca să verifici textul și ritmul."
+        },
+        "format": {
+          "label": "Format",
+          "options": [
+            "Orizontal 16:9 (YouTube, site, centru de ajutor)",
+            "Vertical 9:16, ecran de telefon (Reels, TikTok, Stories)"
+          ]
+        },
+        "login_file": {
+          "label": "Fișierul cu contul demo (doar dacă e nevoie de autentificare)",
+          "help": "Un fișier text din dosarul ales, cu LOGIN_EMAIL=... și LOGIN_PASSWORD=... ale unui cont DEMO (niciodată al unui client real). Asistentul nu îl citește; doar programul de înregistrare îl tastează."
+        },
+        "brand_colors": {
+          "label": "Culorile firmei",
+          "placeholder": "#0F4C5C și #F2C14E"
+        },
+        "logo": {
+          "label": "Logo"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "remotion",
+        "version": "^4.0.500",
+        "purpose": "edits the recording: window, zoom, cursor, titles and captions"
+      },
+      {
+        "id": "playwright",
+        "version": "^1.64",
+        "purpose": "opens the site in a hidden browser and records the steps"
+      },
+      {
+        "id": "ffmpeg",
+        "version": ">=6",
+        "purpose": "edits the video, the voice and the captions"
+      },
+      {
+        "id": "open-fonts",
+        "purpose": "fonts for the title cards and captions"
+      },
+      {
+        "id": "piper-tts",
+        "version": "^1.8",
+        "optional": true,
+        "purpose": "reads a preview of the narration on this computer (not for the final video)"
+      },
+      {
+        "id": "piper-voice-ro",
+        "optional": true,
+        "purpose": "the Romanian voice"
+      },
+      {
+        "id": "piper-voice-en",
+        "optional": true,
+        "purpose": "the English voice"
+      }
+    ],
+    "connectors": [
+      {
+        "id": "elevenlabs",
+        "optional": true,
+        "purpose": "the professional voice, from your own ElevenLabs account"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 3,
+      "minFreeDiskGb": 1.5,
+      "minCpuCores": 2,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a 1-minute tutorial",
+      "seconds": 300,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 900
+    },
+    "network": true,
+    "alternatives": [
+      {
+        "id": "captions-only",
+        "kind": "lighter",
+        "label": "Captions only, no voice",
+        "description": "Skips the voice tools: smaller download, the same video with captions.",
+        "dropTools": ["piper-tts", "piper-voice-ro", "piper-voice-en"],
+        "hardware": {
+          "minRamGb": 2,
+          "minFreeDiskGb": 1
+        },
+        "promptNote": "Make the version without voice: set \"voice\": \"none\" in the storyboard."
+      }
+    ]
+  }
+}

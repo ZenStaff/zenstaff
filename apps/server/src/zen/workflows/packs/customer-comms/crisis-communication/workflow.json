@@ -1,0 +1,100 @@
+{
+  "id": "crisis-communication",
+  "name": "Crisis communication",
+  "description": "When something goes wrong in public: an assessment, a holding statement (long and short), Q&A for the spokesperson, a set of replies for social media comments and the plan for the next 24 hours. Truthful, calm, nothing invented.",
+  "category": "pr",
+  "icon": "triangle-alert",
+  "inputs": [
+    {
+      "id": "business",
+      "label": "Business",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde bistro"
+    },
+    {
+      "id": "situation",
+      "label": "What happened (facts known so far)",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Saturday evening 6 guests from one table reported stomach pain on Facebook. We closed the cold kitchen on Sunday and called the food safety consultant."
+    },
+    {
+      "id": "unknown",
+      "label": "What we do not know yet",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "The cause; whether other guests are affected."
+    },
+    {
+      "id": "done",
+      "label": "What we have already done",
+      "type": "longtext",
+      "required": false
+    },
+    {
+      "id": "who",
+      "label": "Who is affected or upset",
+      "type": "text",
+      "required": false,
+      "placeholder": "guests, their families, local Facebook groups"
+    },
+    {
+      "id": "where",
+      "label": "Where it is discussed",
+      "type": "text",
+      "required": false,
+      "placeholder": "our Facebook page, Google reviews, a local news site"
+    },
+    {
+      "id": "spokesperson",
+      "label": "Spokesperson (name, role, contact)",
+      "type": "text",
+      "required": true,
+      "placeholder": "Andrei Pop, owner, 0700 000 000"
+    }
+  ],
+  "output": "crisis/<date>/ with assessment.md, holding-statement.md, qa.md, social-replies.md and next-24-hours.md.",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Comunicare în situații de criză",
+      "description": "Când ceva merge prost în public: o evaluare, o declarație de primă reacție (lungă și scurtă), întrebări și răspunsuri pentru cel care vorbește în numele firmei, răspunsuri pentru comentariile de pe rețele și planul pentru următoarele 24 de ore. Adevărat, calm, nimic inventat.",
+      "output": "crisis/<data>/ cu assessment.md, holding-statement.md, qa.md, social-replies.md și next-24-hours.md.",
+      "inputs": {
+        "business": {
+          "label": "Afacerea",
+          "placeholder": "Bistroul Casa Verde"
+        },
+        "situation": {
+          "label": "Ce s-a întâmplat (faptele știute până acum)",
+          "placeholder": "Sâmbătă seara, 6 clienți de la aceeași masă au scris pe Facebook că i-a durut stomacul. Duminică am închis bucătăria rece și am chemat consultantul de siguranță alimentară."
+        },
+        "unknown": {
+          "label": "Ce nu știm încă",
+          "placeholder": "Cauza; dacă mai sunt și alți clienți afectați."
+        },
+        "done": {
+          "label": "Ce am făcut deja"
+        },
+        "who": {
+          "label": "Cine e afectat sau supărat",
+          "placeholder": "clienții, familiile lor, grupurile locale de Facebook"
+        },
+        "where": {
+          "label": "Unde se discută",
+          "placeholder": "pagina noastră de Facebook, recenziile Google, un site local de știri"
+        },
+        "spokesperson": {
+          "label": "Cine vorbește în numele firmei (nume, rol, contact)",
+          "placeholder": "Andrei Pop, proprietar, 0700 000 000"
+        }
+      }
+    }
+  },
+  "requires": {
+    "runsBest": "either",
+    "network": false
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "sales-follow-up",
+  "name": "Sales follow-up after a meeting",
+  "description": "From your meeting notes: 3 or 4 follow-up emails that each move the deal one step (recap, something useful, help to decide, a polite close), with send days, subjects and what to do when they reply. Drafts only.",
+  "category": "sales",
+  "icon": "send",
+  "inputs": [
+    {
+      "id": "prospect",
+      "label": "Who you met (company and person)",
+      "type": "text",
+      "required": true,
+      "placeholder": "Hotel Carpați, Elena Marin (events manager)"
+    },
+    {
+      "id": "notes",
+      "label": "Meeting notes",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Met on 6 Nov. Conference 14-15 May, 180 guests. Worried about speed at coffee breaks. Decides with the GM by 30 Nov. Asked for a tasting."
+    },
+    {
+      "id": "offer",
+      "label": "What you offered",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Catering, three options 245/325/410 lei per person; recommended Gala."
+    },
+    {
+      "id": "next_step",
+      "label": "The next step you want",
+      "type": "text",
+      "required": false,
+      "placeholder": "A tasting for 6 people in the week of 16 Nov"
+    },
+    {
+      "id": "sender",
+      "label": "Sender (name, role, signature)",
+      "type": "text",
+      "required": true,
+      "placeholder": "Ana Pop, events, Casa Verde, 0700 000 011"
+    },
+    {
+      "id": "count",
+      "label": "How many emails",
+      "type": "select",
+      "required": true,
+      "options": ["3 emails", "4 emails"]
+    },
+    {
+      "id": "materials",
+      "label": "Materials to attach or link",
+      "type": "text",
+      "required": false,
+      "placeholder": "the offer deck PDF, the menu"
+    }
+  ],
+  "output": "follow-up/<prospect>/sequence.md and crm-notes.md.",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "E-mailuri de revenire după o întâlnire",
+      "description": "Din notițele de la întâlnire: 3 sau 4 e-mailuri de revenire, fiecare mutând discuția cu un pas (rezumat, ceva util, ajutor la decizie, o încheiere politicoasă), cu zilele de trimitere, subiectele și ce faci când răspund. Doar ciorne.",
+      "output": "follow-up/<client>/sequence.md și crm-notes.md.",
+      "inputs": {
+        "prospect": {
+          "label": "Cu cine te-ai întâlnit (firmă și persoană)",
+          "placeholder": "Hotel Carpați, Elena Marin (manager evenimente)"
+        },
+        "notes": {
+          "label": "Notițele de la întâlnire",
+          "placeholder": "Ne-am văzut pe 6 noiembrie. Conferință 14-15 mai, 180 de invitați. Îi e teamă de viteza la pauze. Decide cu directorul până pe 30 noiembrie. A cerut o degustare."
+        },
+        "offer": {
+          "label": "Ce le-ai oferit",
+          "placeholder": "Catering, trei variante 245/325/410 lei de persoană; recomandat Gală."
+        },
+        "next_step": {
+          "label": "Pasul următor pe care îl vrei",
+          "placeholder": "O degustare pentru 6 persoane în săptămâna 16 noiembrie"
+        },
+        "sender": {
+          "label": "Expeditorul (nume, rol, semnătură)",
+          "placeholder": "Ana Pop, evenimente, Casa Verde, 0700 000 011"
+        },
+        "count": {
+          "label": "Câte e-mailuri",
+          "options": ["3 e-mailuri", "4 e-mailuri"]
+        },
+        "materials": {
+          "label": "Materiale de atașat sau de pus ca link",
+          "placeholder": "prezentarea ofertei în PDF, meniul"
+        }
+      }
+    }
+  },
+  "requires": {
+    "connectors": [
+      {
+        "id": "hubspot",
+        "optional": true,
+        "purpose": "reads the deal notes, if you connected HubSpot"
+      },
+      {
+        "id": "pipedrive",
+        "optional": true,
+        "purpose": "reads the deal notes, if you connected Pipedrive"
+      }
+    ],
+    "runsBest": "either",
+    "network": false
+  }
+}

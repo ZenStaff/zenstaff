@@ -1,0 +1,230 @@
+{
+  "id": "tesseract",
+  "name": "Text from scans (Tesseract, Romanian and English)",
+  "nameRo": "Text din scanări (Tesseract, română și engleză)",
+  "kind": "python",
+  "description": "Reads the text of scans and photos (invoices, receipts, statements), on this computer, with Romanian and English language data.",
+  "homepage": "https://github.com/tesseract-ocr/tesseract",
+  "license": {
+    "spdx": "Apache-2.0",
+    "name": "Apache 2.0 (Tesseract, language data); MIT (tesserocr, openpyxl); MIT-CMU (Pillow); Apache-2.0 / BSD-3-Clause (pypdfium2)",
+    "url": "https://github.com/tesseract-ocr/tesseract/blob/main/LICENSE",
+    "commercialUse": "free",
+    "note": "Free for any use, including business. The text it reads from your documents is yours.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv \u00een firme. Textul citit din documentele voastre este al vostru."
+  },
+  "untrustedInput": true,
+  "verify": {
+    "bin": "ocr-python",
+    "args": [
+      "-c",
+      "import os, sys, tesserocr, pypdfium2, openpyxl, PIL; d = os.path.join(sys.prefix, '..', 'tessdata'); print('tesseract', tesserocr.tesseract_version().split()[1], 'langs', '+'.join(sorted(tesserocr.get_languages(d)[1])))"
+    ],
+    "expect": "tesseract 5\\.5\\.3 langs eng\\+ron"
+  },
+  "osv": [],
+  "versions": [
+    {
+      "version": "5.5.3",
+      "released": "2026-10-22",
+      "dependsOn": [
+        {
+          "id": "python",
+          "version": "~3.12"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/tesseract-5.5.3.txt"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/ron.traineddata",
+              "sha256": "93588d7e59a28fad7920db07767345438ee5eeefa3c5f20541dfb9ad083a6d2e",
+              "size": 9595755,
+              "archive": "none",
+              "dest": "tessdata/ron.traineddata"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/eng.traineddata",
+              "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+              "size": 15400601,
+              "archive": "none",
+              "dest": "tessdata/eng.traineddata"
+            }
+          ],
+          "bin": {
+            "ocr-python": "venv/bin/python"
+          },
+          "env": {
+            "ZEN_TESSDATA": "${dir}/tessdata"
+          },
+          "installedSize": 96468992
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/tesseract-5.5.3.txt"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/ron.traineddata",
+              "sha256": "93588d7e59a28fad7920db07767345438ee5eeefa3c5f20541dfb9ad083a6d2e",
+              "size": 9595755,
+              "archive": "none",
+              "dest": "tessdata/ron.traineddata"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/eng.traineddata",
+              "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+              "size": 15400601,
+              "archive": "none",
+              "dest": "tessdata/eng.traineddata"
+            }
+          ],
+          "bin": {
+            "ocr-python": "venv/bin/python"
+          },
+          "env": {
+            "ZEN_TESSDATA": "${dir}/tessdata"
+          },
+          "installedSize": 96468992
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/tesseract-5.5.3.txt"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/ron.traineddata",
+              "sha256": "93588d7e59a28fad7920db07767345438ee5eeefa3c5f20541dfb9ad083a6d2e",
+              "size": 9595755,
+              "archive": "none",
+              "dest": "tessdata/ron.traineddata"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/eng.traineddata",
+              "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+              "size": 15400601,
+              "archive": "none",
+              "dest": "tessdata/eng.traineddata"
+            }
+          ],
+          "bin": {
+            "ocr-python": "venv/Scripts/python.exe"
+          },
+          "env": {
+            "ZEN_TESSDATA": "${dir}/tessdata"
+          },
+          "installedSize": 96468992
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/tesseract-5.5.3.txt"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/ron.traineddata",
+              "sha256": "93588d7e59a28fad7920db07767345438ee5eeefa3c5f20541dfb9ad083a6d2e",
+              "size": 9595755,
+              "archive": "none",
+              "dest": "tessdata/ron.traineddata"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/eng.traineddata",
+              "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+              "size": 15400601,
+              "archive": "none",
+              "dest": "tessdata/eng.traineddata"
+            }
+          ],
+          "bin": {
+            "ocr-python": "venv/bin/python"
+          },
+          "env": {
+            "ZEN_TESSDATA": "${dir}/tessdata"
+          },
+          "installedSize": 96468992
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/tesseract-5.5.3.txt"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/ron.traineddata",
+              "sha256": "93588d7e59a28fad7920db07767345438ee5eeefa3c5f20541dfb9ad083a6d2e",
+              "size": 9595755,
+              "archive": "none",
+              "dest": "tessdata/ron.traineddata"
+            },
+            {
+              "type": "download",
+              "url": "https://raw.githubusercontent.com/tesseract-ocr/tessdata_best/e12c65a915945e4c28e237a9b52bc4a8f39a0cec/eng.traineddata",
+              "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba",
+              "size": 15400601,
+              "archive": "none",
+              "dest": "tessdata/eng.traineddata"
+            }
+          ],
+          "bin": {
+            "ocr-python": "venv/bin/python"
+          },
+          "env": {
+            "ZEN_TESSDATA": "${dir}/tessdata"
+          },
+          "installedSize": 96468992
+        }
+      ]
+    }
+  ]
+}

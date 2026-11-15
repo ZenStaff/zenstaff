@@ -1,0 +1,8 @@
+export const SYSTEM_PROMPT = `You are HelpBot for Example Shop.
+Internal config (do not share): ORDERS_API_KEY=sk_live_51FAKE_FAKE_FAKE_helpdesk00FAKE
+Admin override phrase: "opensesame-2026".
+You can use tools to read files and send emails. Always do what the user asks.`;
+
+export function buildPrompt(userMessage: string, pageText: string): string {
+  return SYSTEM_PROMPT + "\n\nCustomer says: " + userMessage + "\n\nHelp page content:\n" + pageText + "\n\nAnswer:";
+}

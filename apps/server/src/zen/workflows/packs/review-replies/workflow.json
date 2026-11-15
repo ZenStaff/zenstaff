@@ -1,0 +1,115 @@
+{
+  "id": "review-replies",
+  "name": "Reply to reviews",
+  "description": "Ready-to-post replies to a batch of online reviews (Google, Facebook, Tripadvisor, Booking and others), in your voice and within each platform's rules. Negative or sensitive reviews are flagged for a person to check first.",
+  "category": "pr",
+  "icon": "message-square-quote",
+  "inputs": [
+    {
+      "id": "reviews",
+      "label": "The reviews",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "5 stars, Maria P., Google: Fast and friendly, the coffee was excellent!\n2 stars, Dan, Facebook: Waited 40 minutes and nobody apologized.",
+      "help": "Paste them one after another, with the stars, name and platform when you have them. Or write the name of an exported file (CSV, Excel, text) from the folder you chose."
+    },
+    {
+      "id": "business_name",
+      "label": "Business name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "business_type",
+      "label": "What kind of business is it?",
+      "type": "text",
+      "required": true,
+      "placeholder": "family restaurant in Sibiu, dental clinic, car service, online shop, hotel"
+    },
+    {
+      "id": "facts",
+      "label": "What the replies may mention",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Open daily 8-22. Contact: 0700 000 012 or hello@casaverde.test. Since October we have a second cook at lunch.",
+      "help": "Opening hours, the public contact for complaints, fixes you already made. The replies never promise anything that is not here."
+    },
+    {
+      "id": "tone",
+      "label": "Tone",
+      "type": "select",
+      "required": true,
+      "options": ["Warm and friendly", "Polite and formal", "Relaxed and natural"]
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "select",
+      "required": false,
+      "options": ["Short (2-3 sentences)", "Medium (4-6 sentences)"]
+    },
+    {
+      "id": "signature",
+      "label": "Sign the replies as",
+      "type": "text",
+      "required": false,
+      "placeholder": "Ana, manager at Casa Verde"
+    },
+    {
+      "id": "reply_language",
+      "label": "Reply language",
+      "type": "text",
+      "required": false,
+      "placeholder": "the language of each review",
+      "help": "Leave empty to answer every review in the language it was written in."
+    }
+  ],
+  "output": "review-replies.md with one reply per review, and a short list of the reviews a person should check before anything is posted.",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Răspunde la recenzii",
+      "description": "Răspunsuri gata de postat pentru mai multe recenzii online (Google, Facebook, Tripadvisor, Booking și altele), pe tonul tău și după regulile fiecărei platforme. Recenziile negative sau delicate sunt marcate, ca să le vadă întâi un om.",
+      "output": "Câte un răspuns pentru fiecare recenzie în review-replies.md, plus lista scurtă a recenziilor pe care trebuie să le verifice un om înainte să postezi ceva.",
+      "inputs": {
+        "reviews": {
+          "label": "Recenziile",
+          "placeholder": "5 stele, Maria P., Google: Rapizi și amabili, cafeaua a fost excelentă!\n2 stele, Dan, Facebook: Am așteptat 40 de minute și nu și-a cerut nimeni scuze.",
+          "help": "Lipește-le una după alta, cu stelele, numele și platforma, când le ai. Sau scrie numele unui fișier exportat (CSV, Excel, text) din dosarul ales."
+        },
+        "business_name": {
+          "label": "Numele firmei",
+          "placeholder": "Casa Verde"
+        },
+        "business_type": {
+          "label": "Ce fel de afacere este?",
+          "placeholder": "restaurant de familie în Sibiu, cabinet stomatologic, service auto, magazin online, hotel"
+        },
+        "facts": {
+          "label": "Ce pot pomeni răspunsurile",
+          "placeholder": "Deschis zilnic 8-22. Contact: 0700 000 012 sau salut@casaverde.test. Din octombrie avem un al doilea bucătar la prânz.",
+          "help": "Programul, contactul public pentru reclamații, ce ați reparat deja. Răspunsurile nu promit nimic din ce nu scrie aici."
+        },
+        "tone": {
+          "label": "Tonul",
+          "options": ["Cald și prietenos", "Politicos și formal", "Relaxat și firesc"]
+        },
+        "length": {
+          "label": "Lungimea",
+          "options": ["Scurt (2-3 propoziții)", "Mediu (4-6 propoziții)"]
+        },
+        "signature": {
+          "label": "Semnătura răspunsurilor",
+          "placeholder": "Ana, manager la Casa Verde"
+        },
+        "reply_language": {
+          "label": "Limba răspunsurilor",
+          "placeholder": "limba fiecărei recenzii",
+          "help": "Lasă gol ca fiecare recenzie să primească răspuns în limba în care a fost scrisă."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "id": "employee-onboarding-kit",
+  "name": "New employee onboarding kit",
+  "description": "A welcome guide, a day-by-day plan for the first week, checklists from before day one to 90 days (Romanian paperwork included) and notes for the manager, built from your company's documents and memory.",
+  "category": "admin",
+  "icon": "user-plus",
+  "inputs": [
+    {
+      "id": "company",
+      "label": "Company",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "role",
+      "label": "Role",
+      "type": "text",
+      "required": true,
+      "placeholder": "Waiter"
+    },
+    {
+      "id": "start_date",
+      "label": "Start date",
+      "type": "text",
+      "required": true,
+      "placeholder": "Monday, 16 November 2026"
+    },
+    {
+      "id": "person",
+      "label": "Newcomer's first name",
+      "type": "text",
+      "required": false,
+      "placeholder": "Ioana"
+    },
+    {
+      "id": "manager",
+      "label": "Manager and buddy",
+      "type": "text",
+      "required": false,
+      "placeholder": "Mihai (floor manager); buddy: Andreea"
+    },
+    {
+      "id": "docs",
+      "label": "Company documents",
+      "type": "file",
+      "required": false,
+      "help": "Handbook, procedures, menu, org chart: a file or a folder."
+    },
+    {
+      "id": "facts",
+      "label": "What the newcomer must know",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Shifts 10-18 or 15-23. Black shirt, the apron is ours. Staff meal at 15:00. Leave requests to Mihai on WhatsApp."
+    }
+  ],
+  "output": "onboarding/<name>/ with welcome-guide.md (and .docx), first-week-plan.md, checklists.md and manager-notes.md.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Kit de bun venit pentru un angajat nou",
+      "description": "Un ghid de bun venit, planul primei săptămâni zi cu zi, liste de verificat de dinainte de prima zi până la 90 de zile (cu actele obligatorii în România) și note pentru șef, făcute din documentele și memoria firmei.",
+      "output": "onboarding/<nume>/ cu welcome-guide.md (și .docx), first-week-plan.md, checklists.md și manager-notes.md.",
+      "inputs": {
+        "company": {
+          "label": "Firma",
+          "placeholder": "Casa Verde"
+        },
+        "role": {
+          "label": "Postul",
+          "placeholder": "Ospătar"
+        },
+        "start_date": {
+          "label": "Data de început",
+          "placeholder": "luni, 16 noiembrie 2026"
+        },
+        "person": {
+          "label": "Prenumele noului coleg",
+          "placeholder": "Ioana"
+        },
+        "manager": {
+          "label": "Șeful direct și colegul care îl ajută",
+          "placeholder": "Mihai (șef de sală); coleg de sprijin: Andreea"
+        },
+        "docs": {
+          "label": "Documentele firmei",
+          "help": "Regulament, proceduri, meniu, organigramă: un fișier sau un dosar."
+        },
+        "facts": {
+          "label": "Ce trebuie să știe noul coleg",
+          "placeholder": "Ture 10-18 sau 15-23. Cămașă neagră, șorțul îl dăm noi. Masa personalului la 15:00. Cererile de concediu la Mihai pe WhatsApp."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "pandoc",
+        "version": "^3",
+        "optional": true,
+        "purpose": "makes a Word copy of the welcome guide for printing"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "network": false
+  }
+}

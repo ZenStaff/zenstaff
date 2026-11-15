@@ -1,0 +1,127 @@
+{
+  "id": "python",
+  "name": "Python",
+  "nameRo": "Python",
+  "kind": "runtime",
+  "description": "Runs the Python tools some workflows use (speech to text, data).",
+  "homepage": "https://www.python.org",
+  "license": {
+    "spdx": "PSF-2.0",
+    "name": "Python Software Foundation License",
+    "url": "https://docs.python.org/3/license.html",
+    "commercialUse": "free",
+    "note": "Free for any use, including business.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv \u00een firme."
+  },
+  "untrustedInput": false,
+  "verify": {
+    "bin": "python",
+    "args": ["--version"],
+    "expect": "^Python 3\\.12\\.16"
+  },
+  "pathNames": ["python3", "python"],
+  "osv": [],
+  "versions": [
+    {
+      "version": "3.12.16",
+      "dependsOn": [
+        {
+          "id": "uv",
+          "version": ">=0.13"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "uvPython",
+              "python": "3.12.16"
+            }
+          ],
+          "bin": {
+            "python": "bin/python3.12"
+          },
+          "installedSize": 115343360
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "uvPython",
+              "python": "3.12.16"
+            }
+          ],
+          "bin": {
+            "python": "bin/python3.12"
+          },
+          "installedSize": 115343360
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "uvPython",
+              "python": "3.12.16"
+            }
+          ],
+          "bin": {
+            "python": "bin/python3.12.exe"
+          },
+          "installedSize": 115343360
+        },
+        {
+          "os": "windows",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "uvPython",
+              "python": "3.12.16"
+            }
+          ],
+          "bin": {
+            "python": "bin/python3.12.exe"
+          },
+          "installedSize": 115343360
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "uvPython",
+              "python": "3.12.16"
+            }
+          ],
+          "bin": {
+            "python": "bin/python3.12"
+          },
+          "installedSize": 115343360
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "uvPython",
+              "python": "3.12.16"
+            }
+          ],
+          "bin": {
+            "python": "bin/python3.12"
+          },
+          "installedSize": 115343360
+        }
+      ]
+    }
+  ]
+}

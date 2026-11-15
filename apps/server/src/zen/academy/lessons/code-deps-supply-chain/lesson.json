@@ -1,0 +1,25 @@
+{
+  "id": "code-deps-supply-chain",
+  "track": "code",
+  "order": 40,
+  "title": { "en": "Dependencies and supply chain", "ro": "Dependențe și supply chain" },
+  "summary": {
+    "en": "Lockfiles, CVE scanning, typosquatting, packages agents hallucinate, install scripts and update bots you actually review.",
+    "ro": "Lockfile, scanare de CVE-uri, typosquatting, pachete inventate de agenți, scripturi de instalare și boți de update pe care chiar îi verifici."
+  },
+  "minutes": 4,
+  "level": "intermediate",
+  "tags": ["dependencies", "npm", "cve", "supply-chain"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "audit",
+    "command": "deps-audit",
+    "args": "Small practice project with no lockfile. Review package.json statically: known CVEs for the declared versions, suspicious or typo-like package names, install scripts, missing lockfile. Do not run npm install.",
+    "exercise": true,
+    "fallback": {
+      "en": "Audit this project's dependencies without installing anything (do not run npm install or any install scripts). Check: known CVEs for the declared versions (use npm audit or osv-scanner only if a lockfile exists, otherwise your knowledge of advisories), outdated major versions, package names that look like typos of popular packages or don't exist, lifecycle scripts (preinstall, postinstall) that download or run remote code, missing lockfile, loose version ranges, and abandoned packages. For each finding give file:line, package, severity (critical/high/medium/low), the advisory or reason, and the safe fix (exact version or replacement). Do not change any files, only report.",
+      "ro": "Verifică dependențele proiectului fără să instalezi nimic (nu rula npm install și niciun script de instalare). Uită-te la: CVE-uri cunoscute pentru versiunile declarate (folosește npm audit sau osv-scanner doar dacă există lockfile, altfel ce știi despre advisory-uri), versiuni majore rămase în urmă, nume de pachete care seamănă cu greșeli de tipar ale unor pachete populare sau care nu există, scripturi de lifecycle (preinstall, postinstall) care descarcă sau rulează cod de la distanță, lockfile lipsă, intervale de versiuni prea largi și pachete abandonate. Pentru fiecare problemă dă fișier:linie, pachetul, severitatea (critical/high/medium/low), advisory-ul sau motivul și remedierea sigură (versiune exactă sau înlocuitor). Nu modifica niciun fișier, doar raportează."
+    }
+  }
+}

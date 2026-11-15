@@ -1,0 +1,108 @@
+{
+  "id": "pipedrive",
+  "name": "Pipedrive",
+  "category": "crm",
+  "aliases": ["pipedrive", "pipe drive"],
+  "description": {
+    "en": "Deals, people and organizations in Pipedrive.",
+    "ro": "Oportunități, persoane și organizații din Pipedrive."
+  },
+  "website": "https://www.pipedrive.com",
+  "tier": "standard",
+  "tos": {
+    "en": "Pipedrive's terms apply.",
+    "ro": "Se aplică termenii Pipedrive."
+  },
+  "api": {
+    "docsUrl": "https://developers.pipedrive.com/docs/api/v1",
+    "auth": "API token or OAuth",
+    "verified": {
+      "status": "verified",
+      "note": "Pipedrive API v1."
+    }
+  },
+  "paths": [
+    {
+      "kind": "automation",
+      "automation": ["zapier", "make", "n8n"],
+      "access": {
+        "read": {
+          "en": "Only the Pipedrive actions you enable in your own Zapier MCP (or Make / n8n scenario).",
+          "ro": "Doar acțiunile Pipedrive activate de tine în propriul Zapier MCP (sau scenariu Make / n8n)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open zapier.com/mcp (your account) and add the Pipedrive actions you need; start with search / find actions.",
+          "Connect your Zapier MCP in Zen Staff once (Connections > Zapier).",
+          "Ask the assistant: it calls those actions through your Zapier account."
+        ],
+        "ro": [
+          "Deschide zapier.com/mcp (contul tău) și adaugă acțiunile Pipedrive de care ai nevoie; începe cu cele de căutare.",
+          "Conectează o dată Zapier MCP în Zen Staff (Conexiuni > Zapier).",
+          "Cere asistentului: apelează acțiunile prin contul tău Zapier."
+        ]
+      },
+      "notes": {
+        "en": "The connection lives in your Zapier / Make account and uses its tasks.",
+        "ro": "Conexiunea stă în contul tău Zapier / Make și consumă task-urile lui."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Whether Zapier / Make list Pipedrive was not checked; check the app directory."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Pipedrive open Deals (or Contacts) > ... > Export filter results, choose CSV or Excel.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Pipedrive deschide Oportunități (sau Contacte) > ... > Exportă rezultatele filtrului, alege CSV sau Excel.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    },
+    {
+      "kind": "browser",
+      "tosAllowsBrowser": true,
+      "url": "https://app.pipedrive.com",
+      "access": {
+        "read": {
+          "en": "The assistant works in Pipedrive in your own logged-in browser while you watch.",
+          "ro": "Asistentul lucrează în Pipedrive în browserul tău, logat cu contul tău, cât timp te uiți."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open Pipedrive in the built-in browser and log in yourself.",
+          "Tell the assistant what to look at. It is slower and you stay in control; it never types your password."
+        ],
+        "ro": [
+          "Deschide Pipedrive în browserul integrat și loghează-te tu.",
+          "Spune asistentului ce să urmărească. E mai lent și rămâi tu la control; nu-ți scrie niciodată parola."
+        ]
+      },
+      "notes": {
+        "en": "Supervised reading in your own session.",
+        "ro": "Citire supravegheată în sesiunea ta."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Terms read for personal, supervised use; no automated bulk actions."
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "zen-toolchain-remotion",
+  "version": "4.0.541",
+  "private": true,
+  "dependencies": {
+    "@remotion/bundler": "4.0.541",
+    "@remotion/cli": "4.0.541",
+    "@remotion/renderer": "4.0.541",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "remotion": "4.0.541"
+  },
+  "overrides": {
+    "zod": "4.6.6"
+  }
+}

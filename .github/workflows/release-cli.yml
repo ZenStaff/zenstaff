@@ -1,0 +1,146 @@
+# Builds the self-contained `zs` CLI archives and publishes them with SHA256SUMS as a GitHub
+# release, which https://zenstaff.app/install.sh and install.ps1 download (scripts/install.sh).
+#
+# Trigger: a tag v<version> (v0.2.8 = stable, marked latest; v0.2.9-beta.1 = prerelease).
+# Manual run (workflow_dispatch) builds and uploads the archives as workflow artifacts only, never a
+# release: use it to check the pipeline.
+# The desktop installers are published separately on https://zenstaff.app/descarca.
+name: Release CLI
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      platforms:
+        description: "Platforms to build (comma-separated: linux-x64,linux-arm64,darwin-arm64,win32-x64)"
+        default: "linux-x64"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-cli-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.v.outputs.version }}
+      prerelease: ${{ steps.v.outputs.prerelease }}
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          sparse-checkout: apps/desktop/package.json
+      - id: v
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$GITHUB_REF_TYPE" == "tag" ]]; then version="${GITHUB_REF_NAME#v}"; else version="$(jq -r .version apps/desktop/package.json)"; fi
+          [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]] || { echo "bad version $version" >&2; exit 1; }
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          if [[ "$version" == *-* ]]; then echo "prerelease=true" >> "$GITHUB_OUTPUT"; else echo "prerelease=false" >> "$GITHUB_OUTPUT"; fi
+      - id: m
+        shell: bash
+        env:
+          WANTED: ${{ github.event_name == 'workflow_dispatch' && inputs.platforms || 'linux-x64,linux-arm64,darwin-arm64,win32-x64' }}
+        run: |
+          set -euo pipefail
+          all='[
+            {"key":"linux-x64","os":"ubuntu-24.04","platform":"linux","arch":"x64","rust":"x86_64-unknown-linux-gnu"},
+            {"key":"linux-arm64","os":"ubuntu-24.04-arm","platform":"linux","arch":"arm64","rust":"aarch64-unknown-linux-gnu"},
+            {"key":"darwin-arm64","os":"macos-14","platform":"mac","arch":"arm64","rust":"aarch64-apple-darwin"},
+            {"key":"win32-x64","os":"windows-2022","platform":"win","arch":"x64","rust":"x86_64-pc-windows-msvc"}
+          ]'
+          echo "matrix=$(jq -c --arg w "$WANTED" '[.[] | select(.key as $k | ($w | split(",") | index($k)))]' <<< "$all")" >> "$GITHUB_OUTPUT"
+
+  cli:
+    needs: plan
+    name: CLI ${{ matrix.target.key }}
+    runs-on: ${{ matrix.target.os }}
+    timeout-minutes: 60
+    strategy:
+      fail-fast: true
+      matrix:
+        target: ${{ fromJson(needs.plan.outputs.matrix) }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      - name: Setup dependencies
+        uses: ./.github/actions/setup-ci-deps
+      - name: Align package versions to the release version
+        run: node scripts/update-release-package-versions.ts "${{ needs.plan.outputs.version }}"
+      - uses: ./.github/actions/setup-apt-mirrors
+        if: matrix.target.platform == 'linux'
+      - name: Linux build libraries
+        if: matrix.target.platform == 'linux'
+        run: sudo apt-get update && sudo apt-get install -y libsecret-1-dev pkg-config patchelf
+      - name: Build the server and web bundle
+        run: vp run build:desktop:bundle
+      - name: Apply web client branding
+        run: node scripts/apply-web-brand-assets.ts production apps/server/dist/client
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # master
+        with:
+          toolchain: stable
+          targets: ${{ matrix.target.rust }}
+      - name: Build the resource monitor
+        run: |
+          set -euo pipefail
+          cargo build --locked --release --manifest-path native/resource-monitor/Cargo.toml --target "${{ matrix.target.rust }}"
+          name=t3-resource-monitor; [[ "${{ matrix.target.platform }}" == win ]] && name="$name.exe"
+          dir="$RUNNER_TEMP/cli-resource-monitor/${{ matrix.target.key }}"
+          mkdir -p "$dir" && cp "native/resource-monitor/target/${{ matrix.target.rust }}/release/$name" "$dir/$name"
+      - name: Build the CLI executable
+        env:
+          T3CODE_TELEMETRY_CHANNEL: dev
+        run: node apps/server/scripts/cli.ts build-exe --verbose
+      - name: Build the CLI archive
+        run: |
+          node scripts/build-cli-archive.ts --platform "${{ matrix.target.platform }}" --arch "${{ matrix.target.arch }}" \
+            --version "${{ needs.plan.outputs.version }}" --resource-monitor-dir "$RUNNER_TEMP/cli-resource-monitor" \
+            --output-dir release-cli
+      - name: Smoke-test the CLI archive
+        run: node scripts/smoke-cli-archive.ts --archive release-cli/* --expect-version "${{ needs.plan.outputs.version }}"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cli-${{ matrix.target.key }}
+          path: release-cli/*
+          if-no-files-found: error
+          compression-level: 0
+
+  release:
+    needs: [plan, cli]
+    if: github.ref_type == 'tag'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: cli-*
+          merge-multiple: true
+          path: release-assets
+      - name: Checksums (what install.sh verifies)
+        run: |
+          set -euo pipefail
+          cd release-assets
+          shopt -s nullglob
+          archives=(t3-*.tar.gz t3-*.zip)
+          [[ ${#archives[@]} -gt 0 ]] || { echo "no CLI archives" >&2; exit 1; }
+          sha256sum "${archives[@]}" > SHA256SUMS
+          cat SHA256SUMS
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.plan.outputs.version }}
+          PRERELEASE: ${{ needs.plan.outputs.prerelease }}
+        run: |
+          set -euo pipefail
+          flags=(--title "Zen Staff $VERSION" --notes "Zen Staff $VERSION. Desktop app: https://zenstaff.app/descarca. CLI: curl -fsSL https://zenstaff.app/install.sh | sh (or install.ps1 on Windows). Release notes: https://zenstaff.app/noutati.html")
+          if [[ "$PRERELEASE" == true ]]; then flags+=(--prerelease --latest=false); else flags+=(--latest); fi
+          gh release create "v$VERSION" --repo "$GITHUB_REPOSITORY" --verify-tag "${flags[@]}" release-assets/*

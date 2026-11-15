@@ -1,0 +1,99 @@
+{
+  "id": "shift-sales-report",
+  "name": "Sales report per day and shift",
+  "description": "Your POS or till export becomes a report per day and shift: sales, receipts, average receipt, busiest hours, best and slow products, payments, results per waiter with voids and discounts, the days that stand out, and three actions for next week.",
+  "category": "reports",
+  "icon": "trending-up",
+  "inputs": [
+    {
+      "id": "restaurant",
+      "label": "Restaurant",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "export",
+      "label": "POS export",
+      "type": "file",
+      "required": true,
+      "help": "CSV or Excel with one row per sold item or per receipt; several files in a folder are fine."
+    },
+    {
+      "id": "shifts",
+      "label": "Shifts",
+      "type": "text",
+      "required": false,
+      "placeholder": "Lunch 10:00-15:00, Evening 15:00-23:30"
+    },
+    {
+      "id": "period",
+      "label": "Period",
+      "type": "text",
+      "required": false,
+      "placeholder": "1-14 October 2026"
+    },
+    {
+      "id": "context",
+      "label": "Context",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "8 Oct: rain, terrace closed. New waiter Radu since 5 Oct. Target 11,000 lei a day."
+    }
+  ],
+  "output": "sales/vanzari-<period>.xlsx (by day, shift, hour, product, category, payment, staff, to check) and sales/raport-<period>.md.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Raport de vânzări pe zile și ture",
+      "description": "Exportul din casa de marcat sau POS devine un raport pe zile și ture: vânzări, bonuri, bon mediu, orele aglomerate, produsele care se vând și cele care stau, plățile, rezultatele fiecărui ospătar cu anulări și reduceri, zilele care ies din tipar și trei acțiuni pentru săptămâna viitoare.",
+      "output": "sales/vanzari-<perioada>.xlsx (pe zile, ture, ore, produse, categorii, plăți, personal, de verificat) și sales/raport-<perioada>.md.",
+      "inputs": {
+        "restaurant": {
+          "label": "Localul",
+          "placeholder": "Casa Verde"
+        },
+        "export": {
+          "label": "Exportul din casa de marcat / POS",
+          "help": "CSV sau Excel cu un rând pe produs vândut sau pe bon; merg și mai multe fișiere într-un dosar."
+        },
+        "shifts": {
+          "label": "Turele",
+          "placeholder": "Prânz 10:00-15:00, Seară 15:00-23:30"
+        },
+        "period": {
+          "label": "Perioada",
+          "placeholder": "1-14 octombrie 2026"
+        },
+        "context": {
+          "label": "Context",
+          "placeholder": "8 oct: ploaie, terasa închisă. Ospătar nou, Radu, din 5 oct. Ținta: 11.000 de lei pe zi."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the workflow's script on this computer"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a month of sales",
+      "seconds": 5,
+      "referenceCpuCores": 8
+    },
+    "network": false
+  }
+}

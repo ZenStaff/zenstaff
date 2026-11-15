@@ -1,0 +1,106 @@
+{
+  "name": "@t3tools/contracts",
+  "version": "0.2.8",
+  "private": true,
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    },
+    "./settings": {
+      "types": "./src/settings.ts",
+      "import": "./src/settings.ts"
+    },
+    "./relay": {
+      "types": "./src/relay.ts",
+      "import": "./src/relay.ts"
+    },
+    "./zen": {
+      "types": "./src/zen.ts",
+      "import": "./src/zen.ts"
+    },
+    "./zenTelemetry": {
+      "types": "./src/zenTelemetry.ts",
+      "import": "./src/zenTelemetry.ts"
+    },
+    "./zenReleases": {
+      "types": "./src/zenReleases.ts",
+      "import": "./src/zenReleases.ts"
+    },
+    "./zenCliSessions": {
+      "types": "./src/zenCliSessions.ts",
+      "import": "./src/zenCliSessions.ts"
+    },
+    "./zenScheduledLimits": {
+      "types": "./src/zenScheduledLimits.ts",
+      "import": "./src/zenScheduledLimits.ts"
+    },
+    "./zenOffice": {
+      "types": "./src/zenOffice.ts",
+      "import": "./src/zenOffice.ts"
+    },
+    "./zenIntake": {
+      "types": "./src/zenIntake.ts",
+      "import": "./src/zenIntake.ts"
+    },
+    "./zenCompanies": {
+      "types": "./src/zenCompanies.ts",
+      "import": "./src/zenCompanies.ts"
+    },
+    "./zenAcademy": {
+      "types": "./src/zenAcademy.ts",
+      "import": "./src/zenAcademy.ts"
+    },
+    "./zenHub": {
+      "types": "./src/zenHub.ts",
+      "import": "./src/zenHub.ts"
+    },
+    "./zenToolchains": {
+      "types": "./src/zenToolchains.ts",
+      "import": "./src/zenToolchains.ts"
+    },
+    "./zenMemory": {
+      "types": "./src/zenMemory.ts",
+      "import": "./src/zenMemory.ts"
+    },
+    "./zenChat": {
+      "types": "./src/zenChat.ts",
+      "import": "./src/zenChat.ts"
+    },
+    "./zenSecrets": {
+      "types": "./src/zenSecrets.ts",
+      "import": "./src/zenSecrets.ts"
+    },
+    "./zenConnectors": {
+      "types": "./src/zenConnectors.ts",
+      "import": "./src/zenConnectors.ts"
+    },
+    "./zenStaff": {
+      "types": "./src/zenStaff.ts",
+      "import": "./src/zenStaff.ts"
+    },
+    "./zenDocs": {
+      "types": "./src/zenDocs.ts",
+      "import": "./src/zenDocs.ts"
+    },
+    "./zenImports": {
+      "types": "./src/zenImports.ts",
+      "import": "./src/zenImports.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "effect-tsgo tsrs --noEmit",
+    "test": "vp test run --config ../../vite.config.ts --dir ."
+  },
+  "dependencies": {
+    "effect": "catalog:"
+  },
+  "devDependencies": {
+    "@effect/vitest": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "weekly-report-from-files",
+  "name": "Weekly report from files",
+  "description": "Reads the files you point to and writes a one-page weekly report with numbers and next steps.",
+  "category": "reports",
+  "icon": "file-chart-column",
+  "inputs": [
+    {
+      "id": "files",
+      "label": "Which files or folder to read",
+      "type": "file",
+      "required": true,
+      "placeholder": "reports/week-45/ or sales.xlsx, notes.docx"
+    },
+    {
+      "id": "audience",
+      "label": "Who reads the report?",
+      "type": "select",
+      "required": true,
+      "options": ["Management", "Team", "Client", "Board"]
+    },
+    {
+      "id": "period",
+      "label": "Period",
+      "type": "text",
+      "required": true,
+      "placeholder": "3 to 9 November 2026"
+    },
+    {
+      "id": "focus",
+      "label": "What matters most this week?",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Sales vs target, open issues, staffing"
+    },
+    {
+      "id": "format",
+      "label": "Output format",
+      "type": "select",
+      "required": true,
+      "options": ["Markdown document", "Word document (.docx)", "Email text"]
+    }
+  ],
+  "output": "weekly-report.md (or .docx) with highlights, numbers, risks and next steps.",
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "Raport săptămânal din fișiere",
+      "description": "Citește fișierele pe care le alegi și scrie un raport săptămânal de o pagină, cu cifre și pașii următori.",
+      "output": "Raportul în weekly-report.md (sau .docx): ce e important, cifre, riscuri și pașii următori.",
+      "inputs": {
+        "files": {
+          "label": "Ce fișiere sau ce dosar să citească",
+          "placeholder": "rapoarte/săptămâna-45/ sau vânzări.xlsx, notițe.docx"
+        },
+        "audience": {
+          "label": "Cine citește raportul?",
+          "options": ["Conducerea", "Echipa", "Clientul", "Consiliul de administrație"]
+        },
+        "period": {
+          "label": "Perioada",
+          "placeholder": "3-9 noiembrie 2026"
+        },
+        "focus": {
+          "label": "Ce contează cel mai mult săptămâna asta?",
+          "placeholder": "Vânzările față de țintă, problemele nerezolvate, personalul"
+        },
+        "format": {
+          "label": "Formatul",
+          "options": ["Document Markdown", "Document Word (.docx)", "Text de e-mail"]
+        }
+      }
+    }
+  }
+}

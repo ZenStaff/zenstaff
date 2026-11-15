@@ -1,0 +1,31 @@
+import { buildPrompt } from "./prompt";
+import { tools } from "./tools";
+
+type ToolCall = { name: keyof typeof tools; args: any };
+
+async function callModel(prompt: string): Promise<{ text: string; toolCalls: ToolCall[] }> {
+  const res = await fetch("https://llm.example.com/v1/complete", {
+    method: "POST",
+    headers: { Authorization: "Bearer " + process.env.LLM_API_KEY },
+    body: JSON.stringify({ prompt, tools: Object.keys(tools) }),
+  });
+  return res.json();
+}
+
+export async function handleMessage(userMessage: string, helpUrl: string): Promise<string> {
+  const pageText = await (await fetch(helpUrl)).text();
+  const prompt = buildPrompt(userMessage, pageText);
+  const result = await callModel(prompt);
+
+  for (const call of result.toolCalls) {
+    const tool = tools[call.name] as any;
+    const output = await tool.run(call.args);
+    console.log("tool", call.name, JSON.stringify(call.args), String(output).slice(0, 500));
+  }
+
+  return result.text;
+}
+
+export function renderAnswer(answer: string): string {
+  return `<div class="answer">${answer}</div>`;
+}

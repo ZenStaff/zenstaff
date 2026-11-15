@@ -1,0 +1,245 @@
+{
+  "id": "promo-video-30s",
+  "name": "30s promo video",
+  "description": "A 30-second promo video with your brand colors, short texts, your photos and music, ready to post.",
+  "category": "video",
+  "icon": "clapperboard",
+  "inputs": [
+    {
+      "id": "product",
+      "label": "Product, service or company",
+      "type": "text",
+      "required": true,
+      "placeholder": "Acme Coffee, specialty coffee in Cluj"
+    },
+    {
+      "id": "message",
+      "label": "What should the video say?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Freshly roasted every week. Open 7-22. New autumn menu with pumpkin latte."
+    },
+    {
+      "id": "call_to_action",
+      "label": "Call to action",
+      "type": "text",
+      "required": true,
+      "placeholder": "Visit us this weekend: 20% off"
+    },
+    {
+      "id": "website",
+      "label": "Website or contact",
+      "type": "text",
+      "required": false,
+      "placeholder": "acme.ro"
+    },
+    {
+      "id": "brand_colors",
+      "label": "Brand colors",
+      "type": "text",
+      "required": false,
+      "placeholder": "#0F4C5C and #F2C14E",
+      "help": "One to three colors. Leave empty for a calm default."
+    },
+    {
+      "id": "images",
+      "label": "Photos or logo",
+      "type": "file",
+      "required": false,
+      "help": "A folder or up to 4 image files inside the chosen folder (JPG or PNG)."
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "type": "file",
+      "required": false,
+      "help": "An MP3 or WAV file inside the chosen folder that you have the right to use. Leave empty and music is made for you on this computer, free to use."
+    },
+    {
+      "id": "voice",
+      "label": "Voice-over",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Professional voice-over (recommended, your own ElevenLabs account)",
+        "Local preview voice (free, for checking only, never for ads)",
+        "No voice-over"
+      ],
+      "help": "The professional voice uses your own ElevenLabs account (connect it once; Zen keeps no key). The local preview is only to check the words and the timing."
+    },
+    {
+      "id": "look",
+      "label": "Look",
+      "type": "select",
+      "required": true,
+      "options": ["Modern and clean", "Warm and friendly", "Bold and punchy", "Elegant and calm"]
+    },
+    {
+      "id": "format",
+      "label": "Format",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Landscape 16:9 (YouTube, website)",
+        "Vertical 9:16 (Reels, TikTok, Stories)",
+        "Square 1:1 (feed)"
+      ]
+    },
+    {
+      "id": "language",
+      "label": "Language of the texts",
+      "type": "text",
+      "required": false,
+      "placeholder": "Romanian"
+    }
+  ],
+  "output": "An MP4 video (about 30 seconds) in the promo-video folder, shown in the chat.",
+  "version": "2.1.0",
+  "author": "ZED-ZEN",
+  "requires": {
+    "tools": [
+      {
+        "id": "remotion",
+        "version": "^4.0.500",
+        "purpose": "renders the video from the template"
+      },
+      {
+        "id": "ffmpeg",
+        "version": ">=6",
+        "purpose": "checks the finished video"
+      },
+      {
+        "id": "open-fonts",
+        "purpose": "fonts with full Romanian letters for the texts"
+      },
+      {
+        "id": "piper-tts",
+        "version": "^1.8",
+        "optional": true,
+        "purpose": "reads a preview of the voice-over on this computer (not for ads)"
+      },
+      {
+        "id": "piper-voice-ro",
+        "optional": true,
+        "purpose": "the Romanian preview voice"
+      },
+      {
+        "id": "piper-voice-en",
+        "optional": true,
+        "purpose": "the English preview voice"
+      }
+    ],
+    "connectors": [
+      {
+        "id": "elevenlabs",
+        "optional": true,
+        "purpose": "the professional voice-over, from your own ElevenLabs account"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 4,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 2,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a 30-second video",
+      "seconds": 180,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 600
+    },
+    "network": false,
+    "alternatives": [
+      {
+        "id": "short-720p",
+        "kind": "lighter",
+        "label": "Shorter, smaller video",
+        "description": "A 15-second video at half size (the draft quality). Needs about half the memory and time.",
+        "hardware": {
+          "minRamGb": 2,
+          "minFreeDiskGb": 0.5,
+          "minCpuCores": 1
+        },
+        "promptNote": "Make the lighter version: set \"seconds\": 15 in props.json, use 3 scenes, and deliver the --quality draft render after the review."
+      },
+      {
+        "id": "no-preview-voice",
+        "kind": "lighter",
+        "label": "Without the local preview voice",
+        "description": "Skips the free preview voice (a large download): use your professional voice or no voice-over.",
+        "dropTools": ["piper-tts", "piper-voice-ro", "piper-voice-en"],
+        "promptNote": "The local preview voice is not installed: use --voice elevenlabs, or leave out the voice-over."
+      }
+    ]
+  },
+  "i18n": {
+    "ro": {
+      "name": "Video promo de 30 de secunde",
+      "description": "Un video promo de 30 de secunde, cu culorile firmei, texte scurte, pozele și muzica ta, gata de postat.",
+      "output": "Un video MP4 (cam 30 de secunde) în dosarul promo-video, arătat în conversație.",
+      "inputs": {
+        "product": {
+          "label": "Produsul, serviciul sau firma",
+          "placeholder": "Cafeneaua Acme, cafea de specialitate în Cluj"
+        },
+        "message": {
+          "label": "Ce să spună video-ul?",
+          "placeholder": "Prăjită proaspăt în fiecare săptămână. Deschis 7-22. Meniu nou de toamnă."
+        },
+        "call_to_action": {
+          "label": "Îndemnul de la final",
+          "placeholder": "Vino în weekend: 20% reducere"
+        },
+        "website": {
+          "label": "Site sau contact",
+          "placeholder": "acme.ro"
+        },
+        "brand_colors": {
+          "label": "Culorile firmei",
+          "placeholder": "#0F4C5C și #F2C14E",
+          "help": "Una până la trei culori. Lasă gol pentru culori calme, implicite."
+        },
+        "images": {
+          "label": "Poze sau logo",
+          "help": "Un dosar sau până la 4 imagini din dosarul ales (JPG sau PNG)."
+        },
+        "music": {
+          "label": "Muzică",
+          "help": "Un fișier MP3 sau WAV din dosarul ales, pe care ai dreptul să îl folosești. Dacă lași gol, muzica se face pe acest calculator și o poți folosi liber."
+        },
+        "voice": {
+          "label": "Voce din off",
+          "options": [
+            "Voce profesională (recomandat)",
+            "Previzualizare locală (gratuit, doar orientativ, niciodată pentru reclame)",
+            "Fără voce"
+          ],
+          "help": "Vocea profesională folosește contul tău ElevenLabs (îl conectezi o dată; Zen nu păstrează nicio cheie). Previzualizarea locală e doar ca să verifici textul și ritmul."
+        },
+        "format": {
+          "label": "Format",
+          "options": [
+            "Orizontal 16:9 (YouTube, site)",
+            "Vertical 9:16 (Reels, TikTok, Stories)",
+            "Pătrat 1:1 (feed)"
+          ]
+        },
+        "language": {
+          "label": "Limba textelor",
+          "placeholder": "română"
+        },
+        "look": {
+          "label": "Stil",
+          "options": [
+            "Modern și curat",
+            "Cald și prietenos",
+            "Puternic, cu energie",
+            "Elegant și calm"
+          ]
+        }
+      }
+    }
+  }
+}

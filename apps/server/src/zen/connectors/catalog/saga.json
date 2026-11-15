@@ -1,0 +1,43 @@
+{
+  "id": "saga",
+  "name": "Saga (contabilitate)",
+  "category": "invoicing",
+  "aliases": ["saga", "saga c", "saga contabilitate", "programul saga"],
+  "description": {
+    "en": "Saga accounting software (desktop): work from its exports.",
+    "ro": "Programul de contabilitate Saga (desktop): lucrăm din exporturile lui."
+  },
+  "website": "https://www.sagasoft.ro",
+  "tier": "standard",
+  "tos": {
+    "en": "Desktop software without a public API; only files you export.",
+    "ro": "Program desktop fără API public; doar fișierele exportate de tine."
+  },
+  "paths": [
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Saga: Rapoarte > choose the report (e.g. Sales journal, Trial balance) > Export to Excel.",
+          "For invoices: Iesiri > choose the period > Export.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Saga: Rapoarte > alege raportul (ex. Jurnal de vânzări, Balanță) > Export Excel.",
+          "Pentru facturi: Ieșiri > alege perioada > Export.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "No public API found for Saga; menu names may differ by version."
+      }
+    }
+  ]
+}

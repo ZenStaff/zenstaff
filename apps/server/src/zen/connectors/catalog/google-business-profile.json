@@ -1,0 +1,86 @@
+{
+  "id": "google-business-profile",
+  "name": "Google Business Profile",
+  "category": "reviews",
+  "aliases": [
+    "google business profile",
+    "google business",
+    "google my business",
+    "gmb",
+    "profilul de companie google",
+    "recenzii google"
+  ],
+  "description": {
+    "en": "Your business listing on Google: reviews and details.",
+    "ro": "Profilul firmei pe Google: recenzii și date."
+  },
+  "website": "https://business.google.com",
+  "tier": "standard",
+  "tos": {
+    "en": "Google gives API access only after approval; no AI connector found.",
+    "ro": "Google dă acces la API doar după aprobare; nu am găsit conector AI."
+  },
+  "api": {
+    "docsUrl": "https://developers.google.com/my-business/content/overview",
+    "auth": "OAuth 2.0 (Google, business.manage) after Google approves API access",
+    "verified": {
+      "status": "unverified",
+      "note": "Not checked."
+    }
+  },
+  "paths": [
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Google Takeout choose Google Business Profile and export; reviews are in each location's files.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Google Takeout alege Google Business Profile și exportă; recenziile sunt în fișierele fiecărei locații.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://takeout.google.com"
+    },
+    {
+      "kind": "browser",
+      "tosAllowsBrowser": true,
+      "url": "https://business.google.com",
+      "access": {
+        "read": {
+          "en": "The assistant works in Google Business Profile in your own logged-in browser while you watch.",
+          "ro": "Asistentul lucrează în Google Business Profile în browserul tău, logat cu contul tău, cât timp te uiți."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open Google Business Profile in the built-in browser and log in yourself.",
+          "Tell the assistant what to look at. It is slower and you stay in control; it never types your password."
+        ],
+        "ro": [
+          "Deschide Google Business Profile în browserul integrat și loghează-te tu.",
+          "Spune asistentului ce să urmărească. E mai lent și rămâi tu la control; nu-ți scrie niciodată parola."
+        ]
+      },
+      "notes": {
+        "en": "Your own listing: supervised reading and replies you approve.",
+        "ro": "Profilul tău: citire supravegheată și răspunsuri aprobate de tine."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Terms read for personal, supervised use; no automated bulk actions."
+      }
+    }
+  ]
+}

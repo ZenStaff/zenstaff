@@ -1,0 +1,122 @@
+{
+  "id": "daily-menu-posts",
+  "name": "Daily menu posts",
+  "description": "Today's (or this week's) menu written for every channel: Facebook, Instagram with story frames, WhatsApp, a Google Business Profile update and the text for the menu board, exact to the gram and the leu.",
+  "category": "social",
+  "icon": "utensils",
+  "inputs": [
+    {
+      "id": "restaurant",
+      "label": "Restaurant",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde, Brașov"
+    },
+    {
+      "id": "menu",
+      "label": "The menu",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Daily menu 39 lei, 12-16: Meatball soup (400 ml); Chicken breast with mashed potatoes (350 g); Apple pie."
+    },
+    {
+      "id": "period",
+      "label": "For",
+      "type": "select",
+      "required": true,
+      "options": ["Today", "The whole week"]
+    },
+    {
+      "id": "date",
+      "label": "Date",
+      "type": "text",
+      "required": false,
+      "placeholder": "Monday, 9 November 2026"
+    },
+    {
+      "id": "channels",
+      "label": "Channels",
+      "type": "text",
+      "required": true,
+      "placeholder": "Facebook, Instagram, WhatsApp, Google Business Profile, menu board"
+    },
+    {
+      "id": "details",
+      "label": "Practical details",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Str. Lungă 12. Delivery on Glovo. Phone 0700 000 000. Card and meal tickets."
+    },
+    {
+      "id": "allergens",
+      "label": "Allergens per dish",
+      "type": "longtext",
+      "required": false,
+      "help": "Leave empty to add the line 'ask us about allergens'; they are never guessed."
+    },
+    {
+      "id": "photo",
+      "label": "Photo",
+      "type": "file",
+      "required": false
+    },
+    {
+      "id": "tone",
+      "label": "Tone",
+      "type": "select",
+      "required": true,
+      "options": ["Warm and homely", "Fresh and modern", "Short and to the point"]
+    }
+  ],
+  "output": "menu/<date>/posts.md and menu-board.md (and plan.md for a week).",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Postări cu meniul zilei",
+      "description": "Meniul de azi (sau al săptămânii) scris pentru fiecare canal: Facebook, Instagram cu cadre de story, WhatsApp, o actualizare în Google Business Profile și textul pentru tabla de meniu, exact la gram și la leu.",
+      "output": "menu/<data>/posts.md și menu-board.md (și plan.md pentru o săptămână).",
+      "inputs": {
+        "restaurant": {
+          "label": "Localul",
+          "placeholder": "Casa Verde, Brașov"
+        },
+        "menu": {
+          "label": "Meniul",
+          "placeholder": "Meniul zilei 39 lei, 12-16: Ciorbă de perișoare (400 ml); Piept de pui cu piure (350 g); Plăcintă cu mere."
+        },
+        "period": {
+          "label": "Pentru",
+          "options": ["Azi", "Toată săptămâna"]
+        },
+        "date": {
+          "label": "Data",
+          "placeholder": "luni, 9 noiembrie 2026"
+        },
+        "channels": {
+          "label": "Canale",
+          "placeholder": "Facebook, Instagram, WhatsApp, Google Business Profile, tabla de meniu"
+        },
+        "details": {
+          "label": "Detalii practice",
+          "placeholder": "Str. Lungă 12. Livrare pe Glovo. Telefon 0700 000 000. Card și tichete de masă."
+        },
+        "allergens": {
+          "label": "Alergeni pe fiecare fel",
+          "help": "Lasă gol și adăugăm rândul „întreabă-ne despre alergeni”; nu se ghicesc niciodată."
+        },
+        "photo": {
+          "label": "Poză"
+        },
+        "tone": {
+          "label": "Tonul",
+          "options": ["Cald, ca acasă", "Proaspăt și modern", "Scurt și la obiect"]
+        }
+      }
+    }
+  },
+  "requires": {
+    "runsBest": "either",
+    "network": false
+  }
+}

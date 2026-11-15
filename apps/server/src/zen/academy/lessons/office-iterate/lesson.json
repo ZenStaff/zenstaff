@@ -1,0 +1,23 @@
+{
+  "id": "office-iterate",
+  "track": "office",
+  "order": 100,
+  "title": { "en": "Fix it in the same chat", "ro": "Corectezi în aceeași conversație" },
+  "summary": {
+    "en": "Corrections that work: point to the exact part, say what to keep and why, one change at a time, and know when to start a fresh chat.",
+    "ro": "Corecturi care chiar merg: arăți exact partea, spui ce rămâne și de ce, o schimbare pe rând, și știi când e mai bine să o iei de la capăt."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["editing", "feedback", "prompting", "threads"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": true,
+    "prompt": {
+      "en": "Read anunt.md, an office announcement in Romanian that is too long and hard to read. Do not change anunt.md. Rewrite it in Romanian in 3 versions, each as a separate file: anunt-scurt.md (at most 40 words), anunt-prietenos.md (warm, for regular customers), anunt-formal.md (for business partners). Keep every fact exactly as in the original (dates, hours, how to book) and do not add new facts. Then, in English, give me 3 examples of good correction messages I could send you next, each pointing to a specific part of one version and saying what to keep.",
+      "ro": "Citește anunt.md, un anunț al unui birou, prea lung și greu de citit. Nu modifica anunt.md. Rescrie-l în 3 variante, fiecare într-un fișier separat: anunt-scurt.md (cel mult 40 de cuvinte), anunt-prietenos.md (cald, pentru clienții obișnuiți), anunt-formal.md (pentru parteneri de afaceri). Păstrează toate informațiile exact ca în original (date, ore, cum se fac programările) și nu adăuga informații noi. Apoi dă-mi 3 exemple de mesaje bune de corectură pe care ți le-aș putea trimite, fiecare arătând o parte anume dintr-o variantă și spunând ce să rămână."
+    }
+  }
+}

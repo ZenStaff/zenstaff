@@ -1,0 +1,26 @@
+{
+  "update_id": 900003,
+  "message": {
+    "message_id": 12,
+    "from": { "id": 7001, "is_bot": false, "first_name": "Maria" },
+    "chat": { "id": 7001, "first_name": "Maria", "type": "private" },
+    "date": 1731000100,
+    "photo": [
+      {
+        "file_id": "AgACsmall",
+        "file_unique_id": "u1",
+        "file_size": 1200,
+        "width": 90,
+        "height": 90
+      },
+      {
+        "file_id": "AgAClarge",
+        "file_unique_id": "u2",
+        "file_size": 88000,
+        "width": 1280,
+        "height": 1280
+      }
+    ],
+    "caption": "ce scrie pe factura asta?"
+  }
+}

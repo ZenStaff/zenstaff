@@ -1,0 +1,153 @@
+{
+  "id": "client-radar",
+  "name": "Client radar",
+  "description": "Businesses that could buy what you sell, from public business sources (registers, OpenStreetMap, their own sites). Each lead has a short dossier with a source for every field and an A/B/C score with reasons. Excel, CSV and a small dashboard that opens from the folder; checked against your existing list.",
+  "category": "sales",
+  "icon": "target",
+  "inputs": [
+    {
+      "id": "niche",
+      "label": "What kind of businesses you are looking for",
+      "type": "text",
+      "required": true,
+      "placeholder": "small football and handball clubs",
+      "help": "The narrower, the better the list."
+    },
+    {
+      "id": "region",
+      "label": "Where",
+      "type": "text",
+      "required": true,
+      "placeholder": "Mureș and Harghita counties"
+    },
+    {
+      "id": "offer",
+      "label": "What you sell them",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "websites and visual identity for small clubs, from 1,500 lei",
+      "help": "Used to judge what each business is missing."
+    },
+    {
+      "id": "count",
+      "label": "How many leads",
+      "type": "select",
+      "required": false,
+      "options": ["25", "50", "100", "200"]
+    },
+    {
+      "id": "contact",
+      "label": "Your business e-mail or website",
+      "type": "text",
+      "required": true,
+      "placeholder": "office@yourcompany.com",
+      "help": "Sent with every visit, so site owners know who reads their pages."
+    },
+    {
+      "id": "existing",
+      "label": "Your existing list (to skip who you already know)",
+      "type": "file",
+      "required": false,
+      "help": "CSV or Excel with names, websites, e-mails or tax IDs."
+    },
+    {
+      "id": "start_lists",
+      "label": "Public lists to start from",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "the federation's club list page, the chamber of commerce directory",
+      "help": "Links to public pages that list such businesses."
+    }
+  ],
+  "output": "radar-clienti/leaduri.xlsx, leaduri.csv and radar.html (the dashboard), with leads.json, a dossier per lead and the crawl log.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Radar de clienți",
+      "description": "Firme care ar putea cumpăra ce vinzi, din surse publice de business (registre, OpenStreetMap, site-urile lor). Fiecare lead are un dosar scurt cu sursa fiecărui câmp și un scor A/B/C cu motive. Excel, CSV și un mic panou care se deschide din folder; verificat cu lista ta existentă.",
+      "output": "radar-clienti/leaduri.xlsx, leaduri.csv și radar.html (panoul), plus leads.json, un dosar pe lead și jurnalul vizitelor.",
+      "inputs": {
+        "niche": {
+          "label": "Ce fel de firme cauți",
+          "placeholder": "cluburi mici de fotbal și handbal",
+          "help": "Cu cât e mai precis, cu atât lista e mai bună."
+        },
+        "region": {
+          "label": "Unde",
+          "placeholder": "județele Mureș și Harghita"
+        },
+        "offer": {
+          "label": "Ce le vinzi",
+          "placeholder": "site-uri și identitate vizuală pentru cluburi mici, de la 1.500 lei",
+          "help": "Ne ajută să vedem ce îi lipsește fiecărei firme."
+        },
+        "count": {
+          "label": "Câte leaduri",
+          "options": ["25", "50", "100", "200"]
+        },
+        "contact": {
+          "label": "E-mailul sau site-ul firmei tale",
+          "placeholder": "office@firmata.ro",
+          "help": "Merge cu fiecare vizită, ca proprietarii site-urilor să știe cine le citește paginile."
+        },
+        "existing": {
+          "label": "Lista ta existentă (ca să sărim peste cine știi deja)",
+          "help": "CSV sau Excel cu nume, site-uri, e-mailuri sau CUI-uri."
+        },
+        "start_lists": {
+          "label": "Liste publice de la care pornim",
+          "placeholder": "pagina cu cluburile federației, catalogul camerei de comerț",
+          "help": "Linkuri spre pagini publice care listează astfel de firme."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "reads public pages under the rules and builds the spreadsheet and the dashboard"
+      },
+      {
+        "id": "playwright",
+        "version": ">=1.65.0",
+        "optional": true,
+        "purpose": "reads pages that show nothing without JavaScript, under the same rules"
+      },
+      {
+        "id": "crawlee",
+        "version": "^3.18.2",
+        "optional": true,
+        "purpose": "walks long public lists page by page (2 at a time, robots.txt, pauses)"
+      }
+    ],
+    "connectors": [
+      {
+        "id": "google-places",
+        "optional": true,
+        "purpose": "finds businesses on Google Maps with your own Places API key (costs are on your Google account)"
+      },
+      {
+        "id": "apify",
+        "optional": true,
+        "purpose": "runs Apify actors from your own Apify account (costs are on your Apify account)"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 2,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "50 leads",
+      "seconds": 900,
+      "referenceCpuCores": 8
+    },
+    "network": true
+  }
+}

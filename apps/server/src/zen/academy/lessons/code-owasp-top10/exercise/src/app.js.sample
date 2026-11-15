@@ -1,0 +1,52 @@
+const express = require("express");
+const cors = require("cors");
+const { db, hashPassword } = require("./db");
+
+const app = express();
+app.use(cors({ origin: "*", credentials: true }));
+app.use(express.json());
+
+app.use((req, res, next) => {
+  req.userId = Number(req.headers["x-user-id"]);
+  next();
+});
+
+app.post("/signup", (req, res, next) => {
+  db.run(
+    `INSERT INTO users (email, password) VALUES ('${req.body.email}', '${hashPassword(req.body.password)}')`,
+    (err) => (err ? next(err) : res.json({ ok: true }))
+  );
+});
+
+app.get("/notes/search", (req, res, next) => {
+  const q = req.query.q || "";
+  db.all(`SELECT * FROM notes WHERE user_id = ${req.userId} AND title LIKE '%${q}%'`, (err, rows) =>
+    err ? next(err) : res.json(rows)
+  );
+});
+
+app.get("/notes/:id", (req, res, next) => {
+  db.get("SELECT * FROM notes WHERE id = ?", [req.params.id], (err, row) =>
+    err ? next(err) : res.json(row)
+  );
+});
+
+app.delete("/notes/:id", (req, res, next) => {
+  db.run("DELETE FROM notes WHERE id = ?", [req.params.id], (err) => (err ? next(err) : res.json({ ok: true })));
+});
+
+app.get("/preview", async (req, res, next) => {
+  try {
+    const r = await fetch(req.query.url);
+    const html = await r.text();
+    res.send(html.slice(0, 2000));
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.use((err, req, res, next) => {
+  res.status(500).json({ error: err.message, stack: err.stack, query: err.sql });
+});
+
+app.listen(3000);

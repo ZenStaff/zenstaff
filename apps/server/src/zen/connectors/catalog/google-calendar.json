@@ -1,0 +1,135 @@
+{
+  "id": "google-calendar",
+  "name": "Google Calendar",
+  "category": "calendar",
+  "aliases": ["google calendar", "calendarul google", "gcal", "calendar google"],
+  "description": {
+    "en": "See your events and free time.",
+    "ro": "Vezi evenimentele și timpul liber."
+  },
+  "website": "https://calendar.google.com",
+  "tier": "standard",
+  "mcpHosts": ["calendarmcp.googleapis.com"],
+  "tos": {
+    "en": "Google's terms apply.",
+    "ro": "Se aplică termenii Google."
+  },
+  "api": {
+    "docsUrl": "https://developers.google.com/workspace/calendar/api/v3/reference",
+    "auth": "OAuth 2.0 (Google)",
+    "verified": {
+      "status": "verified",
+      "note": "Calendar API v3."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Google Calendar",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Google Calendar and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Google Calendar și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://calendarmcp.googleapis.com/mcp/v1"
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Google Calendar",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Google Calendar, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Google Calendar, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        },
+        {
+          "provider": "gemini",
+          "kind": "directory",
+          "settingsUrl": "https://gemini.google.com/apps",
+          "connectorName": "Google Workspace",
+          "steps": {
+            "en": [
+              "Open Gemini > Apps.",
+              "Turn on Google Workspace.",
+              "Use it in Gemini; Zen Staff's assistant cannot see Gemini apps."
+            ],
+            "ro": [
+              "Deschide Gemini > Aplicații.",
+              "Activează Google Workspace.",
+              "Folosește-l în Gemini; asistentul Zen Staff nu vede aplicațiile Gemini."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "See your calendars and events.",
+          "ro": "Vezi calendarele și evenimentele."
+        },
+        "write": {
+          "en": "Create and change events.",
+          "ro": "Creează și modifică evenimente."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: listed as a claude.ai connector in `claude mcp list` on a Claude account (✔ Connected). Target: calendarmcp.googleapis.com/mcp/v1."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Google Calendar: Settings > Import & export > Export. You get a .zip with .ics files.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Google Calendar: Setări > Import și export > Export. Primești un .zip cu fișiere .ics.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://calendar.google.com/calendar/r/settings/export"
+    }
+  ]
+}

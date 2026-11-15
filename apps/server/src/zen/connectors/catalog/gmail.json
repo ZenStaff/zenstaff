@@ -1,0 +1,137 @@
+{
+  "id": "gmail",
+  "name": "Gmail",
+  "category": "email",
+  "aliases": ["gmail", "google mail", "g mail"],
+  "description": {
+    "en": "Your Gmail inbox: read and search e-mails, draft replies.",
+    "ro": "Căsuța Gmail: citește și caută e-mailuri, pregătește răspunsuri."
+  },
+  "website": "https://mail.google.com",
+  "tier": "standard",
+  "mcpHosts": ["gmailmcp.googleapis.com", "gmail.mcp.claude.com"],
+  "tos": {
+    "en": "Google's terms apply; connected in your own Google and AI accounts.",
+    "ro": "Se aplică termenii Google; conectarea se face în conturile tale Google și AI."
+  },
+  "api": {
+    "docsUrl": "https://developers.google.com/workspace/gmail/api/reference/rest",
+    "auth": "OAuth 2.0 (Google)",
+    "verified": {
+      "status": "verified",
+      "note": "Gmail REST v1; documented by Google."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Gmail",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Gmail and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Gmail și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://gmailmcp.googleapis.com/mcp/v1"
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Gmail",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Gmail, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Gmail, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        },
+        {
+          "provider": "gemini",
+          "kind": "directory",
+          "settingsUrl": "https://gemini.google.com/apps",
+          "connectorName": "Google Workspace",
+          "steps": {
+            "en": [
+              "Open Gemini > Apps.",
+              "Turn on Google Workspace.",
+              "Use it in Gemini; Zen Staff's assistant cannot see Gemini apps."
+            ],
+            "ro": [
+              "Deschide Gemini > Aplicații.",
+              "Activează Google Workspace.",
+              "Folosește-l în Gemini; asistentul Zen Staff nu vede aplicațiile Gemini."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Read and search your e-mails.",
+          "ro": "Citește și caută în e-mailuri."
+        },
+        "write": {
+          "en": "Create drafts (you send them).",
+          "ro": "Creează ciorne (le trimiți tu)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: listed as a claude.ai connector in `claude mcp list` on a Claude account (✔ Connected). Target: gmailmcp.googleapis.com/mcp/v1 (Google's Gmail MCP)."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Google Takeout choose only Mail and the labels you need, then export.",
+          "Download the .mbox file when Google e-mails you.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Google Takeout alege doar Mail și etichetele necesare, apoi exportă.",
+          "Descarcă fișierul .mbox când primești e-mailul de la Google.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://takeout.google.com"
+    }
+  ]
+}

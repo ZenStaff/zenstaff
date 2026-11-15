@@ -1,0 +1,8 @@
+{
+  "social-reels-kit": ["common", "motion", "audio", "check"],
+  "promo-video-30s": ["common", "motion", "audio", "check"],
+  "app-tutorial-video": ["common", "motion", "audio", "check"],
+  "video-brand-fix": ["common", "motion", "audio", "check"],
+  "brandbook-kit": ["common", "check", "print"],
+  "poster-visual-brief": ["common", "check", "print"]
+}

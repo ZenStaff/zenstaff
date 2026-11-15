@@ -1,0 +1,54 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "102290129340398",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "40712345678",
+              "phone_number_id": "106540352242922"
+            },
+            "contacts": [{ "profile": { "name": "Maria Pop" }, "wa_id": "40722111222" }],
+            "messages": [
+              {
+                "from": "40722111222",
+                "id": "wamid.HBgLNDA3MjIxMTEyMjIVAgASGBQzQUFCQkNDRERFRUZGMDAxMTIyAA==",
+                "timestamp": "1762546800",
+                "text": { "body": "Bună! Ce comenzi avem azi?" },
+                "type": "text"
+              },
+              {
+                "from": "40722111222",
+                "id": "wamid.HBgLNDA3MjIxMTEyMjIVAgASGBQzQUFCQkNDRERFRUZGMDAxMTIzAA==",
+                "timestamp": "1762546805",
+                "type": "image",
+                "image": {
+                  "caption": "factura asta",
+                  "mime_type": "image/jpeg",
+                  "sha256": "uFhzQ2E0...",
+                  "id": "1003383421387256"
+                }
+              },
+              {
+                "from": "40722111222",
+                "id": "wamid.HBgLNDA3MjIxMTEyMjIVAgASGBQzQUFCQkNDRERFRUZGMDAxMTI0AA==",
+                "timestamp": "1762546806",
+                "type": "audio",
+                "audio": {
+                  "mime_type": "audio/ogg; codecs=opus",
+                  "sha256": "abc",
+                  "id": "1003383421387257",
+                  "voice": true
+                }
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}

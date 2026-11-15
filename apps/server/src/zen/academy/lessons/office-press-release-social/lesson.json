@@ -1,0 +1,45 @@
+{
+  "id": "office-press-release-social",
+  "track": "office",
+  "order": 50,
+  "title": {
+    "en": "A press release and social posts with the built-in cards",
+    "ro": "Comunicat de presă și postări cu cardurile gata făcute"
+  },
+  "summary": {
+    "en": "What to put in each field of the Press release and Social media post set cards so the result is usable, and how to review it.",
+    "ro": "Ce scrii în fiecare câmp al cardurilor Comunicat de presă și Set de postări, ca rezultatul să fie bun de folosit, și cum îl verifici."
+  },
+  "minutes": 5,
+  "level": "beginner",
+  "tags": ["press", "social", "workflows", "marketing"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "workflow",
+    "workflow": "press-release",
+    "exercise": false,
+    "values": {
+      "en": {
+        "news": "Brutăria Spic, a family bakery from Cluj-Napoca, opens its second shop on 1 December 2026 in the Gheorgheni district, with a small cafe area and a window where customers can watch the bread being made.",
+        "organization": "Brutăria Spic (fictional), family bakery founded in 2019 in Cluj-Napoca, sourdough bread and traditional pastries.",
+        "quote_person": "Andrei Mureșan, co-founder: \"Half of our customers were crossing the city every morning for bread. Now they have us ten minutes from home.\" (approved by Andrei on 5 November 2026)",
+        "key_facts": "Address: Str. Exemplu 12, Gheorgheni (fictional). Opening: 1 December 2026, 7:00. 8 new jobs. 40 square meters cafe area, 16 seats. Open daily 7:00-20:00. Opening day: free coffee with any bread purchase until 12:00.",
+        "contact": "Ana Pop, communication, ana.pop@example.com, 0700 000 011",
+        "city_date": "Cluj-Napoca, 20 November 2026",
+        "source_url": "",
+        "language": "English"
+      },
+      "ro": {
+        "news": "Brutăria Spic, o brutărie de familie din Cluj-Napoca, își deschide al doilea magazin pe 1 decembrie 2026 în cartierul Gheorgheni, cu un mic spațiu de cafenea și o vitrină prin care clienții văd cum se face pâinea.",
+        "organization": "Brutăria Spic (fictivă), brutărie de familie înființată în 2019 în Cluj-Napoca, pâine cu maia și produse de patiserie tradiționale.",
+        "quote_person": "Andrei Mureșan, cofondator: „Jumătate dintre clienții noștri traversau orașul dimineața pentru pâine. Acum ne au la zece minute de casă.” (aprobat de Andrei pe 5 noiembrie 2026)",
+        "key_facts": "Adresă: Str. Exemplu 12, Gheorgheni (fictivă). Deschidere: 1 decembrie 2026, ora 7:00. 8 locuri de muncă noi. Spațiu de cafenea de 40 mp, 16 locuri. Program zilnic 7:00-20:00. În ziua deschiderii: cafea gratuită la orice pâine cumpărată, până la ora 12:00.",
+        "contact": "Ana Pop, comunicare, ana.pop@example.com, 0700 000 011",
+        "city_date": "Cluj-Napoca, 20 noiembrie 2026",
+        "source_url": "",
+        "language": "Romanian"
+      }
+    }
+  }
+}

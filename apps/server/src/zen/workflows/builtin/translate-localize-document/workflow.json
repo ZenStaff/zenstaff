@@ -1,0 +1,84 @@
+{
+  "id": "translate-localize-document",
+  "name": "Translate and localize a document",
+  "description": "Translates a document and adapts it for the target market: units, dates, tone and culture.",
+  "category": "admin",
+  "icon": "languages",
+  "inputs": [
+    {
+      "id": "document",
+      "label": "Document to translate",
+      "type": "file",
+      "required": true,
+      "placeholder": "brochure/acme-brochure-en.docx"
+    },
+    {
+      "id": "target_language",
+      "label": "Translate into",
+      "type": "text",
+      "required": true,
+      "placeholder": "Romanian"
+    },
+    {
+      "id": "market",
+      "label": "Target country or market",
+      "type": "text",
+      "required": false,
+      "placeholder": "Romania"
+    },
+    {
+      "id": "formality",
+      "label": "Formality",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Formal (dumneavoastra / Sie / vous)",
+        "Informal (tu / du / tu)",
+        "Keep the original"
+      ]
+    },
+    {
+      "id": "glossary",
+      "label": "Terms to keep or translate a fixed way",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Acme Coffee -> keep; cold brew -> cold brew"
+    }
+  ],
+  "output": "A translated copy next to the original, plus localization notes.",
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "Traducerea și adaptarea unui document",
+      "description": "Traduce un document și îl adaptează pentru țara în care va fi citit: unități de măsură, date, ton și obiceiuri locale.",
+      "output": "O copie tradusă lângă original, plus note despre ce s-a adaptat.",
+      "inputs": {
+        "document": {
+          "label": "Documentul de tradus",
+          "placeholder": "broșuri/broșura-cafea-bună.docx"
+        },
+        "target_language": {
+          "label": "În ce limbă traduci?",
+          "placeholder": "engleză"
+        },
+        "market": {
+          "label": "Pentru ce țară sau piață",
+          "placeholder": "Marea Britanie"
+        },
+        "formality": {
+          "label": "Cât de formal",
+          "options": [
+            "Formal (dumneavoastră / Sie / vous)",
+            "Informal (tu / du / tu)",
+            "Ca în original"
+          ]
+        },
+        "glossary": {
+          "label": "Termeni care rămân neschimbați sau se traduc mereu la fel",
+          "placeholder": "Cafea Bună -> rămâne așa; cold brew -> cold brew"
+        }
+      }
+    }
+  }
+}

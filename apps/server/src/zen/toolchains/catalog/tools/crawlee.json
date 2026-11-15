@@ -1,0 +1,142 @@
+{
+  "id": "crawlee",
+  "name": "Crawlee (polite crawler for public lists)",
+  "nameRo": "Crawlee (cititor politicos pentru liste publice)",
+  "kind": "npm",
+  "description": "Walks long public lists page by page (HTTP only, no browser): a queue, retries, 2 requests at a time. Zen Staff's own rules (robots.txt, site terms, pauses) decide what may be read.",
+  "homepage": "https://crawlee.dev/",
+  "license": {
+    "spdx": "Apache-2.0",
+    "name": "Apache License 2.0",
+    "url": "https://github.com/apify/crawlee/blob/master/LICENSE.md",
+    "commercialUse": "free",
+    "note": "Free for any use, including business (Apache-2.0). Websites' own terms still apply to what you read with it.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv în firme (Apache-2.0). Termenii fiecărui site rămân valabili pentru ce citești cu el."
+  },
+  "untrustedInput": true,
+  "verify": {
+    "bin": "",
+    "args": [],
+    "expect": ""
+  },
+  "osv": [
+    {
+      "ecosystem": "npm",
+      "name": "@crawlee/cheerio"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@crawlee/http"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@crawlee/basic"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "@crawlee/core"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "got-scraping"
+    },
+    {
+      "ecosystem": "npm",
+      "name": "cheerio"
+    }
+  ],
+  "versions": [
+    {
+      "version": "3.18.2",
+      "released": "2026-09-29",
+      "dependsOn": [
+        {
+          "id": "node",
+          "version": "^24"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/crawlee-3.18.2"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_CRAWLEE_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 25400000
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/crawlee-3.18.2"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_CRAWLEE_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 25400000
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/crawlee-3.18.2"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_CRAWLEE_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 25400000
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/crawlee-3.18.2"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_CRAWLEE_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 25400000
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "npm",
+              "lockfileDir": "npm/crawlee-3.18.2"
+            }
+          ],
+          "bin": {},
+          "env": {
+            "ZEN_CRAWLEE_MODULES": "${dir}/node_modules"
+          },
+          "installedSize": 25400000
+        }
+      ]
+    }
+  ]
+}

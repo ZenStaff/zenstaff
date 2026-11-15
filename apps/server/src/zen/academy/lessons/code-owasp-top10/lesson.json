@@ -1,0 +1,28 @@
+{
+  "id": "code-owasp-top10",
+  "track": "code",
+  "order": 70,
+  "title": {
+    "en": "OWASP Top 10 (2025) in practice",
+    "ro": "OWASP Top 10 (2025) pe înțelesul tuturor"
+  },
+  "summary": {
+    "en": "The ten risk categories of the 2025 list, each with one concrete mistake agents make and the fix.",
+    "ro": "Cele zece categorii de risc din lista din 2025, fiecare cu o greșeală concretă pe care o fac agenții și remedierea ei."
+  },
+  "minutes": 5,
+  "level": "intermediate",
+  "tags": ["owasp", "web", "injection", "access"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "audit",
+    "command": "security-audit",
+    "args": "Small practice project. Focus on the OWASP Top 10 issues in the code; skip live infrastructure checks.",
+    "exercise": true,
+    "fallback": {
+      "en": "Audit the code of this project against the OWASP Top 10 (2025): broken access control (including IDOR and SSRF), security misconfiguration, software supply chain failures, cryptographic failures, injection, insecure design, authentication failures, software or data integrity failures, security logging and alerting failures, and mishandling of exceptional conditions. Review the code only; skip live infrastructure checks and do not start the app. For each finding give the OWASP category, file:line, severity (critical/high/medium/low), a one-line exploit scenario and the fix. Do not change any files, only report.",
+      "ro": "Verifică codul proiectului după OWASP Top 10 (2025): broken access control (inclusiv IDOR și SSRF), configurări greșite de securitate, probleme de supply chain, criptografie greșită, injection, design nesigur, probleme de autentificare, integritatea codului și a datelor, logare și alertare lipsă și tratarea greșită a situațiilor de excepție. Te uiți doar la cod; sari peste infrastructura live și nu porni aplicația. Pentru fiecare problemă dă categoria OWASP, fișier:linie, severitatea (critical/high/medium/low), un scenariu de exploatare pe un rând și remedierea. Nu modifica niciun fișier, doar raportează."
+    }
+  }
+}

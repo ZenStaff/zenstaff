@@ -1,0 +1,128 @@
+{
+  "id": "trello",
+  "name": "Trello",
+  "category": "tasks",
+  "aliases": ["trello"],
+  "description": {
+    "en": "Boards, lists and cards.",
+    "ro": "Table, liste și carduri."
+  },
+  "website": "https://trello.com",
+  "tier": "standard",
+  "mcpHosts": ["mcp.trello.com"],
+  "tos": {
+    "en": "Atlassian's terms apply.",
+    "ro": "Se aplică termenii Atlassian."
+  },
+  "api": {
+    "docsUrl": "https://developer.atlassian.com/cloud/trello/rest/",
+    "auth": "API key + token",
+    "verified": {
+      "status": "verified",
+      "note": "Trello REST v1."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Trello",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Trello and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Trello și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://mcp.trello.com/v1"
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Read boards and cards.",
+          "ro": "Citește table și carduri."
+        },
+        "write": {
+          "en": "Create and move cards.",
+          "ro": "Creează și mută carduri."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: listed as a claude.ai connector in `claude mcp list` on a Claude account (✔ Connected). Target: mcp.trello.com/v1."
+      }
+    },
+    {
+      "kind": "automation",
+      "automation": ["zapier", "make", "n8n"],
+      "access": {
+        "read": {
+          "en": "Only the Trello actions you enable in your own Zapier MCP (or Make / n8n scenario).",
+          "ro": "Doar acțiunile Trello activate de tine în propriul Zapier MCP (sau scenariu Make / n8n)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open zapier.com/mcp (your account) and add the Trello actions you need; start with search / find actions.",
+          "Connect your Zapier MCP in Zen Staff once (Connections > Zapier).",
+          "Ask the assistant: it calls those actions through your Zapier account."
+        ],
+        "ro": [
+          "Deschide zapier.com/mcp (contul tău) și adaugă acțiunile Trello de care ai nevoie; începe cu cele de căutare.",
+          "Conectează o dată Zapier MCP în Zen Staff (Conexiuni > Zapier).",
+          "Cere asistentului: apelează acțiunile prin contul tău Zapier."
+        ]
+      },
+      "notes": {
+        "en": "The connection lives in your Zapier / Make account and uses its tasks.",
+        "ro": "Conexiunea stă în contul tău Zapier / Make și consumă task-urile lui."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Whether Zapier / Make list Trello was not checked; check the app directory."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "On the board: Menu > Print, export and share > Export as JSON (CSV on paid plans).",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "Pe tablă: Meniu > Print, export and share > Export as JSON (CSV pe planuri plătite).",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    }
+  ]
+}

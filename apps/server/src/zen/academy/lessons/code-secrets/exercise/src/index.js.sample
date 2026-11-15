@@ -1,0 +1,22 @@
+const config = require("./config");
+
+async function chargeCustomer(customer, amountCents) {
+  const token = `Bearer ${config.stripe.secretKey}`;
+  console.log(`[billing] charging ${customer.email} ${amountCents} with auth=${token}`);
+  const res = await fetch("https://api.stripe.example.com/v1/charges", {
+    method: "POST",
+    headers: { Authorization: token, "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ amount: String(amountCents), currency: "eur", customer: customer.id }),
+  });
+  if (!res.ok) {
+    console.error("[billing] stripe error", { config, status: res.status });
+  }
+  return res.ok;
+}
+
+async function main() {
+  console.log("[boot] starting with config", JSON.stringify(config));
+  await chargeCustomer({ id: "cus_FAKE001", email: "ana.pop@example.com" }, 4900);
+}
+
+main();

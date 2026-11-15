@@ -1,0 +1,140 @@
+{
+  "id": "faster-whisper",
+  "name": "Speech to text (faster-whisper)",
+  "nameRo": "Transcriere vorbire în text (faster-whisper)",
+  "kind": "python",
+  "description": "Turns speech in audio or video into text, on this computer.",
+  "homepage": "https://github.com/SYSTRAN/faster-whisper",
+  "license": {
+    "spdx": "MIT",
+    "name": "MIT",
+    "url": "https://github.com/SYSTRAN/faster-whisper/blob/master/LICENSE",
+    "commercialUse": "free",
+    "note": "Free for any use, including business.",
+    "noteRo": "Gratuit pentru orice folosire, inclusiv \u00een firme."
+  },
+  "untrustedInput": true,
+  "verify": {
+    "bin": "whisper-python",
+    "args": [
+      "-c",
+      "import io, wave, faster_whisper as f; b = io.BytesIO(); w = wave.open(b, 'wb'); w.setnchannels(1); w.setsampwidth(2); w.setframerate(16000); w.writeframes(bytes(3200)); w.close(); b.seek(0); a = f.decode_audio(b); print('faster-whisper', f.__version__, 'decoded', len(a))"
+    ],
+    "expect": "faster-whisper 1\\.2\\.1 decoded 1600"
+  },
+  "osv": [
+    {
+      "ecosystem": "PyPI",
+      "name": "faster-whisper"
+    }
+  ],
+  "versions": [
+    {
+      "version": "1.2.1",
+      "released": "2025-10-31",
+      "dependsOn": [
+        {
+          "id": "python",
+          "version": "~3.12"
+        }
+      ],
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/faster-whisper-1.2.1.txt"
+            }
+          ],
+          "bin": {
+            "whisper-python": "venv/bin/python"
+          },
+          "installedSize": 440401920
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/faster-whisper-1.2.1.txt"
+            }
+          ],
+          "bin": {
+            "whisper-python": "venv/bin/python"
+          },
+          "installedSize": 440401920
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/faster-whisper-1.2.1.txt"
+            }
+          ],
+          "bin": {
+            "whisper-python": "venv/Scripts/python.exe"
+          },
+          "installedSize": 440401920
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/faster-whisper-1.2.1.txt"
+            }
+          ],
+          "bin": {
+            "whisper-python": "venv/bin/python"
+          },
+          "installedSize": 440401920
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "venv",
+              "pythonTool": "python"
+            },
+            {
+              "type": "pip",
+              "requirements": "pip/faster-whisper-1.2.1.txt"
+            }
+          ],
+          "bin": {
+            "whisper-python": "venv/bin/python"
+          },
+          "installedSize": 440401920
+        }
+      ]
+    }
+  ]
+}

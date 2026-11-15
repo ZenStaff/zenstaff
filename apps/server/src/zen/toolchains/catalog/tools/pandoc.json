@@ -1,0 +1,137 @@
+{
+  "id": "pandoc",
+  "name": "Pandoc",
+  "nameRo": "Pandoc",
+  "kind": "binary",
+  "description": "Converts documents between Word, PDF-ready, Markdown, HTML and other formats.",
+  "homepage": "https://pandoc.org",
+  "license": {
+    "spdx": "GPL-2.0-or-later",
+    "name": "GNU GPL v2 or later",
+    "url": "https://github.com/jgm/pandoc/blob/main/COPYRIGHT",
+    "commercialUse": "conditions",
+    "note": "Free for business use. The documents you make are yours. If you give the program itself to other people, you must also offer them its source code.",
+    "noteRo": "Gratuit \u0219i pentru firme. Documentele f\u0103cute sunt ale voastre. Dac\u0103 da\u021bi programul \u00een sine altora, trebuie s\u0103 le oferi\u021bi \u0219i codul surs\u0103."
+  },
+  "untrustedInput": true,
+  "verify": {
+    "bin": "pandoc",
+    "args": ["--version"],
+    "expect": "^pandoc 3\\.13"
+  },
+  "pathNames": ["pandoc"],
+  "osv": [
+    {
+      "ecosystem": "Hackage",
+      "name": "pandoc"
+    }
+  ],
+  "versions": [
+    {
+      "version": "3.13",
+      "released": "2026-10-26",
+      "recipes": [
+        {
+          "os": "linux",
+          "arch": "x64",
+          "status": "tested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-linux-amd64.tar.gz",
+              "sha256": "38aa33b325a2bc96a4c39409631212db55702f564250bcdbead180b3bf646389",
+              "size": 36101020,
+              "archive": "tar.gz",
+              "stripComponents": 1,
+              "files": ["bin/pandoc"]
+            }
+          ],
+          "bin": {
+            "pandoc": "bin/pandoc"
+          },
+          "installedSize": 209715200
+        },
+        {
+          "os": "linux",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-linux-arm64.tar.gz",
+              "sha256": "21e1d4ba09bd0b334590d204580fd4f6629b21be4ab6a32b26cc98982e9e0c68",
+              "size": 38662042,
+              "archive": "tar.gz",
+              "stripComponents": 1,
+              "files": ["bin/pandoc"]
+            }
+          ],
+          "bin": {
+            "pandoc": "bin/pandoc"
+          },
+          "installedSize": 209715200
+        },
+        {
+          "os": "windows",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-windows-x86_64.zip",
+              "sha256": "23e1f2e978a3df80db8bf65c9c59534f41a23140480cfb4f783a882ab7dc6a4e",
+              "size": 42983200,
+              "archive": "zip",
+              "stripComponents": 1,
+              "files": ["pandoc.exe"]
+            }
+          ],
+          "bin": {
+            "pandoc": "pandoc.exe"
+          },
+          "installedSize": 209715200
+        },
+        {
+          "os": "macos",
+          "arch": "x64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-x86_64-macOS.zip",
+              "sha256": "1823278715aa405aaf21b59cde5dc789346aa8d4fc307467f9a9ee84162bedc5",
+              "size": 26891866,
+              "archive": "zip",
+              "stripComponents": 1,
+              "files": ["bin/pandoc"]
+            }
+          ],
+          "bin": {
+            "pandoc": "bin/pandoc"
+          },
+          "installedSize": 209715200
+        },
+        {
+          "os": "macos",
+          "arch": "arm64",
+          "status": "untested",
+          "steps": [
+            {
+              "type": "download",
+              "url": "https://github.com/jgm/pandoc/releases/download/3.13/pandoc-3.13-arm64-macOS.zip",
+              "sha256": "f436d18bebbfb3ddd326597686dacab9fac5dc23bd060495020f35a28a43a7c3",
+              "size": 43148194,
+              "archive": "zip",
+              "stripComponents": 1,
+              "files": ["bin/pandoc"]
+            }
+          ],
+          "bin": {
+            "pandoc": "bin/pandoc"
+          },
+          "installedSize": 209715200
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+import { readFileSync } from "node:fs";
+
+export const tools = {
+  readFile: {
+    description: "Read any file by path and return its contents.",
+    run: (args: { path: string }) => readFileSync(args.path, "utf8"),
+  },
+  sendEmail: {
+    description: "Send an email to any address.",
+    run: async (args: { to: string; subject: string; body: string }) => {
+      await fetch("https://mail.example.com/send", {
+        method: "POST",
+        body: JSON.stringify(args),
+      });
+      return "sent";
+    },
+  },
+  fetchUrl: {
+    description: "Fetch any URL and return the text.",
+    run: async (args: { url: string }) => (await fetch(args.url)).text(),
+  },
+};

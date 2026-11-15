@@ -1,0 +1,81 @@
+{
+  "id": "oblio",
+  "name": "Oblio",
+  "category": "invoicing",
+  "aliases": ["oblio", "oblio.eu"],
+  "description": {
+    "en": "Invoices, proformas, stock and e-Factura in Oblio.",
+    "ro": "Facturi, proforme, stocuri și e-Factura în Oblio."
+  },
+  "website": "https://www.oblio.eu",
+  "tier": "standard",
+  "defaultScope": "company",
+  "tos": {
+    "en": "Oblio has no official AI connector; use your own Zapier / Make account or exports.",
+    "ro": "Oblio nu are un conector AI oficial; folosește contul tău Zapier / Make sau exporturile."
+  },
+  "api": {
+    "docsUrl": "https://www.oblio.eu/api",
+    "auth": "OAuth 2.0 client credentials: client_id = login e-mail, client_secret from Setari > Date cont; POST /api/authorize/token, then Bearer (1 hour)",
+    "verified": {
+      "status": "verified",
+      "note": "2026-11-07: oblio.eu/api documents the token endpoint, Bearer access_token and /api/nomenclature/*, /api/docs/*, /api/docs/einvoice."
+    }
+  },
+  "paths": [
+    {
+      "kind": "automation",
+      "automation": ["zapier", "make", "n8n"],
+      "access": {
+        "read": {
+          "en": "Only the Oblio actions you enable in your own Zapier MCP (or Make / n8n scenario).",
+          "ro": "Doar acțiunile Oblio activate de tine în propriul Zapier MCP (sau scenariu Make / n8n)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open zapier.com/mcp (your account) and add the Oblio actions you need; start with search / find actions.",
+          "Connect your Zapier MCP in Zen Staff once (Connections > Zapier).",
+          "Ask the assistant: it calls those actions through your Zapier account."
+        ],
+        "ro": [
+          "Deschide zapier.com/mcp (contul tău) și adaugă acțiunile Oblio de care ai nevoie; începe cu cele de căutare.",
+          "Conectează o dată Zapier MCP în Zen Staff (Conexiuni > Zapier).",
+          "Cere asistentului: apelează acțiunile prin contul tău Zapier."
+        ]
+      },
+      "notes": {
+        "en": "The connection lives in your Zapier / Make account and uses its tasks.",
+        "ro": "Conexiunea stă în contul tău Zapier / Make și consumă task-urile lui."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Whether Zapier / Make list Oblio was not checked; check the app directory."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Oblio: Reports > Sales (or Invoices issued), choose the period and export to Excel.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Oblio: Rapoarte > Vânzări (sau Facturi emise), alege perioada și exportă în Excel.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://www.oblio.eu"
+    }
+  ]
+}

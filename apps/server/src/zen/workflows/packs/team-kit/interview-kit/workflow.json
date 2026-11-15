@@ -1,0 +1,112 @@
+{
+  "id": "interview-kit",
+  "name": "Job interview kit",
+  "description": "Everything for a fair, structured interview: competencies with weights, questions with what good and weak answers sound like, a practical task, what not to ask, a scoring sheet in Excel and a CV screening rubric. Screens the CVs you add, on this computer.",
+  "category": "admin",
+  "icon": "users",
+  "inputs": [
+    {
+      "id": "role",
+      "label": "Role",
+      "type": "text",
+      "required": true,
+      "placeholder": "Line cook"
+    },
+    {
+      "id": "about",
+      "label": "About the job (or paste the job ad)",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Hot kitchen, 40 covers at lunch, shifts 7-15 or 15-23, two weekends a month."
+    },
+    {
+      "id": "must_haves",
+      "label": "Must-haves",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "2 years in a restaurant kitchen; food hygiene course; can work weekends"
+    },
+    {
+      "id": "nice",
+      "label": "Nice to have",
+      "type": "longtext",
+      "required": false
+    },
+    {
+      "id": "company",
+      "label": "About you and how you work",
+      "type": "longtext",
+      "required": false
+    },
+    {
+      "id": "format",
+      "label": "Interview format",
+      "type": "select",
+      "required": true,
+      "options": ["One interview (45 minutes)", "Two rounds", "Interview and a practical test"]
+    },
+    {
+      "id": "cvs",
+      "label": "CVs to screen",
+      "type": "file",
+      "required": false,
+      "help": "A folder with PDF or text CVs. They stay on this computer."
+    }
+  ],
+  "output": "hiring/<role>/ with interview-kit.md, cv-rubric.md, scoring-sheet.xlsx and, with CVs, cv-screening.md and .xlsx.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Kit pentru interviul de angajare",
+      "description": "Tot ce trebuie pentru un interviu corect și structurat: competențe cu ponderi, întrebări cu răspunsuri bune și slabe, o probă practică, ce nu ai voie să întrebi, o fișă de punctaj în Excel și o grilă pentru CV-uri. Evaluează CV-urile pe care le adaugi, pe calculatorul tău.",
+      "output": "hiring/<post>/ cu interview-kit.md, cv-rubric.md, scoring-sheet.xlsx și, cu CV-uri, cv-screening.md și .xlsx.",
+      "inputs": {
+        "role": {
+          "label": "Postul",
+          "placeholder": "Bucătar"
+        },
+        "about": {
+          "label": "Despre post (sau lipește anunțul)",
+          "placeholder": "Bucătărie caldă, 40 de porții la prânz, ture 7-15 sau 15-23, două weekenduri pe lună."
+        },
+        "must_haves": {
+          "label": "Ce trebuie neapărat să aibă",
+          "placeholder": "2 ani într-o bucătărie de restaurant; curs de igienă; poate lucra în weekend"
+        },
+        "nice": {
+          "label": "Ar fi bine să aibă"
+        },
+        "company": {
+          "label": "Despre voi și cum lucrați"
+        },
+        "format": {
+          "label": "Cum arată interviul",
+          "options": ["Un interviu (45 de minute)", "Două runde", "Interviu și o probă practică"]
+        },
+        "cvs": {
+          "label": "CV-uri de evaluat",
+          "help": "Un dosar cu CV-uri PDF sau text. Rămân pe calculatorul tău."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "builds the scoring sheet in Excel"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "network": false
+  }
+}

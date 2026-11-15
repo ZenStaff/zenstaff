@@ -1,0 +1,81 @@
+[
+  {
+    "uuid": "0d2a0000-0000-4000-8000-0000000000aa",
+    "name": "Ofertă pentru Hotel Exemplu",
+    "created_at": "2024-10-02T08:00:00.000000Z",
+    "updated_at": "2024-10-02T08:30:00.000000Z",
+    "account": { "uuid": "acc-demo" },
+    "chat_messages": [
+      {
+        "uuid": "m1",
+        "text": "Scrie o ofertă de catering pentru 40 de persoane.",
+        "content": [
+          {
+            "type": "text",
+            "text": "Scrie o ofertă de catering pentru 40 de persoane.",
+            "start_timestamp": "2024-10-02T08:00:00Z"
+          }
+        ],
+        "sender": "human",
+        "created_at": "2024-10-02T08:00:00.000000Z",
+        "attachments": [
+          {
+            "file_name": "meniu-demo.pdf",
+            "file_size": 1200,
+            "file_type": "pdf",
+            "extracted_content": "Ciorbă, sarmale"
+          }
+        ],
+        "files": []
+      },
+      {
+        "uuid": "m2",
+        "text": "",
+        "content": [
+          { "type": "thinking", "thinking": "private reasoning" },
+          { "type": "text", "text": "Iată oferta:" },
+          {
+            "type": "tool_use",
+            "name": "artifacts",
+            "input": {
+              "id": "oferta",
+              "type": "text/markdown",
+              "title": "Ofertă catering",
+              "content": "# Ofertă\n40 x 85 lei"
+            }
+          },
+          {
+            "type": "tool_result",
+            "name": "artifacts",
+            "content": [{ "type": "text", "text": "OK" }]
+          },
+          { "type": "text", "text": "Total: 3.400 lei." }
+        ],
+        "sender": "assistant",
+        "created_at": "2024-10-02T08:00:20.000000Z"
+      }
+    ]
+  },
+  {
+    "uuid": "0d2a0000-0000-4000-8000-0000000000bb",
+    "name": "",
+    "created_at": "2023-08-01T10:00:00Z",
+    "updated_at": "2023-08-01T10:05:00Z",
+    "chat_messages": [
+      {
+        "uuid": "o1",
+        "text": "What is a CUI in Romania?",
+        "sender": "human",
+        "created_at": "2023-08-01T10:00:00Z"
+      },
+      {
+        "uuid": "o2",
+        "text": "It is the company's tax identification code.",
+        "sender": "assistant",
+        "created_at": "2023-08-01T10:00:10Z"
+      },
+      { "uuid": "o3", "text": "ignored", "sender": "system", "created_at": "2023-08-01T10:00:11Z" }
+    ]
+  },
+  { "uuid": "no-messages", "name": "Empty", "chat_messages": [] }
+]

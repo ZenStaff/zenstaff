@@ -1,0 +1,50 @@
+{
+  "id": "customer-reply",
+  "name": "Reply to a customer",
+  "description": "A calm, helpful reply to a customer message or review, in the right tone.",
+  "category": "sales",
+  "icon": "message-square-reply",
+  "inputs": [
+    {
+      "id": "message",
+      "label": "The customer's message or review",
+      "type": "longtext",
+      "required": true
+    },
+    {
+      "id": "facts",
+      "label": "What actually happened / what you can offer",
+      "type": "longtext",
+      "required": false
+    },
+    {
+      "id": "channel",
+      "label": "Where you reply",
+      "type": "select",
+      "required": true,
+      "options": ["Email", "Google review", "Facebook / Instagram comment", "Chat"]
+    }
+  ],
+  "output": "customer-reply.md with two reply options.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Răspuns pentru un client",
+      "description": "Un răspuns calm și de ajutor la mesajul sau recenzia unui client, pe tonul potrivit.",
+      "output": "Două variante de răspuns în customer-reply.md.",
+      "inputs": {
+        "message": {
+          "label": "Mesajul sau recenzia clientului"
+        },
+        "facts": {
+          "label": "Ce s-a întâmplat de fapt / ce îi poți oferi"
+        },
+        "channel": {
+          "label": "Unde răspunzi?",
+          "options": ["E-mail", "Recenzie pe Google", "Comentariu pe Facebook / Instagram", "Chat"]
+        }
+      }
+    }
+  }
+}

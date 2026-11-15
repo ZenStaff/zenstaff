@@ -1,0 +1,37 @@
+{
+  "object": "whatsapp_business_account",
+  "entry": [
+    {
+      "id": "102290129340398",
+      "changes": [
+        {
+          "value": {
+            "messaging_product": "whatsapp",
+            "metadata": {
+              "display_phone_number": "40712345678",
+              "phone_number_id": "106540352242922"
+            },
+            "contacts": [{ "profile": { "name": "Ana Ionescu" }, "wa_id": "40733444555" }],
+            "messages": [
+              {
+                "context": {
+                  "from": "40712345678",
+                  "id": "wamid.HBgLNDA3MzM0NDQ1NTUVAgARGBI5QTNDQTVCM0Q0Q0Q2RTY3RTcA"
+                },
+                "from": "40733444555",
+                "id": "wamid.HBgLNDA3MzM0NDQ1NTUVAgASGBQzQUFCQkNDRERFRUZGMDAxMTI1AA==",
+                "timestamp": "1762546900",
+                "type": "interactive",
+                "interactive": {
+                  "type": "button_reply",
+                  "button_reply": { "id": "zenapr:0123456789abcdef:accept", "title": "Aprob" }
+                }
+              }
+            ]
+          },
+          "field": "messages"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "invoices-to-spreadsheet",
+  "name": "Invoices and receipts to a spreadsheet",
+  "description": "Scans and phone photos of invoices and receipts become one Excel file for your accountant: supplier, tax ID, number, date, net, VAT per rate and totals, with the tax IDs and sums checked, duplicates found, and every field read with low confidence marked, the VAT lines compared with the printed totals and a To check column, so you only check the marked rows. Read on this computer.",
+  "category": "admin",
+  "icon": "receipt",
+  "inputs": [
+    {
+      "id": "documents",
+      "label": "Scans or photos",
+      "type": "file",
+      "required": true,
+      "placeholder": "inputs/facturi-octombrie",
+      "help": "A folder with JPG, PNG or PDF files, or one file. HEIC photos: save them as JPG first."
+    },
+    {
+      "id": "company",
+      "label": "Your company",
+      "type": "text",
+      "required": true,
+      "placeholder": "Bistro Casa Verde SRL"
+    },
+    {
+      "id": "company_cui",
+      "label": "Your company's tax ID (CUI)",
+      "type": "text",
+      "required": false,
+      "placeholder": "RO38554417",
+      "help": "To check every document is made out to you."
+    },
+    {
+      "id": "period",
+      "label": "Month",
+      "type": "text",
+      "required": false,
+      "placeholder": "October 2026"
+    },
+    {
+      "id": "notes",
+      "label": "Notes for the accountant",
+      "type": "longtext",
+      "required": false
+    }
+  ],
+  "output": "invoices/<name>.xlsx (documents, VAT by rate, to check, suppliers) and invoices/README.md with what to check.",
+  "version": "1.1.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Facturi și bonuri într-un Excel",
+      "description": "Scanările și pozele cu facturi și bonuri devin un singur Excel pentru contabil: furnizor, CUI, număr, dată, bază, TVA pe cote și total, cu CUI-urile și sumele verificate, dublurile găsite, cotele de TVA comparate cu totalul de pe document și fiecare câmp citit nesigur marcat, așa că verifici doar rândurile marcate. Totul se citește pe calculatorul tău.",
+      "output": "invoices/<nume>.xlsx (documente, TVA pe cote, de verificat, furnizori) și invoices/README.md cu ce e de verificat.",
+      "inputs": {
+        "documents": {
+          "label": "Scanările sau pozele",
+          "placeholder": "inputs/facturi-octombrie",
+          "help": "Un dosar cu fișiere JPG, PNG sau PDF, sau un singur fișier. Pozele HEIC: salvează-le întâi ca JPG."
+        },
+        "company": {
+          "label": "Firma ta",
+          "placeholder": "Bistro Casa Verde SRL"
+        },
+        "company_cui": {
+          "label": "CUI-ul firmei tale",
+          "placeholder": "RO38554417",
+          "help": "Ca să verificăm că fiecare document e pe firma ta."
+        },
+        "period": {
+          "label": "Luna",
+          "placeholder": "octombrie 2026"
+        },
+        "notes": {
+          "label": "Note pentru contabil"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "tesseract",
+        "version": "^5.5",
+        "purpose": "reads the text of the scans and photos on this computer (Romanian and English)"
+      },
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the workflow's script on this computer"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 2,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "10 documents",
+      "seconds": 60,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 600
+    },
+    "network": false
+  }
+}

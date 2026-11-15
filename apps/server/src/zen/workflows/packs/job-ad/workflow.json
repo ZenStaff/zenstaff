@@ -1,0 +1,72 @@
+{
+  "id": "job-ad",
+  "name": "Job ad",
+  "description": "An inclusive, clear job ad and a short version for social media.",
+  "category": "admin",
+  "icon": "briefcase",
+  "inputs": [
+    {
+      "id": "role",
+      "label": "Role",
+      "type": "text",
+      "required": true,
+      "placeholder": "Barista, full time"
+    },
+    {
+      "id": "company",
+      "label": "Company",
+      "type": "text",
+      "required": true,
+      "placeholder": "Acme Coffee, Cluj"
+    },
+    {
+      "id": "details",
+      "label": "Tasks, schedule, pay, benefits",
+      "type": "longtext",
+      "required": true
+    },
+    {
+      "id": "requirements",
+      "label": "Must-haves",
+      "type": "longtext",
+      "required": false
+    },
+    {
+      "id": "apply",
+      "label": "How to apply",
+      "type": "text",
+      "required": true,
+      "placeholder": "jobs@acme.test by 30 November"
+    }
+  ],
+  "output": "job-ad.md with the full ad and a social post.",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Anunț de angajare",
+      "description": "Un anunț de angajare clar, pe înțelesul tuturor și deschis oricui, plus o variantă scurtă pentru rețelele sociale.",
+      "output": "Anunțul complet și o postare pentru rețelele sociale, în job-ad.md.",
+      "inputs": {
+        "role": {
+          "label": "Postul",
+          "placeholder": "Barista, normă întreagă"
+        },
+        "company": {
+          "label": "Firma",
+          "placeholder": "Cafea Bună, Cluj-Napoca"
+        },
+        "details": {
+          "label": "Sarcini, program, salariu, beneficii"
+        },
+        "requirements": {
+          "label": "Ce cerințe sunt obligatorii?"
+        },
+        "apply": {
+          "label": "Cum se aplică",
+          "placeholder": "CV pe cariere@cafeabuna.test, până pe 30 noiembrie"
+        }
+      }
+    }
+  }
+}

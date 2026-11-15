@@ -1,0 +1,8 @@
+{
+  "name": "zen-toolchain-playwright",
+  "version": "1.65.1",
+  "private": true,
+  "dependencies": {
+    "playwright-core": "1.65.1"
+  }
+}

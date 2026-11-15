@@ -1,0 +1,96 @@
+{
+  "id": "website-change-watcher",
+  "name": "Watch websites for changes",
+  "description": "Checks public web pages for the changes you care about (prices, menus, job posts, terms) and tells you in plain words what changed since last time. It can repeat the check every day or every week.",
+  "category": "reports",
+  "icon": "scan-eye",
+  "inputs": [
+    {
+      "id": "urls",
+      "label": "Pages to watch",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "https://www.competitor.ro/menu\nhttps://www.supplier.ro/price-list\nhttps://www.example.ro/careers",
+      "help": "One address per line, at most 10. Public pages only (no pages behind a login)."
+    },
+    {
+      "id": "watch_for",
+      "label": "What should we watch for?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Price changes on the lunch menu; new job posts; any change to the terms and conditions"
+    },
+    {
+      "id": "frequency",
+      "label": "How often?",
+      "type": "select",
+      "required": true,
+      "options": ["Only now (I will run it again myself)", "Every day", "Every Monday"]
+    },
+    {
+      "id": "time",
+      "label": "At what time?",
+      "type": "text",
+      "required": false,
+      "placeholder": "08:00",
+      "help": "For a daily or weekly check. Default 08:00."
+    }
+  ],
+  "output": "website-watch/report-<date>.md with what changed on each page, in plain words; the first run saves the starting point. With a daily or weekly choice, a scheduled task repeats the check.",
+  "version": "1.1.0",
+  "author": "ZED-ZEN",
+  "unattended": {
+    "commands": [
+      "curl",
+      "python3",
+      "mkdir",
+      "ls",
+      "cat",
+      "cp",
+      "mv",
+      "rm",
+      "touch",
+      "date",
+      "sha256sum",
+      "head",
+      "tail",
+      "grep",
+      "sed",
+      "wc",
+      "diff",
+      "sort",
+      "find",
+      "echo",
+      "printf",
+      "test"
+    ],
+    "tools": ["WebFetch"]
+  },
+  "i18n": {
+    "ro": {
+      "name": "Urmărește schimbările de pe site-uri",
+      "description": "Verifică pagini web publice pentru schimbările care te interesează (prețuri, meniuri, anunțuri de angajare, termeni) și îți spune pe înțeles ce s-a schimbat de data trecută. Poate repeta verificarea zilnic sau săptămânal.",
+      "output": "website-watch/report-<data>.md cu ce s-a schimbat pe fiecare pagină, pe înțeles; prima rulare salvează punctul de pornire. Dacă alegi zilnic sau săptămânal, o sarcină programată repetă verificarea.",
+      "inputs": {
+        "urls": {
+          "label": "Paginile de urmărit",
+          "placeholder": "https://www.concurent.ro/meniu\nhttps://www.furnizor.ro/lista-preturi\nhttps://www.exemplu.ro/cariere",
+          "help": "O adresă pe rând, cel mult 10. Doar pagini publice (nu pagini la care trebuie să te autentifici)."
+        },
+        "watch_for": {
+          "label": "Ce urmărim?",
+          "placeholder": "Schimbări de preț la meniul de prânz; anunțuri noi de angajare; orice schimbare a termenilor și condițiilor"
+        },
+        "frequency": {
+          "label": "Cât de des?",
+          "options": ["Doar acum (o rulez eu din nou)", "În fiecare zi", "În fiecare luni"]
+        },
+        "time": {
+          "label": "La ce oră?",
+          "placeholder": "08:00",
+          "help": "Pentru verificarea zilnică sau săptămânală. Implicit 08:00."
+        }
+      }
+    }
+  }
+}

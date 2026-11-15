@@ -1,0 +1,114 @@
+{
+  "id": "seo-blog-article",
+  "name": "SEO blog article",
+  "description": "One blog article that answers a real search, end to end: research of your site and the search results, a brief, the article with FAQ, internal links and meta description, checked and built as HTML with the structured data Google reads. You publish it.",
+  "category": "social",
+  "icon": "pen-line",
+  "inputs": [
+    {
+      "id": "website",
+      "label": "Your website",
+      "type": "url",
+      "required": true,
+      "placeholder": "https://casaverde.ro"
+    },
+    {
+      "id": "topic",
+      "label": "Topic or search to answer",
+      "type": "text",
+      "required": false,
+      "placeholder": "how to choose a catering menu for a company event",
+      "help": "Leave it empty and a topic is chosen from what your customers search and your site does not answer yet."
+    },
+    {
+      "id": "audience",
+      "label": "Who reads it",
+      "type": "text",
+      "required": true,
+      "placeholder": "HR and office managers in Brașov organising events"
+    },
+    {
+      "id": "facts",
+      "label": "Facts and sources it may use",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "We have catered 140 events since 2019. Menus from 95 lei/person. Tasting on request.",
+      "help": "Your numbers, prices, experience and links. Nothing else is invented."
+    },
+    {
+      "id": "author",
+      "label": "Signed by",
+      "type": "text",
+      "required": false,
+      "placeholder": "Ana Pop, events manager"
+    },
+    {
+      "id": "length",
+      "label": "Length",
+      "type": "select",
+      "required": true,
+      "options": ["Short guide (900-1,200 words)", "Full guide (1,500-2,200 words)"]
+    }
+  ],
+  "output": "blog/<slug>/ with brief.md, article.md, <slug>.html, <slug>-body.html (to paste into your site), schema.json, checks.json and publish.md.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Articol de blog pentru Google (SEO)",
+      "description": "Un articol de blog care răspunde la o căutare reală, cap-coadă: cercetarea site-ului și a rezultatelor din Google, un brief, articolul cu întrebări frecvente, linkuri interne și descriere meta, verificat și gata în HTML, cu datele structurate pe care le citește Google. Îl publici tu.",
+      "output": "blog/<slug>/ cu brief.md, article.md, <slug>.html, <slug>-body.html (de lipit în site), schema.json, checks.json și publish.md.",
+      "inputs": {
+        "website": {
+          "label": "Site-ul tău",
+          "placeholder": "https://casaverde.ro"
+        },
+        "topic": {
+          "label": "Subiectul sau căutarea la care răspunde",
+          "placeholder": "cum alegi meniul de catering pentru un eveniment de firmă",
+          "help": "Lasă gol și alegem un subiect din ce caută clienții tăi și site-ul nu acoperă încă."
+        },
+        "audience": {
+          "label": "Cine o citește",
+          "placeholder": "Oameni de HR și office manageri din Brașov care organizează evenimente"
+        },
+        "facts": {
+          "label": "Fapte și surse pe care le poate folosi",
+          "placeholder": "Am făcut catering la 140 de evenimente din 2019. Meniuri de la 95 lei de persoană. Degustare la cerere.",
+          "help": "Cifrele, prețurile, experiența și linkurile tale. Nimic altceva nu se inventează."
+        },
+        "author": {
+          "label": "Semnat de",
+          "placeholder": "Ana Pop, manager evenimente"
+        },
+        "length": {
+          "label": "Lungimea",
+          "options": ["Ghid scurt (900-1.200 de cuvinte)", "Ghid complet (1.500-2.200 de cuvinte)"]
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the workflow's script on this computer"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "an article",
+      "seconds": 3,
+      "referenceCpuCores": 8
+    },
+    "network": false
+  }
+}

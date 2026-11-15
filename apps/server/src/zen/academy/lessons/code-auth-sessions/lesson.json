@@ -1,0 +1,28 @@
+{
+  "id": "code-auth-sessions",
+  "track": "code",
+  "order": 60,
+  "title": {
+    "en": "Auth and session pitfalls",
+    "ro": "Capcane la autentificare și sesiuni"
+  },
+  "summary": {
+    "en": "decode vs verify, alg confusion, token storage, cookie flags, session rotation, reset tokens, rate limits and authorization on every route.",
+    "ro": "decode vs verify, confuzia de algoritm, unde ții tokenul, cookie-uri, rotirea sesiunii, resetarea parolei, rate limit și autorizare pe rute."
+  },
+  "minutes": 5,
+  "level": "intermediate",
+  "tags": ["auth", "jwt", "sessions", "cookies"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "audit",
+    "command": "auth-audit",
+    "args": "Small practice Express app. Static review of the code only; do not start the server.",
+    "exercise": true,
+    "fallback": {
+      "en": "Audit the authentication and session handling in this project by reading the code (do not start the server). Check: JWTs decoded without verification, accepted algorithms (alg none, HS/RS confusion), weak or hardcoded signing secrets, where tokens are stored on the client, cookie flags (HttpOnly, Secure, SameSite), session id rotation after login, logout that doesn't invalidate the session or token, password reset tokens (randomness, expiry, single use), login rate limiting and user enumeration through different error messages, password hashing, MFA, and routes missing authentication or authorization checks. For each finding give file:line, severity (critical/high/medium/low), how it can be abused and the fix. Do not change any files, only report.",
+      "ro": "Verifică autentificarea și gestionarea sesiunilor din proiectul ăsta citind codul (nu porni serverul). Uită-te la: JWT-uri decodate fără verificare, algoritmii acceptați (alg none, confuzie HS/RS), secrete de semnare slabe sau scrise în cod, unde se ține tokenul pe client, flag-urile de cookie (HttpOnly, Secure, SameSite), rotirea id-ului de sesiune după login, logout care nu invalidează sesiunea sau tokenul, tokenurile de resetare a parolei (cât de aleatoare sunt, expirare, folosire o singură dată), rate limit la login și enumerarea userilor prin mesaje de eroare diferite, hashing-ul parolelor, MFA și rute fără verificare de autentificare sau autorizare. Pentru fiecare problemă dă fișier:linie, severitatea (critical/high/medium/low), cum poate fi abuzată și remedierea. Nu modifica niciun fișier, doar raportează."
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "id": "client-offer-email",
+  "name": "Client offer or proposal email",
+  "description": "A clear, persuasive offer email with pricing and next step, plus a follow-up.",
+  "category": "sales",
+  "icon": "send",
+  "inputs": [
+    {
+      "id": "client",
+      "label": "Client and contact person",
+      "type": "text",
+      "required": true,
+      "placeholder": "Hotel Central, Mihai Ionescu (manager)"
+    },
+    {
+      "id": "need",
+      "label": "What the client needs",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Coffee and pastries for 40 people at a conference on 12 December"
+    },
+    {
+      "id": "offer",
+      "label": "What you offer and the price",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Coffee bar with barista, 3 hours, 1,800 lei + VAT"
+    },
+    {
+      "id": "context",
+      "label": "What happened so far",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Met at the trade fair, he asked for a quote by Friday"
+    },
+    {
+      "id": "deadline",
+      "label": "Offer valid until",
+      "type": "text",
+      "required": false,
+      "placeholder": "30 November"
+    },
+    {
+      "id": "tone",
+      "label": "Tone",
+      "type": "select",
+      "required": true,
+      "options": ["Formal", "Friendly professional", "Short and direct"]
+    },
+    {
+      "id": "language",
+      "label": "Language",
+      "type": "text",
+      "required": false,
+      "placeholder": "English"
+    }
+  ],
+  "output": "offer-email.md with the email, a short version and a follow-up.",
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "E-mail cu ofertă pentru client",
+      "description": "Un e-mail de ofertă clar și convingător, cu prețul și pasul următor, plus un mesaj de revenire.",
+      "output": "Oferta în offer-email.md: e-mailul, o variantă scurtă și un mesaj de revenire.",
+      "inputs": {
+        "client": {
+          "label": "Clientul și persoana de contact",
+          "placeholder": "Hotel Central, Mihai Ionescu (director)"
+        },
+        "need": {
+          "label": "De ce are nevoie clientul?",
+          "placeholder": "Cafea și patiserie pentru 40 de persoane la o conferință, pe 12 decembrie"
+        },
+        "offer": {
+          "label": "Ce oferi și la ce preț",
+          "placeholder": "Bar de cafea cu barista, 3 ore, 1.800 lei + TVA"
+        },
+        "context": {
+          "label": "Ce s-a întâmplat până acum",
+          "placeholder": "Ne-am cunoscut la târg și a cerut o ofertă până vineri"
+        },
+        "deadline": {
+          "label": "Oferta e valabilă până la",
+          "placeholder": "30 noiembrie"
+        },
+        "tone": {
+          "label": "Tonul",
+          "options": ["Formal", "Prietenos, dar profesionist", "Scurt și la obiect"]
+        },
+        "language": {
+          "label": "Limba",
+          "placeholder": "română"
+        }
+      }
+    }
+  }
+}

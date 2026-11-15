@@ -1,0 +1,63 @@
+{
+  "id": "meeting-notes-to-actions",
+  "name": "Meeting notes to action items",
+  "description": "Turns messy notes or a transcript into decisions, action items with owners and a recap email.",
+  "category": "admin",
+  "icon": "list-checks",
+  "inputs": [
+    {
+      "id": "notes",
+      "label": "Paste the notes or transcript",
+      "type": "longtext",
+      "required": false
+    },
+    {
+      "id": "notes_file",
+      "label": "Or the file with the notes",
+      "type": "file",
+      "required": false,
+      "placeholder": "meetings/2026-11-07-kickoff.txt"
+    },
+    {
+      "id": "meeting",
+      "label": "Meeting name and date",
+      "type": "text",
+      "required": true,
+      "placeholder": "Marketing sync, 7 November"
+    },
+    {
+      "id": "attendees",
+      "label": "Who attended",
+      "type": "text",
+      "required": false,
+      "placeholder": "Ana, Mihai, Ioana, Radu"
+    }
+  ],
+  "output": "meeting-actions.md with decisions, action items and a recap email.",
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "i18n": {
+    "ro": {
+      "name": "Sarcini din notițele de la ședință",
+      "description": "Transformă notițele încâlcite sau transcrierea unei ședințe în decizii, sarcini cu responsabili și un e-mail de rezumat.",
+      "output": "Rezultatul în meeting-actions.md: deciziile, sarcinile și un e-mail de rezumat.",
+      "inputs": {
+        "notes": {
+          "label": "Lipește notițele sau transcrierea"
+        },
+        "notes_file": {
+          "label": "Sau alege fișierul cu notițele",
+          "placeholder": "ședințe/2026-11-07-lansare-proiect.txt"
+        },
+        "meeting": {
+          "label": "Ce ședință a fost și când",
+          "placeholder": "Ședința de marketing, 7 noiembrie"
+        },
+        "attendees": {
+          "label": "Cine a participat?",
+          "placeholder": "Ana, Mihai, Ioana, Radu"
+        }
+      }
+    }
+  }
+}

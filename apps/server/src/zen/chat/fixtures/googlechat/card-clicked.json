@@ -1,0 +1,25 @@
+{
+  "type": "CARD_CLICKED",
+  "eventTime": "2026-11-07T20:25:00.000000Z",
+  "message": {
+    "name": "spaces/DMmanager/messages/Zz1.Zz1",
+    "sender": { "name": "users/999999999999999999999", "displayName": "Zen Staff", "type": "BOT" },
+    "thread": { "name": "spaces/DMmanager/threads/Zz1" },
+    "space": { "name": "spaces/DMmanager", "type": "DM", "spaceType": "DIRECT_MESSAGE" }
+  },
+  "user": {
+    "name": "users/222222222222222222222",
+    "displayName": "Ana Ionescu",
+    "email": "ana@acme.example",
+    "type": "HUMAN"
+  },
+  "space": { "name": "spaces/DMmanager", "type": "DM", "spaceType": "DIRECT_MESSAGE" },
+  "action": {
+    "actionMethodName": "zen",
+    "parameters": [{ "key": "value", "value": "zenapr:0123456789abcdef:decline" }]
+  },
+  "common": {
+    "invokedFunction": "zen",
+    "parameters": { "value": "zenapr:0123456789abcdef:decline" }
+  }
+}

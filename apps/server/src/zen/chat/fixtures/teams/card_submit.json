@@ -1,0 +1,16 @@
+{
+  "type": "message",
+  "id": "1731000600000",
+  "channelId": "msteams",
+  "serviceUrl": "https://smba.trafficmanager.net/emea/",
+  "from": { "id": "29:1abcBOSS", "name": "Ion Manager" },
+  "conversation": {
+    "conversationType": "personal",
+    "tenantId": "tenant-zen-0001",
+    "id": "a:1personalBOSS"
+  },
+  "recipient": { "id": "28:app-zen-0001", "name": "Zen Staff" },
+  "replyToId": "1731000590000",
+  "value": { "zenAction": "zenapr:0123456789abcdef:accept" },
+  "channelData": { "tenant": { "id": "tenant-zen-0001" }, "source": { "name": "message" } }
+}

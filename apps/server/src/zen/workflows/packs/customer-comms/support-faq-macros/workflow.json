@@ -1,0 +1,92 @@
+{
+  "id": "support-faq-macros",
+  "name": "Customer FAQ and support replies",
+  "description": "From your past customer emails, messages or tickets: the questions ranked by how often they come, a public FAQ, ready reply templates (macros) for email, chat and comments, a CSV for your helpdesk, and the gaps that cause the most messages.",
+  "category": "pr",
+  "icon": "message-square-reply",
+  "inputs": [
+    {
+      "id": "business",
+      "label": "Business",
+      "type": "text",
+      "required": true,
+      "placeholder": "Cafea Bună, online coffee shop"
+    },
+    {
+      "id": "messages",
+      "label": "Past messages",
+      "type": "file",
+      "required": true,
+      "help": "A folder or file with emails (.eml, .txt), a ticket export (.csv) or pasted conversations. Customers' details are never copied into the results."
+    },
+    {
+      "id": "facts",
+      "label": "Policies and facts",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Delivery 1-2 working days by courier, free over 150 lei. Returns within 14 days for unopened bags."
+    },
+    {
+      "id": "channels",
+      "label": "Where the replies are used",
+      "type": "text",
+      "required": false,
+      "placeholder": "email, WhatsApp, Instagram comments"
+    },
+    {
+      "id": "tone",
+      "label": "Tone",
+      "type": "select",
+      "required": true,
+      "options": ["Warm and friendly", "Polite and formal", "Short and practical"]
+    }
+  ],
+  "output": "support/ with faq.md, macros.md, macros.csv and gaps.md.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Întrebări frecvente și răspunsuri pentru clienți",
+      "description": "Din e-mailurile, mesajele sau tichetele mai vechi: întrebările în ordinea în care apar cel mai des, o pagină publică de întrebări frecvente, șabloane de răspuns gata de folosit pe e-mail, chat și comentarii, un CSV pentru programul de suport și golurile care aduc cele mai multe mesaje.",
+      "output": "support/ cu faq.md, macros.md, macros.csv și gaps.md.",
+      "inputs": {
+        "business": {
+          "label": "Afacerea",
+          "placeholder": "Cafea Bună, magazin online de cafea"
+        },
+        "messages": {
+          "label": "Mesajele mai vechi",
+          "help": "Un dosar sau un fișier cu e-mailuri (.eml, .txt), un export de tichete (.csv) sau conversații lipite. Datele clienților nu ajung în rezultate."
+        },
+        "facts": {
+          "label": "Reguli și informații",
+          "placeholder": "Livrare în 1-2 zile lucrătoare prin curier, gratuită peste 150 de lei. Retur în 14 zile pentru pungile nedesfăcute."
+        },
+        "channels": {
+          "label": "Unde folosiți răspunsurile",
+          "placeholder": "e-mail, WhatsApp, comentarii pe Instagram"
+        },
+        "tone": {
+          "label": "Tonul",
+          "options": ["Cald și prietenos", "Politicos și formal", "Scurt și practic"]
+        }
+      }
+    }
+  },
+  "requires": {
+    "connectors": [
+      {
+        "id": "gmail",
+        "optional": true,
+        "purpose": "reads the customer emails you point to, if you connected Gmail"
+      },
+      {
+        "id": "outlook",
+        "optional": true,
+        "purpose": "reads the customer emails you point to, if you connected Outlook"
+      }
+    ],
+    "runsBest": "either",
+    "network": false
+  }
+}

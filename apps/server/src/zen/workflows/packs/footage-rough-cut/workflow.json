@@ -1,0 +1,159 @@
+{
+  "id": "footage-rough-cut",
+  "name": "Rough cut from raw footage",
+  "description": "Goes through your raw clips on this computer: lists them, transcribes every word, picks the best soundbites and b-roll for your story, and hands you a rough cut to open in Premiere Pro, DaVinci Resolve or Final Cut, plus a preview.",
+  "category": "video",
+  "icon": "scissors",
+  "inputs": [
+    {
+      "id": "footage",
+      "label": "Folder with the footage",
+      "type": "file",
+      "required": true,
+      "help": "A folder inside the chosen folder (camera cards and subfolders are fine). Nothing is uploaded and the originals are never changed."
+    },
+    {
+      "id": "story",
+      "label": "What is the video about?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "The opening day of our bistro: the chef introduces himself, the autumn menu, the bread, thanks to the neighbours. End on the invitation to come by.",
+      "help": "The story and the moments that must be in it."
+    },
+    {
+      "id": "length",
+      "label": "Target length",
+      "type": "select",
+      "required": true,
+      "options": [
+        "About 30 seconds",
+        "About 1 minute",
+        "About 3 minutes",
+        "About 5 minutes",
+        "About 10 minutes"
+      ]
+    },
+    {
+      "id": "language",
+      "label": "Spoken language",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Romanian",
+        "English",
+        "Hungarian",
+        "German",
+        "French",
+        "Italian",
+        "Spanish",
+        "Detect automatically"
+      ]
+    },
+    {
+      "id": "editor",
+      "label": "Where will you finish the edit?",
+      "type": "select",
+      "required": true,
+      "options": ["Premiere Pro", "DaVinci Resolve", "Final Cut Pro", "Another editor (EDL)"]
+    },
+    {
+      "id": "fps",
+      "label": "Timeline frame rate",
+      "type": "select",
+      "required": true,
+      "options": ["Same as the footage", "25", "30", "24", "50", "60"]
+    }
+  ],
+  "output": "In rough-cut/: the rough cut for your editor (XML, FCPXML and EDL), a preview MP4, the cut list, the full transcript with subtitles per clip, selects.csv and an inventory, shown in the chat.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Montaj brut din filmări",
+      "description": "Trece prin filmările tale brute, pe acest calculator: le inventariază, transcrie tot ce se spune, alege cele mai bune replici și cadre de acoperire pentru povestea ta și îți dă un montaj brut de deschis în Premiere Pro, DaVinci Resolve sau Final Cut, plus o previzualizare.",
+      "output": "În rough-cut/: montajul brut pentru programul tău (XML, FCPXML și EDL), o previzualizare MP4, lista de tăieturi, transcrierea completă cu subtitrări pe clip, selects.csv și inventarul, afișate în chat.",
+      "inputs": {
+        "footage": {
+          "label": "Dosarul cu filmările",
+          "help": "Un dosar din dosarul ales (merg și cardurile de cameră cu subdosare). Nimic nu se urcă pe internet, iar originalele nu se modifică."
+        },
+        "story": {
+          "label": "Despre ce e clipul?",
+          "placeholder": "Ziua deschiderii bistroului: bucătarul se prezintă, meniul de toamnă, pâinea, mulțumiri vecinilor. Încheiem cu invitația să treacă pe la noi.",
+          "help": "Povestea și momentele care trebuie să apară."
+        },
+        "length": {
+          "label": "Durata dorită",
+          "options": [
+            "Cam 30 de secunde",
+            "Cam un minut",
+            "Cam 3 minute",
+            "Cam 5 minute",
+            "Cam 10 minute"
+          ]
+        },
+        "language": {
+          "label": "Limba vorbită",
+          "options": [
+            "Română",
+            "Engleză",
+            "Maghiară",
+            "Germană",
+            "Franceză",
+            "Italiană",
+            "Spaniolă",
+            "Detectează singur"
+          ]
+        },
+        "editor": {
+          "label": "Unde termini montajul?",
+          "options": ["Premiere Pro", "DaVinci Resolve", "Final Cut Pro", "Alt program (EDL)"]
+        },
+        "fps": {
+          "label": "Cadre pe secundă în timeline",
+          "options": ["Ca filmările", "25", "30", "24", "50", "60"]
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "ffmpeg",
+        "version": ">=6",
+        "purpose": "reads the clips, makes the contact sheets and the preview"
+      },
+      {
+        "id": "faster-whisper",
+        "version": "^1.2",
+        "purpose": "turns the speech into text with word timings"
+      },
+      {
+        "id": "whisper-model-small",
+        "purpose": "the speech model (good for Romanian and outdoor sound)"
+      },
+      { "id": "open-fonts", "optional": true, "purpose": "time stamps on the contact sheets" }
+    ],
+    "hardware": { "minRamGb": 4, "minFreeDiskGb": 1.5, "minCpuCores": 2, "arch": ["x64", "arm64"] },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "one hour of footage",
+      "seconds": 1500,
+      "referenceCpuCores": 8,
+      "gpuSeconds": 300,
+      "slowAfterSeconds": 3600
+    },
+    "network": false,
+    "alternatives": [
+      {
+        "id": "base-model",
+        "kind": "lighter",
+        "label": "Smaller speech model",
+        "description": "Uses the base speech model: about three times faster and lighter, a little less accurate.",
+        "replaceTools": { "whisper-model-small": "whisper-model-base" },
+        "hardware": { "minRamGb": 2, "minCpuCores": 1 },
+        "promptNote": "Use the base model: pass --model \"$ZEN_WHISPER_MODEL_BASE\" to the transcribe step."
+      }
+    ]
+  }
+}

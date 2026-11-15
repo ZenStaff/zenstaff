@@ -1,0 +1,140 @@
+{
+  "id": "video-brand-fix",
+  "name": "Bring your videos on brand",
+  "description": "Goes through a folder of existing videos, cuts old endings, covers outdated prices or claims, adds your new outro (and intro), evens out the sound and writes a report of what is ready to post.",
+  "category": "video",
+  "icon": "wand-sparkles",
+  "inputs": [
+    {
+      "id": "videos",
+      "label": "Folder with the videos",
+      "type": "file",
+      "required": true,
+      "help": "A folder inside the chosen folder (subfolders are included). The originals are never changed."
+    },
+    {
+      "id": "outro",
+      "label": "New outro or logo",
+      "type": "file",
+      "required": true,
+      "help": "A short outro video (MP4), or your logo (PNG) and the outro is made for you in every size."
+    },
+    {
+      "id": "outro_text",
+      "label": "Text for the outro",
+      "type": "text",
+      "required": false,
+      "placeholder": "Book a table · example.com",
+      "help": "Only when you gave a logo: a call to action and up to two lines of contact."
+    },
+    {
+      "id": "intro",
+      "label": "New intro (optional)",
+      "type": "file",
+      "required": false,
+      "help": "A short MP4 to put at the start of every video."
+    },
+    {
+      "id": "old_claims",
+      "label": "What is outdated?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Old price 29 lei. Old name Bistro Verde. The old red end card. 'Delivery in 20 minutes' is no longer true.",
+      "help": "Old prices, names, logos, offers or promises that must not appear any more."
+    },
+    {
+      "id": "correct_claims",
+      "label": "What is true now?",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "Lunch menu 39 lei. Name: Casa Verde. Delivery in about 40 minutes."
+    },
+    {
+      "id": "brand_colors",
+      "label": "Brand colors",
+      "type": "text",
+      "required": false,
+      "placeholder": "#1F4D3A and #F2B544"
+    }
+  ],
+  "output": "The fixed videos in brand-fix/output (same folder layout), REPORT.md with the ready-to-post list and what to confirm, shown in the chat.",
+  "version": "2.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Adu videoclipurile la brand",
+      "description": "Trece prin toate clipurile dintr-un dosar, taie finalurile vechi, acoperă prețurile sau promisiunile depășite, pune noul final (și început), egalizează sunetul și scrie un raport cu ce e gata de postat.",
+      "output": "Clipurile reparate în brand-fix/output (cu aceleași subdosare), REPORT.md cu lista gata de postat și ce trebuie confirmat, afișate în chat.",
+      "inputs": {
+        "videos": {
+          "label": "Dosarul cu clipurile",
+          "help": "Un dosar din dosarul ales (intră și subdosarele). Originalele nu se modifică."
+        },
+        "outro": {
+          "label": "Noul final sau logo-ul",
+          "help": "Un clip scurt de final (MP4) sau logo-ul tău (PNG), iar finalul se face pentru tine în fiecare format."
+        },
+        "outro_text": {
+          "label": "Textul de pe final",
+          "placeholder": "Rezervă o masă · exemplu.ro",
+          "help": "Doar dacă ai dat logo-ul: un îndemn și cel mult două rânduri de contact."
+        },
+        "intro": {
+          "label": "Început nou (opțional)",
+          "help": "Un MP4 scurt pus la începutul fiecărui clip."
+        },
+        "old_claims": {
+          "label": "Ce nu mai e valabil?",
+          "placeholder": "Prețul vechi de 29 de lei. Numele vechi Bistro Verde. Cartonul roșu de final. „Livrare în 20 de minute” nu mai e adevărat.",
+          "help": "Prețuri, nume, logo-uri, oferte sau promisiuni vechi care nu mai au voie să apară."
+        },
+        "correct_claims": {
+          "label": "Ce e adevărat acum?",
+          "placeholder": "Meniul zilei 39 de lei. Numele: Casa Verde. Livrare în aproximativ 40 de minute."
+        },
+        "brand_colors": {
+          "label": "Culorile firmei",
+          "placeholder": "#1F4D3A și #F2B544"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "remotion",
+        "version": "^4.0.500",
+        "purpose": "makes the brand outro and the text labels in the brand's type"
+      },
+      {
+        "id": "ffmpeg",
+        "version": ">=6",
+        "purpose": "reads, cuts, covers and re-encodes the videos"
+      },
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the brand-fix script"
+      },
+      {
+        "id": "open-fonts",
+        "purpose": "fonts for corrected text and the outro"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 3,
+      "minFreeDiskGb": 4,
+      "minCpuCores": 2,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "20 short videos",
+      "seconds": 300,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 1800
+    },
+    "network": false
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "id": "brandbook-kit",
+  "name": "Brandbook and social media kit",
+  "description": "A brandbook PDF and web version (logo use, colors with codes and contrast, fonts, tone of voice, motifs, icons, applications) and a matching social media pack (posts, story, profile picture, Facebook and LinkedIn covers), from your logo and colors or from your existing website.",
+  "category": "design",
+  "icon": "book-open",
+  "inputs": [
+    {
+      "id": "name",
+      "label": "Brand name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "about",
+      "label": "What you do and for whom",
+      "type": "longtext",
+      "required": true,
+      "placeholder": "A family bistro in Brașov: home cooking with local ingredients, bread baked every morning. For families, office lunches and tourists."
+    },
+    {
+      "id": "website",
+      "label": "Existing website (optional)",
+      "type": "url",
+      "required": false,
+      "placeholder": "https://example.com",
+      "help": "Colors, fonts and the logo are read from it when you do not give them below."
+    },
+    {
+      "id": "logo",
+      "label": "Logo",
+      "type": "file",
+      "required": false,
+      "help": "PNG with a transparent background or SVG. A second version for dark backgrounds can sit next to it."
+    },
+    {
+      "id": "colors",
+      "label": "Brand colors",
+      "type": "text",
+      "required": false,
+      "placeholder": "#1F4D3A, #F2B544, #FBF5E8"
+    },
+    {
+      "id": "fonts",
+      "label": "Fonts",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Pick for me",
+        "Modern sans (Bricolage Grotesque + Source Sans 3)",
+        "Elegant serif (Instrument Serif + Source Sans 3)",
+        "Strong condensed (Anton + Barlow)",
+        "Our own font files (in the folder)"
+      ]
+    },
+    {
+      "id": "tone",
+      "label": "Tone of voice",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Warm and simple, like a good host. Never pretentious."
+    },
+    {
+      "id": "photos",
+      "label": "Photos for the social pack (optional)",
+      "type": "file",
+      "required": false,
+      "help": "A folder with 1 to 5 of your own photos."
+    },
+    {
+      "id": "contact",
+      "label": "Contact for the business card",
+      "type": "text",
+      "required": false,
+      "placeholder": "Andrei Pop, chef · 0700 000 000 · hello@example.com · @handle"
+    },
+    {
+      "id": "language",
+      "label": "Language of the brandbook",
+      "type": "select",
+      "required": true,
+      "options": ["Romanian", "English"]
+    }
+  ],
+  "output": "brandbook/<name>-brandbook.pdf (7 A4 pages) and brandbook/social/ with 3 posts, a story, a profile picture, a Facebook cover and a LinkedIn banner (PNG), shown in the chat.",
+  "version": "2.1.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Brandbook și kit pentru social media",
+      "description": "Un brandbook PDF (folosirea logo-ului, culori cu coduri și contrast, fonturi, tonul vocii, aplicații) și un pachet potrivit pentru social media (postări, story, poză de profil, coperți Facebook și LinkedIn), din logo-ul și culorile tale sau din site-ul pe care îl ai deja.",
+      "output": "brandbook/<nume>-brandbook.pdf (7 pagini A4) și brandbook/social/ cu 3 postări, un story, o poză de profil, o copertă Facebook și un banner LinkedIn (PNG), afișate în chat.",
+      "inputs": {
+        "name": {
+          "label": "Numele brandului",
+          "placeholder": "Casa Verde"
+        },
+        "about": {
+          "label": "Ce faci și pentru cine",
+          "placeholder": "Un bistro de familie în Brașov: mâncare gătită în casă din ingrediente locale, pâine coaptă în fiecare dimineață. Pentru familii, prânzul colegilor de birou și turiști."
+        },
+        "website": {
+          "label": "Site-ul existent (opțional)",
+          "placeholder": "https://exemplu.ro",
+          "help": "Culorile, fonturile și logo-ul se iau de acolo dacă nu le dai mai jos."
+        },
+        "logo": {
+          "label": "Logo",
+          "help": "PNG cu fundal transparent sau SVG. Poate sta lângă el și o variantă pentru fundal închis."
+        },
+        "colors": {
+          "label": "Culorile firmei",
+          "placeholder": "#1F4D3A, #F2B544, #FBF5E8"
+        },
+        "fonts": {
+          "label": "Fonturi",
+          "options": [
+            "Alege tu pentru mine",
+            "Modern, fără serife (Bricolage Grotesque + Source Sans 3)",
+            "Elegant, cu serife (Instrument Serif + Source Sans 3)",
+            "Puternic, îngust (Anton + Barlow)",
+            "Fonturile noastre (fișierele din dosar)"
+          ]
+        },
+        "tone": {
+          "label": "Tonul vocii",
+          "placeholder": "Cald și simplu, ca o gazdă bună. Niciodată pretențios."
+        },
+        "photos": {
+          "label": "Poze pentru pachetul social (opțional)",
+          "help": "Un dosar cu 1-5 poze proprii."
+        },
+        "contact": {
+          "label": "Contactul pentru cartea de vizită",
+          "placeholder": "Andrei Pop, bucătar · 0700 000 000 · salut@exemplu.test · @cont"
+        },
+        "language": {
+          "label": "Limba brandbook-ului",
+          "options": ["Română", "Engleză"]
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "playwright",
+        "version": "^1.64",
+        "purpose": "lays out the pages, prints the PDF and reads the existing website"
+      },
+      {
+        "id": "open-fonts",
+        "purpose": "the brand fonts (open licenses)"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 2,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a brandbook and social pack",
+      "seconds": 40,
+      "referenceCpuCores": 8,
+      "slowAfterSeconds": 300
+    },
+    "network": true
+  }
+}

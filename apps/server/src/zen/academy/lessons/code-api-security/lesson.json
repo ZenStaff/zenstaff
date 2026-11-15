@@ -1,0 +1,28 @@
+{
+  "id": "code-api-security",
+  "track": "code",
+  "order": 80,
+  "title": {
+    "en": "API security: the bugs scanners miss",
+    "ro": "Securitatea API-urilor: bugurile pe care scannerele nu le văd"
+  },
+  "summary": {
+    "en": "BOLA, mass assignment, oversharing responses, missing rate limits, unprotected admin routes, SSRF and forgotten endpoints.",
+    "ro": "BOLA, mass assignment, răspunsuri care dau prea mult, rate limit lipsă, rute de admin neprotejate, SSRF și endpoint-uri uitate."
+  },
+  "minutes": 4,
+  "level": "intermediate",
+  "tags": ["api", "bola", "authorization", "ssrf"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "audit",
+    "command": "api-security",
+    "args": "Small practice REST API. Static review of the code only; do not start the server or send requests.",
+    "exercise": true,
+    "fallback": {
+      "en": "Audit this REST API against the OWASP API Security Top 10 by reading the code (do not start the server or send requests). Check: object-level authorization on every route that takes an id (BOLA/IDOR), mass assignment (request bodies written straight into records), responses that return more fields than the client needs (password hashes, internal flags, other users' data), missing rate limits and pagination limits, admin or privileged routes without a role check, server-side requests to user-supplied URLs (SSRF), and old, debug or undocumented endpoints still mounted. For each finding give file:line, the OWASP API category, severity (critical/high/medium/low), an example request that abuses it and the fix. Do not change any files, only report.",
+      "ro": "Verifică API-ul ăsta REST după OWASP API Security Top 10 citind codul (nu porni serverul și nu trimite cereri). Uită-te la: autorizarea pe obiect la fiecare rută care primește un id (BOLA/IDOR), mass assignment (body-ul cererii scris direct în înregistrare), răspunsuri care întorc mai multe câmpuri decât îi trebuie clientului (hash-uri de parolă, flag-uri interne, datele altor useri), rate limit și limite de paginare lipsă, rute de admin sau privilegiate fără verificare de rol, cereri făcute de server spre URL-uri date de user (SSRF) și endpoint-uri vechi, de debug sau nedocumentate încă montate. Pentru fiecare problemă dă fișier:linie, categoria OWASP API, severitatea (critical/high/medium/low), un exemplu de cerere care o abuzează și remedierea. Nu modifica niciun fișier, doar raportează."
+    }
+  }
+}

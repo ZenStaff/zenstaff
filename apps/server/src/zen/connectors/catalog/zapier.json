@@ -1,0 +1,137 @@
+{
+  "id": "zapier",
+  "name": "Zapier",
+  "category": "automation",
+  "aliases": ["zapier", "zapier mcp", "make", "make.com", "n8n", "integromat"],
+  "description": {
+    "en": "Reach thousands of other apps through your own Zapier MCP.",
+    "ro": "Ajungi la mii de alte aplicații prin propriul Zapier MCP."
+  },
+  "website": "https://zapier.com/mcp",
+  "tier": "standard",
+  "mcpHosts": ["mcp.zapier.com"],
+  "tos": {
+    "en": "Actions run in your Zapier account and use its tasks; you choose which actions it exposes.",
+    "ro": "Acțiunile rulează în contul tău Zapier și consumă task-uri; tu alegi ce acțiuni expune."
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Zapier",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Zapier and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Zapier și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://mcp.zapier.com/api/mcp/mcp"
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Zapier",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Zapier, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Zapier, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Only the actions you enable in Zapier MCP.",
+          "ro": "Doar acțiunile activate de tine în Zapier MCP."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Zapier in claude.ai's directory; not connected on this account."
+      }
+    },
+    {
+      "kind": "local-mcp",
+      "mcp": {
+        "transport": "http",
+        "url": "https://mcp.zapier.com/api/mcp/mcp",
+        "auth": "oauth",
+        "serverName": "zapier"
+      },
+      "access": {
+        "read": {
+          "en": "Only the actions you enable in Zapier MCP.",
+          "ro": "Doar acțiunile activate de tine în Zapier MCP."
+        }
+      },
+      "setup": {
+        "en": [
+          "Press Connect: Zen Staff runs Claude Code's own `claude mcp add` on this computer.",
+          "A sign-in link appears: open it here, scan it with your phone, or send it to your e-mail.",
+          "Sign in and allow access. Claude Code keeps the sign-in; Zen Staff never sees it.",
+          "If the page after sign-in does not load (you signed in on another device), copy its address and paste it in the card."
+        ],
+        "ro": [
+          "Apasă Conectează: Zen Staff rulează comanda oficială Claude Code `claude mcp add` pe acest calculator.",
+          "Apare un link de autentificare: deschide-l aici, scanează-l cu telefonul sau trimite-l pe e-mail.",
+          "Intră în cont și permite accesul. Claude Code păstrează autentificarea; Zen Staff nu o vede niciodată.",
+          "Dacă pagina de după autentificare nu se încarcă (ai intrat de pe alt dispozitiv), copiază adresa ei și lipește-o în card."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "2026-11-07: mcp.zapier.com/api/mcp/mcp answers 401 'Zapier MCP' (OAuth); sign-in not completed here."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Make or n8n, build a scenario that writes the data you need to a Google Sheet or file, then export it.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Make sau n8n, fă un scenariu care scrie datele necesare într-un Google Sheet sau fișier, apoi exportă-l.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      }
+    }
+  ]
+}

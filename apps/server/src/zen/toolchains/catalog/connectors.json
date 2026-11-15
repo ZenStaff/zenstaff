@@ -1,0 +1,16 @@
+{
+  "connectors": [
+    {
+      "id": "elevenlabs",
+      "name": "ElevenLabs (voice-over)",
+      "description": "Reads a script aloud with a natural voice, in the cloud.",
+      "envVar": "ELEVENLABS_API_KEY"
+    },
+    {
+      "id": "google-places",
+      "name": "Google Places API (your own key)",
+      "description": "Finds businesses on Google Maps with your own Places API key; the costs are on your Google Cloud account.",
+      "envVar": "GOOGLE_PLACES_API_KEY"
+    }
+  ]
+}

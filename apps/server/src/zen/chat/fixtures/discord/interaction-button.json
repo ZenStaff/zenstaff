@@ -1,0 +1,30 @@
+{
+  "op": 0,
+  "s": 12,
+  "t": "INTERACTION_CREATE",
+  "d": {
+    "version": 1,
+    "type": 3,
+    "token": "aW50ZXJhY3Rpb246YnV0dG9u",
+    "user": {
+      "username": "maria.pop",
+      "id": "1200000000000000077",
+      "global_name": "Maria Pop",
+      "discriminator": "0",
+      "avatar": null
+    },
+    "message": {
+      "id": "1436512420000000005",
+      "channel_id": "1260000000000000100",
+      "content": "approval",
+      "type": 0,
+      "author": { "id": "1300000000000000001", "username": "zen-staff", "bot": true }
+    },
+    "id": "1436512430000000006",
+    "entitlements": [],
+    "data": { "custom_id": "zenapr:0123456789abcdef:accept", "component_type": 2 },
+    "context": 1,
+    "channel_id": "1260000000000000100",
+    "application_id": "1300000000000000001"
+  }
+}

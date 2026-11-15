@@ -1,0 +1,112 @@
+{
+  "id": "monthly-expenses-report",
+  "name": "Monthly expenses report",
+  "description": "Your bank statement exports (CSV, Excel or PDF from any bank) become a monthly report: where the money went by category, what changed against last month, possible double charges, unusual or new payments, and the questions to answer. With an Excel file to keep.",
+  "category": "reports",
+  "icon": "wallet",
+  "inputs": [
+    {
+      "id": "statements",
+      "label": "Bank statement exports",
+      "type": "file",
+      "required": true,
+      "placeholder": "inputs/extrase",
+      "help": "A CSV or Excel export from internet banking (best), or a PDF statement; a folder with several months gives comparisons."
+    },
+    {
+      "id": "company",
+      "label": "Company",
+      "type": "text",
+      "required": true,
+      "placeholder": "Bistro Casa Verde SRL"
+    },
+    {
+      "id": "month",
+      "label": "Month",
+      "type": "text",
+      "required": true,
+      "placeholder": "October 2026"
+    },
+    {
+      "id": "categories",
+      "label": "Your categories",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Goods, Salaries, Rent, Utilities, Marketing, Taxes, Other"
+    },
+    {
+      "id": "known",
+      "label": "What some payments are",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Fresh Legume = vegetables supplier. 'Transfer intre conturi' = our savings account."
+    },
+    {
+      "id": "budget",
+      "label": "Budget or targets",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Marketing up to 1,000 lei a month"
+    }
+  ],
+  "output": "expenses/cheltuieli-<month>.xlsx (summary, transactions, to check, merchants) and expenses/raport-<month>.md.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Raportul lunar al cheltuielilor",
+      "description": "Exporturile de extras de cont (CSV, Excel sau PDF de la orice bancă) devin un raport lunar: pe ce s-au dus banii pe categorii, ce s-a schimbat față de luna trecută, plăți posibil dublate, plăți neobișnuite sau noi și întrebările la care trebuie să răspunzi. Plus un Excel de păstrat.",
+      "output": "expenses/cheltuieli-<luna>.xlsx (rezumat, tranzacții, de verificat, comercianți) și expenses/raport-<luna>.md.",
+      "inputs": {
+        "statements": {
+          "label": "Extrasele de cont",
+          "placeholder": "inputs/extrase",
+          "help": "Un export CSV sau Excel din internet banking (cel mai bine) sau extrasul PDF; un dosar cu mai multe luni aduce și comparații."
+        },
+        "company": {
+          "label": "Firma",
+          "placeholder": "Bistro Casa Verde SRL"
+        },
+        "month": {
+          "label": "Luna",
+          "placeholder": "octombrie 2026"
+        },
+        "categories": {
+          "label": "Categoriile voastre",
+          "placeholder": "Marfă, Salarii, Chirie, Utilități, Marketing, Taxe, Altele"
+        },
+        "known": {
+          "label": "Ce sunt unele plăți",
+          "placeholder": "Fresh Legume = furnizorul de legume. „Transfer între conturi” = contul nostru de economii."
+        },
+        "budget": {
+          "label": "Buget sau ținte",
+          "placeholder": "Marketing până în 1.000 de lei pe lună"
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the workflow's script on this computer"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a month of transactions",
+      "seconds": 3,
+      "referenceCpuCores": 8
+    },
+    "network": false
+  }
+}

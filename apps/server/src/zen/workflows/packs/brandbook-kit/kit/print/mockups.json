@@ -1,0 +1,459 @@
+{
+  "license": "Every photo is from Pexels (https://www.pexels.com/license/): free for commercial use, no attribution required, modification allowed; do not resell the photos unaltered and do not imply that people shown endorse the brand. The photos are downloaded at run time and never shipped in the pack. Corners were measured on exactly these files (sha256).",
+  "source": "Calibrated for the reference brand books of the fictional Ceaunul Fermecat and Luna Piccola.",
+  "mockups": [
+    {
+      "id": "poster-frame",
+      "label": "Framed poster on a white wall",
+      "kind": "place",
+      "photo": {
+        "pexels": "8490203",
+        "url": "https://images.pexels.com/photos/8490203/pexels-photo-8490203.jpeg",
+        "sha256": "401c15a2a5ec2f103cbd05fd4b622eb0277177c2085c9af8bb452d38ba409911",
+        "width": 3157,
+        "height": 4736,
+        "author": "PNW Production"
+      },
+      "layers": [
+        {
+          "slot": "poster",
+          "quad": [
+            [1123, 1022],
+            [2860, 1032],
+            [2829, 3462],
+            [1127, 3469]
+          ],
+          "mode": "ink",
+          "shade": 0.6,
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "poster-street-board",
+      "label": "Street A-board",
+      "kind": "place",
+      "photo": {
+        "pexels": "27277176",
+        "url": "https://images.pexels.com/photos/27277176/pexels-photo-27277176.jpeg",
+        "sha256": "dbdfe5ae03d84da4b9cccbbd83a0e3bc9131269c6fdb9568d4960e6740f0a0e6",
+        "width": 4708,
+        "height": 3139,
+        "author": "Kate Trysh"
+      },
+      "layers": [
+        {
+          "slot": "poster",
+          "quad": [
+            [1994, 1150],
+            [2959, 1184],
+            [3037, 2647],
+            [2031, 2663]
+          ],
+          "mode": "ink",
+          "shade": 0.5,
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "poster-wood-wall",
+      "label": "Poster on a slatted wood wall",
+      "kind": "place",
+      "photo": {
+        "pexels": "6373756",
+        "url": "https://images.pexels.com/photos/6373756/pexels-photo-6373756.jpeg?w=3000",
+        "sha256": "164b3dbe67082550e131b1672abca3a92037b8a713a812fff2d104c499121a4d",
+        "width": 3000,
+        "height": 4500
+      },
+      "layers": [
+        {
+          "slot": "poster",
+          "quad": [
+            [1018, 1272],
+            [2460, 1273],
+            [2444, 3270],
+            [1030, 3270]
+          ],
+          "mode": "multiply",
+          "blur": 0.7
+        }
+      ]
+    },
+    {
+      "id": "phone-story",
+      "label": "Phone in hand showing a story",
+      "kind": "screen",
+      "photo": {
+        "pexels": "6373210",
+        "url": "https://images.pexels.com/photos/6373210/pexels-photo-6373210.jpeg",
+        "sha256": "82c648141a08d686fb187c689d544eca0a6286e4cc95913c88aa887c137ec0ae",
+        "width": 5760,
+        "height": 3840,
+        "author": "Katrin Bolovtsova"
+      },
+      "layers": [
+        {
+          "slot": "story",
+          "quad": [
+            [2254, 576],
+            [3201, 547],
+            [3262, 2592],
+            [2345, 2645]
+          ],
+          "mode": "glow",
+          "shade": 0.15,
+          "blur": 0.8,
+          "mask": [
+            [
+              [2489, 560],
+              [2962, 560],
+              [2941, 632],
+              [2510, 632]
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "business-cards",
+      "label": "Business cards, front and back",
+      "kind": "print",
+      "photo": {
+        "pexels": "8490061",
+        "url": "https://images.pexels.com/photos/8490061/pexels-photo-8490061.jpeg?w=3000",
+        "sha256": "10b4c9c28a6d25e11f07bc6d85c6fad015836072f50a16b4585bd1f2d7b2f6d2",
+        "width": 3000,
+        "height": 2000
+      },
+      "layers": [
+        {
+          "slot": "card-front",
+          "quad": [
+            [585, 295],
+            [1605, 290],
+            [1605, 880],
+            [590, 885]
+          ],
+          "mode": "ink",
+          "shade": 0.8,
+          "blur": 0.6
+        },
+        {
+          "slot": "card-back",
+          "quad": [
+            [578, 1140],
+            [1595, 1135],
+            [1595, 1715],
+            [585, 1720]
+          ],
+          "mode": "ink",
+          "shade": 0.8,
+          "blur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "tshirt",
+      "label": "White T-shirt, chest print",
+      "kind": "wear",
+      "photo": {
+        "pexels": "12025472",
+        "url": "https://images.pexels.com/photos/12025472/pexels-photo-12025472.jpeg?w=3000",
+        "sha256": "99c152fbcfa3e8f78c4d2b493b1631f0f59fdae67c8a99c40c325da5118d1a77",
+        "width": 3000,
+        "height": 2000
+      },
+      "layers": [
+        {
+          "slot": "logo",
+          "quad": [
+            [1240, 500],
+            [1660, 500],
+            [1660, 887],
+            [1240, 887]
+          ],
+          "fit": true,
+          "mode": "multiply",
+          "blur": 0.7
+        }
+      ]
+    },
+    {
+      "id": "coffee-cup",
+      "label": "Paper coffee cup",
+      "kind": "pack",
+      "photo": {
+        "pexels": "9878735",
+        "url": "https://images.pexels.com/photos/9878735/pexels-photo-9878735.jpeg?w=3000",
+        "sha256": "9b9db862d822e84e1ba6bce77705eeabbdf2c15db17427fd1f19e75abf69b94a",
+        "width": 3000,
+        "height": 2000
+      },
+      "layers": [
+        {
+          "slot": "logo",
+          "quad": [
+            [1345, 880],
+            [1655, 880],
+            [1645, 1080],
+            [1355, 1080]
+          ],
+          "fit": true,
+          "sub": [0.08, 0.06, 0.92, 0.94],
+          "mode": "multiply",
+          "blur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "kraft-bag",
+      "label": "Kraft paper bag",
+      "kind": "pack",
+      "photo": {
+        "pexels": "25533235",
+        "url": "https://images.pexels.com/photos/25533235/pexels-photo-25533235.jpeg?w=3000",
+        "sha256": "8a0b8af3f73eab41a6aeeca7e476b14e808881e3257f48666976648db6922ece",
+        "width": 3000,
+        "height": 4498
+      },
+      "layers": [
+        {
+          "slot": "logo",
+          "quad": [
+            [640, 1700],
+            [2195, 1760],
+            [2190, 3530],
+            [570, 3420]
+          ],
+          "sub": [0.14, 0.12, 0.86, 0.72],
+          "fit": true,
+          "mode": "multiply",
+          "opacity": 0.95,
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "apron",
+      "label": "Linen apron",
+      "kind": "wear",
+      "photo": {
+        "pexels": "6957550",
+        "url": "https://images.pexels.com/photos/6957550/pexels-photo-6957550.jpeg",
+        "sha256": "cfdd47e80d707c14a9cf6fd20e52cc10e94fd0e003defeb0ef12d282095cceff",
+        "width": 3976,
+        "height": 5964,
+        "author": "Ludmila Nilava"
+      },
+      "layers": [
+        {
+          "slot": "logo-light",
+          "quad": [
+            [1244, 2904],
+            [2394, 2904],
+            [2692, 4652],
+            [986, 4652]
+          ],
+          "sub": [0.2, 0.12, 0.8, 0.6],
+          "fit": true,
+          "mode": "ink",
+          "shade": 0.6,
+          "blur": 1,
+          "opacity": 0.95
+        }
+      ]
+    },
+    {
+      "id": "mug",
+      "label": "Ceramic mug",
+      "kind": "pack",
+      "photo": {
+        "pexels": "6312224",
+        "url": "https://images.pexels.com/photos/6312224/pexels-photo-6312224.jpeg",
+        "sha256": "57fd3782c0cd53982dedf5802ee3e42103b5c8868433e621572c2d4652549239",
+        "width": 5637,
+        "height": 3758,
+        "author": "Katrin Bolovtsova"
+      },
+      "layers": [
+        {
+          "slot": "logo",
+          "quad": [
+            [2463, 1259],
+            [3715, 1259],
+            [3715, 2743],
+            [2463, 2781]
+          ],
+          "sub": [0.22, 0.22, 0.78, 0.78],
+          "fit": true,
+          "mode": "multiply",
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "shop-window",
+      "label": "Shop window and fascia",
+      "kind": "place",
+      "photo": {
+        "pexels": "32367382",
+        "url": "https://images.pexels.com/photos/32367382/pexels-photo-32367382.jpeg",
+        "sha256": "7b9a6026aae6cd9586c4f4ca5e76a41c907724266e92b44d2289c782d47b08eb",
+        "width": 4000,
+        "height": 3000
+      },
+      "layers": [
+        {
+          "slot": "fascia",
+          "quad": [
+            [0, 81],
+            [3800, 81],
+            [3800, 600],
+            [0, 600]
+          ],
+          "mode": "ink",
+          "shade": 0.5,
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "wall-sign",
+      "label": "Sign panel on a terracotta wall",
+      "kind": "place",
+      "photo": {
+        "pexels": "40232893",
+        "url": "https://images.pexels.com/photos/40232893/pexels-photo-40232893.jpeg",
+        "sha256": "bd01f914928fb37307b57587320e919eb37a4bd58b5962ecb8a6b28597e0659e",
+        "width": 5020,
+        "height": 3347
+      },
+      "layers": [
+        {
+          "slot": "sign",
+          "quad": [
+            [547, 977],
+            [4473, 977],
+            [4473, 2594],
+            [547, 2594]
+          ],
+          "sub": [0.02, 0.05, 0.98, 0.95],
+          "fit": true,
+          "mode": "ink",
+          "shade": 0.8,
+          "texture": 0.25,
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "menu-clipboard",
+      "label": "A4 sheet on a clipboard",
+      "kind": "print",
+      "photo": {
+        "pexels": "6787046",
+        "url": "https://images.pexels.com/photos/6787046/pexels-photo-6787046.jpeg",
+        "sha256": "33a67c2bafbeef8d976c6e0e062f1864a6ecf49155702fb5387f2da7676c7871",
+        "width": 6144,
+        "height": 3456
+      },
+      "layers": [
+        {
+          "slot": "a4",
+          "quad": [
+            [2537, 263],
+            [3668, 256],
+            [3852, 1887],
+            [2728, 2001]
+          ],
+          "mode": "multiply",
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "brick-banner",
+      "label": "Banner on a brick wall",
+      "kind": "place",
+      "photo": {
+        "pexels": "12883028",
+        "url": "https://images.pexels.com/photos/12883028/pexels-photo-12883028.jpeg",
+        "sha256": "8a537420e2a2209f6a8758e068f1f9214dd7e931ce05a94e91eaf376c2468058",
+        "width": 6000,
+        "height": 4000
+      },
+      "layers": [
+        {
+          "slot": "banner",
+          "quad": [
+            [858, 1132],
+            [5124, 1132],
+            [5124, 2960],
+            [858, 2960]
+          ],
+          "mode": "ink",
+          "shade": 0.85,
+          "texture": 0.15,
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "badge",
+      "label": "Staff badge on a lanyard",
+      "kind": "wear",
+      "photo": {
+        "pexels": "7319158",
+        "url": "https://images.pexels.com/photos/7319158/pexels-photo-7319158.jpeg",
+        "sha256": "b727e87aff2236eae20852c9d275b67c6503fecace8e3d24a3a00a897e1609de",
+        "width": 3360,
+        "height": 5040
+      },
+      "layers": [
+        {
+          "slot": "badge",
+          "quad": [
+            [907, 2313],
+            [2164, 2313],
+            [2130, 4400],
+            [833, 4400]
+          ],
+          "mode": "ink",
+          "shade": 0.6,
+          "blur": 0.8
+        }
+      ]
+    },
+    {
+      "id": "cafe-wall",
+      "label": "Painted brick wall in a cafe",
+      "kind": "place",
+      "photo": {
+        "pexels": "2293367",
+        "url": "https://images.pexels.com/photos/2293367/pexels-photo-2293367.jpeg",
+        "sha256": "e9a8408f74d18fc1792ce9b07db9782fddf48d7052c1cb6506638ba82b2af9dc",
+        "width": 3264,
+        "height": 4928
+      },
+      "layers": [
+        {
+          "slot": "logo",
+          "quad": [
+            [147, 251],
+            [3036, 251],
+            [3036, 2016],
+            [147, 2016]
+          ],
+          "sub": [0.2, 0.15, 0.8, 0.85],
+          "fit": true,
+          "mode": "ink",
+          "shade": 0.9,
+          "texture": 0.3,
+          "blur": 0.6
+        }
+      ]
+    }
+  ]
+}

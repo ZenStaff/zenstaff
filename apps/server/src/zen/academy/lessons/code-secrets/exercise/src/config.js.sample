@@ -1,0 +1,18 @@
+module.exports = {
+  port: process.env.PORT || 3000,
+  stripe: {
+    secretKey: process.env.STRIPE_SECRET_KEY || "sk_live_51FAKE_FAKE_FAKE_9zYxWvUtSrQpOnMlKjIhGfEdCbA00FAKE",
+    publishableKey: "pk_live_51FAKEFAKEFAKEpublishable00FAKE",
+  },
+  aws: {
+    region: "eu-central-1",
+    accessKeyId: "AKIAFAKEEXAMPLE7Q2XZ",
+    secretAccessKey: "wJalrFAKEFAKE/K7MDENG/bPxRfiCYFAKEKEY99",
+    bucket: "invoices-prod",
+  },
+  mail: {
+    host: "smtp.example.com",
+    user: "billing@example.com",
+    password: "MailPass!2026",
+  },
+};

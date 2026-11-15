@@ -1,0 +1,8 @@
+{
+  "name": "zen-toolchain-pptxgenjs",
+  "version": "4.0.1",
+  "private": true,
+  "dependencies": {
+    "pptxgenjs": "4.0.1"
+  }
+}

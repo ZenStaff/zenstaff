@@ -1,0 +1,35 @@
+[
+  {
+    "header": "Gemini Apps",
+    "title": "Prompted Ce postez mâine pe Facebook pentru cafenea?",
+    "time": "2024-05-10T09:00:00.000Z",
+    "products": ["Gemini Apps"],
+    "activityControls": ["Gemini Apps Activity"],
+    "safeHtmlItem": [
+      {
+        "html": "<p>Trei idei:</p><ul><li>Cafeaua zilei</li><li>Echipa</li></ul><p>Spor &amp; succes!</p>"
+      }
+    ]
+  },
+  {
+    "header": "Gemini Apps",
+    "title": "Prompted Scrie-mi textul pentru prima idee",
+    "time": "2024-05-10T09:10:00.000Z",
+    "products": ["Gemini Apps"],
+    "safeHtmlItem": [{ "html": "<p>Cafeaua zilei: espresso cu note de ciocolată.</p>" }]
+  },
+  {
+    "header": "Gemini Apps",
+    "title": "Prompted Ce înseamnă SPV?",
+    "time": "2024-05-12T15:00:00.000Z",
+    "products": ["Gemini Apps"],
+    "safeHtmlItem": [{ "html": "<p>Spațiul Privat Virtual al ANAF.</p>" }]
+  },
+  {
+    "header": "Search",
+    "title": "Searched for weather",
+    "time": "2024-05-12T15:01:00.000Z",
+    "products": ["Search"]
+  },
+  { "header": "Gemini Apps", "title": "Used Gemini Apps", "products": ["Gemini Apps"] }
+]

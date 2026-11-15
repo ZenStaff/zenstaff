@@ -1,0 +1,11 @@
+const users = [
+  { id: 1, email: "ana.pop@example.com", name: "Ana Pop", role: "admin", passwordHash: "$2b$12$FAKEFAKEFAKEhashAna", phone: "07xx xxx xxx", internalNotes: "VIP, discount 20%" },
+  { id: 2, email: "ion.ionescu@example.com", name: "Ion Ionescu", role: "member", passwordHash: "$2b$12$FAKEFAKEFAKEhashIon", phone: "07xx xxx xxx", internalNotes: "" },
+];
+
+const projects = [
+  { id: 1, ownerId: 1, name: "Website relaunch", budget: 12000, members: [1] },
+  { id: 2, ownerId: 2, name: "Mobile app", budget: 30000, members: [2] },
+];
+
+module.exports = { users, projects };

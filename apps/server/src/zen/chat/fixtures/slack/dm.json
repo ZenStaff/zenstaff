@@ -1,0 +1,17 @@
+{
+  "envelope_id": "4b1c0e3a-0000-4000-8000-000000000003",
+  "payload": {
+    "team_id": "T0001ZEN",
+    "event": {
+      "type": "message",
+      "text": "what is on my calendar?",
+      "user": "U0MARIA",
+      "ts": "1731000100.000400",
+      "channel": "D0MARIA",
+      "channel_type": "im",
+      "event_ts": "1731000100.000400"
+    },
+    "type": "event_callback"
+  },
+  "type": "events_api"
+}

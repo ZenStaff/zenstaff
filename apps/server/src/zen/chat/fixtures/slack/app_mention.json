@@ -1,0 +1,36 @@
+{
+  "envelope_id": "dbdd0ef3-1543-4f94-bfb4-133d0e6c1545",
+  "payload": {
+    "token": "XXYYZZ",
+    "team_id": "T0001ZEN",
+    "api_app_id": "A0ZENAPP",
+    "event": {
+      "client_msg_id": "c6a2c4f2-8b4a-4c3e-9d0f-0b9b1b1f5b11",
+      "type": "app_mention",
+      "text": "<@U0ZENBOT> please summarise <https://example.com/report|the Q3 report> for <#C0SALES|sales> &amp; ping <@U0ANA>",
+      "user": "U0MARIA",
+      "ts": "1731000000.000100",
+      "team": "T0001ZEN",
+      "channel": "C0SALES",
+      "event_ts": "1731000000.000100",
+      "files": [
+        {
+          "id": "F0PDF",
+          "name": "q3.pdf",
+          "mimetype": "application/pdf",
+          "size": 52344,
+          "url_private": "https://files.slack.com/files-pri/T0001ZEN-F0PDF/q3.pdf",
+          "url_private_download": "https://files.slack.com/files-pri/T0001ZEN-F0PDF/download/q3.pdf"
+        }
+      ]
+    },
+    "type": "event_callback",
+    "event_id": "Ev0ZEN1",
+    "event_time": 1731000000,
+    "authorizations": [{ "team_id": "T0001ZEN", "user_id": "U0ZENBOT", "is_bot": true }]
+  },
+  "type": "events_api",
+  "accepts_response_payload": false,
+  "retry_attempt": 0,
+  "retry_reason": ""
+}

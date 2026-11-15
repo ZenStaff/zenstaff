@@ -1,0 +1,90 @@
+{
+  "id": "apify",
+  "name": "Apify",
+  "category": "automation",
+  "aliases": ["apify", "apify actors"],
+  "description": {
+    "en": "Your own Apify account: ready-made actors that read public listings. The runs and their costs are on your Apify account.",
+    "ro": "Contul tău Apify: actori gata făcuți care citesc liste publice. Rulările și costurile lor sunt pe contul tău Apify."
+  },
+  "website": "https://apify.com",
+  "tier": "standard",
+  "mcpHosts": ["mcp.apify.com"],
+  "tos": {
+    "en": "Apify's terms apply, and every website's own terms still apply to what an actor reads. The costs are on your Apify account, never on Zen Staff's.",
+    "ro": "Se aplică termenii Apify, iar termenii fiecărui site rămân valabili pentru ce citește un actor. Costurile sunt pe contul tău Apify, niciodată pe Zen Staff."
+  },
+  "api": {
+    "docsUrl": "https://docs.apify.com/platform/integrations/mcp",
+    "auth": "OAuth (or your own API token in your own MCP setup)",
+    "verified": {
+      "status": "verified",
+      "note": "2026-11-08: mcp.apify.com answers 401 to an anonymous call and publishes OAuth metadata (authorization, token and registration endpoints, PKCE S256, scope full_api_access). Not signed in."
+    }
+  },
+  "paths": [
+    {
+      "kind": "local-mcp",
+      "mcp": {
+        "transport": "http",
+        "url": "https://mcp.apify.com",
+        "auth": "oauth"
+      },
+      "access": {
+        "read": {
+          "en": "Search actors, run the ones you pick, read their results.",
+          "ro": "Caută actori, rulează-i pe cei aleși, citește rezultatele."
+        },
+        "write": {
+          "en": "Starting an actor spends your Apify credit; the assistant asks first.",
+          "ro": "Pornirea unui actor consumă creditul tău Apify; asistentul întreabă întâi."
+        }
+      },
+      "setup": {
+        "en": [
+          "Press Connect: Zen Staff runs Claude Code's own `claude mcp add` on this computer.",
+          "A sign-in link appears: open it here, scan it with your phone, or send it to your e-mail.",
+          "Sign in and allow access. Claude Code keeps the sign-in; Zen Staff never sees it.",
+          "If the page after sign-in does not load (you signed in on another device), copy its address and paste it in the card."
+        ],
+        "ro": [
+          "Apasă Conectează: Zen Staff rulează comanda oficială Claude Code `claude mcp add` pe acest calculator.",
+          "Apare un link de autentificare: deschide-l aici, scanează-l cu telefonul sau trimite-l pe e-mail.",
+          "Intră în cont și permite accesul. Claude Code păstrează autentificarea; Zen Staff nu o vede niciodată.",
+          "Dacă pagina de după autentificare nu se încarcă (ai intrat de pe alt dispozitiv), copiază adresa ei și lipește-o în card."
+        ]
+      },
+      "notes": {
+        "en": "Only actors that read public business listings fit Zen Staff's rules: no actors that log in, bypass blocks or CAPTCHAs, or collect people's profiles.",
+        "ro": "Se potrivesc regulilor Zen Staff doar actorii care citesc liste publice de firme: fără actori care intră în conturi, ocolesc blocaje sau CAPTCHA ori adună profiluri de persoane."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Sign-in through `claude mcp login` was not tried on a real Apify account."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Apify Console, open the run's dataset and export it as CSV or JSON.",
+          "Drag the file into the chat (or put it in the task folder)."
+        ],
+        "ro": [
+          "În Apify Console, deschide setul de date al rulării și exportă-l ca CSV sau JSON.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii)."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Dataset export as CSV/JSON is documented by Apify; not tried here."
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "office-connect-app",
+  "track": "office",
+  "order": 70,
+  "title": { "en": "Connect an app safely", "ro": "Conectează o aplicație fără riscuri" },
+  "summary": {
+    "en": "What a connector is, how to ask the agent to connect Google Drive or Gmail, why you sign in yourself, and how to keep access small.",
+    "ro": "Ce e un conector, cum îi ceri agentului să conecteze Google Drive sau Gmail, de ce te autentifici tu și cum dai acces cât mai mic."
+  },
+  "minutes": 4,
+  "level": "intermediate",
+  "tags": ["connectors", "apps", "access", "security"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "prompt",
+    "exercise": false,
+    "prompt": {
+      "en": "Do not connect, install or change anything. First, list which apps, tools and connectors you can use right now in this folder, in plain words (one line each: what it is, what you can do with it). Then explain to me, step by step, as to someone who is not technical, how I would connect Google Drive safely in Zen Staff: who has to approve it, where I sign in, what access to choose (read-only if possible), what I must never paste into the chat, and how to disconnect it when I am done.",
+      "ro": "Nu conecta, nu instala și nu modifica nimic. Întâi spune-mi ce aplicații, unelte și conectori poți folosi acum în acest folder, pe înțelesul meu (câte un rând: ce e și ce poți face cu el). Apoi explică-mi pas cu pas, ca unui om care nu e de la IT, cum aș conecta Google Drive în Zen Staff fără riscuri: cine trebuie să aprobe, unde mă autentific, ce acces aleg (doar citire, dacă se poate), ce nu am voie să lipesc niciodată în chat și cum îl deconectez când am terminat."
+    }
+  }
+}

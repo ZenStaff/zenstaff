@@ -1,0 +1,131 @@
+{
+  "id": "stripe",
+  "name": "Stripe",
+  "category": "payments",
+  "aliases": ["stripe"],
+  "description": {
+    "en": "Payments, customers and payouts in Stripe.",
+    "ro": "Plăți, clienți și transferuri în Stripe."
+  },
+  "website": "https://stripe.com",
+  "tier": "standard",
+  "mcpHosts": ["mcp.stripe.com"],
+  "tos": {
+    "en": "Stripe's terms apply.",
+    "ro": "Se aplică termenii Stripe."
+  },
+  "api": {
+    "docsUrl": "https://docs.stripe.com/api",
+    "auth": "Secret or restricted key (Bearer), or Stripe's MCP OAuth",
+    "verified": {
+      "status": "verified",
+      "note": "Stripe API."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Stripe",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Stripe and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Stripe și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://mcp.stripe.com"
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "What you allow on Stripe's consent page.",
+          "ro": "Ce permiți pe pagina de acord Stripe."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Stripe in claude.ai's directory; not connected on this account."
+      }
+    },
+    {
+      "kind": "local-mcp",
+      "mcp": {
+        "transport": "http",
+        "url": "https://mcp.stripe.com",
+        "auth": "oauth"
+      },
+      "access": {
+        "read": {
+          "en": "What you allow on Stripe's consent page.",
+          "ro": "Ce permiți pe pagina de acord Stripe."
+        },
+        "write": {
+          "en": "Stripe's MCP can create objects; the assistant asks first.",
+          "ro": "MCP-ul Stripe poate crea obiecte; asistentul întreabă întâi."
+        }
+      },
+      "setup": {
+        "en": [
+          "Press Connect: Zen Staff runs Claude Code's own `claude mcp add` on this computer.",
+          "A sign-in link appears: open it here, scan it with your phone, or send it to your e-mail.",
+          "Sign in and allow access. Claude Code keeps the sign-in; Zen Staff never sees it.",
+          "If the page after sign-in does not load (you signed in on another device), copy its address and paste it in the card."
+        ],
+        "ro": [
+          "Apasă Conectează: Zen Staff rulează comanda oficială Claude Code `claude mcp add` pe acest calculator.",
+          "Apare un link de autentificare: deschide-l aici, scanează-l cu telefonul sau trimite-l pe e-mail.",
+          "Intră în cont și permite accesul. Claude Code păstrează autentificarea; Zen Staff nu o vede niciodată.",
+          "Dacă pagina de după autentificare nu se încarcă (ai intrat de pe alt dispozitiv), copiază adresa ei și lipește-o în card."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: mcp.stripe.com returns 401 + metadata; access.stripe.com/mcp has a registration endpoint."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Stripe: Payments (or Customers) > Export, choose the columns and the period.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Stripe: Payments (sau Customers) > Export, alege coloanele și perioada.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://dashboard.stripe.com/payments"
+    }
+  ]
+}

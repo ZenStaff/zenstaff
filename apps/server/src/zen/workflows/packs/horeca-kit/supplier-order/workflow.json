@@ -1,0 +1,121 @@
+{
+  "id": "supplier-order",
+  "name": "Supplier order from stock",
+  "description": "From the stock on hand and your usage: how much to order of each item, rounded to the supplier's packs and grouped per supplier, with the order messages (email and WhatsApp) ready to send and the items to check first.",
+  "category": "admin",
+  "icon": "truck",
+  "inputs": [
+    {
+      "id": "restaurant",
+      "label": "Restaurant",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "stock",
+      "label": "Stock now",
+      "type": "file",
+      "required": true,
+      "help": "An inventory export or count sheet (Excel, CSV) or type it in the usage field."
+    },
+    {
+      "id": "usage",
+      "label": "Usage per day or recent sales",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "potatoes 9 kg/day, onion 3 kg/day, sour cream 2.5 kg/day"
+    },
+    {
+      "id": "suppliers",
+      "label": "Suppliers",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Fresh Legume: vegetables, 10 kg sacks, min. 150 lei, delivers Mon/Wed/Fri, comenzi@freshlegume.test"
+    },
+    {
+      "id": "cover",
+      "label": "Cover until the next delivery plus",
+      "type": "select",
+      "required": true,
+      "options": ["1 day", "2 days", "3 days", "A week"]
+    },
+    {
+      "id": "delivery_date",
+      "label": "Delivery date",
+      "type": "text",
+      "required": false,
+      "placeholder": "Tuesday, 10 November"
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Saturday: a private event for 60."
+    }
+  ],
+  "output": "order/comanda-<date>.xlsx (all items, one sheet per supplier, to check) and order/messages.md.",
+  "version": "1.0.1",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Comandă la furnizori din stoc",
+      "description": "Din stocul de acum și consumul vostru: cât comanzi din fiecare produs, rotunjit la ambalajul furnizorului și grupat pe furnizori, cu mesajele de comandă (e-mail și WhatsApp) gata de trimis și produsele de verificat întâi.",
+      "output": "order/comanda-<data>.xlsx (toate produsele, câte o foaie pe furnizor, de verificat) și order/messages.md.",
+      "inputs": {
+        "restaurant": {
+          "label": "Localul",
+          "placeholder": "Casa Verde"
+        },
+        "stock": {
+          "label": "Stocul de acum",
+          "help": "Un export de stoc sau foaia de inventar (Excel, CSV), sau scrie-l la consum."
+        },
+        "usage": {
+          "label": "Consumul pe zi sau vânzările recente",
+          "placeholder": "cartofi 9 kg/zi, ceapă 3 kg/zi, smântână 2,5 kg/zi"
+        },
+        "suppliers": {
+          "label": "Furnizorii",
+          "placeholder": "Fresh Legume: legume, saci de 10 kg, minim 150 lei, livrează L/Mi/V, comenzi@freshlegume.test"
+        },
+        "cover": {
+          "label": "Să ajungă până la livrarea următoare plus",
+          "options": ["o zi", "2 zile", "3 zile", "o săptămână"]
+        },
+        "delivery_date": {
+          "label": "Data livrării",
+          "placeholder": "marți, 10 noiembrie"
+        },
+        "notes": {
+          "label": "Note",
+          "placeholder": "Sâmbătă: eveniment privat pentru 60 de persoane."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the workflow's script on this computer"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "an order",
+      "seconds": 2,
+      "referenceCpuCores": 8
+    },
+    "network": false
+  }
+}

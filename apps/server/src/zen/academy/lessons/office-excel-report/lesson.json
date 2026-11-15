@@ -1,0 +1,36 @@
+{
+  "id": "office-excel-report",
+  "track": "office",
+  "order": 40,
+  "title": { "en": "A report from an Excel file", "ro": "Un raport dintr-un fișier Excel" },
+  "summary": {
+    "en": "Turn a sales spreadsheet into a short report: say the period and the reader, make the agent compute instead of guess, and check the totals.",
+    "ro": "Faci dintr-un tabel de vânzări un raport scurt: spui perioada și cine îl citește, agentul calculează în loc să ghicească, iar tu verifici totalurile."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["excel", "csv", "report", "numbers"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": {
+    "kind": "workflow",
+    "workflow": "weekly-report-from-files",
+    "exercise": true,
+    "values": {
+      "en": {
+        "files": "vanzari-octombrie.csv",
+        "audience": "Management",
+        "period": "October 2026",
+        "focus": "Total sales per store and per product, the best and weakest store, and anything unusual. Compute every number from the file (show how you computed the totals) and do not estimate.",
+        "format": "Markdown document"
+      },
+      "ro": {
+        "files": "vanzari-octombrie.csv",
+        "audience": "Management",
+        "period": "octombrie 2026",
+        "focus": "Vânzările totale pe magazin și pe produs, cel mai bun și cel mai slab magazin, orice pare neobișnuit. Calculează fiecare cifră din fișier (arată cum ai calculat totalurile) și nu estima nimic.",
+        "format": "Markdown document"
+      }
+    }
+  }
+}

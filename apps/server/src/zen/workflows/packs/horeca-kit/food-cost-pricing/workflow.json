@@ -1,0 +1,121 @@
+{
+  "id": "food-cost-pricing",
+  "name": "Food cost and menu prices",
+  "description": "Your recipes and ingredient prices become a live Excel: cost per portion, food cost %, margin and the price that meets your target for every dish, with what to change on the dishes above target and, with sales, which dishes are stars and which to rethink.",
+  "category": "reports",
+  "icon": "calculator",
+  "inputs": [
+    {
+      "id": "restaurant",
+      "label": "Restaurant",
+      "type": "text",
+      "required": true,
+      "placeholder": "Casa Verde"
+    },
+    {
+      "id": "recipes",
+      "label": "Recipes",
+      "type": "file",
+      "required": true,
+      "help": "Recipe cards (Excel, CSV, PDF or text) with quantities and portions; or type them in the notes."
+    },
+    {
+      "id": "prices",
+      "label": "Ingredient prices",
+      "type": "file",
+      "required": true,
+      "help": "A price list, recent invoices or a CSV; the most recent price per ingredient is used."
+    },
+    {
+      "id": "target",
+      "label": "Target food cost",
+      "type": "select",
+      "required": true,
+      "options": ["25%", "28%", "30%", "33%", "35%"]
+    },
+    {
+      "id": "vat",
+      "label": "VAT on food sold",
+      "type": "select",
+      "required": true,
+      "options": ["11% (Romania, restaurant food)", "21%", "9%", "Other (in the notes)"]
+    },
+    {
+      "id": "sales",
+      "label": "Dishes sold",
+      "type": "file",
+      "required": false,
+      "help": "A sales export per dish for menu engineering."
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "type": "longtext",
+      "required": false,
+      "placeholder": "Soups: 400 ml portion. Onion and carrots lose about 10-15% when cleaned."
+    }
+  ],
+  "output": "foodcost/food-cost.xlsx (cost sheets, recipes, ingredients, to check) and foodcost/raport.md.",
+  "version": "1.0.0",
+  "author": "ZED-ZEN",
+  "i18n": {
+    "ro": {
+      "name": "Food cost și prețuri în meniu",
+      "description": "Rețetele și prețurile ingredientelor devin un Excel viu: costul pe porție, food cost-ul în procente, marja și prețul care atinge ținta pentru fiecare preparat, cu ce schimbi la preparatele peste țintă și, dacă ai vânzările, care preparate sunt vedete și care trebuie regândite.",
+      "output": "foodcost/food-cost.xlsx (fișe de cost, rețete, ingrediente, de verificat) și foodcost/raport.md.",
+      "inputs": {
+        "restaurant": {
+          "label": "Localul",
+          "placeholder": "Casa Verde"
+        },
+        "recipes": {
+          "label": "Rețetele",
+          "help": "Fișele de rețetă (Excel, CSV, PDF sau text) cu cantități și porții; sau scrie-le în note."
+        },
+        "prices": {
+          "label": "Prețurile ingredientelor",
+          "help": "O listă de prețuri, facturi recente sau un CSV; se folosește cel mai recent preț pentru fiecare ingredient."
+        },
+        "target": {
+          "label": "Ținta de food cost",
+          "options": ["25%", "28%", "30%", "33%", "35%"]
+        },
+        "vat": {
+          "label": "TVA la mâncarea vândută",
+          "options": ["11% (România, mâncare în restaurant)", "21%", "9%", "Alta (în note)"]
+        },
+        "sales": {
+          "label": "Câte porții s-au vândut",
+          "help": "Un export de vânzări pe preparat, pentru analiza meniului."
+        },
+        "notes": {
+          "label": "Note",
+          "placeholder": "Supe: porție de 400 ml. Ceapa și morcovii pierd cam 10-15% la curățat."
+        }
+      }
+    }
+  },
+  "requires": {
+    "tools": [
+      {
+        "id": "node",
+        "version": "^24",
+        "purpose": "runs the workflow's script on this computer"
+      }
+    ],
+    "hardware": {
+      "minRamGb": 1,
+      "minFreeDiskGb": 1,
+      "minCpuCores": 1,
+      "os": ["linux", "windows", "macos"],
+      "arch": ["x64", "arm64"]
+    },
+    "runsBest": "either",
+    "runTime": {
+      "unit": "a menu",
+      "seconds": 3,
+      "referenceCpuCores": 8
+    },
+    "network": false
+  }
+}

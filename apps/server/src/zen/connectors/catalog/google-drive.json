@@ -1,0 +1,131 @@
+{
+  "id": "google-drive",
+  "name": "Google Drive",
+  "category": "files",
+  "aliases": ["google drive", "drive", "gdrive", "google docs", "google sheets"],
+  "description": {
+    "en": "Find and read files in your Google Drive.",
+    "ro": "Găsește și citește fișiere din Google Drive."
+  },
+  "website": "https://drive.google.com",
+  "tier": "standard",
+  "mcpHosts": ["drivemcp.googleapis.com"],
+  "tos": {
+    "en": "Google's terms apply.",
+    "ro": "Se aplică termenii Google."
+  },
+  "api": {
+    "docsUrl": "https://developers.google.com/workspace/drive/api/reference/rest/v3",
+    "auth": "OAuth 2.0 (Google)",
+    "verified": {
+      "status": "verified",
+      "note": "Drive API v3."
+    }
+  },
+  "paths": [
+    {
+      "kind": "native",
+      "native": [
+        {
+          "provider": "claude",
+          "kind": "directory",
+          "settingsUrl": "https://claude.ai/settings/connectors",
+          "connectorName": "Google Drive",
+          "steps": {
+            "en": [
+              "Open claude.ai > Settings > Connectors (the button opens it).",
+              "Find Google Drive and press Connect, then sign in and allow access.",
+              "Come back here and press Check: Zen Staff looks for it in your Claude account.",
+              "On Claude Team / Enterprise, an owner may have to add it for the organization first."
+            ],
+            "ro": [
+              "Deschide claude.ai > Setări > Conectori (butonul îl deschide).",
+              "Caută Google Drive și apasă Conectează, apoi intră în cont și permite accesul.",
+              "Revino aici și apasă Verifică: Zen Staff îl caută în contul tău Claude.",
+              "Pe Claude Team / Enterprise, un proprietar poate fi nevoit să-l adauge întâi pentru organizație."
+            ]
+          },
+          "url": "https://drivemcp.googleapis.com/mcp/v1"
+        },
+        {
+          "provider": "chatgpt",
+          "kind": "directory",
+          "settingsUrl": "https://chatgpt.com/#settings/Connectors",
+          "connectorName": "Google Drive",
+          "steps": {
+            "en": [
+              "Open ChatGPT > Settings > Apps & Connectors.",
+              "Choose Google Drive, connect and allow access.",
+              "Use it in ChatGPT; Zen Staff's assistant cannot see ChatGPT connectors."
+            ],
+            "ro": [
+              "Deschide ChatGPT > Setări > Aplicații și conectori.",
+              "Alege Google Drive, conectează și permite accesul.",
+              "Folosește-l în ChatGPT; asistentul Zen Staff nu vede conectorii ChatGPT."
+            ]
+          }
+        },
+        {
+          "provider": "gemini",
+          "kind": "directory",
+          "settingsUrl": "https://gemini.google.com/apps",
+          "connectorName": "Google Workspace",
+          "steps": {
+            "en": [
+              "Open Gemini > Apps.",
+              "Turn on Google Workspace.",
+              "Use it in Gemini; Zen Staff's assistant cannot see Gemini apps."
+            ],
+            "ro": [
+              "Deschide Gemini > Aplicații.",
+              "Activează Google Workspace.",
+              "Folosește-l în Gemini; asistentul Zen Staff nu vede aplicațiile Gemini."
+            ]
+          }
+        }
+      ],
+      "access": {
+        "read": {
+          "en": "Find and read your files.",
+          "ro": "Găsește și citește fișierele."
+        }
+      },
+      "setup": {
+        "en": [
+          "Connect it once in your AI account; every assistant in Zen Staff that uses that account sees it."
+        ],
+        "ro": [
+          "Conectează-l o dată în contul tău AI; orice asistent din Zen Staff care folosește acel cont îl vede."
+        ]
+      },
+      "verified": {
+        "status": "verified",
+        "note": "2026-11-07: listed as a claude.ai connector in `claude mcp list` on a Claude account (✔ Connected). Target: drivemcp.googleapis.com/mcp/v1."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In Google Drive select the files, right click > Download (Docs and Sheets download as .docx / .xlsx).",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În Google Drive selectează fișierele, clic dreapta > Descarcă (Docs și Sheets se descarcă .docx / .xlsx).",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://drive.google.com"
+    }
+  ]
+}

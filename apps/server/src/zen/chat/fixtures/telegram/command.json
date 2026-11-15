@@ -1,0 +1,11 @@
+{
+  "update_id": 900004,
+  "message": {
+    "message_id": 50,
+    "from": { "id": 7001, "is_bot": false, "first_name": "Maria" },
+    "chat": { "id": -1002233, "type": "supergroup", "title": "Echipa vânzări" },
+    "date": 1731000200,
+    "text": "/zen@ZenStaffBot status",
+    "entities": [{ "offset": 0, "length": 16, "type": "bot_command" }]
+  }
+}

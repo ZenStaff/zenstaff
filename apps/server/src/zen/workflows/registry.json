@@ -1,0 +1,669 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "client-offer-email",
+      "name": "Client offer or proposal email",
+      "description": "A clear, persuasive offer email with pricing and next step, plus a follow-up.",
+      "category": "sales",
+      "icon": "send",
+      "version": "1.0.0",
+      "author": "Zen Staff",
+      "kind": "builtin",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "E-mail cu ofertă pentru client",
+          "description": "Un e-mail de ofertă clar și convingător, cu prețul și pasul următor, plus un mesaj de revenire."
+        }
+      }
+    },
+    {
+      "id": "meeting-notes-to-actions",
+      "name": "Meeting notes to action items",
+      "description": "Turns messy notes or a transcript into decisions, action items with owners and a recap email.",
+      "category": "admin",
+      "icon": "list-checks",
+      "version": "1.0.0",
+      "author": "Zen Staff",
+      "kind": "builtin",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Sarcini din notițele de la ședință",
+          "description": "Transformă notițele încâlcite sau transcrierea unei ședințe în decizii, sarcini cu responsabili și un e-mail de rezumat."
+        }
+      }
+    },
+    {
+      "id": "poster-visual-brief",
+      "name": "Poster, flyer and visuals",
+      "description": "A finished poster or flyer in your brand, ready for the printer (PDF with bleed, 300 dpi), the same design for Instagram, stories and a Facebook event, real photo mockups of it in place, and the brief behind it.",
+      "category": "design",
+      "icon": "palette",
+      "version": "2.1.1",
+      "author": "Zen Staff",
+      "kind": "pack",
+      "tags": ["included", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Afiș, fluturaș și vizualuri",
+          "description": "Un afiș sau un fluturaș gata de tipar în stilul firmei (PDF cu bleed, 300 dpi), același design pentru Instagram, story și evenimentul de Facebook, machete foto reale cu el pus la locul lui și indicațiile din spate."
+        }
+      },
+      "path": "packs/poster-visual-brief"
+    },
+    {
+      "id": "press-release",
+      "name": "Press release and media kit",
+      "description": "A newsroom-ready press release in Romanian and English, pitch emails for journalists, a fact sheet, a media kit checklist and a media list template. Nothing is sent.",
+      "category": "pr",
+      "icon": "newspaper",
+      "version": "2.0.1",
+      "author": "Zen Staff",
+      "kind": "builtin",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Comunicat de presă și kit media",
+          "description": "Un comunicat gata de trimis redacțiilor, în română și engleză, e-mailuri pentru jurnaliști, o fișă cu datele esențiale, lista pentru kitul media și un model de listă de presă. Nu se trimite nimic."
+        }
+      }
+    },
+    {
+      "id": "social-media-post-set",
+      "name": "Social media post set",
+      "description": "A week of ready-to-post copy for one topic, adapted to each network.",
+      "category": "social",
+      "icon": "megaphone",
+      "version": "1.0.0",
+      "author": "Zen Staff",
+      "kind": "builtin",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Postări pentru rețelele sociale",
+          "description": "Texte gata de postat pentru o săptămână, pe un singur subiect, potrivite pentru fiecare rețea."
+        }
+      }
+    },
+    {
+      "id": "translate-localize-document",
+      "name": "Translate and localize a document",
+      "description": "Translates a document and adapts it for the target market: units, dates, tone and culture.",
+      "category": "admin",
+      "icon": "languages",
+      "version": "1.0.0",
+      "author": "Zen Staff",
+      "kind": "builtin",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Traducerea și adaptarea unui document",
+          "description": "Traduce un document și îl adaptează pentru țara în care va fi citit: unități de măsură, date, ton și obiceiuri locale."
+        }
+      }
+    },
+    {
+      "id": "video-script-shot-list",
+      "name": "Short video script and shot list",
+      "description": "A 15 to 90 second video script with scenes, voice-over, on-screen text and a shot list.",
+      "category": "video",
+      "icon": "clapperboard",
+      "version": "1.0.0",
+      "author": "Zen Staff",
+      "kind": "builtin",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Scenariu pentru un video scurt și lista de cadre",
+          "description": "Scenariul unui video de 15 până la 90 de secunde, cu scene, voce din off, text pe ecran și lista de cadre."
+        }
+      }
+    },
+    {
+      "id": "weekly-report-from-files",
+      "name": "Weekly report from files",
+      "description": "Reads the files you point to and writes a one-page weekly report with numbers and next steps.",
+      "category": "reports",
+      "icon": "file-chart-column",
+      "version": "1.0.0",
+      "author": "Zen Staff",
+      "kind": "builtin",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Raport săptămânal din fișiere",
+          "description": "Citește fișierele pe care le alegi și scrie un raport săptămânal de o pagină, cu cifre și pașii următori."
+        }
+      }
+    },
+    {
+      "id": "customer-reply",
+      "name": "Reply to a customer",
+      "description": "A calm, helpful reply to a customer message or review, in the right tone.",
+      "category": "sales",
+      "icon": "message-square-reply",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/customer-reply",
+      "tags": [],
+      "i18n": {
+        "ro": {
+          "name": "Răspuns pentru un client",
+          "description": "Un răspuns calm și de ajutor la mesajul sau recenzia unui client, pe tonul potrivit."
+        }
+      }
+    },
+    {
+      "id": "job-ad",
+      "name": "Job ad",
+      "description": "An inclusive, clear job ad and a short version for social media.",
+      "category": "admin",
+      "icon": "briefcase",
+      "version": "1.0.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/job-ad",
+      "tags": [],
+      "i18n": {
+        "ro": {
+          "name": "Anunț de angajare",
+          "description": "Un anunț de angajare clar, pe înțelesul tuturor și deschis oricui, plus o variantă scurtă pentru rețelele sociale."
+        }
+      }
+    },
+    {
+      "id": "newsletter-issue",
+      "name": "Newsletter issue",
+      "description": "A complete email newsletter from a few bullet points: two subject lines to A/B test with a test plan sized to your list, a version for each segment of your list, the preview text and a plain-text version.",
+      "category": "social",
+      "icon": "mail",
+      "version": "2.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/newsletter-issue",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Newsletter pe e-mail",
+          "description": "Un newsletter complet, scris din câteva idei puse pe puncte: două subiecte de testat A/B, cu planul testului după mărimea listei, o variantă pentru fiecare segment al listei, textul de previzualizare și varianta fără formatare."
+        }
+      }
+    },
+    {
+      "id": "promo-video-30s",
+      "name": "30s promo video",
+      "description": "A 30-second promo video with your brand colors, short texts, your photos and music. Sets up Remotion and FFmpeg on first use.",
+      "category": "video",
+      "icon": "clapperboard",
+      "version": "2.1.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/promo-video-30s",
+      "tags": ["needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Video promo de 30 de secunde",
+          "description": "Un video promo de 30 de secunde, cu culorile firmei, texte scurte, pozele și muzica ta. Pregătește Remotion și FFmpeg la prima folosire."
+        }
+      },
+      "sample": {
+        "src": "samples/promo-video-30s.mp4",
+        "kind": "video",
+        "caption": "A promo made with this pack, with a professional ElevenLabs voice-over.",
+        "i18n": {
+          "ro": {
+            "caption": "Un video promo făcut cu acest pachet, cu voce profesională ElevenLabs."
+          }
+        }
+      }
+    },
+    {
+      "id": "transcribe-recording",
+      "name": "Transcribe a recording",
+      "description": "Turns a meeting, interview or voice note into a transcript and a summary, on this computer. Sets up a speech model on first use.",
+      "category": "admin",
+      "icon": "mic",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/transcribe-recording",
+      "tags": ["needs tools"]
+    },
+    {
+      "id": "meta-ads-report",
+      "name": "Meta ads weekly report",
+      "description": "Reads last week's Facebook and Instagram ad results from the company ad account and writes a one-page report. Enterprise: runs on the company server with a read-only key.",
+      "category": "reports",
+      "icon": "file-chart-column",
+      "version": "0.9.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/meta-ads-report",
+      "tags": ["enterprise", "beta"]
+    },
+    {
+      "id": "review-replies",
+      "name": "Reply to reviews",
+      "description": "Ready-to-post replies to a batch of online reviews (Google, Facebook, Tripadvisor, Booking and others), in your voice and within each platform's rules. Negative or sensitive reviews are flagged for a person to check first.",
+      "category": "pr",
+      "icon": "message-square-quote",
+      "version": "1.0.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/review-replies",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Răspunde la recenzii",
+          "description": "Răspunsuri gata de postat pentru mai multe recenzii online (Google, Facebook, Tripadvisor, Booking și altele), pe tonul tău și după regulile fiecărei platforme. Recenziile negative sau delicate sunt marcate, ca să le vadă întâi un om."
+        }
+      }
+    },
+    {
+      "id": "website-health",
+      "name": "Website health",
+      "description": "Five plain checks of your website, run from the outside: is it safe, can Google find it, is it fast, do your emails land in spam, are you OK with GDPR. Each gives a report with the 3 things that matter, plus details for your developer.",
+      "category": "reports",
+      "icon": "shield-check",
+      "version": "1.1.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/website-health",
+      "workflows": [
+        "website-security-check",
+        "website-google-check",
+        "website-speed-check",
+        "email-deliverability-check",
+        "website-gdpr-check"
+      ],
+      "tags": ["included", "website health"],
+      "i18n": {
+        "ro": {
+          "name": "Sănătatea site-ului",
+          "description": "Cinci verificări pe înțeles ale site-ului, făcute din afară: e sigur, îl găsește Google, e rapid, ajung mailurile în spam, sunteți în regulă cu GDPR. Fiecare dă un raport cu cele 3 lucruri care contează, plus detaliile pentru cel care îți face site-ul."
+        }
+      }
+    },
+    {
+      "id": "seo-weekly-brief",
+      "name": "Weekly search and AI visibility brief",
+      "description": "Once a week: what changed in how people find you on Google, how you compare with competitors, whether AI assistants recommend you, and the 3 things to do this week. Works from public data and an optional Search Console export; no accounts to connect.",
+      "category": "reports",
+      "icon": "trending-up",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/seo-weekly-brief",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Raport săptămânal: Google și asistenții AI",
+          "description": "O dată pe săptămână: ce s-a schimbat în felul în care te găsesc oamenii pe Google, cum stai față de concurenți, dacă te recomandă asistenții AI și cele 3 lucruri de făcut săptămâna asta. Lucrează cu date publice și, dacă vrei, cu un export din Search Console; nu trebuie să conectezi niciun cont."
+        }
+      }
+    },
+    {
+      "id": "work-log-to-posts",
+      "name": "Turn recent work into posts",
+      "description": "Reads your notes, files or a project folder from the last weeks, finds the stories worth telling, and drafts honest LinkedIn and Facebook posts in your voice, each with its sources. Drafts only: you review and post them yourself.",
+      "category": "social",
+      "icon": "notebook-pen",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/work-log-to-posts",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Postări din munca recentă",
+          "description": "Citește notițele, fișierele sau dosarul unui proiect din ultimele săptămâni, găsește poveștile care merită spuse și scrie ciorne oneste pentru LinkedIn și Facebook, cu vocea ta, fiecare cu sursele ei. Doar ciorne: le citești și le postezi tu."
+        }
+      }
+    },
+    {
+      "id": "website-change-watcher",
+      "name": "Watch websites for changes",
+      "description": "Checks public web pages for the changes you care about (prices, menus, job posts, terms) and tells you in plain words what changed since last time. It can repeat the check every day or every week.",
+      "category": "reports",
+      "icon": "scan-eye",
+      "version": "1.1.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/website-change-watcher",
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Urmărește schimbările de pe site-uri",
+          "description": "Verifică pagini web publice pentru schimbările care te interesează (prețuri, meniuri, anunțuri de angajare, termeni) și îți spune pe înțeles ce s-a schimbat de data trecută. Poate repeta verificarea zilnic sau săptămânal."
+        }
+      }
+    },
+    {
+      "id": "brand-voice-checker",
+      "name": "Brand voice checker",
+      "description": "Checks any text against your brand guide and suggests fixes.",
+      "category": "pr",
+      "icon": "badge-check",
+      "version": "0.1.0",
+      "author": "ZED-ZEN",
+      "kind": "coming_soon",
+      "tags": ["coming soon"],
+      "i18n": {
+        "ro": {
+          "name": "Verificarea tonului firmei",
+          "description": "Verifică orice text după ghidul de brand și propune corecturi."
+        }
+      }
+    },
+    {
+      "id": "event-run-sheet",
+      "name": "Event run sheet",
+      "description": "A minute-by-minute plan, checklist and supplier list for an event.",
+      "category": "admin",
+      "icon": "calendar-clock",
+      "version": "0.1.0",
+      "author": "ZED-ZEN",
+      "kind": "coming_soon",
+      "tags": ["coming soon"],
+      "i18n": {
+        "ro": {
+          "name": "Programul unui eveniment",
+          "description": "Planul minut cu minut, lista de verificare și lista furnizorilor pentru un eveniment."
+        }
+      }
+    },
+    {
+      "id": "youtube-description-chapters",
+      "name": "YouTube description and chapters",
+      "description": "Description, chapters and tags from a video transcript.",
+      "category": "video",
+      "icon": "youtube",
+      "version": "0.1.0",
+      "author": "ZED-ZEN",
+      "kind": "coming_soon",
+      "tags": ["coming soon"],
+      "i18n": {
+        "ro": {
+          "name": "Descriere și capitole pentru YouTube",
+          "description": "Descrierea, capitolele și etichetele, scoase din transcrierea unui video."
+        }
+      }
+    },
+    {
+      "id": "sales-call-prep",
+      "name": "Sales call prep",
+      "description": "A one-page brief on a prospect before the call.",
+      "category": "sales",
+      "icon": "phone-call",
+      "version": "0.1.0",
+      "author": "ZED-ZEN",
+      "kind": "coming_soon",
+      "tags": ["coming soon"],
+      "i18n": {
+        "ro": {
+          "name": "Pregătirea unui apel de vânzare",
+          "description": "O pagină despre un client posibil, de citit înainte de apel."
+        }
+      }
+    },
+    {
+      "id": "monthly-invoice-check",
+      "name": "Monthly invoice check",
+      "description": "Compares invoices against orders and flags differences.",
+      "category": "reports",
+      "icon": "receipt",
+      "version": "0.1.0",
+      "author": "ZED-ZEN",
+      "kind": "coming_soon",
+      "tags": ["coming soon"],
+      "i18n": {
+        "ro": {
+          "name": "Verificarea lunară a facturilor",
+          "description": "Compară facturile cu comenzile și semnalează diferențele."
+        }
+      }
+    },
+    {
+      "id": "social-reels-kit",
+      "name": "Reels for your business",
+      "description": "3 to 5 vertical reels from your own photos and clips, in your brand colors, with music, an optional voice-over and ready-to-post captions. For restaurants, shops, salons and services.",
+      "category": "video",
+      "icon": "film",
+      "version": "2.1.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/social-reels-kit",
+      "tags": ["needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Reels pentru localul tău",
+          "description": "3-5 reels verticale din pozele și clipurile tale, în culorile firmei, cu muzică, voce din off la alegere și texte gata de postat. Pentru restaurante, magazine, saloane și servicii."
+        }
+      }
+    },
+    {
+      "id": "app-tutorial-video",
+      "name": "Tutorial video for your app or website",
+      "description": "A narrated screen tutorial of your website or app: a real browser clicks through the steps you list, with a voice, captions and title cards. Checked step by step before it is recorded.",
+      "category": "video",
+      "icon": "monitor-play",
+      "version": "2.1.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/app-tutorial-video",
+      "tags": ["needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Tutorial video pentru aplicația/site-ul tău",
+          "description": "Un tutorial narat cu ecranul site-ului sau al aplicației tale: un browser real face pașii pe care îi scrii, cu voce, subtitrare și cartoane de titlu. Fiecare pas e verificat înainte de înregistrare."
+        }
+      },
+      "sample": {
+        "src": "samples/app-tutorial-video.mp4",
+        "kind": "video",
+        "caption": "A tutorial made with this pack, narrated with a professional ElevenLabs voice.",
+        "i18n": {
+          "ro": {
+            "caption": "Un tutorial făcut cu acest pachet, cu voce profesională ElevenLabs."
+          }
+        }
+      }
+    },
+    {
+      "id": "video-brand-fix",
+      "name": "Bring your videos on brand",
+      "description": "Goes through a folder of existing videos, cuts old endings, covers outdated prices or claims, adds your new outro (and intro), evens out the sound and writes a report of what is ready to post.",
+      "category": "video",
+      "icon": "wand-sparkles",
+      "version": "2.0.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/video-brand-fix",
+      "tags": ["needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Adu videoclipurile la brand",
+          "description": "Trece prin toate clipurile dintr-un dosar, taie finalurile vechi, acoperă prețurile sau promisiunile depășite, pune noul final (și început), egalizează sunetul și scrie un raport cu ce e gata de postat."
+        }
+      }
+    },
+    {
+      "id": "footage-rough-cut",
+      "name": "Rough cut from raw footage",
+      "description": "Goes through your raw clips on this computer: lists them, transcribes every word, picks the best soundbites and b-roll for your story, and hands you a rough cut to open in Premiere Pro, DaVinci Resolve or Final Cut, plus a preview.",
+      "category": "video",
+      "icon": "scissors",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/footage-rough-cut",
+      "tags": ["needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Montaj brut din filmări",
+          "description": "Trece prin filmările tale brute, pe acest calculator: le inventariază, transcrie tot ce se spune, alege cele mai bune replici și cadre de acoperire pentru povestea ta și îți dă un montaj brut de deschis în Premiere Pro, DaVinci Resolve sau Final Cut, plus o previzualizare."
+        }
+      }
+    },
+    {
+      "id": "brandbook-kit",
+      "name": "Brandbook and social media kit",
+      "description": "A brandbook PDF and web version (logo use, colors with codes and contrast, fonts, tone of voice, motifs, icons, applications) and a matching social media pack (posts, story, profile picture, Facebook and LinkedIn covers), from your logo and colors or from your existing website.",
+      "category": "design",
+      "icon": "book-open",
+      "version": "2.1.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/brandbook-kit",
+      "tags": ["needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Brandbook și kit pentru social media",
+          "description": "Un brandbook PDF (folosirea logo-ului, culori cu coduri și contrast, fonturi, tonul vocii, aplicații) și un pachet potrivit pentru social media (postări, story, poză de profil, coperți Facebook și LinkedIn), din logo-ul și culorile tale sau din site-ul pe care îl ai deja."
+        }
+      }
+    },
+    {
+      "id": "marketing-content",
+      "name": "Marketing content",
+      "description": "A month of social media planned with dates, hooks and the first week written, and SEO blog articles researched, written and checked, ready to publish.",
+      "category": "social",
+      "icon": "calendar",
+      "version": "1.0.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/marketing-content",
+      "workflows": ["content-calendar-month", "seo-blog-article"],
+      "tags": ["included", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Conținut de marketing",
+          "description": "O lună de social media planificată, cu date, primele rânduri și prima săptămână scrisă, plus articole de blog pentru Google, cercetate, scrise și verificate, gata de publicat."
+        }
+      }
+    },
+    {
+      "id": "finance-paperwork",
+      "name": "Invoices and expenses",
+      "description": "Scans and photos of invoices and receipts into an Excel for your accountant, with low-confidence fields marked, and a monthly expenses report from your bank statements with categories and the payments worth a second look. Read on this computer.",
+      "category": "admin",
+      "icon": "receipt",
+      "version": "1.1.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/finance-paperwork",
+      "workflows": ["invoices-to-spreadsheet", "monthly-expenses-report"],
+      "tags": ["included", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Facturi și cheltuieli",
+          "description": "Scanările și pozele cu facturi și bonuri într-un Excel pentru contabil, cu câmpurile nesigure marcate, și un raport lunar al cheltuielilor din extrasele de cont, pe categorii și cu plățile care merită verificate. Totul se citește pe calculatorul tău."
+        }
+      }
+    },
+    {
+      "id": "before-you-sign",
+      "name": "Before you sign",
+      "description": "Check a Romanian company by its tax ID in ANAF and the courts portal, and read a contract in plain language: risks, unusual clauses and the questions to ask. Not legal advice.",
+      "category": "admin",
+      "icon": "scale",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/before-you-sign",
+      "workflows": ["company-check", "contract-review"],
+      "tags": ["included", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Înainte să semnezi",
+          "description": "Verifici o firmă din România după CUI, la ANAF și pe portalul instanțelor, și citești un contract pe înțeles: riscuri, clauze neobișnuite și întrebările de pus. Nu e consultanță juridică."
+        }
+      }
+    },
+    {
+      "id": "team-kit",
+      "name": "Hiring and team",
+      "description": "A structured interview kit with a scoring sheet and CV rubric, a first-week onboarding kit for new colleagues, and standard procedures written from how you work, by description or interview.",
+      "category": "admin",
+      "icon": "users",
+      "version": "1.0.0",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/team-kit",
+      "workflows": ["interview-kit", "employee-onboarding-kit", "write-sop"],
+      "tags": ["included", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Angajări și echipă",
+          "description": "Un kit de interviu structurat, cu fișă de punctaj și grilă pentru CV-uri, un kit pentru prima săptămână a colegilor noi și proceduri scrise din felul în care lucrați, descrise de tine sau prin interviu."
+        }
+      }
+    },
+    {
+      "id": "customer-comms",
+      "name": "Customers and crises",
+      "description": "A public FAQ and ready reply templates built from your past customer messages, and the first hours of a public crisis: holding statement, Q&A and replies for comments.",
+      "category": "pr",
+      "icon": "message-square-reply",
+      "version": "1.0.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/customer-comms",
+      "workflows": ["support-faq-macros", "crisis-communication"],
+      "tags": ["included"],
+      "i18n": {
+        "ro": {
+          "name": "Clienți și situații de criză",
+          "description": "O pagină de întrebări frecvente și șabloane de răspuns făcute din mesajele mai vechi ale clienților, plus primele ore ale unei crize publice: declarația de primă reacție, întrebări și răspunsuri și răspunsuri pentru comentarii."
+        }
+      }
+    },
+    {
+      "id": "sales-kit",
+      "name": "Offers and follow-up",
+      "description": "An offer deck that looks designed, from your notes and brand kit (16:9 PDF and an editable PowerPoint file), and the follow-up emails after a meeting, each one moving the deal a step. Drafts only.",
+      "category": "sales",
+      "icon": "presentation",
+      "version": "1.1.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/sales-kit",
+      "workflows": ["proposal-deck", "sales-follow-up"],
+      "tags": ["included", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Oferte și revenire după întâlnire",
+          "description": "O prezentare de ofertă care arată lucrată de un designer, din notițele și kitul tău de brand (PDF 16:9 și fișier PowerPoint editabil), și e-mailurile de revenire după o întâlnire, fiecare mutând discuția cu un pas. Doar ciorne."
+        }
+      }
+    },
+    {
+      "id": "horeca-kit",
+      "name": "Restaurant kit",
+      "description": "Five daily tools for restaurants, cafés and bars: menu-of-the-day posts for every channel, food cost and menu prices as a live Excel, sales per day and shift from the POS export, supplier orders from stock, and review replies tuned for hospitality.",
+      "category": "reports",
+      "icon": "utensils",
+      "version": "1.0.1",
+      "author": "ZED-ZEN",
+      "kind": "pack",
+      "path": "packs/horeca-kit",
+      "workflows": [
+        "daily-menu-posts",
+        "food-cost-pricing",
+        "shift-sales-report",
+        "supplier-order",
+        "restaurant-review-replies"
+      ],
+      "tags": ["included", "needs tools"],
+      "i18n": {
+        "ro": {
+          "name": "Kit pentru restaurant",
+          "description": "Cinci unelte de zi cu zi pentru restaurante, cafenele și baruri: postări cu meniul zilei pe fiecare canal, food cost și prețuri într-un Excel viu, vânzări pe zile și ture din exportul POS, comenzi la furnizori din stoc și răspunsuri la recenzii potrivite pentru HoReCa."
+        }
+      }
+    }
+  ]
+}

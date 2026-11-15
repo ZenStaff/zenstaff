@@ -1,0 +1,16 @@
+{
+  "id": "office-create-workflow",
+  "track": "office",
+  "order": 60,
+  "title": { "en": "Create your own workflow card", "ro": "Fă-ți propriul card" },
+  "summary": {
+    "en": "When you write the same request every week, turn it into a card: a few questions, short instructions with placeholders, tested by a colleague.",
+    "ro": "Când scrii aceeași cerere în fiecare săptămână, transform-o în card: câteva întrebări, instrucțiuni scurte cu câmpuri de completat, testat de un coleg."
+  },
+  "minutes": 4,
+  "level": "beginner",
+  "tags": ["workflows", "templates", "automation", "editor"],
+  "version": "1.0.0",
+  "author": "Zen Staff",
+  "tryIt": { "kind": "open", "to": "/workflow-editor" }
+}

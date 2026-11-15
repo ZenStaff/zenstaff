@@ -1,0 +1,81 @@
+{
+  "id": "smartbill",
+  "name": "SmartBill",
+  "category": "invoicing",
+  "aliases": ["smartbill", "smart bill", "smartbill cloud"],
+  "description": {
+    "en": "Invoices, estimates, payments and stock in SmartBill Cloud.",
+    "ro": "Facturi, proforme, încasări și stocuri în SmartBill Cloud."
+  },
+  "website": "https://www.smartbill.ro",
+  "tier": "standard",
+  "defaultScope": "company",
+  "tos": {
+    "en": "SmartBill has no official AI connector yet; use your own Zapier / Make account or exports.",
+    "ro": "SmartBill nu are încă un conector AI oficial; folosește contul tău Zapier / Make sau exporturile."
+  },
+  "api": {
+    "docsUrl": "https://api.smartbill.ro/",
+    "auth": "v1: HTTP Basic (login e-mail + API token); v3: Bearer token; CIF in each call",
+    "verified": {
+      "status": "verified",
+      "note": "2026-11-07: official OpenAPI spec at api.smartbill.ro (server https://ws.smartbill.ro/SBORO/api; v1 Basic = login e-mail + API token from Integrari; v3 Bearer). No official MCP server; third-party ones exist and are not offered."
+    }
+  },
+  "paths": [
+    {
+      "kind": "automation",
+      "automation": ["zapier", "make", "n8n"],
+      "access": {
+        "read": {
+          "en": "Only the SmartBill actions you enable in your own Zapier MCP (or Make / n8n scenario).",
+          "ro": "Doar acțiunile SmartBill activate de tine în propriul Zapier MCP (sau scenariu Make / n8n)."
+        }
+      },
+      "setup": {
+        "en": [
+          "Open zapier.com/mcp (your account) and add the SmartBill actions you need; start with search / find actions.",
+          "Connect your Zapier MCP in Zen Staff once (Connections > Zapier).",
+          "Ask the assistant: it calls those actions through your Zapier account."
+        ],
+        "ro": [
+          "Deschide zapier.com/mcp (contul tău) și adaugă acțiunile SmartBill de care ai nevoie; începe cu cele de căutare.",
+          "Conectează o dată Zapier MCP în Zen Staff (Conexiuni > Zapier).",
+          "Cere asistentului: apelează acțiunile prin contul tău Zapier."
+        ]
+      },
+      "notes": {
+        "en": "The connection lives in your Zapier / Make account and uses its tasks.",
+        "ro": "Conexiunea stă în contul tău Zapier / Make și consumă task-urile lui."
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Whether Zapier / Make list SmartBill was not checked; check the app directory."
+      }
+    },
+    {
+      "kind": "csv",
+      "access": {
+        "read": {
+          "en": "Only the file you export and give to the assistant.",
+          "ro": "Doar fișierul pe care îl exporți și i-l dai asistentului."
+        }
+      },
+      "setup": {
+        "en": [
+          "In SmartBill Cloud: Reports > Invoices (or Sales register), choose the period and Export to Excel.",
+          "Drag the file into the chat (or put it in the task folder) and say what to do with it."
+        ],
+        "ro": [
+          "În SmartBill Cloud: Rapoarte > Facturi (sau Registrul de vânzări), alege perioada și Export Excel.",
+          "Trage fișierul în chat (sau pune-l în folderul sarcinii) și spune ce să facă cu el."
+        ]
+      },
+      "verified": {
+        "status": "unverified",
+        "note": "Export menu names from the app's help pages; menus change by version."
+      },
+      "url": "https://cloud.smartbill.ro"
+    }
+  ]
+}
