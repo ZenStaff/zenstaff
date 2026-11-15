@@ -51,7 +51,7 @@ jobs:
           all='[
             {"key":"linux-x64","os":"ubuntu-24.04","platform":"linux","arch":"x64","rust":"x86_64-unknown-linux-gnu"},
             {"key":"linux-arm64","os":"ubuntu-24.04-arm","platform":"linux","arch":"arm64","rust":"aarch64-unknown-linux-gnu"},
-            {"key":"darwin-arm64","os":"macos-14","platform":"mac","arch":"arm64","rust":"aarch64-apple-darwin"},
+            {"key":"darwin-arm64","os":"macos-15","platform":"mac","arch":"arm64","rust":"aarch64-apple-darwin"},
             {"key":"win32-x64","os":"windows-2022","platform":"win","arch":"x64","rust":"x86_64-pc-windows-msvc"}
           ]'
           echo "matrix=$(jq -c --arg w "$WANTED" '[.[] | select(.key as $k | ($w | split(",") | index($k)))]' <<< "$all")" >> "$GITHUB_OUTPUT"
