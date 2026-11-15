@@ -8,6 +8,7 @@ import {
   describeDays,
   latestRunOf,
   parseStaffSearch,
+  pickStaffMachine,
   formatPriceList,
   hireKindFor,
   hireManagerId,
@@ -186,5 +187,48 @@ describe("hiring without a dialog", () => {
     expect(hireManagerId(humans, "Alexd")).toBe("h2");
     expect(hireManagerId(humans, "someone")).toBe("owner");
     expect(hireManagerId([], "alexd")).toBeNull();
+  });
+});
+
+describe("pickStaffMachine", () => {
+  const pc = "pc";
+  const server = "90dcb72f-b664-4b74-808b-e85b451cfd73";
+  it("opens where the company's AI employees work", () => {
+    const machines = [
+      { environmentId: pc, agents: 0 },
+      { environmentId: server, agents: 20 },
+    ];
+    expect(pickStaffMachine(machines, undefined, pc)).toBe(server);
+    expect(pickStaffMachine(machines, pc, pc)).toBe(pc);
+    expect(pickStaffMachine(machines, "gone", pc)).toBe(server);
+  });
+  it("prefers this computer on a tie and with no AI employees anywhere", () => {
+    expect(
+      pickStaffMachine(
+        [
+          { environmentId: server, agents: 2 },
+          { environmentId: pc, agents: 2 },
+        ],
+        undefined,
+        pc,
+      ),
+    ).toBe(pc);
+    expect(pickStaffMachine([{ environmentId: server, agents: 0 }], undefined, pc)).toBe(pc);
+  });
+  it("waits while a machine has not answered", () => {
+    expect(
+      pickStaffMachine(
+        [
+          { environmentId: pc, agents: 1 },
+          { environmentId: server, agents: null },
+        ],
+        undefined,
+        pc,
+      ),
+    ).toBeNull();
+  });
+  it("keeps a valid machine id from the address", () => {
+    expect(parseStaffSearch({ machine: server }).machine).toBe(server);
+    expect(parseStaffSearch({ machine: "a b" }).machine).toBeUndefined();
   });
 });

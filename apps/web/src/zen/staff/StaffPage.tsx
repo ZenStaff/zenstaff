@@ -7,21 +7,27 @@ import type { StaffHuman } from "@t3tools/contracts/zenStaff";
 import { useNavigate } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 
-import { Building2Icon, CheckIcon, TriangleAlertIcon, UnplugIcon } from "lucide-react";
+import { Building2Icon, CheckIcon, MonitorIcon, TriangleAlertIcon, UnplugIcon } from "lucide-react";
 
 import { Menu, MenuItem, MenuPopup, MenuTrigger } from "../../components/ui/menu";
 import { useProjects } from "../../state/entities";
-import { usePrimaryEnvironmentId } from "../../state/environments";
+import {
+  useConnectedEnvironmentIds,
+  useEnvironments,
+  usePrimaryEnvironmentId,
+} from "../../state/environments";
 import { companyOfProject } from "../companies/companiesModel";
 import { useActiveCompanyId, useCompanyIndex } from "../companies/companiesState";
 import { useHubQuery } from "../hub/hubClient";
 import { useZenLocale, useZenText } from "../i18n/zenI18n";
 import { OfficePageShell } from "../office/OfficePageShell";
 import { staffText } from "./staff.i18n";
-import { useStaffCall, useStaffCatalog, useStaffOverview } from "./staffClient";
+import { useStaffCall, useStaffCatalog, useStaffMachines, useStaffOverview } from "./staffClient";
 import {
   mergeHubMembers,
+  pickStaffMachine,
   STAFF_AREAS,
+  type StaffMachine,
   type StaffArea,
   type StaffProfileTab,
   type StaffSearch,
@@ -42,7 +48,7 @@ export { parseStaffSearch } from "./staffModel";
 
 export function StaffPage(props: { readonly search: StaffSearch }) {
   const t = useZenText(staffText);
-  const environmentId = usePrimaryEnvironmentId();
+  const primary = usePrimaryEnvironmentId();
   const index = useCompanyIndex();
   const active = useActiveCompanyId(index);
   const companyId =
@@ -52,22 +58,47 @@ export function StaffPage(props: { readonly search: StaffSearch }) {
     "personal";
   return (
     <OfficePageShell title={t.title} registru>
-      {environmentId === null ? (
+      {primary === null ? (
         <EmptyState icon={UnplugIcon} title={t.noMachine} />
       ) : (
-        <StaffBody
-          key={`${environmentId}:${companyId}`}
-          environmentId={environmentId}
-          companyId={companyId}
-          search={props.search}
-        />
+        <StaffMachineChoice primary={primary} companyId={companyId} search={props.search} />
       )}
     </OfficePageShell>
   );
 }
 
+/** Opens the page on the machine where the company's AI employees work (see `pickStaffMachine`). */
+function StaffMachineChoice(props: {
+  readonly primary: EnvironmentId;
+  readonly companyId: string;
+  readonly search: StaffSearch;
+}) {
+  const h = useZenText(staffHomeText);
+  const locale = useZenLocale();
+  const connected = useConnectedEnvironmentIds();
+  const environmentIds = connected.includes(props.primary)
+    ? connected
+    : [props.primary, ...connected];
+  const machines = useStaffMachines(environmentIds, props.companyId, locale);
+  const picked = pickStaffMachine(machines, props.search.machine, props.primary);
+  if (picked === null) return <StaffSkeleton label={h.loading} />;
+  const environmentId = environmentIds.find((id) => id === picked) ?? props.primary;
+  return (
+    <StaffBody
+      key={`${environmentId}:${props.companyId}`}
+      environmentId={environmentId}
+      primary={props.primary}
+      machines={machines}
+      companyId={props.companyId}
+      search={props.search}
+    />
+  );
+}
+
 function StaffBody(props: {
   readonly environmentId: EnvironmentId;
+  readonly primary: EnvironmentId;
+  readonly machines: ReadonlyArray<StaffMachine>;
   readonly companyId: string;
   readonly search: StaffSearch;
 }) {
@@ -91,13 +122,16 @@ function StaffBody(props: {
     )
     .filter((project) => companyOfProject(index, project.environmentId, project.id) === companyId);
   const tab: StaffArea = props.search.tab ?? "team";
+  // A machine chosen by hand stays chosen while moving around the page.
+  const machine = props.search.machine ? { machine: props.search.machine } : {};
   const go = (next: StaffArea) =>
-    void navigate({ to: "/staff", search: { tab: next, company: companyId } });
+    void navigate({ to: "/staff", search: { tab: next, company: companyId, ...machine } });
   const openAgent = (agentId: string | null, profile?: StaffProfileTab) =>
     void navigate({
       to: "/staff",
       search: {
         company: companyId,
+        ...machine,
         ...(agentId ? { agent: agentId, ...(profile ? { profile } : {}) } : { tab: "team" }),
       },
     });
@@ -114,11 +148,21 @@ function StaffBody(props: {
       }
       subtitle={h.subtitle}
       actions={
-        <CompanySwitch
-          value={companyId}
-          companies={index.companies}
-          onChange={(next) => void navigate({ to: "/staff", search: { tab, company: next } })}
-        />
+        <div className="flex flex-col items-end gap-1">
+          <CompanySwitch
+            value={companyId}
+            companies={index.companies}
+            onChange={(next) => void navigate({ to: "/staff", search: { tab, company: next } })}
+          />
+          <MachineSwitch
+            value={environmentId}
+            primary={props.primary}
+            machines={props.machines}
+            onChange={(next) =>
+              void navigate({ to: "/staff", search: { tab, company: companyId, machine: next } })
+            }
+          />
+        </div>
       }
     />
   );
@@ -270,6 +314,53 @@ function CompanySwitch(props: {
           </Menu>
         </>
       ) : null}
+    </div>
+  );
+}
+
+/** Which machine's AI staff is shown; only when the app is paired with more than one. */
+function MachineSwitch(props: {
+  readonly value: EnvironmentId;
+  readonly primary: EnvironmentId;
+  readonly machines: ReadonlyArray<StaffMachine>;
+  readonly onChange: (environmentId: string) => void;
+}) {
+  const h = useZenText(staffHomeText);
+  const { environments } = useEnvironments();
+  if (props.machines.length < 2) return null;
+  const label = (environmentId: string) => {
+    const name = environments.find((item) => item.environmentId === environmentId)?.label;
+    if (environmentId === props.primary)
+      return name ? `${name} (${h.thisComputer})` : h.thisComputer;
+    return name ?? environmentId;
+  };
+  return (
+    <div className="zr-soft flex items-center gap-1.5 text-sm" data-staff-machine>
+      <MonitorIcon className="size-4" aria-hidden />
+      <span>{h.machine}:</span>
+      <span className="font-semibold text-zr-ink">{label(props.value)}</span>
+      <span aria-hidden>·</span>
+      <Menu>
+        <MenuTrigger render={<button type="button" className="zr-link" />} aria-label={h.machine}>
+          {h.machineChange}
+        </MenuTrigger>
+        <MenuPopup align="end" className="min-w-64">
+          {props.machines.map((machine) => (
+            <MenuItem
+              key={machine.environmentId}
+              onClick={() => props.onChange(machine.environmentId)}
+            >
+              <span className="flex-1">{label(machine.environmentId)}</span>
+              {machine.agents !== null ? (
+                <span className="zr-soft text-xs">{h.agentsCount(machine.agents)}</span>
+              ) : null}
+              {machine.environmentId === props.value ? (
+                <CheckIcon className="size-4" aria-hidden />
+              ) : null}
+            </MenuItem>
+          ))}
+        </MenuPopup>
+      </Menu>
     </div>
   );
 }

@@ -10,10 +10,25 @@ launch Zen Staff and configure providers afterwards.
 
 ## Command line
 
-The `zs` command comes with the desktop app: open Settings and press Install
-next to the CLI command. It links `zs` into `~/.local/bin` (on Windows, the
-app's own folder on your `PATH`). A one-line installer for machines without the
-desktop app is not available yet.
+```bash
+curl -fsSL https://zenstaff.app/install.sh | sh
+```
+
+On Windows, in PowerShell:
+
+```powershell
+irm https://zenstaff.app/install.ps1 | iex
+```
+
+This installs the `zs` binary to `~/.local/bin`. If that folder is not on your
+`PATH` yet, the installer says so and, for zsh, bash on Linux, and fish, prints
+a command to add it. On Windows, `zs` works in the same PowerShell window right
+away; add the folder to your `PATH` for new windows. If a `zs` that the
+installer or the desktop app did not create is already there, it leaves that
+one alone and stops. Set `T3CODE_VERSION` to pin an exact version.
+
+The desktop app also installs `zs`: open Settings and press Install next to the
+CLI command.
 
 | Task                                  | Command                                                                 |
 | ------------------------------------- | ----------------------------------------------------------------------- |

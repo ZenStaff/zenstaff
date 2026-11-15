@@ -3,6 +3,7 @@ import {
   ServerNpmReleaseInput,
   type ServerNpmRelease,
 } from "@t3tools/contracts";
+import { ZEN_NPM_RELEASE_UNAVAILABLE_REASON } from "@t3tools/contracts/zen";
 import { npmReleaseDatabaseMigration } from "@t3tools/shared/cliRelease";
 import { resolveCommandPath } from "@t3tools/shared/shell";
 import * as Cache from "effect/Cache";
@@ -13,7 +14,7 @@ import * as Layer from "effect/Layer";
 import * as Option from "effect/Option";
 import * as Schema from "effect/Schema";
 import * as Semaphore from "effect/Semaphore";
-import { FetchHttpClient, HttpClient } from "effect/http";
+import { HttpClient } from "effect/http";
 
 import * as ProcessRunner from "../processRunner.ts";
 
@@ -127,6 +128,13 @@ export const make = Effect.fn("NpmRelease.make")(function* () {
   });
 });
 
-export const layer = Layer.effect(NpmRelease, make()).pipe(
-  Layer.provide([ProcessRunner.layer, FetchHttpClient.layer]),
+// Zen Staff: not on npm (npm `t3` is T3 Code), so no lookup; upstream's layer is
+// `Layer.effect(NpmRelease, make())` with ProcessRunner + FetchHttpClient. ZEN.md "CLI command".
+export const layer = Layer.succeed(
+  NpmRelease,
+  NpmRelease.of({
+    get: Effect.fn("NpmRelease.get")(function* () {
+      return yield* new ServerNpmReleaseError({ reason: ZEN_NPM_RELEASE_UNAVAILABLE_REASON });
+    }),
+  }),
 );

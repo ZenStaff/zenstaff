@@ -528,7 +528,7 @@
   "apps/server/src/cloud/servicePreflight.test.ts": [
     {
       "before": "  expect(reason).toMatch(new RegExp(`\\\\b${SERVICE_LAUNCHER_PROTOCOL}\\\\b`));\n  expect(reason).toContain(\"curl -fsSL https://t3.codes/install.sh | T3CODE_VERSION=9.8.7 sh\");\n  expect(reason).toContain(\"~/.local/bin/t3 service install\");\n  expect(reason).toContain(\"t3 --version\");\n  expect(reason).toContain(\"which -a t3\");\n});",
-      "after": "  expect(reason).toMatch(new RegExp(`\\\\b${SERVICE_LAUNCHER_PROTOCOL}\\\\b`));\n  expect(reason).toContain(\"install this exact CLI: zs 9.8.7\");\n  expect(reason).not.toContain(\"install.sh\");\n  expect(reason).toContain(\"~/.local/bin/zs service install\");\n  expect(reason).toContain(\"zs --version\");\n  expect(reason).toContain(\"which -a zs\");\n});"
+      "after": "  expect(reason).toMatch(new RegExp(`\\\\b${SERVICE_LAUNCHER_PROTOCOL}\\\\b`));\n  expect(reason).toContain(\"curl -fsSL https://zenstaff.app/install.sh | T3CODE_VERSION=9.8.7 sh\");\n  expect(reason).toContain(\"~/.local/bin/zs service install\");\n  expect(reason).toContain(\"zs --version\");\n  expect(reason).toContain(\"which -a zs\");\n});"
     }
   ],
   "apps/server/src/cli/install.test.ts": [
@@ -635,6 +635,68 @@
     {
       "before": "    registry.set(atom, async () => \"0.0.40\");\n    const signal = await fetchStub.called;\n    expect(signal.aborted).toBe(false);\n\n    unmount();\n    flush();\n    expect(signal.aborted).toBe(true);\n  });\n\n  it(\"reports a timeout in words after 20 seconds\", async () => {\n    using fetchStub = stubHangingFetch();\n    using _timers = { [Symbol.dispose]: () => vi.useRealTimers() };\n    vi.useFakeTimers();\n    const { registry, flush } = makeRegistry();\n    const atom = environmentReleaseCheckAtom(EnvironmentId.make(\"env-timeout\"));\n    const unmount = registry.mount(atom);\n\n    registry.set(atom, async () => \"0.0.40\");\n    const signal = await fetchStub.called;\n\n    await vi.advanceTimersByTimeAsync(20_000);\n    expect(signal.aborted).toBe(true);\n    expect(releaseCheckError(registry.get(atom))).toBe(\n      \"Checking for updates timed out. Try again.\",\n    );\n    unmount();",
       "after": "    registry.set(atom, async () => \"0.0.40\");\n    await vi.waitFor(() => expect(AsyncResult.isSuccess(registry.get(atom))).toBe(true));\n    expect(fetch).not.toHaveBeenCalled();\n    expect(releaseCheckError(registry.get(atom))).toBeNull();\n    unmount();"
+    }
+  ],
+  "apps/server/src/cli/update.test.ts": [
+    {
+      "before": "      assert.equal(url.origin, \"https://api.github.com\");\n      assert.equal(url.pathname, \"/repos/pingdotgg/t3code/releases\");\n      assert.equal(request.headers.accept, \"application/vnd.github+json\");",
+      "after": "      assert.equal(url.origin, \"https://api.github.com\");\n      assert.equal(url.pathname, \"/repos/ZenStaff/zenstaff/releases\");\n      assert.equal(request.headers.accept, \"application/vnd.github+json\");"
+    },
+    {
+      "before": "\nit.layer(NodeServices.layer)(\"t3 update under a managed policy\", (it) => {\n  const runWithPolicy = (",
+      "after": "\nit.layer(NodeServices.layer)(\"zs update under a managed policy\", (it) => {\n  const runWithPolicy = ("
+    },
+    {
+      "before": "      const error = yield* runWithPolicy({ mode: \"off\" });\n      assert.equal(error.message, \"Example Corp manages T3 Code updates.\");\n    }),",
+      "after": "      const error = yield* runWithPolicy({ mode: \"off\" });\n      assert.equal(error.message, \"Example Corp manages Zen Staff updates.\");\n    }),"
+    },
+    {
+      "before": "          error.message,\n          \"Example Corp manages T3 Code updates. Only stable releases can be installed.\",\n        );",
+      "after": "          error.message,\n          \"Example Corp manages Zen Staff updates. Only stable releases can be installed.\",\n        );"
+    },
+    {
+      "before": "\nit.layer(NodeServices.layer)(\"t3 update launcher\", (it) => {\n  it.effect(\"repoints a symlink that lives in a runtime versions tree\", () =>",
+      "after": "\nit.layer(NodeServices.layer)(\"zs update launcher\", (it) => {\n  it.effect(\"repoints a symlink that lives in a runtime versions tree\", () =>"
+    },
+    {
+      "before": "  it.effect.each([\"recording\", \"repointing\"] as const)(\n    \"never leaves a repointed launcher unrecorded when t3 update dies while %s\",\n    (step) =>",
+      "after": "  it.effect.each([\"recording\", \"repointing\"] as const)(\n    \"never leaves a repointed launcher unrecorded when zs update dies while %s\",\n    (step) =>"
+    },
+    {
+      "before": "              step === \"recording\" && path === launchersFile\n                ? Effect.die(\"t3 update was killed\")\n                : fs.writeFileString(path, data, options),",
+      "after": "              step === \"recording\" && path === launchersFile\n                ? Effect.die(\"zs update was killed\")\n                : fs.writeFileString(path, data, options),"
+    },
+    {
+      "before": "              step === \"repointing\" && to === launcher\n                ? Effect.die(\"t3 update was killed\")\n                : fs.rename(from, to),",
+      "after": "              step === \"repointing\" && to === launcher\n                ? Effect.die(\"zs update was killed\")\n                : fs.rename(from, to),"
+    },
+    {
+      "before": "\nit.layer(NodeServices.layer)(\"t3 update with a background service\", (it) => {\n  it.effect(\"names the version a service with a pending restart still runs\", () =>",
+      "after": "\nit.layer(NodeServices.layer)(\"zs update with a background service\", (it) => {\n  it.effect(\"names the version a service with a pending restart still runs\", () =>"
+    },
+    {
+      "before": "                .run(input)\n                .pipe(Effect.map((result) => ({ ...result, stdout: `t3 v${version}\\n` })))\n            : unrelatedLsof.run(input),",
+      "after": "                .run(input)\n                .pipe(Effect.map((result) => ({ ...result, stdout: `zs v${version}\\n` })))\n            : unrelatedLsof.run(input),"
+    },
+    {
+      "before": "        output,\n        `Background service still running the version before ${version}. Run \\`t3 service restart\\` when you are ready to switch it to ${version}.`,\n      );",
+      "after": "        output,\n        `Background service still running the version before ${version}. Run \\`zs service restart\\` when you are ready to switch it to ${version}.`,\n      );"
+    }
+  ],
+  "packages/ssh/src/tunnel.test.ts": [
+    {
+      "before": "          assert.include(result.stderr, ARCHIVE.archiveVersion);\n          assert.include(result.stderr, \"https://github.com/pingdotgg/t3code/releases/download\");\n        } else {",
+      "after": "          assert.include(result.stderr, ARCHIVE.archiveVersion);\n          assert.include(result.stderr, \"https://github.com/ZenStaff/zenstaff/releases/download\");\n        } else {"
+    }
+  ],
+  "apps/mobile/src/features/settings/environment-maintenance.test.ts": [
+    {
+      "before": "      vi.fn(async (url: string) =>\n        url === \"https://github.com/pingdotgg/t3code/releases.atom\"\n          ? feed(",
+      "after": "      vi.fn(async (url: string) =>\n        url === \"https://github.com/ZenStaff/zenstaff/releases.atom\"\n          ? feed("
+    },
+    {
+      "before": "      vi.fn(async (url: string) => {\n        if (url === \"https://github.com/pingdotgg/t3code/releases.atom\") return feed(...nightlies);\n        if (url === \"https://api.github.com/repos/pingdotgg/t3code/releases?per_page=100&page=1\") {\n          return Response.json(Array.from({ length: 100 }, () => ({ tag_name: \"v2.0.0\" })));\n        }\n        if (url === \"https://api.github.com/repos/pingdotgg/t3code/releases?per_page=100&page=2\") {\n          return Response.json([",
+      "after": "      vi.fn(async (url: string) => {\n        if (url === \"https://github.com/ZenStaff/zenstaff/releases.atom\") return feed(...nightlies);\n        if (url === \"https://api.github.com/repos/ZenStaff/zenstaff/releases?per_page=100&page=1\") {\n          return Response.json(Array.from({ length: 100 }, () => ({ tag_name: \"v2.0.0\" })));\n        }\n        if (url === \"https://api.github.com/repos/ZenStaff/zenstaff/releases?per_page=100&page=2\") {\n          return Response.json(["
     }
   ]
 }

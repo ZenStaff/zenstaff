@@ -252,12 +252,15 @@ const LEGACY_AREAS: Readonly<Record<string, StaffArea>> = {
 export interface StaffSearch {
   readonly tab?: StaffArea;
   readonly company?: string;
+  /** The machine (environment) whose AI staff is shown; without it the page picks one. */
+  readonly machine?: string;
   /** An AI employee's own page. */
   readonly agent?: string;
   readonly profile?: StaffProfileTab;
 }
 
 const ID = /^[A-Za-z0-9_-]{1,64}$/;
+const MACHINE_ID = /^[A-Za-z0-9_.:-]{1,128}$/;
 
 /** The /staff search params, validated; unknown values are dropped. */
 export function parseStaffSearch(raw: Readonly<Record<string, unknown>>): StaffSearch {
@@ -277,9 +280,46 @@ export function parseStaffSearch(raw: Readonly<Record<string, unknown>>): StaffS
     ...(typeof raw.company === "string" && /^[a-z0-9-]{1,64}$/.test(raw.company)
       ? { company: raw.company }
       : {}),
+    ...(typeof raw.machine === "string" && MACHINE_ID.test(raw.machine)
+      ? { machine: raw.machine }
+      : {}),
     ...(typeof raw.agent === "string" && ID.test(raw.agent) ? { agent: raw.agent } : {}),
     ...(profile ? { profile } : {}),
   };
+}
+
+/** A company's AI staff on one connected machine; `agents` is null while it is still asked. */
+export interface StaffMachine {
+  readonly environmentId: string;
+  readonly agents: number | null;
+}
+
+/**
+ * The machine the AI staff page shows. AI employees live on the machine that hired them (often
+ * a server the app is paired with), so: the machine asked for, else the one where most of the
+ * company's AI employees work (this computer on a tie), else this computer. Null while a machine
+ * that could still win has not answered.
+ */
+export function pickStaffMachine(
+  machines: ReadonlyArray<StaffMachine>,
+  requested: string | undefined,
+  primary: string,
+): string | null {
+  if (requested !== undefined && machines.some((machine) => machine.environmentId === requested))
+    return requested;
+  if (machines.some((machine) => machine.agents === null)) return null;
+  let best: StaffMachine | null = null;
+  for (const machine of machines) {
+    const agents = machine.agents ?? 0;
+    if (agents === 0) continue;
+    if (
+      best === null ||
+      agents > (best.agents ?? 0) ||
+      (agents === best.agents && machine.environmentId === primary)
+    )
+      best = machine;
+  }
+  return best?.environmentId ?? primary;
 }
 
 /** An agent's latest task (running first, then by start time). */

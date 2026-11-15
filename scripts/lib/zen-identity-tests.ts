@@ -38,6 +38,9 @@ export const ZEN_IDENTITY_TEST_FILES: ReadonlyArray<string> = [
   "scripts/build-desktop-artifact.test.ts",
   "apps/mobile/app.config.test.ts",
   "apps/mobile/src/features/settings/environmentUpdateCheck.test.ts",
+  "apps/server/src/cli/update.test.ts",
+  "packages/ssh/src/tunnel.test.ts",
+  "apps/mobile/src/features/settings/environment-maintenance.test.ts",
 ];
 
 const DATA_FILE = NodePath.join(import.meta.dirname, "zen-identity-tests.json");

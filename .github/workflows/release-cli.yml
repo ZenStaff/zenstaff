@@ -62,7 +62,7 @@ jobs:
     runs-on: ${{ matrix.target.os }}
     timeout-minutes: 60
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         target: ${{ fromJson(needs.plan.outputs.matrix) }}
     defaults:

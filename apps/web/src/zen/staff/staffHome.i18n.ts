@@ -11,6 +11,9 @@ const en = {
     "They work in your folders, with your accounts, and ask before anything leaves the company.",
   company: "Company",
   companyChange: "change",
+  machine: "Machine",
+  machineChange: "change",
+  thisComputer: "this computer",
   areas: {
     team: "Team",
     hire: "Hire",
@@ -133,6 +136,9 @@ const ro: StaffHomeMessages = {
     "Lucrează în dosarele tale, cu conturile tale, și întreabă înainte ca ceva să iasă din firmă.",
   company: "Firma",
   companyChange: "schimbă",
+  machine: "Mașina",
+  machineChange: "schimbă",
+  thisComputer: "acest calculator",
   areas: {
     team: "Echipa",
     hire: "Angajează",

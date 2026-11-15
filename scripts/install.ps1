@@ -1,7 +1,7 @@
 # Installs the Zen Staff CLI from a GitHub Release archive on Windows. Needs
 # only PowerShell 5.1+; no Node, npm, or compiler.
 #
-#   irm https://zenstaff.app/install.ps1 | iex    (ZEN_CLI_INSTALL_PS1_URL; not published yet)
+#   irm https://zenstaff.app/install.ps1 | iex    (ZEN_CLI_INSTALL_PS1_URL)
 #   powershell -ExecutionPolicy Bypass -File scripts\install.ps1    (from a checkout)
 #
 # The command is `zs` (ZEN_CLI_NAME in packages/contracts/src/zen.ts), with the aliases `zen` and

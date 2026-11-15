@@ -2,7 +2,7 @@
 # Installs the Zen Staff CLI from a GitHub Release archive. Needs only sh, tar,
 # sha256sum or shasum, and curl or wget; no Node, npm, or compiler.
 #
-#   curl -fsSL https://zenstaff.app/install.sh | sh    (ZEN_CLI_INSTALL_SH_URL; not published yet)
+#   curl -fsSL https://zenstaff.app/install.sh | sh    (ZEN_CLI_INSTALL_SH_URL)
 #   sh scripts/install.sh                               (from a checkout)
 #
 # The command on PATH is `zs` (ZEN_CLI_NAME in packages/contracts/src/zen.ts), with the aliases

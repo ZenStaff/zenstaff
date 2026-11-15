@@ -1,4 +1,8 @@
-import { ZEN_CLI_INSTALL_PS1_URL, ZEN_CLI_INSTALL_SH_URL } from "@t3tools/contracts/zen";
+import {
+  ZEN_CLI_INSTALL_PS1_URL,
+  ZEN_CLI_INSTALL_SH_URL,
+  ZEN_CLI_NAME,
+} from "@t3tools/contracts/zen";
 
 import { cn } from "~/lib/utils";
 
@@ -30,9 +34,9 @@ export function InstallT3Commands({
       <CommandBlock command={command} />
       {ZEN_CLI_INSTALL_SH_URL !== null ? (
         <p className="text-xs text-muted-foreground">
-          Skip the install if you already have <code className="font-mono">t3</code>. If{" "}
-          <code className="font-mono">t3</code> is not found after installing, add the folder the
-          installer names to your PATH.
+          Skip the install if you already have <code className="font-mono">{ZEN_CLI_NAME}</code>. If{" "}
+          <code className="font-mono">{ZEN_CLI_NAME}</code> is not found after installing, add the
+          folder the installer names to your PATH.
         </p>
       ) : null}
     </div>

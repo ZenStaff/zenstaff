@@ -19,11 +19,19 @@ export const ZEN_CLI_INSTALL_SH_TARGET = "https://zenstaff.app/install.sh";
 export const ZEN_CLI_INSTALL_PS1_TARGET = "https://zenstaff.app/install.ps1";
 /**
  * The published installers, or null: then nothing shows a `curl | sh` / `irm | iex` line (404).
- * Set them to the TARGET values once the CLI archives (public ZenStaff/zenstaff releases or a
- * mirror) and scripts/install.* are hosted. See ZEN.md "CLI command".
+ * Set to the TARGET values (literals; zen tests check they match): the CLI archives are the public
+ * ZenStaff/zenstaff releases and scripts/install.* are served there. See ZEN.md "CLI command".
  */
-export const ZEN_CLI_INSTALL_SH_URL: string | null = null;
-export const ZEN_CLI_INSTALL_PS1_URL: string | null = null;
+export const ZEN_CLI_INSTALL_SH_URL: string | null = "https://zenstaff.app/install.sh";
+export const ZEN_CLI_INSTALL_PS1_URL: string | null = "https://zenstaff.app/install.ps1";
+/**
+ * GitHub repo whose releases (tag `v<version>`) carry the CLI archives + `SHA256SUMS` in upstream's
+ * layout (upstream: pingdotgg/t3code): self-update, SSH host install (shared/cliRelease.ts).
+ * scripts/install.* repeat it as a literal. See ZEN.md "CLI command".
+ */
+export const ZEN_CLI_RELEASES_REPO = "ZenStaff/zenstaff";
+/** Why `server.getNpmRelease` finds nothing: Zen Staff is not on npm (npm `t3` is T3 Code). */
+export const ZEN_NPM_RELEASE_UNAVAILABLE_REASON = `${ZEN_APP_BASE_NAME} is not published on npm; its server releases are on GitHub (${ZEN_CLI_RELEASES_REPO}).`;
 // Packaging names (installers, Linux binary and desktop entry, Windows publisher).
 export const ZEN_APP_ID = "ro.zedzen.zenstaff";
 export const ZEN_LINUX_EXECUTABLE_NAME = "zenstaff";

@@ -12,11 +12,12 @@ import {
   type ZenStaffCallInput,
 } from "@t3tools/contracts/zenStaff";
 import * as Cause from "effect/Cause";
-import { AsyncResult } from "effect/reactivity";
+import { Atom, AsyncResult } from "effect/reactivity";
 import { useContext } from "react";
 
 import { connectionAtomRuntime } from "../../connection/runtime";
 import { useStableCallback } from "../../hooks/useStableCallback";
+import type { StaffMachine } from "./staffModel";
 import { useAtomCommand } from "../../state/use-atom-command";
 import { getZenLocale } from "../i18n/zenI18n";
 
@@ -86,6 +87,37 @@ export function useStaffOverview(
       : null;
   const refresh = useStableCallback(() => registry.refresh(atom));
   return { data, error, refresh };
+}
+
+/** Every connected machine's AI employees for one company, keyed by the inputs so atoms are reused. */
+const staffAcrossEnvironments = Atom.family((key: string) => {
+  const { environmentIds, companyId, locale } = JSON.parse(key) as {
+    readonly environmentIds: ReadonlyArray<EnvironmentId>;
+    readonly companyId: string;
+    readonly locale: string;
+  };
+  return Atom.make((get): ReadonlyArray<StaffMachine> =>
+    environmentIds.map((environmentId) => {
+      const result = get(
+        staffQuery({ environmentId, input: { op: "overview", input: { companyId, locale } } }),
+      );
+      // A machine that cannot answer (older version, offline) counts as having none.
+      if (result._tag === "Failure") return { environmentId, agents: 0 };
+      const overview = AsyncResult.getOrElse(result, () => null) as StaffOverview | null;
+      return { environmentId, agents: overview === null ? null : overview.agents.length };
+    }),
+  ).pipe(Atom.withLabel(`zen-staff:machines:${key}`));
+});
+
+/** How many AI employees the company has on each machine, so the page opens where they work. */
+export function useStaffMachines(
+  environmentIds: ReadonlyArray<EnvironmentId>,
+  companyId: string,
+  locale: string,
+): ReadonlyArray<StaffMachine> {
+  return useAtomValue(
+    staffAcrossEnvironments(JSON.stringify({ environmentIds, companyId, locale })),
+  );
 }
 
 export function useStaffCatalog<T>(environmentId: EnvironmentId): T | null {
